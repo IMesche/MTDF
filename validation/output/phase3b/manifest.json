@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-02-13",
+  "sha256": {
+    "README.md": "7a823bb3094c35442579a92dd5f850d37f845004a9421a312fe9253c6f144cc4",
+    "phase3b_summary.json": "b58fb09f53f31495ac0eb6718f98c259f91c22f5a2e16551639a1e82a1206f5c",
+    "test_a_balance.png": "f0306ab88dd5b8ad15c76292c771c4559f8ef35e4d9fa3c0733cbf2dd846eaa8",
+    "test_c_bootstrap_lr_revolver.png": "c3e975e0a42f1f5b9cf4115379a76fe29ab5573e7d134edbc97502959122f302",
+    "test_d_mock_delta_gamma_voidfinder.png": "71111969d339888f4b44d03e8c00112b22437fed1b57018db38db9905df24f0c",
+    "test_e_recovery_revolver_1.0x.png": "a6e950221ea8375415ca6c2b34ebd60a61b0326e181a45e897a9bac2b774b272"
+  }
+}

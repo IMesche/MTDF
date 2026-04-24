@@ -1,0 +1,111 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 3: Non-linear lensing source term analysis",
+  "c2_gap": 8.988004e+16,
+  "interpretation": "The [E1'] evolution equation in static limit gives a strain field that is c\u00b2 ~ 9e16 times smaller than what the rotation curve formula requires. This discrepancy means either: (A) the stress field energy is negligible and cannot source lensing, or (B) the field equation normalization differs from [E1'] at galactic scales. In neither case can the non-linear lensing source term be computed unambiguously from the existing MTDF postulates.",
+  "gap_analysis": [
+    {
+      "label": "Bin 1",
+      "gap_factor": 8.988004000000003e+16,
+      "S_E1_at_100kpc": 1.3459446935424018e-16,
+      "S_RC_at_100kpc": 12.097356289337883,
+      "M_stress_E1_100kpc": 1.6852872913895412e-23,
+      "M_stress_RC_100kpc": 136144612407.907,
+      "M_stress_required": 65901735.7142857
+    },
+    {
+      "label": "Bin 2",
+      "gap_factor": 8.988004000000003e+16,
+      "S_E1_at_100kpc": 3.5579755377120885e-16,
+      "S_RC_at_100kpc": 31.979098364858405,
+      "M_stress_E1_100kpc": 1.1776749362650723e-22,
+      "M_stress_RC_100kpc": 951375463159.8589,
+      "M_stress_required": 174209805.7142857
+    },
+    {
+      "label": "Bin 3",
+      "gap_factor": 8.988004000000002e+16,
+      "S_E1_at_100kpc": 6.156233989593943e-16,
+      "S_RC_at_100kpc": 55.33225572340633,
+      "M_stress_E1_100kpc": 3.525735702325087e-22,
+      "M_stress_RC_100kpc": 2848237941971.274,
+      "M_stress_required": 301428808.57142854
+    },
+    {
+      "label": "Bin 4",
+      "gap_factor": 8.988004000000003e+16,
+      "S_E1_at_100kpc": 9.573763124501608e-16,
+      "S_RC_at_100kpc": 86.04902125807295,
+      "M_stress_E1_100kpc": 8.526776359650175e-22,
+      "M_stress_RC_100kpc": 6888289424032.3955,
+      "M_stress_required": 468761911.4285714
+    }
+  ],
+  "self_sourcing": {
+    "Bin 1": {
+      "E1_final_M_stress": 1.6852872913895433e-23,
+      "E1_iterations": 1,
+      "E1_fraction_of_Mbar": 1.4654672099039507e-33,
+      "RC_diverged": true,
+      "RC_final_iter": 3
+    },
+    "Bin 2": {
+      "E1_final_M_stress": 1.1776749362650737e-22,
+      "E1_iterations": 1,
+      "E1_fraction_of_Mbar": 3.873930711398269e-33,
+      "RC_diverged": true,
+      "RC_final_iter": 3
+    },
+    "Bin 3": {
+      "E1_final_M_stress": 3.5257357023250903e-22,
+      "E1_iterations": 1,
+      "E1_fraction_of_Mbar": 6.702919586169372e-33,
+      "RC_diverged": true,
+      "RC_final_iter": 2
+    },
+    "Bin 4": {
+      "E1_final_M_stress": 8.526776359650182e-22,
+      "E1_iterations": 1,
+      "E1_fraction_of_Mbar": 1.0423931980012447e-32,
+      "RC_diverged": true,
+      "RC_final_iter": 2
+    }
+  },
+  "nonlinear_requirement": [
+    {
+      "r_kpc": 10,
+      "S_tilde": 9.573763124501608e-15,
+      "alpha_eff_needed": 1.3,
+      "amplification_over_linear": 1.0
+    },
+    {
+      "r_kpc": 50,
+      "S_tilde": 1.9147526249003216e-15,
+      "alpha_eff_needed": 1.3,
+      "amplification_over_linear": 1.0
+    },
+    {
+      "r_kpc": 100,
+      "S_tilde": 9.573763124501608e-16,
+      "alpha_eff_needed": 41.0,
+      "amplification_over_linear": 31.538461538461537
+    },
+    {
+      "r_kpc": 200,
+      "S_tilde": 4.786881562250804e-16,
+      "alpha_eff_needed": 57.9827560572969,
+      "amplification_over_linear": 44.60212004407454
+    },
+    {
+      "r_kpc": 500,
+      "S_tilde": 1.9147526249003215e-16,
+      "alpha_eff_needed": 91.67878707749138,
+      "amplification_over_linear": 70.52214390576259
+    }
+  ],
+  "verdict": "GPT's pre-registered Step 3 pass/fail criterion:\n  \"Does the non-linear MTDF solution raise \u0394\u03a3 at R > 100 kpc by ~10\u00d7\n   while not spoiling v_c in SPARC range and not contradicting \u03b7 = 1?\"\n\nANSWER: The question cannot be answered within the current framework.\n\nThree blockers prevent a definitive calculation:\n\n  1. THE c\u00b2 AMBIGUITY: The [E1'] evolution equation gives strain\n     S\u0303 ~ 10\u207b\u00b9\u2075 at 100 kpc. The rotation curve formula requires\n     S\u0303 ~ 10\u00b2 at the same radius. The factor c\u00b2 \u2248 9\u00d710\u00b9\u2076 between\n     them is unresolved in the published theory.\n\n  2. NO LAGRANGIAN: The MTDF action term L_MTDF is stated to exist\n     but its functional form is never given. Without L_MTDF, the\n     stress-energy tensor of the elastic field cannot be derived\n     from first principles, and non-linear corrections cannot be\n     systematically computed.\n\n  3. CONFLICTING CONSTRAINTS: Even if a non-linear constitutive\n     relation F(S\u0303) exists, it must simultaneously:\n     - Keep \u03b1_eff = 1.30 at r < 50 kpc (SPARC)\n     - Boost enclosed mass by 8-27\u00d7 at R > 100 kpc (GGL)\n     Since strain DECREASES with radius, this requires the material\n     to be STIFFER at low strain than high strain \u2014 physically\n     possible (auxetic/phase-transition materials) but not derivable\n     from the current postulates.\n\nWHAT THIS MEANS:\n\n  The F2 gap is not a computational problem \u2014 it is a theoretical\n  one. The framework needs:\n\n  (a) An explicit L_MTDF Lagrangian from which the non-linear\n      field equations can be derived, OR\n\n  (b) A physically motivated non-linear constitutive relation\n      F(S\u0303) with at least one new parameter (critical strain S_c\n      or similar), OR\n\n  (c) Acceptance that MTDF works cosmologically but does not\n      extend to galactic halo scales (100 kpc - 1 Mpc).\n\n  Option (b) is the most promising: a strain-stiffening constitutive\n  relation where F(S\u0303) ~ E S\u0303 / (1 - (S\u0303/S_c)\u00b2) would amplify the\n  stress at low strain (outer halo) relative to high strain (inner\n  galaxy). But S_c becomes a new parameter, and without L_MTDF to\n  constrain it, the theory loses its zero-free-parameter claim at\n  galactic scales."
+}

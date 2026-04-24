@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "step": 15,
+  "title": "Cross-Dataset Lensing Validation (SDSS)",
+  "files": [
+    "step15_cross_dataset.json",
+    "step15_esd_comparison.png",
+    "step15_residuals.png",
+    "step15_mass_scaling.png"
+  ]
+}

@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+title: "Mesche Tensor Dynamics Framework (MTDF)"
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: Mesche
+    given-names: Ingo
+    affiliation: "Independent Researcher, Malta"
+version: "1.1.1"
+date-released: "2026-04-24"
+doi: "10.5281/zenodo.19741059"
+license: GPL-3.0-or-later
+repository-code: "https://github.com/IMesche/MTDF"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.19741059"
+    description: "Zenodo deposit for MTDF v1.1.1 source and CosmoPower emulator cache"
+keywords:
+  - cosmology
+  - dark matter
+  - dark energy
+  - spacetime elasticity
+  - Boltzmann solver
+  - CMB
+  - galaxy rotation curves
+abstract: >-
+  MTDF replaces the standard LCDM cosmological model by treating spacetime
+  as an elastic medium characterised by an intrinsic stress-energy tensor.
+  Four independently measured parameters govern the framework. No dark matter
+  or dark energy is invoked. Includes a modified CLASS Boltzmann solver,
+  GPU-accelerated validation pipeline, and full Planck MCMC analysis.
+preferred-citation:
+  type: article
+  title: "The Mesche Hypothesis: A Dynamic Field Theory of Cosmic Structure"
+  authors:
+    - family-names: Mesche
+      given-names: Ingo
+      affiliation: "Independent Researcher, Malta"
+  year: 2026

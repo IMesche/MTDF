@@ -1,0 +1,59 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "timestamp": "2026-02-05T21:20:38.945454",
+  "params": {
+    "H0": 70.0,
+    "h": 0.7,
+    "omegab_h2": 0.02236,
+    "omegam_h2": 0.143,
+    "Omega_b": 0.0456326530612245,
+    "Omega_m": 0.29183673469387755,
+    "kappa": 0.00102,
+    "alpha": 1.3,
+    "beta_eos": 0.573,
+    "z_t": 0.74,
+    "sigma8": 0.811,
+    "RS_ZSTAR_RATIO": 0.9819
+  },
+  "pillars": {
+    "SNe": {
+      "chi2": 2012.723634223599,
+      "dof": 1700.0,
+      "n_data": 1701.0
+    },
+    "BAO": {
+      "chi2": 15.388003714945738,
+      "dof": 12.0,
+      "n_data": 12.0
+    },
+    "Hz": {
+      "chi2": 6.983475996048252,
+      "dof": 15.0,
+      "n_data": 15.0
+    },
+    "fsig8": {
+      "chi2": 2.0017860246141623,
+      "dof": 3.0,
+      "n_data": 4.0,
+      "sigma8_bf": 1.0154225480553216,
+      "sigma8_err": 0.05069964780933044
+    },
+    "CMB": {
+      "chi2": 595.332284718471,
+      "dof": 3.0,
+      "n_data": 3.0
+    }
+  },
+  "strict_chi2": 2038.7696940906621,
+  "strict_dof": 1745,
+  "strict_chi2_per_dof": 1.1683493948943622,
+  "full_chi2": 2634.101978809133,
+  "full_dof": 1748,
+  "full_chi2_per_dof": 1.5069233288381767,
+  "target_chi2_per_dof": 1.1683,
+  "target_dof": 1745
+}

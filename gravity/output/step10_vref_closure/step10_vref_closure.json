@@ -1,0 +1,84 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 10: v_ref closure \u2014 deriving f(M) from first principles",
+  "v_ref_kms": 161.77995476523373,
+  "v_ref_formula": "sqrt(4*pi*G * E*S0^2*L^2 / (2*c^2))",
+  "v_ref_explicit": "sqrt(G*E*S0^2*alpha^2*beta^2 / (8*pi*c^2))",
+  "universal_rho_s_rs2": 484188523.7403783,
+  "btfr_slope": 3.276932613984946,
+  "btfr_intercept": 3.4777027886456926,
+  "n_sparc_galaxies": 175,
+  "f_measured_step9": [
+    0.8027310300767111,
+    1.0901284727352878,
+    1.2125572445153585,
+    1.332031863599828
+  ],
+  "f_predicted_btfr": [
+    0.6309059850181297,
+    0.8487841199029428,
+    1.0033682851339654,
+    1.1481029054468974
+  ],
+  "f_predicted_sparc_direct": [
+    0.5781480082400771,
+    0.7262493846230299,
+    1.005480975085694,
+    1.1479069431242157
+  ],
+  "f_predicted_mcgaugh": [
+    0.8128175786267053,
+    1.0051378915215416,
+    1.1400591816459618,
+    1.2583992186333395
+  ],
+  "v_flat_predicted_btfr": [
+    102.06794171734825,
+    137.3162565233468,
+    162.32487578184305,
+    185.74003610903247
+  ],
+  "v_flat_predicted_mcgaugh": [
+    131.4975911026152,
+    162.61116262317742,
+    184.43872283637307,
+    203.58376866710714
+  ],
+  "v_flat_sparc_direct": [
+    93.53275862068965,
+    117.4925925925926,
+    162.66666666666666,
+    185.70833333333334
+  ],
+  "n_sparc_per_bin": [
+    29,
+    18,
+    6,
+    24
+  ],
+  "gas_fractions": [
+    0.3,
+    0.15,
+    0.1,
+    0.05
+  ],
+  "M_bar_total_with_gas": [
+    14950000000.0,
+    34960000000.0,
+    57860000000.00001,
+    85890000000.0
+  ],
+  "rms_f_btfr": 0.18951303477145454,
+  "rms_f_sparc": 0.24390775266497888,
+  "rms_f_mcgaugh": 0.05671578619683384,
+  "field_equation": {
+    "exterior": "Laplace: nabla^2 S = 0",
+    "solution": "S(r) = S_0 + C/r",
+    "matching": "C = f * S_0 * alpha * beta / (4*pi)",
+    "source": "int J_bar d3x = f * S_0 * E * beta^3"
+  }
+}

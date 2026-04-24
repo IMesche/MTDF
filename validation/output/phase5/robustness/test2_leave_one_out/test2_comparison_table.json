@@ -1,0 +1,256 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "Test 2: Leave-one-likelihood-out Planck stress test",
+  "generated": "2026-02-15T12:48:03.329298",
+  "convergence_threshold": {
+    "R1": 0.1,
+    "min_accepted": 2000
+  },
+  "baseline_chain": "mcmc_results/mtdf_mcmc",
+  "configs": {
+    "baseline": {
+      "label": "Baseline",
+      "likelihoods": [
+        "planck_2018_lowl.TT_clik",
+        "planck_2018_lowl.EE_clik",
+        "planck_2018_highl_plik.TTTEEE",
+        "planck_2018_lensing.native"
+      ],
+      "n_nuisance_sampled": 21,
+      "convergence": {
+        "R1": 0.018513,
+        "n_accepted": 27160,
+        "converged": true
+      },
+      "best_chi2": 2772.5998,
+      "parameters": {
+        "k_f": {
+          "mean": 0.4950114852116888,
+          "std": 0.36027436786784073,
+          "68CI": [
+            0.13564994,
+            0.86424896
+          ],
+          "95CI": [
+            0.025059399,
+            1.3416619
+          ]
+        },
+        "H\u2080": {
+          "mean": 67.83191447101322,
+          "std": 0.541601411544145,
+          "68CI": [
+            67.287904,
+            68.385908
+          ],
+          "95CI": [
+            66.781109,
+            68.882066
+          ]
+        },
+        "\u03c3\u2088": {
+          "mean": 0.7903040988136404,
+          "std": 0.005846271817685216,
+          "68CI": [
+            0.78450837,
+            0.79614783
+          ],
+          "95CI": [
+            0.77893841,
+            0.80163844
+          ]
+        },
+        "\u03a9_m": {
+          "mean": 0.30897395831180585,
+          "std": 0.007229445352446433,
+          "68CI": [
+            0.30161722,
+            0.31618679
+          ],
+          "95CI": [
+            0.29526559,
+            0.3232258
+          ]
+        }
+      },
+      "shifts_sigma": {},
+      "bobyqa": {
+        "lcdm_chi2": 2773.1971,
+        "mtdf_chi2": 2773.8223,
+        "delta_chi2": 0.6251999999999498,
+        "delta_aic": 2.62519999999995,
+        "mtdf_kf_bestfit": 0.028399791
+      }
+    },
+    "no_lensing": {
+      "label": "No lensing",
+      "likelihoods": [
+        "planck_2018_lowl.TT_clik",
+        "planck_2018_lowl.EE_clik",
+        "planck_2018_highl_plik.TTTEEE"
+      ],
+      "n_nuisance_sampled": 21,
+      "convergence": {
+        "R1": 0.103504,
+        "n_accepted": 4299,
+        "converged": false
+      },
+      "best_chi2": 2765.4331,
+      "parameters": {
+        "k_f": {
+          "mean": 0.5269665468937739,
+          "std": 0.3769804684871976,
+          "68CI": [
+            0.14454958,
+            0.90718982
+          ],
+          "95CI": [
+            0.019719232,
+            1.43183
+          ]
+        },
+        "H\u2080": {
+          "mean": 67.55372484249197,
+          "std": 0.6365738594551632,
+          "68CI": [
+            66.920574,
+            68.175633
+          ],
+          "95CI": [
+            66.30181,
+            68.780263
+          ]
+        },
+        "\u03c3\u2088": {
+          "mean": 0.7940303230942906,
+          "std": 0.006907375517053009,
+          "68CI": [
+            0.78733694,
+            0.80085227
+          ],
+          "95CI": [
+            0.77940424,
+            0.80710854
+          ]
+        },
+        "\u03a9_m": {
+          "mean": 0.31282014442599115,
+          "std": 0.008727976079184479,
+          "68CI": [
+            0.30424982,
+            0.32157953
+          ],
+          "95CI": [
+            0.2965916,
+            0.33051222
+          ]
+        }
+      },
+      "shifts_sigma": {
+        "mtdf_k_f": 0.089,
+        "H0": -0.514,
+        "sigma8": 0.637,
+        "Omega_m": 0.532
+      },
+      "nuisance_note": "Same 21 nuisance params as baseline (plik TTTEEE)",
+      "bobyqa": {
+        "lcdm_chi2": 2764.9815,
+        "mtdf_chi2": 2765.3892,
+        "delta_chi2": 0.40770000000020445,
+        "delta_aic": 2.4077000000002045,
+        "mtdf_kf_bestfit": 0.035167203
+      }
+    },
+    "TT_only": {
+      "label": "TT only",
+      "likelihoods": [
+        "planck_2018_lowl.TT_clik",
+        "planck_2018_highl_plik.TT"
+      ],
+      "n_nuisance_sampled": 15,
+      "convergence": {
+        "R1": 0.095826,
+        "n_accepted": 7560,
+        "converged": true
+      },
+      "best_chi2": 782.4505,
+      "parameters": {
+        "k_f": {
+          "mean": 0.9380478711594767,
+          "std": 0.6702400513965633,
+          "68CI": [
+            0.26250387,
+            1.622053
+          ],
+          "95CI": [
+            0.04148202,
+            2.5015521
+          ]
+        },
+        "H\u2080": {
+          "mean": 67.74419251698552,
+          "std": 1.1688354410667998,
+          "68CI": [
+            66.58358,
+            68.938111
+          ],
+          "95CI": [
+            65.490972,
+            70.053497
+          ]
+        },
+        "\u03c3\u2088": {
+          "mean": 0.8085349856758449,
+          "std": 0.021019056788929645,
+          "68CI": [
+            0.78746339,
+            0.82973261
+          ],
+          "95CI": [
+            0.77135197,
+            0.85195778
+          ]
+        },
+        "\u03a9_m": {
+          "mean": 0.30928289212229576,
+          "std": 0.01563649972292608,
+          "68CI": [
+            0.29325728,
+            0.32502258
+          ],
+          "95CI": [
+            0.28011958,
+            0.34076403
+          ]
+        }
+      },
+      "shifts_sigma": {
+        "mtdf_k_f": 1.23,
+        "H0": -0.162,
+        "sigma8": 3.118,
+        "Omega_m": 0.043
+      },
+      "nuisance_note": "15 nuisance params (drops 6 galf_TE_* dust polarisation params absent in TT-only likelihood)",
+      "dropped_nuisance": [
+        "galf_TE_A_100",
+        "galf_TE_A_100_143",
+        "galf_TE_A_100_217",
+        "galf_TE_A_143",
+        "galf_TE_A_143_217",
+        "galf_TE_A_217"
+      ],
+      "bobyqa": {
+        "lcdm_chi2": 782.31984,
+        "mtdf_chi2": 781.66509,
+        "delta_chi2": -0.6547500000000355,
+        "delta_aic": 1.3452499999999645,
+        "mtdf_kf_bestfit": 0.45003225
+      }
+    }
+  },
+  "pass_all": true
+}

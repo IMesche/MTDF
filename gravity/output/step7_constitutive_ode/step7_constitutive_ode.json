@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 7: Non-linear constitutive ODE (GPT prescription)",
+  "approach_A": {
+    "method": "Energy-based: \u03be fundamental, EL gives r\u00b2ES(1+S\u00b2/Sc\u00b2)=K",
+    "linear_slope": -4.0,
+    "nonlinear_slope": -2.6666666666666665,
+    "verdict": "Wrong slope at every S_crit"
+  },
+  "approach_B": {
+    "method": "[E1']-based: S fundamental, g(S)=S(1+S\u00b2/Sc\u00b2) harmonic",
+    "linear_slope": -2.0,
+    "nonlinear_slope": -1.3333333333333333,
+    "verdict": "Right slope (r\u207b\u00b2) but amplitude crushed by c\u2074 (gap ~10\u2075\u00b3)"
+  },
+  "conclusion": "No S_crit resolves the problem. The c\u2074 normalization in [E1'] is the fundamental obstacle, not the constitutive law."
+}

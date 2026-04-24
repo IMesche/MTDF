@@ -1,0 +1,281 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "Phase 6 Test C4: fsigma8 x environment",
+  "date": "2026-02-17",
+  "source": "Prediction pack (class_mtdf + ODE growth)",
+  "growth_modification": {
+    "mu_amplitude": 0.0792734782608696,
+    "mu_z0": 1.0533207818637065,
+    "mu_formula": "mu(a) = 1 + 0.0793 * T(a), T(a) = (a/a_t)^alpha / (1 + (a/a_t)^alpha)",
+    "z_t": 0.74,
+    "note": "Homogeneous (scale-factor only, not environment-dependent)"
+  },
+  "chi2": {
+    "rsd_lcdm": 7.26051305110839,
+    "rsd_mtdf": 7.561463507115095,
+    "rsd_dof": 8,
+    "all_lcdm": 7.611348836851652,
+    "all_mtdf": 8.09971589235444,
+    "all_dof": 9,
+    "delta_chi2_rsd": 0.30095045600670467,
+    "delta_chi2_all": 0.48836705550278836
+  },
+  "per_point": [
+    {
+      "z": 0.067,
+      "source": "6dFGS",
+      "observed": 0.423,
+      "error": 0.055,
+      "pred_lcdm": 0.4430698038394505,
+      "pred_mtdf": 0.4380325493498503,
+      "resid_lcdm": -0.020069803839450506,
+      "resid_mtdf": -0.015032549349850322,
+      "pull_lcdm": -0.3649055243536456,
+      "pull_mtdf": -0.27331907908818764,
+      "prefers": "MTDF"
+    },
+    {
+      "z": 0.15,
+      "source": "SDSS MGS",
+      "observed": 0.53,
+      "error": 0.16,
+      "pred_lcdm": 0.45810502641750345,
+      "pred_mtdf": 0.45259574596995283,
+      "resid_lcdm": 0.07189497358249658,
+      "resid_mtdf": 0.07740425403004719,
+      "pull_lcdm": 0.4493435848906036,
+      "pull_mtdf": 0.48377658768779497,
+      "prefers": "LCDM"
+    },
+    {
+      "z": 0.38,
+      "source": "BOSS z1",
+      "observed": 0.497,
+      "error": 0.045,
+      "pred_lcdm": 0.47550366664250626,
+      "pred_mtdf": 0.4689352275456056,
+      "resid_lcdm": 0.021496333357493735,
+      "resid_mtdf": 0.02806477245439437,
+      "pull_lcdm": 0.47769629683319415,
+      "pull_mtdf": 0.6236616100976528,
+      "prefers": "LCDM"
+    },
+    {
+      "z": 0.51,
+      "source": "BOSS z2",
+      "observed": 0.459,
+      "error": 0.038,
+      "pred_lcdm": 0.47363421217765544,
+      "pred_mtdf": 0.46660769200025004,
+      "resid_lcdm": -0.014634212177655426,
+      "resid_mtdf": -0.0076076920002500215,
+      "pull_lcdm": -0.38511084678040597,
+      "pull_mtdf": -0.2002024210592111,
+      "prefers": "MTDF"
+    },
+    {
+      "z": 0.61,
+      "source": "BOSS z3",
+      "observed": 0.436,
+      "error": 0.034,
+      "pred_lcdm": 0.4683448540378392,
+      "pred_mtdf": 0.4610246232605106,
+      "resid_lcdm": -0.03234485403783921,
+      "resid_mtdf": -0.02502462326051058,
+      "pull_lcdm": -0.9513192364070355,
+      "pull_mtdf": -0.7360183311914876,
+      "prefers": "MTDF"
+    },
+    {
+      "z": 0.698,
+      "source": "eBOSS LRG",
+      "observed": 0.473,
+      "error": 0.044,
+      "pred_lcdm": 0.4617045024271898,
+      "pred_mtdf": 0.4541635013111898,
+      "resid_lcdm": 0.011295497572810176,
+      "resid_mtdf": 0.018836498688810155,
+      "pull_lcdm": 0.256715853927504,
+      "pull_mtdf": 0.42810224292750354,
+      "prefers": "LCDM"
+    },
+    {
+      "z": 0.85,
+      "source": "eBOSS ELG",
+      "observed": 0.315,
+      "error": 0.095,
+      "pred_lcdm": 0.44728749000088763,
+      "pred_mtdf": 0.4394396451107609,
+      "resid_lcdm": -0.13228749000088763,
+      "resid_mtdf": -0.12443964511076089,
+      "pull_lcdm": -1.3924998947461855,
+      "pull_mtdf": -1.3098910011659042,
+      "prefers": "MTDF"
+    },
+    {
+      "z": 1.48,
+      "source": "eBOSS QSO",
+      "observed": 0.462,
+      "error": 0.045,
+      "pred_lcdm": 0.37615754943830215,
+      "pred_mtdf": 0.36779105566009546,
+      "resid_lcdm": 0.08584245056169787,
+      "resid_mtdf": 0.09420894433990457,
+      "pull_lcdm": 1.9076100124821749,
+      "pull_mtdf": 2.0935320964423236,
+      "prefers": "LCDM"
+    },
+    {
+      "z": 0.57,
+      "source": "BOSS voids (Hamaus+20)",
+      "observed": 0.501,
+      "error": 0.051,
+      "pred_lcdm": 0.47079198982524295,
+      "pred_mtdf": 0.4635835002437756,
+      "resid_lcdm": 0.03020801017475705,
+      "resid_mtdf": 0.03741649975622441,
+      "pull_lcdm": 0.5923139249952363,
+      "pull_mtdf": 0.7336568579651845,
+      "prefers": "LCDM"
+    }
+  ],
+  "discrimination_power": [
+    {
+      "z": 0.067,
+      "source": "6dFGS",
+      "model_diff": 0.005037254489600185,
+      "data_error": 0.055,
+      "diff_in_sigma": 0.09158644526545791,
+      "discriminating": false
+    },
+    {
+      "z": 0.15,
+      "source": "SDSS MGS",
+      "model_diff": 0.005509280447550613,
+      "data_error": 0.16,
+      "diff_in_sigma": 0.03443300279719133,
+      "discriminating": false
+    },
+    {
+      "z": 0.38,
+      "source": "BOSS z1",
+      "model_diff": 0.006568439096900636,
+      "data_error": 0.045,
+      "diff_in_sigma": 0.14596531326445858,
+      "discriminating": false
+    },
+    {
+      "z": 0.51,
+      "source": "BOSS z2",
+      "model_diff": 0.007026520177405404,
+      "data_error": 0.038,
+      "diff_in_sigma": 0.18490842572119484,
+      "discriminating": false
+    },
+    {
+      "z": 0.61,
+      "source": "BOSS z3",
+      "model_diff": 0.007320230777328629,
+      "data_error": 0.034,
+      "diff_in_sigma": 0.2153009052155479,
+      "discriminating": false
+    },
+    {
+      "z": 0.698,
+      "source": "eBOSS LRG",
+      "model_diff": 0.007541001115999979,
+      "data_error": 0.044,
+      "diff_in_sigma": 0.17138638899999953,
+      "discriminating": false
+    },
+    {
+      "z": 0.85,
+      "source": "eBOSS ELG",
+      "model_diff": 0.007847844890126743,
+      "data_error": 0.095,
+      "diff_in_sigma": 0.0826088935802815,
+      "discriminating": false
+    },
+    {
+      "z": 1.48,
+      "source": "eBOSS QSO",
+      "model_diff": 0.008366493778206696,
+      "data_error": 0.045,
+      "diff_in_sigma": 0.1859220839601488,
+      "discriminating": false
+    },
+    {
+      "z": 0.57,
+      "source": "BOSS voids (Hamaus+20)",
+      "model_diff": 0.007208489581467359,
+      "data_error": 0.051,
+      "diff_in_sigma": 0.1413429329699482,
+      "discriminating": false
+    }
+  ],
+  "future_requirements": [
+    {
+      "z": 0.1,
+      "fsig8_lcdm": 0.449682388200273,
+      "fsig8_mtdf": 0.44445147804188273,
+      "diff": 0.005230910158390278,
+      "diff_pct": 1.1632455029705568,
+      "err_needed_2sigma": 0.002615455079195139,
+      "err_needed_5sigma": 0.0010461820316780557
+    },
+    {
+      "z": 0.3,
+      "fsig8_lcdm": 0.4729446869329306,
+      "fsig8_mtdf": 0.46670588850089056,
+      "diff": 0.00623879843204006,
+      "diff_pct": 1.3191391307298477,
+      "err_needed_2sigma": 0.00311939921602003,
+      "err_needed_5sigma": 0.001247759686408012
+    },
+    {
+      "z": 0.5,
+      "fsig8_lcdm": 0.4740003256355978,
+      "fsig8_mtdf": 0.4670058644196323,
+      "diff": 0.006994461215965475,
+      "diff_pct": 1.4756237153606262,
+      "err_needed_2sigma": 0.0034972306079827375,
+      "err_needed_5sigma": 0.001398892243193095
+    },
+    {
+      "z": 0.7,
+      "fsig8_lcdm": 0.46153551405578025,
+      "fsig8_mtdf": 0.4539898981748418,
+      "diff": 0.007545615880938439,
+      "diff_pct": 1.6348938816496992,
+      "err_needed_2sigma": 0.0037728079404692194,
+      "err_needed_5sigma": 0.0015091231761876877
+    },
+    {
+      "z": 1.0,
+      "fsig8_lcdm": 0.43093806733172957,
+      "fsig8_mtdf": 0.42286865134545837,
+      "diff": 0.0080694159862712,
+      "diff_pct": 1.8725233619381059,
+      "err_needed_2sigma": 0.0040347079931356,
+      "err_needed_5sigma": 0.00161388319725424
+    },
+    {
+      "z": 1.5,
+      "fsig8_lcdm": 0.37396596171035856,
+      "fsig8_mtdf": 0.365597570933842,
+      "diff": 0.008368390776516577,
+      "diff_pct": 2.2377413009042795,
+      "err_needed_2sigma": 0.004184195388258288,
+      "err_needed_5sigma": 0.0016736781553033154
+    }
+  ],
+  "conclusion": {
+    "max_discrimination_sigma": 0.2153009052155479,
+    "distinguishable": false,
+    "summary": "Maximum model difference is 0.22 sigma of data error. Current RSD data cannot distinguish MTDF from LCDM in fsigma8. DESI/Euclid-era precision (~0.003-0.005) needed for 2sigma discrimination."
+  }
+}

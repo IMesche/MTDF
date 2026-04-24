@@ -1,0 +1,143 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "Test 3: k_f identifiability and degeneracy map",
+  "chain": "mcmc_results/mtdf_mcmc",
+  "n_samples": 27160,
+  "kf_posterior": {
+    "mean": 0.4950114852116888,
+    "std": 0.36027436786784073,
+    "68CI": [
+      0.13564994,
+      0.86424896
+    ],
+    "95CI": [
+      0.025059399,
+      1.3416619
+    ]
+  },
+  "section_A_correlations": {
+    "kf_vs_cosmo": {
+      "H0": 0.08736414820698768,
+      "sigma8": 0.17414710629991167,
+      "Omega_m": -0.0634741906382133,
+      "n_s": 0.1258767782373939,
+      "omega_b": -0.3009604289854152,
+      "omega_cdm": 0.028282936105412992,
+      "tau_reio": -0.05184547346663967,
+      "logA": -0.016816668916216707
+    },
+    "kf_vs_nuisance_top8": {
+      "ps_A_143_217": 0.09860811213158388,
+      "ps_A_217_217": 0.09072269891435457,
+      "ksz_norm": -0.07371493541395913,
+      "A_sz": 0.06343415663159048,
+      "xi_sz_cib": 0.05359845316177368,
+      "ps_A_100_100": -0.0521151196148609,
+      "A_cib_217": -0.046486607859833044,
+      "galf_TE_A_217": 0.038376266007933466
+    },
+    "kf_vs_all_nuisance": {
+      "A_planck": -0.001968319843571819,
+      "calib_100T": -0.030694570143389468,
+      "calib_217T": -0.023892895666661935,
+      "A_cib_217": -0.046486607859833044,
+      "xi_sz_cib": 0.05359845316177368,
+      "A_sz": 0.06343415663159048,
+      "ksz_norm": -0.07371493541395913,
+      "gal545_A_100": -0.014489793220030099,
+      "gal545_A_143": 0.0006902362368427779,
+      "gal545_A_143_217": -0.005120350767322608,
+      "gal545_A_217": 0.0004725073721850636,
+      "ps_A_100_100": -0.0521151196148609,
+      "ps_A_143_143": 0.004060999660363316,
+      "ps_A_143_217": 0.09860811213158388,
+      "ps_A_217_217": 0.09072269891435457,
+      "galf_TE_A_100": -0.00760398631959493,
+      "galf_TE_A_100_143": -0.01210515391216705,
+      "galf_TE_A_100_217": -0.0037111760268350147,
+      "galf_TE_A_143": 0.03212156500621703,
+      "galf_TE_A_143_217": 0.02024539279264828,
+      "galf_TE_A_217": 0.038376266007933466
+    },
+    "max_abs_correlation": 0.3009604289854152,
+    "pass_no_near_perfect": true,
+    "most_correlated_nuisance": "ps_A_143_217",
+    "most_correlated_nuisance_r": 0.09860811213158388
+  },
+  "section_A3_omega_b_partial": {
+    "marginal_r_kf_omega_b": -0.3009604289854152,
+    "partial_r_precision_method": {
+      "n_s only": -0.3716227867141821,
+      "n_s, omega_cdm": -0.34155497538619906,
+      "n_s, omega_cdm, logA": -0.3411048403568887,
+      "all other cosmo": 0.9699940419124935
+    },
+    "partial_r_residual_method": {
+      "n_s only": -0.3716227867141822,
+      "n_s, omega_cdm": -0.3415549753861993,
+      "n_s, omega_cdm, logA": -0.3411048403568887,
+      "all other cosmo": 0.9699940419124587
+    },
+    "partial_r_full_conditioning": 0.9699940419124935,
+    "indirect_covariance": false,
+    "conditioning_matrix_condition_number": 24206.85254200678,
+    "VIF": {
+      "H0": 1256.3472072353663,
+      "sigma8": 166.90622110422842,
+      "Omega_m": 3509.1697752546784,
+      "n_s": 10.20576969136132,
+      "omega_cdm": 1095.8708806775007,
+      "tau_reio": 8.861746482409671,
+      "logA": 166.98527383500308
+    },
+    "note": "Full conditioning partial r is inflated by multicollinearity (condition number = 24207). Minimal conditioning gives stable r ~ -0.34."
+  },
+  "section_B_predictability": {
+    "R2_nuisance_only": 0.13725950125252662,
+    "R2_early_time_only": 0.27807574159864645,
+    "R2_late_time_derived": 0.1786264836307312,
+    "R2_early_time_plus_nuisance": 0.4514609559875574,
+    "R2_all_cosmo": 0.9927454478024333,
+    "genuine_kf_variance_fraction": 0.8627404987474734,
+    "pass_nuisance_below_0.5": true,
+    "pass_genuine_above_50pct": true,
+    "early_time_params": [
+      "omega_b",
+      "omega_cdm",
+      "theta_s_100",
+      "n_s",
+      "tau_reio",
+      "logA"
+    ],
+    "late_time_params": [
+      "H0",
+      "sigma8",
+      "Omega_m"
+    ],
+    "summary_sentence": "Nuisance parameters alone explain 13.7% of k_f variance (R\u00b2=0.137), confirming k_f is not a nuisance reskin. Early-time primordial parameters explain 27.8% (R\u00b2=0.278), consistent with k_f being weakly constrained by the CMB. The high R\u00b2 when including late-time derived observables (0.993) reflects that H0, \u03c38, and \u03a9m respond physically to k_f \u2014 it is the expected signal, not independent constraint."
+  },
+  "section_C_Aeff_check": {
+    "corr_kf_Aeff": 0.09303651591192581,
+    "R2_kf_vs_Aeff": 0.1252373261046047,
+    "Aeff_mean": 1.8794106704513235e-09,
+    "Aeff_std": 1.0740537222398091e-11,
+    "pass_not_tracking_Aeff": true
+  },
+  "conditional_sigma": {
+    "marginal_sigma_kf": 0.36027436786784073,
+    "conditional_sigma_kf": 0.03266673914488032,
+    "degeneracy_ratio": 11.028782709837891
+  },
+  "plots": [
+    "test3_correlation_heatmap.png",
+    "test3_kf_2d_contours.png",
+    "test3_kf_vs_omega_b.png",
+    "test3_kf_vs_Aeff.png",
+    "test3_kf_posterior_annotated.png"
+  ],
+  "pass_all": true
+}

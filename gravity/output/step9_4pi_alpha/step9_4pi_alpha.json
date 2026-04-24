@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 9: 4\u03c0/\u03b1 test",
+  "key_constants": {
+    "4pi_over_alpha": 9.66643893412244,
+    "L_kpc": 2346.77942462577,
+    "S0": 1.084137615448689
+  },
+  "universal_rho_s_rs2": 484188523.7403783,
+  "f_values": {
+    "Bin 1 (logM*~10.0)": 0.8027310300767111,
+    "Bin 2 (logM*~10.45)": 1.0901284727352878,
+    "Bin 3 (logM*~10.70)": 1.2125572445153585,
+    "Bin 4 (logM*~10.90)": 1.332031863599828
+  },
+  "f_scaling_exponent": 0.25829343682010675,
+  "btfr_expected": 0.25
+}

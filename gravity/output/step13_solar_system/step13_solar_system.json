@@ -1,0 +1,206 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "regime_table": [
+    {
+      "object": "Sun",
+      "mass_kg": 1.989e+30,
+      "mass_Msun": 1.0,
+      "f_linear": 5.282969637963205e-16,
+      "f_screened": 0.002324229352958216,
+      "delta_S_at_ref": 0.00027726760296511744,
+      "regime": "linear",
+      "f_effective": 5.282969637963205e-16
+    },
+    {
+      "object": "Earth",
+      "mass_kg": 5.972e+24,
+      "mass_Msun": 3.002513826043238e-06,
+      "f_linear": 1.5862189380551164e-21,
+      "f_screened": 9.674983557672331e-05,
+      "delta_S_at_ref": 8.324998114166323e-10,
+      "regime": "linear",
+      "f_effective": 1.5862189380551164e-21
+    },
+    {
+      "object": "Jupiter",
+      "mass_kg": 1.898e+27,
+      "mass_Msun": 0.0009542483660130719,
+      "f_linear": 5.041265144723059e-19,
+      "f_screened": 0.00040850214177774453,
+      "delta_S_at_ref": 2.645821570778245e-07,
+      "regime": "linear",
+      "f_effective": 5.041265144723059e-19
+    },
+    {
+      "object": "MW galaxy",
+      "mass_kg": 1.1934e+41,
+      "mass_Msun": 60000000000.0,
+      "f_linear": 3.169781782777923e-05,
+      "f_screened": 1.1503150297924594,
+      "delta_S_at_ref": 292.6668135638987,
+      "regime": "screened",
+      "f_effective": 1.1503150297924594
+    }
+  ],
+  "f_sun": 5.282969637963205e-16,
+  "planet_table": [
+    {
+      "planet": "Mercury",
+      "a_AU": 0.387,
+      "r_m": 57895200000.0,
+      "delta_S": 0.000716453754431828,
+      "M_stress_kg": 6.33668334174845,
+      "M_stress_over_Msun": 3.1858639224476874e-30,
+      "a_extra_m_s2": 1.2620329836291347e-31,
+      "a_newton_m_s2": 0.03960370969348216,
+      "fractional_anomaly": 3.1866534559433854e-30
+    },
+    {
+      "planet": "Venus",
+      "a_AU": 0.723,
+      "r_m": 108160800000.0,
+      "delta_S": 0.0003834959930361237,
+      "M_stress_kg": 11.838299886522297,
+      "M_stress_over_Msun": 5.951885312479788e-30,
+      "a_extra_m_s2": 6.7552802858157e-32,
+      "a_newton_m_s2": 0.011347003891276608,
+      "fractional_anomaly": 5.953360332421363e-30
+    },
+    {
+      "planet": "Earth",
+      "a_AU": 1.0,
+      "r_m": 149600000000.0,
+      "delta_S": 0.00027726760296511744,
+      "M_stress_kg": 16.37385876420788,
+      "M_stress_over_Msun": 8.232206517952681e-30,
+      "a_extra_m_s2": 4.884067646644751e-32,
+      "a_newton_m_s2": 0.00593140799708313,
+      "fractional_anomaly": 8.234246656184457e-30
+    },
+    {
+      "planet": "Mars",
+      "a_AU": 1.524,
+      "r_m": 227990400000.0,
+      "delta_S": 0.00018193412268052323,
+      "M_stress_kg": 24.95376075665281,
+      "M_stress_over_Msun": 1.2545882733359884e-29,
+      "a_extra_m_s2": 3.2047687970109914e-32,
+      "a_newton_m_s2": 0.002553805773022338,
+      "fractional_anomaly": 1.2548991904025112e-29
+    },
+    {
+      "planet": "Jupiter",
+      "a_AU": 5.203,
+      "r_m": 778368800000.0,
+      "delta_S": 5.3289948676747535e-05,
+      "M_stress_kg": 85.1931871501736,
+      "M_stress_over_Msun": 4.28321705129078e-29,
+      "a_extra_m_s2": 9.38702219228282e-33,
+      "a_newton_m_s2": 0.0002191039194844652,
+      "fractional_anomaly": 4.284278535212774e-29
+    },
+    {
+      "planet": "Saturn",
+      "a_AU": 9.537,
+      "r_m": 1426735200000.0,
+      "delta_S": 2.9072832438410133e-05,
+      "M_stress_kg": 156.15749103425054,
+      "M_stress_over_Msun": 7.85105535617147e-29,
+      "a_extra_m_s2": 5.121178197173903e-33,
+      "a_newton_m_s2": 6.521300804234187e-05,
+      "fractional_anomaly": 7.853001036003117e-29
+    },
+    {
+      "planet": "Uranus",
+      "a_AU": 19.19,
+      "r_m": 2870824000000.0,
+      "delta_S": 1.4448546272283347e-05,
+      "M_stress_kg": 314.2143496851492,
+      "M_stress_over_Msun": 1.5797604307951193e-28,
+      "a_extra_m_s2": 2.5451108111749617e-33,
+      "a_newton_m_s2": 1.6106747443105843e-05,
+      "fractional_anomaly": 1.5801519333217974e-28
+    },
+    {
+      "planet": "Neptune",
+      "a_AU": 30.07,
+      "r_m": 4498472000000.0,
+      "delta_S": 9.220738375960007e-06,
+      "M_stress_kg": 492.36193303973096,
+      "M_stress_over_Msun": 2.475424499948371e-28,
+      "a_extra_m_s2": 1.6242326726454113e-33,
+      "a_newton_m_s2": 6.559805191371039e-06,
+      "fractional_anomaly": 2.476037969514666e-28
+    }
+  ],
+  "ppn": {
+    "gamma_minus_1": 8.234246656184457e-30,
+    "gamma_bound": 2.3e-05,
+    "gamma_safety_log10": 24.446103963905625,
+    "beta_minus_1": 8.234246656184457e-30,
+    "beta_bound": 8e-05,
+    "beta_safety_log10": 24.987466114879975,
+    "nordtvedt_eta": 8.234246656184457e-30,
+    "nordtvedt_bound": 0.0001,
+    "nordtvedt_safety_log10": 25.08437612788803
+  },
+  "mercury_precession": {
+    "delta_omega_per_orbit_rad": 2.0017373388196833e-29,
+    "delta_omega_per_century_arcsec": 1.714651014739287e-21,
+    "observational_uncertainty_arcsec": 0.65,
+    "safety_log10": 20.578737615818465
+  },
+  "mw_background": {
+    "f_MW": 1.3597033374536465,
+    "rho_stress_MW_8kpc_kg_m3": 9.46607328976688e-22,
+    "rho_stress_MW_8kpc_Msun_pc3": 0.013986944276406078,
+    "local_DM_observed_Msun_pc3": 0.013,
+    "local_DM_uncertainty": 0.001,
+    "ratio_predicted_over_observed": 1.0759187904927754,
+    "within_1sigma": true,
+    "tidal_across_1AU_m_s2": 1.1879690816175237e-19,
+    "tidal_over_solar_gravity": 2.002844994311178e-17
+  },
+  "screening_transition": {
+    "M_transition_log10_Msun": 2.5348840734410327
+  },
+  "rotation_comparison": {
+    "v_RouteA_at_30kpc": 140.34510557210618,
+    "v_RouteB_at_30kpc": 238.6843591359893,
+    "v_RouteA_at_50kpc": 108.89219055202835,
+    "v_RouteB_at_50kpc": 231.43434442840933,
+    "v_flat_kms": 220.0,
+    "M_bar_Msun": 60000000000.0
+  },
+  "safety_margins": {
+    "anomalous_accel_1AU": {
+      "prediction": 4.884067646644751e-32,
+      "bound": 1e-09,
+      "log10_margin": 22.31121832950171
+    },
+    "PPN_gamma": {
+      "prediction": 8.234246656184457e-30,
+      "bound": 2.3e-05,
+      "log10_margin": 24.446103963905625
+    },
+    "PPN_beta": {
+      "prediction": 8.234246656184457e-30,
+      "bound": 8e-05,
+      "log10_margin": 24.987466114879975
+    },
+    "Nordtvedt_eta": {
+      "prediction": 8.234246656184457e-30,
+      "bound": 0.0001,
+      "log10_margin": 25.08437612788803
+    },
+    "Mercury_precession": {
+      "prediction": 1.714651014739287e-21,
+      "bound": 0.65,
+      "log10_margin": 20.578737615818465
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-02-15",
+  "sha256": {
+    "PHASE5_ONEPAGER.md": "4f677a67f1fcb21feb1444567e21a8ed3ff3a7e17d8e2912cf20b1a9dfd73424",
+    "README.md": "ad57815e1f388ba11d94c8c9ce817aae1e2c21ec96bb8efbcf7c4e7965d9c9f1",
+    "lcdm_mcmc.input.yaml": "701030a7aa629f5fbe27a73b21e5092088a58e96427f665859767bcd9d0e6c9e",
+    "mtdf_mcmc.input.yaml": "32bb09157216e4eecdfb2a17382594fedfca2ae9c21cb06b79e12d02a7b97e1c",
+    "phase5_key_numbers.csv": "89c34e7e0ad9d517399c6e6f608d685da9263094893417b2d329c16edf0d6e34",
+    "phase5_kf_posterior.png": "4d06b8b851486366988e307f30e988be084988f7b23640c310a6c9be8d70203c",
+    "phase5_mcmc_summary.json": "2744ac8a7182d31eddefe4d6c1f916274bd6b24a4c14f0485a898cc05c065092",
+    "phase5_minimize_comparison.json": "71d934e510c5cb2d7a427c7003a1cdda60a806040095c9fb87b51cb8f4434f97",
+    "phase5_triangle.png": "553cf381386da173fedc42c60938901e21f5a47537c9d1051eadd511eb5fdf70",
+    "plots.md": "a1cb48c42a1734de22d430c0c2eb90fb6024ccf9b177b173cbfc86b6963cdbf7",
+    "reproducibility.md": "d960a4137354b560bef32d263daa84905c754a6073aa86ee384007b0dfe2efca"
+  }
+}

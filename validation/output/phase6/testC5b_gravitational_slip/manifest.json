@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "C5b",
+  "files": {
+    "testC5b_gravitational_slip.json": "ccde03c4ab217a3fff97b54c5b2e74602052ec37fed7e2fc78bdf24fb116c5b4",
+    "testC5b_gravitational_slip.png": "f30982c8686eef60b4ee16b9c9a50e4aceb5785c652f57f1336ffeca4d9c55ec",
+    "README.md": "18528c71216018594304b3cc53b5c55f93dfc4c4ddb0ab1ac944cd6bbcb293a4"
+  },
+  "timestamp": "2026-02-17T13:08:28.144654+00:00"
+}

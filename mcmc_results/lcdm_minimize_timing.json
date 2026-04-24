@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "config": "lcdm_minimize",
+  "wall_time_s": 3844.3896152973175,
+  "wall_time_hours": 1.0678860042492548,
+  "timestamp": "2026-02-06 09:47:46"
+}

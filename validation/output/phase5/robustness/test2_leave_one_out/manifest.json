@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-02-15",
+  "sha256": {
+    "README.md": "02935ceb9b4ac037d6658f60bb058af14eef0f038061ceff6f872a967f5887d4",
+    "test2_comparison_table.json": "5b7e60c6d73e92405a531dc1b4a538c8d0a472ec77ec58215bef82713aeb0c32",
+    "test2_comparison_table.md": "46641f07e936295c7a2199610f3212c73be2988cabb5901102cba072d42fac86",
+    "test2_delta_chi2_bar.png": "cca8f5c72e78bf5116096463d4b4fa06da1c4d9ae916333a4ec9018247feb59a",
+    "test2_kf_posteriors_overlay.png": "135d887aa45c662f508333c06feccd3898e04af35761d7ca2a99984df30a5c8e",
+    "test2_sigma8_H0_summary.png": "86dead37d0b94271e116720a3c5aa695321409d541c5432f01755cfc55d2df4b"
+  }
+}

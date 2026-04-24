@@ -1,0 +1,225 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "C5b",
+  "description": "Gravitational slip \u03b7 = \u03a6/\u03a8 numerical verification",
+  "method": "Transfer function extraction from class_mtdf (Newtonian gauge)",
+  "k_range_hmpc": [
+    0.005,
+    2.0
+  ],
+  "z_values": [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.8,
+    1.0,
+    2.0,
+    5.0,
+    10.0
+  ],
+  "lcdm_eta": {
+    "z=0.0": {
+      "n_k": 87,
+      "eta_mean": 1.000000000496165,
+      "eta_median": 1.000000000008608,
+      "eta_std": 3.43490869912355e-09,
+      "eta_min": 1.0000000000001137,
+      "eta_max": 1.000000031461085,
+      "max_deviation_from_1": 3.146108507046108e-08
+    },
+    "z=0.1": {
+      "n_k": 87,
+      "eta_mean": 1.0000000006959686,
+      "eta_median": 1.0000000000111486,
+      "eta_std": 4.840398330386605e-09,
+      "eta_min": 1.000000000000145,
+      "eta_max": 1.0000000443511854,
+      "max_deviation_from_1": 4.4351185390922865e-08
+    },
+    "z=0.2": {
+      "n_k": 87,
+      "eta_mean": 1.0000000009516221,
+      "eta_median": 1.0000000000141582,
+      "eta_std": 6.6344591477467096e-09,
+      "eta_min": 1.0000000000001823,
+      "eta_max": 1.000000060782203,
+      "max_deviation_from_1": 6.07822030485039e-08
+    },
+    "z=0.3": {
+      "n_k": 87,
+      "eta_mean": 1.0000000006617515,
+      "eta_median": 1.000000000017681,
+      "eta_std": 3.6241074998642144e-09,
+      "eta_min": 1.0000000000002254,
+      "eta_max": 1.0000000280837125,
+      "max_deviation_from_1": 2.808371246665331e-08
+    },
+    "z=0.5": {
+      "n_k": 87,
+      "eta_mean": 1.0000000017258057,
+      "eta_median": 1.0000000000264455,
+      "eta_std": 1.1218707781752967e-08,
+      "eta_min": 1.0000000000003322,
+      "eta_max": 1.0000001002892014,
+      "max_deviation_from_1": 1.0028920138793751e-07
+    },
+    "z=0.8": {
+      "n_k": 87,
+      "eta_mean": 1.0000000025610627,
+      "eta_median": 1.0000000000445457,
+      "eta_std": 1.5118507425542417e-08,
+      "eta_min": 1.0000000000005518,
+      "eta_max": 1.0000001276274544,
+      "max_deviation_from_1": 1.2762745438266165e-07
+    },
+    "z=1.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000000048040654,
+      "eta_median": 1.0000000000604174,
+      "eta_std": 2.851825108376815e-08,
+      "eta_min": 1.0000000000007432,
+      "eta_max": 1.0000002288709449,
+      "max_deviation_from_1": 2.2887094486279125e-07
+    },
+    "z=2.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000000335328627,
+      "eta_median": 1.0000000001975966,
+      "eta_std": 2.569730240524138e-07,
+      "eta_min": 1.0000000000023899,
+      "eta_max": 1.0000023953467851,
+      "max_deviation_from_1": 2.3953467851445254e-06
+    },
+    "z=5.0": {
+      "n_k": 87,
+      "eta_mean": 1.000000242387014,
+      "eta_median": 1.0000000014898018,
+      "eta_std": 1.3491719933876983e-06,
+      "eta_min": 1.0000000000177238,
+      "eta_max": 1.0000109220980484,
+      "max_deviation_from_1": 1.0922098048427031e-05
+    },
+    "z=10.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000007100698933,
+      "eta_median": 1.0000000081922702,
+      "eta_std": 3.9072852675535384e-06,
+      "eta_min": 1.0000000000964702,
+      "eta_max": 1.0000339862762078,
+      "max_deviation_from_1": 3.398627620776473e-05
+    }
+  },
+  "mtdf_eta": {
+    "z=0.0": {
+      "n_k": 87,
+      "eta_mean": 1.000000000487585,
+      "eta_median": 1.0000000000085656,
+      "eta_std": 3.3746412625558885e-09,
+      "eta_min": 1.0000000000001135,
+      "eta_max": 1.0000000309106685,
+      "max_deviation_from_1": 3.091066846927504e-08
+    },
+    "z=0.1": {
+      "n_k": 87,
+      "eta_mean": 1.0000000006845062,
+      "eta_median": 1.0000000000110973,
+      "eta_std": 4.759425347291266e-09,
+      "eta_min": 1.000000000000145,
+      "eta_max": 1.0000000436108896,
+      "max_deviation_from_1": 4.361088956628123e-08
+    },
+    "z=0.2": {
+      "n_k": 87,
+      "eta_mean": 1.0000000009369423,
+      "eta_median": 1.0000000000140972,
+      "eta_std": 6.5308407745252504e-09,
+      "eta_min": 1.0000000000001816,
+      "eta_max": 1.00000005983546,
+      "max_deviation_from_1": 5.983545992016559e-08
+    },
+    "z=0.3": {
+      "n_k": 87,
+      "eta_mean": 1.0000000006749714,
+      "eta_median": 1.0000000000176097,
+      "eta_std": 3.7444960175388516e-09,
+      "eta_min": 1.000000000000225,
+      "eta_max": 1.0000000296552929,
+      "max_deviation_from_1": 2.9655292888008944e-08
+    },
+    "z=0.5": {
+      "n_k": 87,
+      "eta_mean": 1.0000000018059767,
+      "eta_median": 1.0000000000263498,
+      "eta_std": 1.1974676717544622e-08,
+      "eta_min": 1.0000000000003315,
+      "eta_max": 1.0000001078789358,
+      "max_deviation_from_1": 1.0787893578445562e-07
+    },
+    "z=0.8": {
+      "n_k": 87,
+      "eta_mean": 1.0000000027250104,
+      "eta_median": 1.0000000000444063,
+      "eta_std": 1.6541333064717773e-08,
+      "eta_min": 1.000000000000551,
+      "eta_max": 1.0000001426259155,
+      "max_deviation_from_1": 1.4262591552238746e-07
+    },
+    "z=1.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000000049114781,
+      "eta_median": 1.000000000060243,
+      "eta_std": 2.950414231286532e-08,
+      "eta_min": 1.0000000000007423,
+      "eta_max": 1.000000241195119,
+      "max_deviation_from_1": 2.411951189884576e-07
+    },
+    "z=2.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000000338202113,
+      "eta_median": 1.000000000197165,
+      "eta_std": 2.582171452564595e-07,
+      "eta_min": 1.0000000000023883,
+      "eta_max": 1.0000024053032752,
+      "max_deviation_from_1": 2.405303275221371e-06
+    },
+    "z=5.0": {
+      "n_k": 87,
+      "eta_mean": 1.000000244228137,
+      "eta_median": 1.0000000014875694,
+      "eta_std": 1.3600454158481398e-06,
+      "eta_min": 1.000000000017721,
+      "eta_max": 1.0000110099034192,
+      "max_deviation_from_1": 1.1009903419179068e-05
+    },
+    "z=10.0": {
+      "n_k": 87,
+      "eta_mean": 1.0000007139495906,
+      "eta_median": 1.0000000081829508,
+      "eta_std": 3.933292847514891e-06,
+      "eta_min": 1.0000000000963556,
+      "eta_max": 1.0000342406078693,
+      "max_deviation_from_1": 3.424060786927363e-05
+    }
+  },
+  "max_differential_slip": 2.558442986355658e-07,
+  "cluster_max_deviation": 1.4262591552238746e-07,
+  "verdict": "CONFIRMED: \u03b7 = 1 to better than 1% at cluster scales",
+  "resolved_case": "B",
+  "implication": "M_dyn/M_lens = 1.000 under MTDF. The cluster mass ratio channel is not a discriminator. This is because class_mtdf modifies only \u03bc(a) (the Poisson equation source) without introducing gravitational slip (the \u03a6-\u03a8 anisotropy equation is unchanged from GR).",
+  "code_analysis": {
+    "mu_applied_to": [
+      "Poisson equation (synch gauge h')",
+      "CDM Euler equation (Newt gauge)"
+    ],
+    "phi_psi_relation": "Unchanged from GR (standard anisotropy equation)",
+    "mtdf_eta_function": "Returns 1.0 (stub, never called in perturbations.c)",
+    "baryon_euler": "Unmodified (no mu factor)"
+  },
+  "timestamp": "2026-02-17T13:08:28.144654+00:00"
+}

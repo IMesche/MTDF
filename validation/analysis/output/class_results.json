@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "metadata": {
+    "description": "MTDF CLASS analysis results",
+    "chi2_l_range": "30 <= l <= 2000",
+    "chi2_n_bins": 50,
+    "z_star": 1089.8,
+    "notes": {
+      "r_d": "Sound horizon at drag epoch (z_drag ~ 1060)",
+      "r_s_rec": "Sound horizon at recombination (z_rec ~ 1090)",
+      "D_M_zstar": "Comoving angular diameter distance to z*=1089.8",
+      "theta_s_100": "100 * theta_s = 100 * r_s / D_A(z*)",
+      "chi2_TT": "Approximate chi^2 using diagonal covariance with sigma ~ 2% D_l"
+    }
+  },
+  "models": {
+    "Planck_baseline": {
+      "H0_km_s_Mpc": 67.36,
+      "delta_N_eff": 0.0,
+      "r_d_Mpc": 147.09706818092533,
+      "r_s_rec_Mpc": 144.43461124685058,
+      "z_rec": 1089.8,
+      "D_M_zstar_Mpc": 13872.763945924098,
+      "D_A_zstar_Mpc": 12.717972080971855,
+      "theta_s_100": 104.18496613510644,
+      "l_peak_1": 220,
+      "chi2_TT": 0.0,
+      "chi2_TT_per_bin": 0.0,
+      "N_bins": 50,
+      "rms_residual_percent": 0.0
+    },
+    "H070_noEDE": {
+      "H0_km_s_Mpc": 70.0,
+      "delta_N_eff": 0.0,
+      "r_d_Mpc": 147.09707754793493,
+      "r_s_rec_Mpc": 144.43462044431732,
+      "z_rec": 1089.8,
+      "D_M_zstar_Mpc": 13769.17790468871,
+      "D_A_zstar_Mpc": 12.623008713502667,
+      "theta_s_100": 104.96876588278053,
+      "l_peak_1": 219,
+      "chi2_TT": 78.1321726492867,
+      "chi2_TT_per_bin": 1.562643452985734,
+      "N_bins": 50,
+      "rms_residual_percent": 2.500114759754627
+    },
+    "MTDF_proxy": {
+      "H0_km_s_Mpc": 70.0,
+      "delta_N_eff": 0.22,
+      "r_d_Mpc": 146.0046663394505,
+      "r_s_rec_Mpc": 143.36198187870644,
+      "z_rec": 1089.8,
+      "D_M_zstar_Mpc": 13767.300887020925,
+      "D_A_zstar_Mpc": 12.621287941896705,
+      "theta_s_100": 104.19531296350793,
+      "l_peak_1": 220,
+      "chi2_TT": 24.19646269332312,
+      "chi2_TT_per_bin": 0.4839292538664624,
+      "N_bins": 50,
+      "rms_residual_percent": 1.3913004763406966
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "lcdm": {
+    "chi2_total": 2908.944871174596,
+    "chi2_breakdown": {
+      "planck_2018_lowl.TT_clik": 23.401015191851968,
+      "planck_2018_lowl.EE_clik": 396.1330249668356,
+      "planck_2018_highl_plik.TTTEEE": 2480.581225654302,
+      "planck_2018_lensing.native": 8.829605361605907
+    },
+    "logpost": -1474.2637735690644,
+    "loglike": -1454.472435587298,
+    "logprior": -19.79133798176647,
+    "eval_time_s": 2.997231960296631,
+    "params": {
+      "omega_b": 0.02237,
+      "omega_cdm": 0.12,
+      "theta_s_100": 1.04092,
+      "tau_reio": 0.0544,
+      "logA": 3.044,
+      "n_s": 0.9649,
+      "A_cib_217": 67.0,
+      "xi_sz_cib": 0.0,
+      "A_sz": 7.0,
+      "ksz_norm": 0.0,
+      "gal545_A_100": 7.0,
+      "gal545_A_143": 9.0,
+      "gal545_A_143_217": 21.0,
+      "gal545_A_217": 80.0,
+      "ps_A_100_100": 257.0,
+      "ps_A_143_143": 47.0,
+      "ps_A_143_217": 40.0,
+      "ps_A_217_217": 104.0,
+      "galf_TE_A_100": 0.13,
+      "galf_TE_A_100_143": 0.13,
+      "galf_TE_A_100_217": 0.46,
+      "galf_TE_A_143": 0.207,
+      "galf_TE_A_143_217": 0.69,
+      "galf_TE_A_217": 1.938,
+      "calib_100T": 1.0002,
+      "calib_217T": 0.99805,
+      "A_planck": 1.0
+    }
+  },
+  "mtdf": {
+    "chi2_total": 2910.726459371391,
+    "chi2_breakdown": {
+      "planck_2018_lowl.TT_clik": 25.87134527339856,
+      "planck_2018_lowl.EE_clik": 396.1905480408462,
+      "planck_2018_highl_plik.TTTEEE": 2478.5071430171342,
+      "planck_2018_lensing.native": 10.157423040011965
+    },
+    "logpost": -1476.7640055798959,
+    "loglike": -1455.3632296856954,
+    "logprior": -21.400775894200574,
+    "eval_time_s": 2.8744335174560547,
+    "params": {
+      "omega_b": 0.02237,
+      "omega_cdm": 0.12,
+      "theta_s_100": 1.04092,
+      "tau_reio": 0.0544,
+      "logA": 3.044,
+      "n_s": 0.9649,
+      "mtdf_k_f": 1.0,
+      "A_cib_217": 67.0,
+      "xi_sz_cib": 0.0,
+      "A_sz": 7.0,
+      "ksz_norm": 0.0,
+      "gal545_A_100": 7.0,
+      "gal545_A_143": 9.0,
+      "gal545_A_143_217": 21.0,
+      "gal545_A_217": 80.0,
+      "ps_A_100_100": 257.0,
+      "ps_A_143_143": 47.0,
+      "ps_A_143_217": 40.0,
+      "ps_A_217_217": 104.0,
+      "galf_TE_A_100": 0.13,
+      "galf_TE_A_100_143": 0.13,
+      "galf_TE_A_100_217": 0.46,
+      "galf_TE_A_143": 0.207,
+      "galf_TE_A_143_217": 0.69,
+      "galf_TE_A_217": 1.938,
+      "calib_100T": 1.0002,
+      "calib_217T": 0.99805,
+      "A_planck": 1.0
+    }
+  },
+  "delta_chi2": 1.781588196794928
+}

@@ -1,0 +1,39 @@
+MTDF CLASS Analysis Results
+================================================================================
+
+Sound Horizon Definitions:
+--------------------------------------------------------------------------------
+  r_d     = Sound horizon at drag epoch (z_drag ~ 1060)
+            This is the BAO standard ruler.
+  r_s_rec = Sound horizon at recombination (z_rec ~ 1090)
+            This determines the CMB acoustic scale.
+  Note: r_s_rec ≈ 0.98 × r_d (Planck 2018)
+
+Chi-squared Calculation:
+--------------------------------------------------------------------------------
+  l-range: 30 ≤ l ≤ 2000
+  Number of bins: 50
+  Method: Diagonal approximation with σ ≈ 2% of D_l
+
+Results Table:
+--------------------------------------------------------------------------------
+Model                   H0  ΔNeff       r_d   r_s_rec    D_M(z*)     100θ_s  l_peak
+--------------------------------------------------------------------------------
+Planck baseline      67.36   0.00  147.0971  144.4346   13872.76 104.184966     220
+H0=70 no EDE         70.00   0.00  147.0971  144.4346   13769.18 104.968766     219
+MTDF proxy           70.00   0.22  146.0047  143.3620   13767.30 104.195313     220
+
+Chi-squared Results:
+--------------------------------------------------------------------------------
+Model                   χ²_TT       χ²/N      N    RMS [%]
+--------------------------------------------------------------------------------
+Planck baseline          0.00     0.0000     50     0.0000
+H0=70 no EDE            78.13     1.5626     50     2.5001
+MTDF proxy              24.20     0.4839     50     1.3913
+
+Key Findings:
+--------------------------------------------------------------------------------
+  r_d reduction (MTDF proxy vs H0=70 no EDE): -0.74%
+  r_d reduction (MTDF proxy vs Planck baseline): -0.74%
+  χ² improvement: 78.1 → 24.2 (factor 3.2×)
+  θ_s recovered to within 0.0103 of baseline

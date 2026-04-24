@@ -1,0 +1,15 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "step": 21,
+  "description": "Cluster regime with physically anchored baryons",
+  "files": [
+    "step21_baryon_budget.png",
+    "step21_cluster_baryons.json",
+    "step21_esd_comparison.png",
+    "step21_scatter_bands.png"
+  ]
+}

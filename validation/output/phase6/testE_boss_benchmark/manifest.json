@@ -1,0 +1,53 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "files": {
+    "README.md": {
+      "sha256": "06c07b0b00caea490d7dab326e87b57d54b11855e1bd0079e6ee2fcea41e41aa",
+      "size": 7930
+    },
+    "phase6_testE_summary.json": {
+      "sha256": "904596b271cdc96ec022afd76025001aae97776dacda301952b1027183cec5f2",
+      "size": 10559
+    },
+    "testE_catalogue_comparison.png": {
+      "sha256": "b29ea6a18b248b1b8bd570eefda884a6f45077f09781a41d66de49de832291e4",
+      "size": 138834
+    },
+    "testE_kappa_profile.png": {
+      "sha256": "4c3f8cae699deafb85e59ffbdc8d74134c59a525c74ffc780a73f94b0aa7bd14",
+      "size": 129971
+    },
+    "testE_lowl_robustness.png": {
+      "sha256": "8e98ddd500e1f9bbf3a68b31b369fbc23752a0ffd317497f3ac66beaeacddd86",
+      "size": 137176
+    },
+    "testE_null_ra_ap_disc.png": {
+      "sha256": "e991c3ef8d1fbbb6a90aa102c394ef4d1387e794254214a2d4e9ae33f0bf98cb",
+      "size": 44129
+    },
+    "testE_null_ra_comp.png": {
+      "sha256": "3b42b14f57c068fd339b9d47e8cdb668b25522cb509fa7fc4eb8f0f9beca9a89",
+      "size": 45499
+    },
+    "testE_null_ra_cth.png": {
+      "sha256": "b5b8aa414c4ae24239843ccd0109848d8235324c3ef94afe4c38f8515df770d8",
+      "size": 43911
+    },
+    "testE_null_ra_mf.png": {
+      "sha256": "7be153a609699e59d1083dd053840d9f64b16052a0e009d4c7d36779bded9b6a",
+      "size": 42135
+    },
+    "testE_null_random_comp.png": {
+      "sha256": "331c1e028d3f0fe07de58add34a298e97095bba6474560cf224862b60e38f375",
+      "size": 43994
+    },
+    "testE_stat_comparison.png": {
+      "sha256": "1efbe8beddc4876a3ab98b3cea5ae2733f60b23c94e808610fcffc04bb4c769f",
+      "size": 95050
+    }
+  }
+}

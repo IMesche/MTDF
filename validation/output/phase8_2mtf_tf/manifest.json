@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-04-12",
+  "sha256": {
+    "README.md": "218e6dad7c6259770578613690840307e1b7fb1740ca675130cfbc4be0ac5bbb",
+    "nbody_2mtf_comparison.png": "5837c6b417b56fe4714eb953c1f63534d61231cf3b4a6b3e70fcee6ab7714451",
+    "task3b_2mtf_results.json": "5bdf29ebb9413e394fe91af49b95ea79576e09f9dc5c7d6edd6fbc2e92ac3fcf",
+    "task3b_comparison.png": "7e6dc28102d3bfcffd0104f45f6d7ca981671e58dc458ccfdc583b67c30cbf30",
+    "task3b_control_results.json": "c0d8ac18adb6c601d012470ad2680b3206746e3c0d2b48c39e85249f75c711a9",
+    "task3b_nbody_mock_results.json": "f1f1f8251c71389be5ae98207aee1cc48ad1c1f1db1faa4c19f11017569b7cdc",
+    "task3b_tf_revolver_h.png": "59d3d1a8474dbd6083fba4728f4d3c04f96acfbf915cce4be8000f887b4f5907",
+    "task3b_tf_revolver_j.png": "0583096b0843a32be17fbb98a5a60a8e8a5503d8f5ee2dd02ce3f59a9aecf43c",
+    "task3b_tf_revolver_k.png": "823a043fbf866faa8bb89877ef592628f34c79895ff6e331d94abf039a918ea1",
+    "task3b_tf_vide_h.png": "479dc88b3f1f8618830f2d252254943dfcd7c0f672fe3e34f32c2f5e9baf4140",
+    "task3b_tf_vide_j.png": "d674aa87b2efe4f1635e18279bc3c643d055384aeba73dcf952c18f078480f4d",
+    "task3b_tf_vide_k.png": "e5be51d52b41b0d6d7eb0b3f43511263eea16f95b2aa342e4c39dd6833d1470b",
+    "task3b_tf_voidfinder_h.png": "a8e968cf6706085dd5bef00c65771597454524c31d781caab583afcf4b243bdf",
+    "task3b_tf_voidfinder_j.png": "686ae301f9f240872f5e074646b0a5c536c5c9797e2ca87002f665d8193594a2",
+    "task3b_tf_voidfinder_k.png": "a486a87b2cc21b846e05538b4f028a56a10030a38f194dfc03049c4a0fe05b21"
+  }
+}

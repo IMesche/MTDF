@@ -1,0 +1,207 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 19: Relativistic completion - covariant formulation",
+  "part_A_field_equation": {
+    "covariant_field_equation": "Box chi + chi/beta^2 + lambda chi^2 = (alpha / E beta^2) T_matter",
+    "static_limit": "nabla^2 chi - lambda chi^2 = (alpha / E beta^2) rho c^2  (mass term chi/beta^2 negligible at r << beta)",
+    "step11_equation": "E beta^2 [nabla^2 S - lambda(S-S_0)^2] = alpha rho c^2",
+    "match": true,
+    "source_coefficient_m2_kg-1_s2": 2.915451895043732e-39,
+    "mass_term_analysis": {
+      "chi_at_100kpc": 25.442318493978284,
+      "mass_term_chi_over_beta2": 5.192309896730262e-47,
+      "self_interaction_lambda_chi2": 3.3012890087800505e-45,
+      "mass_to_self_interaction_ratio": 0.015728128870028904,
+      "mass_term_negligible": false,
+      "note": "At r = 100 kpc, the mass term chi/beta^2 is negligible compared to the self-interaction lambda*chi^2. The Yukawa mass only matters at cosmological scales (r ~ beta)."
+    },
+    "field_parameters": {
+      "E_Pa": 9.1e-10,
+      "beta_m": 7e+23,
+      "beta_kpc": 22685.0,
+      "lambda_m-2": 5.1e-48,
+      "mass_squared_m-2": 2.0408163265306123e-48,
+      "Compton_wavelength_kpc": 22683.08489954634
+    }
+  },
+  "part_B_gravitating_energy": {
+    "gravitating_density": "rho_stress = (E/2c^2) chi^2 = rho_0 f^2 L^2 / r^2",
+    "profile_type": "Isothermal (rho proportional to r^{-2})",
+    "step12_crosscheck": true,
+    "radii_table": {
+      "50_kpc": {
+        "chi": 50.88463698795657,
+        "rho_stress_kg_m3": 1.3107549329475528e-23,
+        "rho_stress_Msun_kpc3": 193675.40949615132,
+        "M_enclosed_Msun": 304224621827.0519,
+        "cross_term_fraction": 0.042611588865428436,
+        "cross_term_rejected": true
+      },
+      "100_kpc": {
+        "chi": 25.442318493978284,
+        "rho_stress_kg_m3": 3.276887332368882e-24,
+        "rho_stress_Msun_kpc3": 48418.85237403783,
+        "M_enclosed_Msun": 608449243654.1038,
+        "cross_term_fraction": 0.08522317773085687,
+        "cross_term_rejected": true
+      },
+      "200_kpc": {
+        "chi": 12.721159246989142,
+        "rho_stress_kg_m3": 8.192218330922205e-25,
+        "rho_stress_Msun_kpc3": 12104.713093509457,
+        "M_enclosed_Msun": 1216898487308.2075,
+        "cross_term_fraction": 0.17044635546171374,
+        "cross_term_rejected": true
+      },
+      "500_kpc": {
+        "chi": 5.088463698795657,
+        "rho_stress_kg_m3": 1.3107549329475527e-25,
+        "rho_stress_Msun_kpc3": 1936.754094961513,
+        "M_enclosed_Msun": 3042246218270.519,
+        "cross_term_fraction": 0.42611588865428435,
+        "cross_term_rejected": true
+      }
+    },
+    "background_subtraction": {
+      "background_energy": "(E/2) S_0^2 -> absorbed into Lambda",
+      "cross_term": "E S_0 chi -> cancelled (gives wrong profile shape, Step 12)",
+      "excitation": "(E/2) chi^2 -> gravitates (correct isothermal profile)"
+    },
+    "physical_analogy": "Like a spring: energy is (1/2)k(x-x_0)^2 measured from equilibrium, not from zero extension. The cosmological background S_0 is the equilibrium state; chi = S - S_0 is the local excitation."
+  },
+  "part_C_einstein_equations": {
+    "einstein_equation": "G_{mu nu} = (8 pi G / c^4) [T^matter + T^stress]",
+    "stress_energy_form": "T^stress_{mu nu} = rho_stress c^2 u_mu u_nu (static dust)",
+    "weak_field": "nabla^2 Phi = 4 pi G (rho_bar + rho_stress)",
+    "key_point": "MTDF modifies gravity by adding mass-energy (stress field), not by modifying the gravitational coupling G or the metric structure.",
+    "solar_system": {
+      "f_sun": 5.282969637963205e-16,
+      "M_stress_1AU_kg": 16.37385876420788,
+      "M_stress_over_Msun": 8.232206517952681e-30,
+      "log10_ratio": -29.08448374314331,
+      "negligible": true
+    },
+    "galaxy": {
+      "f": 1.0,
+      "rho_stress_100kpc_kg_m3": 3.276887332368882e-24,
+      "rho_stress_100kpc_Msun_kpc3": 48418.85237403783,
+      "M_stress_100kpc_Msun": 608449243654.1038,
+      "interpretation": "This IS what LCDM interprets as the dark matter halo"
+    },
+    "mw_local": {
+      "f_MW": 1.3597033374536465,
+      "rho_stress_8kpc_Msun_pc3": 0.013986944276406078,
+      "local_DM_observed": 0.013,
+      "local_DM_uncertainty": 0.001,
+      "match_within_1sigma": true
+    }
+  },
+  "part_D_gravitational_slip": {
+    "theorem": "eta = Phi/Psi = 1 EXACTLY",
+    "proof": "The MTDF stress energy T^stress_{mu nu} = rho c^2 u_mu u_nu is pressureless dust. Pressureless dust has zero anisotropic stress. The linearised Einstein equation nabla^2(Phi - Psi) = 8 pi G Pi_aniso then gives Phi = Psi with boundary conditions at infinity.",
+    "status": "EXACT (structural, not approximate)",
+    "physical_meaning": "Photons and matter see the same gravitational potential. Lensing mass = dynamical mass. No gravitational slip. This is a structural prediction of the elastic medium model, not a fine-tuning.",
+    "scales": [
+      {
+        "label": "Solar System (1 AU)",
+        "r_kpc": 4.847699287103046e-09,
+        "f": 5.282969637963205e-16,
+        "chi": 0.00027726760296511744,
+        "rho_stress_kg_m3": 3.891763094740502e-34,
+        "M_stress_Msun": 8.232206517952681e-30,
+        "anisotropic_stress": 0.0,
+        "eta": 1.0,
+        "eta_minus_1": 0.0,
+        "regime": "linear"
+      },
+      {
+        "label": "MW at 8 kpc",
+        "r_kpc": 8.0,
+        "f": 1.3597033374536465,
+        "chi": 432.4250671102614,
+        "rho_stress_kg_m3": 9.466073289766884e-22,
+        "M_stress_Msun": 89991744276.33078,
+        "anisotropic_stress": 0.0,
+        "eta": 1.0,
+        "eta_minus_1": 0.0,
+        "regime": "screened"
+      },
+      {
+        "label": "Galaxy halo (100 kpc)",
+        "r_kpc": 100.0,
+        "f": 1.0,
+        "chi": 25.442318493978284,
+        "rho_stress_kg_m3": 3.276887332368882e-24,
+        "M_stress_Msun": 608449243654.1038,
+        "anisotropic_stress": 0.0,
+        "eta": 1.0,
+        "eta_minus_1": 0.0,
+        "regime": "screened"
+      },
+      {
+        "label": "Cluster (1 Mpc)",
+        "r_kpc": 1000.0,
+        "f": 2.0,
+        "chi": 5.088463698795657,
+        "rho_stress_kg_m3": 1.3107549329475527e-25,
+        "M_stress_Msun": 24337969746164.152,
+        "anisotropic_stress": 0.0,
+        "eta": 1.0,
+        "eta_minus_1": 0.0,
+        "regime": "screened"
+      },
+      {
+        "label": "Void (10 Mpc)",
+        "r_kpc": 10000.0,
+        "f": 0.01,
+        "chi": 0.0025442318493978286,
+        "rho_stress_kg_m3": 3.276887332368882e-32,
+        "M_stress_Msun": 6084492436.541039,
+        "anisotropic_stress": 0.0,
+        "eta": 1.0,
+        "eta_minus_1": 0.0,
+        "regime": "linear"
+      }
+    ]
+  },
+  "part_E_conservation": {
+    "theorem": "Energy-momentum conservation is automatic when the compression field satisfies its field equation.",
+    "bianchi_identity": "nabla_mu G^{mu nu} = 0",
+    "consequence": "nabla_mu (T^matter + T^stress)^{mu nu} = 0",
+    "mechanism": "The Bianchi identity guarantees conservation. The field equation for chi ensures the stress energy is consistently determined. This is equivalent to the elastic equilibrium condition.",
+    "status": "EXACT (structural, from Bianchi identity)"
+  },
+  "part_F_ppn_crosscheck": {
+    "f_sun": 5.282969637963205e-16,
+    "f_sun_squared": 2.790976819564108e-31,
+    "PPN_gamma": {
+      "prediction": 8.232206517952681e-30,
+      "bound": 2.3e-05,
+      "log10_margin": 24.446211579160902
+    },
+    "PPN_beta": {
+      "prediction": 8.232206517952681e-30,
+      "bound": 8e-05,
+      "log10_margin": 24.987573730135253
+    },
+    "anomalous_acceleration": {
+      "a_extra_m_s2": 4.884067646644751e-32,
+      "a_newton_m_s2": 0.00593140799708313,
+      "fractional": 8.234246656184457e-30,
+      "bound": 1e-09,
+      "log10_margin": 22.31121832950171
+    },
+    "step13_match": true,
+    "conclusion": "All PPN parameters match Step 13 exactly. The covariant formulation confirms: the compression field is utterly negligible at Solar System scales."
+  },
+  "summary": {
+    "Q1_metric": "Standard GR metric sourced by baryons + elastic deformation energy",
+    "Q2_conservation": "Automatic (Bianchi identity)",
+    "Q3_slip": "eta = 1 exactly (pressureless dust, zero anisotropic stress)",
+    "framing": "Effective field description (not UV-complete)"
+  }
+}

@@ -1,0 +1,94 @@
+# ==============================================================================
+# MTDF .gitignore
+# ==============================================================================
+# Keeps external datasets, build outputs, and trained model caches out of Git.
+# Scientific source material (LaTeX, Python, data specs, validation workbook)
+# is NOT ignored.
+# ==============================================================================
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+ENV/
+
+# --- Jupyter -----------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# --- LaTeX build artefacts ---------------------------------------------------
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# --- CLASS build artefacts ---------------------------------------------------
+class_mtdf/class
+class_mtdf/libclass.a
+class_mtdf/build/
+class_mtdf/python/build/
+class_mtdf/python/classy.egg-info/
+class_mtdf/**/*.o
+
+# --- Trained emulator caches (Zenodo-hosted, see phase2/models/README.md) ----
+gpu_validation/phase2/models/*.npz
+gpu_validation/phase2/models/*.pkl
+
+# --- External datasets (fetched by scripts/download_*.sh) --------------------
+# Keep download scripts, keep checksums, ignore the downloaded bulk.
+# Note: the on-disk directory is capital-E "External/" (case-sensitive on Linux).
+validation/data/External/
+data/downloaded/
+
+# --- OS / editor junk --------------------------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# --- Backup files ------------------------------------------------------------
+*.bak
+*.orig
+*.rej
+
+# --- Local log / scratch -----------------------------------------------------
+*.local.log
+scratch/
+tmp/

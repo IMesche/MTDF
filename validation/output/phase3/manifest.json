@@ -1,0 +1,12 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-02-13",
+  "sha256": {
+    "README.md": "4107d88e4ce66d6b12345ad874e8a177017879057cdc0b35acd78e45cf7ded73",
+    "phase3_summary.json": "8fc9d512ff7df56fa9eed76befdd3aaa5ecfcb3f4bab33afb066981712465414"
+  }
+}

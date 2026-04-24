@@ -1,0 +1,400 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 21: Cluster regime with physically anchored baryons",
+  "method": "One-step forward prediction: compute r_500 and M_500 from central-only MTDF compression, apply Giodini+2009 gas and Yang+2007 satellite scaling at this M_500, compute f_total from total M_bar. No iteration, zero free parameters.",
+  "part_A_baryon_budget": {
+    "approach": "Central-only MTDF M_500 is 5-15x smaller than LCDM M_500 (no dark matter halo). Giodini gas at this smaller M_500 gives ~10-15% of Route A gas masses. Bins 1-4 unchanged (central-only).",
+    "budgets": [
+      {
+        "bin": 1,
+        "log_Mstar": 10.2,
+        "M_star": 15848931924.611109,
+        "M_bar_central": 16641378520.841665,
+        "f_central": 0.8347882093470603,
+        "r_500_kpc": 123.77596538884272,
+        "M_500": 541331670747.49866,
+        "f_gas": 0.0,
+        "M_gas": 0.0,
+        "R_sat": 0.0,
+        "M_sat": 0.0,
+        "f_icl": 0.0,
+        "M_icl": 0.0,
+        "M_bar_total": 16641378520.841665,
+        "M_bar_ratio": 1.0,
+        "f_total": 0.8347882093470603,
+        "f_ratio": 1.0
+      },
+      {
+        "bin": 2,
+        "log_Mstar": 10.55,
+        "M_star": 35481338923.357605,
+        "M_bar_central": 36900592480.29191,
+        "f_central": 1.0186789136017367,
+        "r_500_kpc": 151.54307958706073,
+        "M_500": 993488387248.2516,
+        "f_gas": 0.0,
+        "M_gas": 0.0,
+        "R_sat": 0.0,
+        "M_sat": 0.0,
+        "f_icl": 0.0,
+        "M_icl": 0.0,
+        "M_bar_total": 36900592480.29191,
+        "M_bar_ratio": 1.0,
+        "f_total": 1.0186789136017367,
+        "f_ratio": 1.0
+      },
+      {
+        "bin": 3,
+        "log_Mstar": 10.85,
+        "M_star": 70794578438.41373,
+        "M_bar_central": 72918415791.56615,
+        "f_central": 1.2077812628598945,
+        "r_500_kpc": 180.27988721930456,
+        "M_500": 1672616214664.2908,
+        "f_gas": 0.0,
+        "M_gas": 0.0,
+        "R_sat": 0.0,
+        "M_sat": 0.0,
+        "f_icl": 0.0,
+        "M_icl": 0.0,
+        "M_bar_total": 72918415791.56615,
+        "M_bar_ratio": 1.0,
+        "f_total": 1.2077812628598945,
+        "f_ratio": 1.0
+      },
+      {
+        "bin": 4,
+        "log_Mstar": 11.1,
+        "M_star": 125892541179.41661,
+        "M_bar_central": 128410392003.00494,
+        "f_central": 1.3913263960432438,
+        "r_500_kpc": 208.34690645833095,
+        "M_500": 2581758637946.0107,
+        "f_gas": 0.0,
+        "M_gas": 0.0,
+        "R_sat": 0.0,
+        "M_sat": 0.0,
+        "f_icl": 0.0,
+        "M_icl": 0.0,
+        "M_bar_total": 128410392003.00494,
+        "M_bar_ratio": 1.0,
+        "f_total": 1.3913263960432438,
+        "f_ratio": 1.0
+      },
+      {
+        "bin": 5,
+        "log_Mstar": 11.3,
+        "M_star": 199526231496.88828,
+        "M_bar_central": 202519124969.34158,
+        "f_central": 1.559177260230113,
+        "r_500_kpc": 234.16265112583102,
+        "M_500": 3665281617272.213,
+        "f_gas": 0.045439653827151726,
+        "M_gas": 166549127867.87216,
+        "R_sat": 1.5,
+        "M_sat": 299289347245.3324,
+        "f_icl": 0.12,
+        "M_icl": 59857869449.06648,
+        "M_bar_total": 728215469531.6127,
+        "M_bar_ratio": 3.5957861739816117,
+        "f_total": 2.147058891123093,
+        "f_ratio": 1.3770460523559822
+      },
+      {
+        "bin": 6,
+        "log_Mstar": 11.5,
+        "M_star": 316227766016.83795,
+        "M_bar_central": 319390043677.00635,
+        "f_central": 1.7472672030095997,
+        "r_500_kpc": 263.2576861320847,
+        "M_500": 5208319872701.559,
+        "f_gas": 0.04909133925140438,
+        "M_gas": 255683397800.6235,
+        "R_sat": 2.0,
+        "M_sat": 632455532033.6759,
+        "f_icl": 0.12,
+        "M_icl": 113841995766.06166,
+        "M_bar_total": 1321370969277.3674,
+        "M_bar_ratio": 4.137170194990947,
+        "f_total": 2.4919261749729125,
+        "f_ratio": 1.4261849422232997
+      },
+      {
+        "bin": 7,
+        "log_Mstar": 11.7,
+        "M_star": 501187233627.2715,
+        "M_bar_central": 506199105963.5442,
+        "f_central": 1.9604660463733452,
+        "r_500_kpc": 296.44659080070534,
+        "M_500": 7436932679034.127,
+        "f_gas": 0.05309309520512279,
+        "M_gas": 394849774762.0478,
+        "R_sat": 3.0,
+        "M_sat": 1503561700881.8145,
+        "f_icl": 0.12,
+        "M_icl": 240569872141.0903,
+        "M_bar_total": 2645180453748.4966,
+        "M_bar_ratio": 5.22557314421452,
+        "f_total": 2.9640997030268985,
+        "f_ratio": 1.5119362605183444
+      }
+    ],
+    "mtdf_vs_lcdm_m500": {
+      "5": {
+        "mtdf": 3665281617272.213,
+        "lcdm": 17800000000000.0,
+        "ratio": 0.20591469759956252
+      },
+      "6": {
+        "mtdf": 5208319872701.559,
+        "lcdm": 44100000000000.0,
+        "ratio": 0.11810249144447979
+      },
+      "7": {
+        "mtdf": 7436932679034.127,
+        "lcdm": 129000000000000.0,
+        "ratio": 0.05765064092274517
+      }
+    }
+  },
+  "part_BC_esd_prediction": {
+    "per_bin": [
+      {
+        "bin": 1,
+        "log_Mstar": 10.2,
+        "chi2_central": 14.370096697869386,
+        "chi2_completed": 14.370096697869386,
+        "chi2_per_nu_central": 0.9580064465246257,
+        "chi2_per_nu_completed": 0.9580064465246257,
+        "n_pts": 15,
+        "improvement": 1.0
+      },
+      {
+        "bin": 2,
+        "log_Mstar": 10.55,
+        "chi2_central": 33.21863665401029,
+        "chi2_completed": 33.21863665401029,
+        "chi2_per_nu_central": 2.2145757769340193,
+        "chi2_per_nu_completed": 2.2145757769340193,
+        "n_pts": 15,
+        "improvement": 1.0
+      },
+      {
+        "bin": 3,
+        "log_Mstar": 10.85,
+        "chi2_central": 40.10392204188185,
+        "chi2_completed": 40.10392204188185,
+        "chi2_per_nu_central": 2.6735948027921235,
+        "chi2_per_nu_completed": 2.6735948027921235,
+        "n_pts": 15,
+        "improvement": 1.0
+      },
+      {
+        "bin": 4,
+        "log_Mstar": 11.1,
+        "chi2_central": 65.40025757050896,
+        "chi2_completed": 65.40025757050896,
+        "chi2_per_nu_central": 4.3600171713672635,
+        "chi2_per_nu_completed": 4.3600171713672635,
+        "n_pts": 15,
+        "improvement": 1.0
+      },
+      {
+        "bin": 5,
+        "log_Mstar": 11.3,
+        "chi2_central": 232.74756350907904,
+        "chi2_completed": 35.90816524129515,
+        "chi2_per_nu_central": 15.516504233938603,
+        "chi2_per_nu_completed": 2.39387768275301,
+        "n_pts": 15,
+        "improvement": 6.4817448049786295
+      },
+      {
+        "bin": 6,
+        "log_Mstar": 11.5,
+        "chi2_central": 411.3053634341128,
+        "chi2_completed": 114.09127413988648,
+        "chi2_per_nu_central": 27.420357562274187,
+        "chi2_per_nu_completed": 7.606084942659098,
+        "n_pts": 15,
+        "improvement": 3.6050553956458957
+      },
+      {
+        "bin": 7,
+        "log_Mstar": 11.7,
+        "chi2_central": 380.33232213036973,
+        "chi2_completed": 172.18816515942015,
+        "chi2_per_nu_central": 25.355488142024647,
+        "chi2_per_nu_completed": 11.47921101062801,
+        "n_pts": 15,
+        "improvement": 2.2088180205546624
+      }
+    ],
+    "bins_5_7": {
+      "chi2_per_nu_central": 22.76411664607915,
+      "chi2_per_nu_completed": 7.159724545346706,
+      "improvement": 3.179468218630582,
+      "n_pts": 45
+    },
+    "bins_1_4": {
+      "chi2_per_nu": 2.551548549404508,
+      "note": "Unchanged (no completion applied)",
+      "n_pts": 60
+    },
+    "all_7": {
+      "chi2_per_nu_central": 11.214077733693639,
+      "chi2_per_nu_completed": 4.526481119094021,
+      "n_pts": 105
+    }
+  },
+  "part_D_monte_carlo": {
+    "N_MC": 1000,
+    "scatter_sources": {
+      "f_gas": "Gaussian sigma=0.03 (Giodini+2009)",
+      "R_sat": "Gaussian with bin-dependent sigma",
+      "f_ICL": "uniform [0.07, 0.17]"
+    },
+    "per_bin": {
+      "5": {
+        "median": 2.7845722473285135,
+        "p16": 2.4228060628310435,
+        "p84": 3.8962136543976866,
+        "p2_5": 2.28359716090199,
+        "p97_5": 6.29112950679692
+      },
+      "6": {
+        "median": 7.717780604776317,
+        "p16": 5.597413481403578,
+        "p84": 10.906215162967934,
+        "p2_5": 4.587723287253261,
+        "p97_5": 15.648239388559379
+      },
+      "7": {
+        "median": 11.5791934946084,
+        "p16": 9.625591557548583,
+        "p84": 14.11407753470147,
+        "p2_5": 8.120349491989504,
+        "p97_5": 17.168668080677943
+      }
+    },
+    "combined_5_7": {
+      "median": 7.583316381851955,
+      "p16": 6.556942106335286,
+      "p84": 8.99369851124009,
+      "p2_5": 5.656076925946868,
+      "p97_5": 10.881481057410438
+    }
+  },
+  "part_E_anderson_crosscheck": {
+    "reference": "Anderson+2015 (MNRAS 449, 3806)",
+    "method": "Direct M_gas(M_*) from stacked ROSAT X-ray",
+    "comparison": [
+      {
+        "bin": 5,
+        "log_Mstar": 11.3,
+        "M_gas_anderson": 177827941003.893,
+        "M_gas_mtdf": 166549127867.87216,
+        "ratio": 0.9365745727451574,
+        "log_ratio": -0.028457637143699616
+      },
+      {
+        "bin": 6,
+        "log_Mstar": 11.5,
+        "M_gas_anderson": 354813389233.57605,
+        "M_gas_mtdf": 255683397800.6235,
+        "ratio": 0.7206137241689755,
+        "log_ratio": -0.14229747094770395
+      },
+      {
+        "bin": 7,
+        "log_Mstar": 11.7,
+        "M_gas_anderson": 707945784384.1373,
+        "M_gas_mtdf": 394849774762.0478,
+        "ratio": 0.557740131337231,
+        "log_ratio": -0.25356810538962277
+      }
+    ],
+    "all_within_scatter": true
+  },
+  "part_F_step17_comparison": {
+    "step17_route_a_Mgas": {
+      "5": 1640000000000.0,
+      "6": 2830000000000.0,
+      "7": 5140000000000.0
+    },
+    "step17_route_b_f_ratio": {
+      "5": 1.4,
+      "6": 1.6,
+      "7": 2.1
+    },
+    "step21_gas_to_route_a": {
+      "5": 0.10155434626089765,
+      "6": 0.0903474903889129,
+      "7": 0.07681902232724665
+    },
+    "step21_f_ratio": {
+      "5": 1.3770460523559822,
+      "6": 1.4261849422232997,
+      "7": 1.5119362605183444
+    },
+    "key_finding": "Central-only MTDF M_500 is 5-15x smaller than LCDM M_500. Gas at this smaller M_500 is ~10-15% of Giodini at LCDM M_500, matching the Step 17 Route B/C finding. The f_ratio from one-step completion matches Route B for bin 5, falls slightly short for bins 6-7."
+  },
+  "part_G_consistency": {
+    "lcdm_baryon_fraction_limit": 0.15555555555555556,
+    "note": "In MTDF, f_b > 0.156 is expected: no DM dilution. Stress field replaces DM gravitationally.",
+    "baryon_fractions": {
+      "5": 0.1986792682177495,
+      "6": 0.2537038817840448,
+      "7": 0.3556816456340492
+    },
+    "stress_dominance": {
+      "5": 4.033237785555033,
+      "6": 2.941603072716127,
+      "7": 1.8115029613557057
+    }
+  },
+  "part_H_falsifiers": [
+    {
+      "test": "Zero-parameter cluster prediction",
+      "prediction": "chi2/nu improves over central-only for bins 5-7",
+      "result": "central chi2/nu = 22.76 -> completed chi2/nu = 7.16",
+      "status": "PASS"
+    },
+    {
+      "test": "Bins 1-4 unaffected",
+      "prediction": "chi2 change < 1% for bins 1-4",
+      "result": "change = 0.0%",
+      "status": "PASS"
+    },
+    {
+      "test": "Stress dominance at group scales",
+      "prediction": "M_stress > M_bar within r_500 (stress replaces DM)",
+      "result": "min M_stress/M_bar = 1.8x",
+      "status": "PASS"
+    },
+    {
+      "test": "Anderson+2015 cross-check",
+      "prediction": "M_gas agrees within 1 dex of X-ray stacking",
+      "result": "max |log ratio| = 0.25",
+      "status": "PASS"
+    },
+    {
+      "test": "Overall improvement",
+      "prediction": "All-bin chi2/nu improves with completion",
+      "result": "11.21 -> 4.53",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "chi2_per_nu_57_completed": 7.159724545346706,
+    "chi2_per_nu_57_mc_median": 7.583316381851955,
+    "chi2_per_nu_14": 2.551548549404508,
+    "chi2_per_nu_all_completed": 4.526481119094021,
+    "free_parameters": 0,
+    "framing": "The central-only MTDF stress field defines a gravitational M_500 that is 5-15x smaller than LCDM (no dark matter). Applying the SAME Giodini/Gonzalez scaling at this smaller M_500 gives gas masses ~10-15% of LCDM-calibrated values, matching the Step 17 Route B finding. Zero new parameters, zero fitting."
+  }
+}

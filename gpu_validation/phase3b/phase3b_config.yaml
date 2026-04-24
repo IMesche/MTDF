@@ -1,0 +1,46 @@
+# Phase 3b: Asymmetry and Detectability Diagnostics
+data:
+  data_dir: null  # defaults to validation/data
+  z_min: 0.02
+  z_max: 0.157
+  finders:
+    - voidfinder
+    - revolver
+    - vide
+
+ngc_sgc:
+  ngc_ra_min: 90.0
+  ngc_ra_max: 280.0
+
+test_a:
+  enabled: true
+  ipw_percentile_clip: [1, 99]
+  covariates: [z, host_mass, survey_id]
+  min_survey_count: 10
+
+test_b:
+  enabled: true
+  z_bin_edges: [0.02, 0.04, 0.06, 0.10, 0.157]
+  area_ngc_deg2: 7500.0
+  area_sgc_deg2: 2500.0
+
+test_c:
+  enabled: true
+  n_bootstrap: 1000
+  seed: 42
+
+test_d:
+  enabled: true
+  n_mocks: 200
+  seed: 123
+
+test_e:
+  enabled: true
+  n_realizations: 200
+  injection_strengths: [0.5, 1.0, 1.5]
+  seed: 456
+
+output:
+  save_plots: true
+  plot_formats: [png, pdf]
+  dpi: 150

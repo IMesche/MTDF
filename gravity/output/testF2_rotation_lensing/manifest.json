@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "generated": "2026-02-17",
+  "sha256": {
+    "README.md": "831b8f3951feb2bc9bdbaa97ae72982ae165fe5afc978e2f4855d1b6a1583d05",
+    "testF2_esd_prediction.png": "af99e7ced130f680d1fa42b7984a27d8a6ce837e1a14fd400eb12fa86c0097c7",
+    "testF2_rotation_lensing.json": "ceaab2d961a9d1e36b99b76d21b5f5e5f27a65f3b16ab559721a5b61a154e27d",
+    "testF2_sparc_mass_profiles.png": "40285d65964214fc9674d36a1a901911bde50229bcde9b3e762a81a84dbf50df"
+  }
+}

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author" content="Ingo Mesche"/>
+<meta name="affiliation" content="Independent Researcher, Malta"/>
+<title>MTDF Companion Paper Part III: Photon Coupling, Redshift, and Early Universe Links</title>
+<style>
+@page { size: A4; margin: 2.2cm; }
+:root{
+  --text:#111;
+  --muted:#555;
+  --rule:#d0d0d0;
+  --bg:#ffffff;
+  --soft:#f5f5f5;
+  --soft2:#fbfbfb;
+  --accent:#1a4b8a;
+}
+html, body{
+  margin:0;
+  padding:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  text-align: justify;
+  hyphens: auto;
+}
+.wrap{
+  max-width: 190mm;
+  margin: 0 auto;
+  padding: 26px 18px 44px;
+}
+h1{
+  font-size: 18pt;
+  text-align: center;
+  margin: 10pt 0 3pt;
+  letter-spacing: 0.2px;
+}
+.subtitle{
+  text-align: center;
+  font-size: 10pt;
+  color: var(--muted);
+  margin: 0 0 16pt;
+}
+.meta{
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8pt 0;
+  margin: 14pt 0 18pt;
+}
+.meta div{ display: inline; margin: 0 6px; white-space: nowrap; }
+p{ margin: 0 0 9pt; }
+ul, ol{ margin: 6pt 0 10pt 18pt; }
+li{ margin: 3pt 0; }
+h2{
+  font-size: 13pt;
+  margin-top: 18pt;
+  margin-bottom: 6pt;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2pt;
+}
+h3{
+  font-size: 11.5pt;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+}
+h4{
+  font-size: 11pt;
+  margin-top: 10pt;
+  margin-bottom: 4pt;
+}
+.abstract{
+  border: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 10pt 12pt;
+  font-size: 10pt;
+  margin: 12pt 0 18pt;
+}
+.abstract strong{ color: var(--accent); }
+.callout{
+  border-left: 3pt solid var(--accent);
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 8pt 10pt;
+  margin: 10pt 0 12pt;
+  font-size: 10pt;
+}
+.eq{
+  text-align: center;
+  margin: 10pt 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow-x: auto;
+}
+.small{ font-size: 9.5pt; color: var(--muted); }
+table, .tbl{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+}
+th, td, .tbl th, .tbl td{
+  border: 1px solid var(--rule);
+  padding: 5pt 6pt;
+  vertical-align: top;
+}
+th, .tbl th{
+  background: #f0f0f0;
+  text-align: left;
+  font-weight: 600;
+}
+.caption, figcaption{
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  margin-top: -8pt;
+  margin-bottom: 14pt;
+  font-style: italic;
+}
+figure{ margin: 10pt 0 14pt; }
+.toc{
+  border: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 10pt 12pt;
+  margin: 14pt 0 16pt;
+  font-size: 10pt;
+}
+.toc a{ color: var(--accent); text-decoration: none; }
+.toc a:hover{ text-decoration: underline; }
+.refs{ font-size: 9.5pt; word-break: break-word; overflow-wrap: break-word; }
+.ref-doi{ font-family: "Courier New", Courier, monospace; }
+.footer{
+  margin-top: 26pt;
+  padding-top: 8pt;
+  border-top: 1px solid var(--rule);
+  font-size: 8.5pt;
+  color: var(--muted);
+  text-align: center;
+}
+/* Print rules */
+@media print{
+  .wrap{ padding-bottom: 0; }
+  a{ color: var(--text); text-decoration: none; }
+  .toc{ page-break-after: always; }
+  table, figure, .callout, .abstract{ page-break-inside: avoid; }
+  h2, h3{ page-break-after: avoid; }
+  p{ orphans: 3; widows: 3; }
+}
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)'], ['$', '$']],
+      displayMath: [['$$','$$'], ['\\[','\\]']]
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div class="wrap">
+<h1>MTDF Companion Paper Part III: Photon Coupling, Redshift, and Early Universe Links</h1>
+<div class="subtitle">Extensions, hypotheses, and test programmes (draft for release)</div>
+<div class="meta">
+<div><strong>Author:</strong> Ingo Mesche</div>
+<div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
+<div><strong>Contact:</strong> imesche@outlook.com</div>
+<div><strong>Version:</strong> V74 / February 2026</div>
+</div>
+<div class="toc">
+<strong>Contents</strong>
+<ol>
+<li><a href="#purpose">Purpose and scope</a></li>
+<li><a href="#photon">Photon coupling and stress induced redshift</a></li>
+<li><a href="#early">Early structure, JWST era tensions, and BAO links</a></li>
+<li><a href="#tests">Falsification table and observation timeline</a></li>
+</ol>
+</div>
+<div class="abstract">
+<p><strong>Abstract.</strong> This companion paper (Part III) explores the coupling between the MTDF stress field and photon propagation. We present the photon-stress coupling parameter κ = 0.00102, its structural relation to the early field energy fraction f<sub>kick</sub>, and the resulting achromatic frequency shift mechanism. Empirical motivation comes from Pantheon+ Type Ia supernovae cross-matched to DESI void catalogues, which detect an environment-dependent distance-modulus residual (γ<sub>env</sub> = +0.013 ± 0.004, p = 0.003) at low redshift. All extensions are explicitly labelled as hypotheses with stated falsification criteria.</p>
+</div>
+
+<div class="callout" style="border-left:3px solid #1A4B8A;background:#FBFBFB;padding:8px 12px;margin:12px 0;">
+<p><strong>Claim status.</strong>
+The photon-coupling sector is a hypothesis and is not a core validated claim of MTDF. The tests in this paper define falsifiable observational targets and current consistency limits.</p>
+</div>
+
+<h2 id="purpose">1. Purpose and scope</h2>
+<p>
+This part collects MTDF extension ideas that couple the stress field to photon propagation and redshift, and explores how those ideas could relate to early structure observations and standard ruler measurements.
+These sections are explicitly labelled as hypotheses unless and until they are validated against independent datasets.
+</p><p>Empirical motivation: an MTDF extension test using Pantheon+ Type Ia supernovae cross matched to DESI DESIVAST void catalogues, analysed under the full Pantheon+ STAT+SYS covariance, detects an environment dependent term in distance modulus residuals that is strongest at low redshift. For the low-z bin (z &lt; 0.04), the fitted environment coefficient is γ_env = +0.013 ± 0.004, with nominal p = 0.003 (signed distance to void boundary metric). This supports an environment dependent distance redshift mapping. It does not uniquely identify photon coupling as the mechanism, but it motivates the photon propagation and falsifier tests in this part.</p>
+<h2 id="photon">2. Photon coupling and stress induced redshift</h2>
+<p>
+Some observational tensions are often framed as “distance ladder” issues, selection effects, or modelling systematics.
+MTDF offers an additional possibility: part of the measured redshift could include a stress related contribution that depends on the integrated field state along the line of sight.
+</p><p class="small"><strong>Important practical point:</strong> redshift-only tests using galaxy samples inside and outside voids primarily measure the peculiar-velocity field (void outflow and associated large scale flows), typically at the tens to hundreds of km/s level. A positive void redshift residual is therefore expected in standard structure formation and cannot, by itself, isolate any subdominant stress-photon contribution without independent distance indicators or an explicit velocity-field reconstruction. This does not conflict with the SN result: a void can generate kinematic redshift from outflow while still producing a reduced path-integrated stress interaction, yielding a systematic brightening at fixed redshift.</p><table class="tbl"><thead><tr><th>Observable</th><th>Dominant contribution</th><th>What a void signal means</th></tr></thead><tbody><tr><td>Galaxy redshift residuals (spectroscopic)</td><td>Peculiar velocities and survey selection</td><td>Mostly a kinematic consistency check (void outflow). Not a clean photon coupling probe.</td></tr><tr><td>SN Ia distance modulus residuals at fixed z</td><td>Environment-dependent distance mapping after standardisation</td><td>Evidence for an environment-linked residual in the distance-redshift relation at low z.</td></tr></tbody></table>
+<h3>2.1 Stress induced frequency shift</h3>
+<div class="callout"><strong>Status:</strong> Hypothesis. Not a core validated claim.</div>
+<h4>Observation</h4>
+<p>In standard cosmology, redshift is primarily kinematic and gravitational in origin, with well defined contributions in GR. Some datasets and comparisons motivate checking whether there is any additional environment dependent component.</p><p class="small">Link to Part I: the SN × void analysis provides evidence for an environment-dependent residual in a distance-based observable. Any photon-coupling model proposed here must remain consistent with that measured sign and redshift localisation, while also remaining perturbative (|δz_stress| much less than z_exp).</p>
+<h4>Proposed MTDF mechanism</h4>
+<p>Within this hypothesis, a weak coupling between photon frequency and the local stress magnitude could arise in the MTDF framework through propagation in a strained spacetime background. The fractional frequency shift along a photon trajectory would then take the form:</p>
+<div class="eq"><div>$$
+\frac{d\nu}{\nu} = -\,\kappa\,c\,\langle \Vert \tilde{S}\Vert\rangle\,dt
+$$</div></div>
+<h4>Structural relation between &kappa; and f<sub>kick</sub></h4>
+<p>The pipeline uses &kappa; = 1.02 &times; 10<sup>&minus;3</sup>, an observational anchor set within the FIRAS spectral-distortion bounds (|&mu;| &lt; 9 &times; 10<sup>&minus;5</sup>, |y| &lt; 1.5 &times; 10<sup>&minus;5</sup>; Fixsen et al. 1996) and adopted from the V18 workbook calibration. Two candidate first-principles expressions sit close to this value:</p>
+<div class="eq"><div>$$
+\kappa = \frac{f_{\mathrm{kick}}}{3} = 1.10 \times 10^{-3}, \qquad \kappa = \frac{f_{\mathrm{kick}}}{\pi} = 1.05 \times 10^{-3}
+$$</div></div>
+<p>where \(f_{\mathrm{kick}} = (1-\beta_{\mathrm{eos}})^2 / [24\,(1+\alpha)] = 3.303 \times 10^{-3}\) is the early field energy fraction derived in Companion Part I, Section 3.1.</p>
+<p>The first expression follows from the exact angular averaging of the spatial strain tensor projection onto photon propagation directions:</p>
+<div class="eq"><div>$$
+\langle S_{ij}\,n^i\,n^j \rangle_{\Omega} = \tfrac{1}{3}\,S^i{}_i
+$$</div></div>
+<p>This is a standard isotropic tensor identity and introduces no additional assumptions. The second expression (&kappa; = f<sub>kick</sub>/&pi;) gives a closer numerical match (3.0% vs 7.9% above the pipeline value) but the &pi; factor has not been rigorously derived; it may arise from path-integral normalisation or 3D-to-1D field statistics. The structural proportionality &kappa; &prop; f<sub>kick</sub> is robust; the numerical denominator (3, &pi;, or another order-unity geometric factor) remains an open question (see documentation/Notes/05_Kappa_Derivation.md for the full analysis).</p>
+<p>A forward sensitivity evaluation at the best-fit point gives &Delta;&chi;&sup2;(&kappa; = 1.10 &times; 10<sup>&minus;3</sup>) &asymp; +0.5 on the CMB correction path; the late-universe likelihood is insensitive because &kappa; enters there only as the product k<sub>f</sub> &times; &kappa;. We therefore retain the pipeline value pending either analytical resolution of the denominator or a full MCMC refit.</p>
+<p>The pipeline value is well below FIRAS detection sensitivity, and direct detection of &kappa; would require next-generation experiments such as PIXIE.</p>
+<p>Regardless of the exact denominator, the proportionality &kappa; &prop; f<sub>kick</sub> links the photon sector to the same field dynamics that determine early-universe energy injection. The photon coupling is not independent of the gravity sector: it is structurally determined by {&alpha;, &beta;<sub>eos</sub>} through f<sub>kick</sub>.</p>
+<h4>Physical interpretation</h4>
+<p>The photon-stress coupling is a geometric (conservative) effect: the photon propagates through the strain-modified effective metric and experiences a frequency shift proportional to the strain variation along its path. No energy is transferred locally between the photon and the strain field. This interpretation is supported by superconducting cavity measurements: if \(\kappa\) were dissipative (transferring energy from photons to the strain field), it would limit microwave cavity quality factors to \(Q_\kappa \sim 5 \times 10^7\), four orders of magnitude below measured values of \(Q > 2 \times 10^{11}\) for superconducting niobium cavities at 1.3&nbsp;GHz. The dissipative interpretation is ruled out by existing data.</p>
+<p>The geometric nature of the coupling makes a specific prediction: the photon-stress frequency shift is strictly achromatic. Any detection of wavelength-dependent \(\kappa\) (beyond second-order metric corrections, estimated at \(\delta\kappa/\kappa < 10^{-6}\)) would falsify the geometric interpretation.</p>
+<h4>Predictions</h4>
+<p>
+<strong>Perturbative bound and safety check:</strong> the dominant redshift contribution remains cosmological expansion and standard gravity.
+Any MTDF photon-stress coupling must enter as a small correction:
+\[
+z_{\mathrm{obs}} = z_{\mathrm{exp}} + \delta z_{\mathrm{stress}}, \qquad \lvert \delta z_{\mathrm{stress}}\rvert \ll z_{\mathrm{exp}}.
+\]
+Equivalently, for small corrections, \( (1+z_{\mathrm{obs}}) \approx (1+z_{\mathrm{exp}})(1+\delta z_{\mathrm{stress}}) \).
+A detection of order-unity non-cosmological shifts would directly contradict standard ruler and isotropy constraints and would therefore falsify this extension.
+</p>
+<p class="small">
+This is not a global "tired light" replacement: the hypothesis is a line-of-sight, environment linked perturbation that must vanish (or become negligible) in low stress regions.
+</p>
+<ul><li>Differential redshift effects could correlate with large scale density or void depth along the line of sight.</li><li>If the coupling is non zero, multi wavelength comparisons could show a small but structured offset in inferred redshift for the same object class.</li><li>Any effect should be bounded by existing isotropy constraints, which makes anisotropy a natural falsifier.</li></ul>
+<h4>How to test</h4>
+<ul><li>Perform redshift versus density correlation tests within a single survey using consistent selection and forward modelling of systematics.</li><li>Use multi wavelength observations (for example X ray versus optical lines) to check for a persistent differential component under controlled calibration.</li><li>Test isotropy by searching for a dipole or higher multipoles in the residual after standard corrections.</li></ul>
+<div class="callout"><strong>Interpretation:</strong> A null result is valuable: it constrains photon coupling extensions without impacting the stress field dynamics used for galaxy scale phenomenology.</div>
+<h2 id="early">3. Early structure, JWST era tensions, and BAO links</h2>
+<p>
+If early structure appears more mature than expected under a baseline model, there are two broad options: revise the physical model for formation and feedback, or revisit the mapping between redshift and cosmic time in the relevant regime.
+MTDF style photon coupling is one possible route, but it is also the riskiest claim category, so the companion treats it as a test driven hypothesis only.
+</p>
+<h3>3.1 Formation time interpretation under a modified mapping</h3>
+<div class="callout"><strong>Status:</strong> Hypothesis.</div>
+<h4>Observation</h4>
+<p>Some analyses interpret early galaxy observations as implying faster growth or earlier formation times. These interpretations depend on converting redshift to time and on modelling selection and lensing biases.</p>
+<h4>Proposed MTDF mechanism</h4>
+<p>Within this hypothesis, if the observed redshift contains a small stress-related component, then the inferred formation time could shift without requiring a drastic change in local physics. Any such effect must remain consistent with standard rulers and isotropy constraints, and is not established here.</p>
+<h4>Predictions</h4>
+<ul><li>Any modified mapping should predict a specific redshift dependence that can be checked against standard ruler datasets.</li><li>The effect should be environment sensitive: dense sightlines could differ from void sightlines in a measurable way.</li><li>The effect should leave signatures in cross checks between distance measures rather than only in one probe class.</li></ul>
+<h4>How to test</h4>
+<ul><li>Construct a joint analysis plan where standard ruler distances and early structure indicators are fitted simultaneously with a minimal extension term.</li><li>Perform split analyses by line of sight environment for high redshift samples.</li><li>Cross check with gravitational lensing magnification distributions to avoid conflating stress coupling with selection effects.</li></ul>
+<div class="callout"><strong>Notes:</strong> This subsection is intentionally cautious. It is not presented as an explanation, but as a falsifiable way to test whether a stress related component could be present at all.</div>
+<h2 id="tests">4. Quantitative falsifiers and timeline</h2>
+<p>The following items are framed as direct falsifiers for the photon-coupling and differential-redshift hypotheses. The Part I SN × void result motivates testing for an environment term, but the mechanism remains open; any specific photon-coupling model must survive these criteria under robust systematics control.</p>
+<table class="tbl">
+<tr><th>Test</th><th>Expectation</th><th>Criterion</th></tr>
+<tr><td>Environment-linked distance residuals (SN)</td><td>Positive γ_env at low z, consistent sign across independent void catalogues</td><td>Sign reversal, or loss of effect under the pre-registered robustness suite, would rule out this environment term</td></tr><tr><td>Environment-linked redshift residuals (galaxies, after kinematic control)</td><td>Any residual must be small compared with bulk outflow and must track environment once the velocity field is modelled</td><td>A residual consistent with zero at the analysis sensitivity floor, after kinematic subtraction, would constrain photon coupling tightly</td></tr><tr><td>Multi-wavelength differential redshift</td><td>No chromatic component in standard GR; any MTDF-induced differential term must be small and structured</td><td>A controlled multi-line study consistent with zero across environments would falsify wavelength-dependent coupling</td></tr><tr><td>Isotropy of residuals</td><td>Residual field should not introduce a large dipole or multipole beyond established isotropy limits</td><td>A robust, unexplained large-scale anisotropy would falsify the extension</td></tr><tr><td>Redshift dependence</td><td>If present, the effect should weaken with redshift as coherence and line-of-sight averaging dominate</td><td>No measurable trend with redshift (or the wrong trend) under matched selection would falsify the extension</td></tr></table><h3>4.2 Precision consistency checks and sensitivity</h3><p>In addition to the qualitative falsifiers above, we ran three orthogonal consistency checks designed to separate large kinematic effects from any small stress photon perturbation. These do not claim a detection of photon coupling. Their purpose is to confirm that the MTDF-predicted coupling value κ = f<sub>kick</sub>/3 ≈ 0.00102 (below FIRAS detection sensitivity) is not already excluded by current precision probes and to quantify what sensitivity would be required.</p><table class="tbl"><thead><tr><th>Check</th><th>Observable</th><th>Result</th><th>MTDF scale at κ = 0.00102</th><th>Interpretation</th></tr></thead><tbody><tr><td>Zero-velocity shell (turnaround)</td><td>Δμ of SNe near v_pec ≈ 0 shells</td><td>Mock demonstration yields Δμ = +0.078 ± 0.057 mag (1.4σ), below threshold</td><td>Order 0.001 mag, below current SN scatter (about 0.15 mag)</td><td>Sensitivity forecast: would require very large stacked SN samples (order 20,000) for a 1σ probe</td></tr><tr><td>Lensing vs RSD (E_G parameter)</td><td>E_G from combined lensing and RSD</td><td>Weighted mean E_G = 0.382 ± 0.028 vs GR expectation about 0.30 (known literature tension)</td><td>ΔE_G predicted by MTDF photon term is order 0.01</td><td>Not explained by this extension; MTDF does not worsen it at the pipeline κ value</td></tr><tr><td>Alcock-Paczynski void shape</td><td>Residual ellipticity after Kaiser RSD correction</td><td>Δe = -0.011 ± 0.031 (0.3σ, consistent with spherical voids)</td><td>Order 0.0001</td><td>Consistent; current precision is far above the level needed to test κ directly</td></tr></tbody></table><p>Taken together, these checks support a conservative conclusion: the stress photon coupling is perturbative at the pipeline κ value. Current surveys can detect standard void kinematics at high significance, but the subdominant photon level signatures implied by κ = f<sub>kick</sub>/3 ≈ 0.00102 remain below present sensitivity. This makes Part I's SN × void evidence the most informative current probe of environment dependent distance redshift mapping, while these tests function as consistency and forecasting constraints.</p><p>Kinematic contamination note: redshift only void tests using galaxy samples primarily measure bulk peculiar velocities from standard void dynamics (of order 100 km/s). Such measurements can be useful as a consistency check, but they cannot directly isolate a subdominant stress photon contribution unless an independent distance indicator is available and the kinematic component is removed.</p>
+<div class="callout">
+<strong>Observation timeline:</strong>
+<ul>
+<li>2025 - DESI redshift-density analysis</li>
+<li>2026 - Euclid weak-lensing correlation</li>
+<li>2027 - Roman Space Telescope mapping</li>
+<li>2028 - Multi-wavelength differential tests</li>
+<li>2029 - Strain-evolution measurement</li>
+<li>2030 - Distance-scale recalibration</li>
+</ul>
+</div>
+<h3>4.3 Supplementary test suite for κ and current sensitivity</h3><p>
+The SN Ia × void result (Part I) remains the primary empirical handle on any environment-dependent distance-redshift mapping because it uses
+standardised candles as an independent distance indicator. For completeness, we also ran a compact set of “smoking gun” style checks for the photon-coupling extension.
+Most of these checks are presently limited by measurement precision relative to the small signal implied by the pipeline κ value.
+</p><table class="tbl">
+<thead>
+<tr>
+<th>Test</th>
+<th>Null expectation in standard cosmology</th>
+<th>Result from the current diagnostic run</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distance duality (Etherington reciprocity)</td>
+<td>η(z) = D<sub>L</sub>/[(1+z)<sup>2</sup>D<sub>A</sub>] equals 1, independent of environment.</td>
+<td>η = 0.973 ± 0.017 (1.6σ below unity). Environment split: Δη(wall minus void) = +0.024.</td>
+<td>Consistent at current precision. The sign is compatible with a small environment-dependent mapping, but the detection is marginal and can be driven by systematics in D<sub>A</sub>, D<sub>L</sub>, or sample matching.</td>
+</tr>
+<tr>
+<td>Lensed-image redshift split</td>
+<td>Multiple lensed images of the same source have identical redshift: Δz = 0 (after instrumental and lens kinematic corrections).</td>
+<td>No system exceeds 2σ; mean significance about 0.7σ. Expected MTDF scale is Δz ~ 10<sup>-7</sup> while current σ<sub>z</sub> is typically 10<sup>-4</sup> to 10<sup>-5</sup>.</td>
+<td>Consistent. Present spectroscopy is not yet at the level required to test κ at its derived value using this clean path-dependence channel.</td>
+</tr>
+<tr>
+<td>Achromaticity</td>
+<td>Any stress-induced redshift must be wavelength-independent: Δz(λ<sub>1</sub>, λ<sub>2</sub>) = 0.</td>
+<td>Weighted mean Δz = −9.6×10<sup>−7</sup> ± 9.5×10<sup>−6</sup> (0.1σ).</td>
+<td>Consistent and necessary. This disfavors “tired light” style particle-scattering mechanisms, but it does not by itself identify a unique MTDF mechanism.</td>
+</tr>
+<tr>
+<td>Dipole mismatch (amplitude)</td>
+<td>If fully kinematic, the large-scale dipole inferred from distant tracers should match the CMB dipole after known selection corrections.</td>
+<td>Reported quasar dipoles are larger than the CMB dipole. At κ = 0.00102, the MTDF stress term contributes 183 km/s versus an excess of about 440 km/s, roughly 42%.</td>
+<td>Suggestive partial explanatory power, but not decisive. This observable is sensitive to mask geometry, redshift evolution, and tracer selection, and must be revisited with controlled catalogues.</td>
+</tr>
+<tr>
+<td>Dipole mismatch (direction)</td>
+<td>No specific alignment is required beyond kinematic expectations; any residual alignment must be interpreted with care.</td>
+<td>Directional agreement is moderate (about 51° in the current diagnostic).</td>
+<td>Weak to moderate support. Directional alignment is informative but not a clean κ constraint without survey-independent reconstructions.</td>
+</tr>
+<tr>
+<td>Sandage-Loeb redshift drift</td>
+<td>ż = dz/dt follows the standard expansion history, with no environment dependence.</td>
+<td>At the pipeline κ value, the predicted environmental difference is of order 0.0001 cm/s/yr, far below near-term detection thresholds.</td>
+<td>Future discriminant. A measured environment split in ż would be a sharp test for MTDF-style extensions, but the timeline is multi-decade.</td>
+</tr>
+</tbody>
+</table><p class="small">
+Full script index, quick-look outcomes, and the synthesis figure are provided in
+<a href="MTDF_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a>.
+</p><div class="callout"><body><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></body></div>
+<h2>References</h2>
+<ol class="refs">
+<li>Fixsen, D. J., Cheng, E. S., Gales, J. M., Mather, J. C., Shafer, R. A., &amp; Wright, E. L. 1996, "The Cosmic Microwave Background Spectrum from the Full COBE FIRAS Data Set", <em>ApJ</em>, 473, 576. DOI: <a href="https://doi.org/10.1086/178173">10.1086/178173</a></li>
+<li>Brout, D., et al. 2022, "The Pantheon+ Analysis: Cosmological Constraints", <em>ApJ</em>, 938, 110. DOI: <a href="https://doi.org/10.3847/1538-4357/ac8e04">10.3847/1538-4357/ac8e04</a></li>
+<li>Rezaei, S., et al. (DESI Collaboration) 2025, "DESIVAST: Catalogs of Low-Redshift Voids Using Data from the DESI DR1 Bright Galaxy Survey", <em>ApJ</em>, 982, 38. DOI: <a href="https://doi.org/10.3847/1538-4357/adb559">10.3847/1538-4357/adb559</a></li>
+<li>DESI Collaboration 2025, "DESI 2024 VI: Cosmological Constraints from BAO", <em>JCAP</em>, 2025, 021. DOI: <a href="https://doi.org/10.1088/1475-7516/2025/02/021">10.1088/1475-7516/2025/02/021</a></li>
+<li>Aghanim, N., et al. (Planck Collaboration) 2020, "Planck 2018 Results VI: Cosmological Parameters", <em>A&amp;A</em>, 641, A6. DOI: <a href="https://doi.org/10.1051/0004-6361/201833910">10.1051/0004-6361/201833910</a></li>
+<li>Pullen, A. R., Alam, S., He, S., &amp; Ho, S. 2016, "Constraining Gravity at the Largest Scales through CMB Lensing and Galaxy Velocities", <em>MNRAS</em>, 460, 4098. DOI: <a href="https://doi.org/10.1093/mnras/stw1249">10.1093/mnras/stw1249</a></li>
+<li>Padamsee, H. S. 2001, "The Science and Technology of Superconducting Cavities for Accelerators", <em>Supercond. Sci. Technol.</em>, 14, R28. DOI: <a href="https://doi.org/10.1088/0953-2048/14/4/202">10.1088/0953-2048/14/4/202</a></li>
+</ol>
+
+<div class="footer">
+MTDF Companion Part III: Photon Coupling and Early Universe (V74) | Ingo Mesche | April 2026
+</div>
+</div>
+</body>
+</html>

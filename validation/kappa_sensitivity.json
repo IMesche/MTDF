@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-04-16T23:42:13.235499Z",
+  "kappa_A": 0.00102,
+  "kappa_B": 0.001101,
+  "delta_kappa": 8.099999999999991e-05,
+  "cosmology": {
+    "H0": 67.36,
+    "Omega_m": 0.3153,
+    "omega_b_h2": 0.02237,
+    "omega_cdm_h2": 0.12
+  },
+  "cmb_correction": {
+    "kappa_A": {
+      "kappa": 0.00102,
+      "sound_horizon_ratio": 0.9992898417572463,
+      "D_A_lcdm_Mpc": 12.773834335932513,
+      "D_A_mtdf_Mpc": 12.762051761454245,
+      "D_A_ratio": 0.9990776008073688,
+      "theta_s_ratio": 1.000212436901504,
+      "delta_theta_s_pct": 0.02124369015039651,
+      "isw_boost_ell2": 1.0024809645243038,
+      "isw_boost_ell30": 1.0009756162779866,
+      "stress_at_zstar": 0.0013247845121548785
+    },
+    "kappa_B": {
+      "kappa": 0.001101,
+      "sound_horizon_ratio": 0.9992898417572463,
+      "D_A_lcdm_Mpc": 12.773834335932513,
+      "D_A_mtdf_Mpc": 12.761117164149386,
+      "D_A_ratio": 0.9990044358296276,
+      "theta_s_ratio": 1.0002856903506956,
+      "delta_theta_s_pct": 0.02856903506955888,
+      "isw_boost_ell2": 1.0026779822953515,
+      "isw_boost_ell30": 1.0010530916882974,
+      "stress_at_zstar": 0.0014299879881201187
+    },
+    "delta_theta_s_pct": 0.007325344919162369,
+    "synthetic_chi2_A": 0.6661831140324881,
+    "synthetic_chi2_B": 1.2037157233148343,
+    "delta_chi2_cmb": 0.5375326092823463
+  },
+  "late_universe_kf1.0": {
+    "r_d_mtdf_A": 146.97123408554347,
+    "r_d_mtdf_B": 146.97123408554347,
+    "synthetic_bao_chi2_A": 0.00462882824369753,
+    "synthetic_bao_chi2_B": 0.004127236331588144,
+    "delta_chi2_bao": -0.0005015919121093854
+  },
+  "summary": {
+    "delta_chi2_cmb_synthetic": 0.5375326092823463,
+    "delta_chi2_bao_synthetic": -0.0005015919121093854,
+    "delta_chi2_total_synthetic": 0.5370310173702368
+  }
+}

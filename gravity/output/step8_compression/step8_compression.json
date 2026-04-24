@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 8: Compression hypothesis",
+  "S0_background": 1.084137615448689,
+  "A_values": [
+    3422809085.1989684,
+    1758387406.0674927,
+    1130386524.8798597,
+    798494217.188821
+  ],
+  "A_mean": 1777519308.3337855,
+  "verdict": "Right idea, wrong amplitude. Compression at 100 kpc is too weak (linear regime \u2192 1/r, not 1/r\u00b2).",
+  "bins": [
+    {
+      "bin": "bin1",
+      "A_required": 3422809085.1989684,
+      "slope_50_2000": -1.720681913327065,
+      "x_at_100": 18.6938107409544
+    },
+    {
+      "bin": "bin2",
+      "A_required": 1758387406.0674927,
+      "slope_50_2000": -1.7721495342075368,
+      "x_at_100": 25.386654544414093
+    },
+    {
+      "bin": "bin3",
+      "A_required": 1130386524.8798597,
+      "slope_50_2000": -1.7885548910280358,
+      "x_at_100": 28.237746881887862
+    },
+    {
+      "bin": "bin4",
+      "A_required": 798494217.188821,
+      "slope_50_2000": -1.802372536572887,
+      "x_at_100": 31.02004360872457
+    }
+  ]
+}

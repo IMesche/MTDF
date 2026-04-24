@@ -1,0 +1,165 @@
+================================================================================
+    MTDF VALIDATION FRAMEWORK - SUBMISSION PACKAGE
+================================================================================
+
+Author: Ingo Mesche
+Affiliation: Independent Researcher, Malta
+Date: December 2025
+Source of truth: DB_Workbook_STRICT_V18.xlsx, Validation_Dashboard_V74.html
+
+Welcome Reviewer!
+
+This package contains a complete, reproducible validation of the
+Mesche's Tensor Dynamics Framework (MTDF) against 15 independent
+scalar empirical tests plus 5 vector likelihood pillars.
+
+KEY RESULTS:
+  Scalar pillars:   chi^2/nu = 0.11  (15 tests, all pass at 1 sigma)
+  Combined strict:  chi^2/nu = 1.17  (DOF = 1745, includes vector data)
+
+================================================================================
+QUICK START (5 minutes):
+================================================================================
+
+1. READ THIS FIRST:
+   -> Open: QUICKSTART.md
+
+2. SEE RESULTS NOW:
+   -> Open: output/Validation_Dashboard_V74.html (in web browser)
+
+3. UNDERSTAND THE DATA:
+   -> Read: README.md (complete documentation)
+
+================================================================================
+DIRECTORY STRUCTURE (relative to repository root):
+================================================================================
+
+MTDF/
+|-- README.md              <- Complete documentation (READ SECOND)
+|-- LICENSE                <- GPL-3.0 license
+|-- CITATION.cff           <- Citation metadata
+|-- THIRD_PARTY_NOTICES.md <- Third-party data/code attribution
+|-- requirements.txt       <- Python dependencies
+|-- setup_environment.sh   <- One-command setup (venv + deps)
+|
+|-- papers/                <- Theoretical papers (HTML, self-contained)
+|   |-- MTDF_01 .. MTDF_07
+|   |-- Executive_Briefing_MTDF.html
+|   +-- MTDF_The_Mesche_Hypothesis_short.html
+|
+|-- validation/            <- Validation framework (YOU ARE HERE)
+|   |-- 00_START_HERE.txt  <- This file
+|   |-- QUICKSTART.md      <- Fast start guide (READ FIRST)
+|   |-- README.md          <- Detailed validation documentation
+|   |-- data/
+|   |   |-- DB_Workbook_STRICT_V18.xlsx  <- Master database
+|   |   |-- sparc_clean.json             <- Galaxy rotation data
+|   |   +-- External/                    <- Downloaded datasets (via scripts/)
+|   |-- code/
+|   |   |-- run_validate.py    <- Main validation engine
+|   |   |-- UI/                <- Dashboard generator
+|   |   +-- analysis/          <- SN x void analysis suite
+|   +-- output/
+|       |-- Validation_Dashboard_V74.html  <- VIEW THIS FIRST!
+|       |-- Diagnostics.csv                <- Per-pillar breakdown
+|       +-- phase1/ .. phase6/             <- GPU validation outputs
+|
+|-- gravity/               <- 24-step gravitational lensing analysis
+|   |-- run_all_steps.sh   <- Run full gravity pipeline
+|   +-- tests.md           <- Test descriptions
+|
+|-- gpu_validation/        <- Planck MCMC validation (phases 1-6)
+|   |-- phase1/ .. phase5_plik/ phase6/
+|   +-- results/           <- Chain outputs, summaries
+|
+|-- class_mtdf/            <- Modified CLASS Boltzmann code
+|   |-- MODIFICATIONS.md   <- All MTDF changes documented
+|   +-- README.md          <- Build instructions
+|
+|-- mcmc_results/          <- MCMC configs and summary JSONs
+|
++-- scripts/               <- Data download scripts (SHA256-verified)
+    |-- download_data.sh          <- All datasets (~19 GB)
+    |-- download_pantheonplus.sh  <- Pantheon+ SNe
+    |-- download_desi_voids.sh    <- DESI VAST voids
+    |-- download_planck.sh        <- Planck lensing
+    |-- download_kids.sh          <- KiDS-1000 WL
+    +-- ...
+
+================================================================================
+WHAT YOU'LL FIND:
+================================================================================
+
+  All source data with full provenance
+  Complete validation code (Python)
+  Pre-generated interactive dashboard (open in browser)
+  Theoretical papers explaining the framework
+  Step-by-step reproduction instructions
+
+================================================================================
+THE BOTTOM LINE:
+================================================================================
+
+MTDF achieves:
+  - Scalar pillars: chi^2/nu = 0.11 (15 tests, all pass at 1 sigma)
+  - Combined strict: chi^2/nu = 1.17 (DOF = 1745, includes vector data)
+  - Only 4 fundamental parameters (empirically constrained)
+  - No dark matter or dark energy required
+
+Standard LCDM model:
+  - chi^2/nu = 58.5 (577x worse)
+  - 4/13 tests passed (many tests inapplicable)
+  - Requires ~95% dark matter + dark energy
+
+================================================================================
+RECOMMENDED REVIEW SEQUENCE:
+================================================================================
+
+FAST REVIEW (10 minutes):
+  1. Open validation/output/Validation_Dashboard_V74.html
+  2. Read validation/QUICKSTART.md
+  3. Read validation/README.md
+
+STANDARD REVIEW (1 hour):
+  4. Read README.md (top-level, methodology)
+  5. Open validation/data/DB_Workbook_STRICT_V18.xlsx (inspect parameters)
+  6. Read papers/Executive_Briefing_MTDF.html
+
+DEEP REVIEW (4+ hours):
+  7. Read papers/*.html (theory papers)
+  8. Run validation/code/run_validate.py (reproduce results)
+  9. Inspect class_mtdf/MODIFICATIONS.md (Boltzmann code changes)
+  10. Trace formula derivations in workbook
+
+================================================================================
+REPRODUCIBILITY:
+================================================================================
+
+From the repository root:
+
+  bash setup_environment.sh
+  source venv/bin/activate
+  cd validation/code
+  python run_validate.py \
+      --workbook ../data/DB_Workbook_STRICT_V18.xlsx \
+      --out ../output/Validation_Dashboard_V74.html \
+      --diag ../output/Diagnostics.csv
+
+Should produce identical results (except timestamps).
+
+================================================================================
+QUESTIONS?
+================================================================================
+
+See README.md FAQ section or:
+  - Code questions: See comments in validation/code/run_validate.py
+  - Data questions: Inspect validation/data/DB_Workbook_STRICT_V18.xlsx
+  - Theory questions: See papers/*.html
+
+================================================================================
+
+Package created: April 2026
+MTDF Version: V74/V18
+Status: READY FOR PEER REVIEW
+
+================================================================================

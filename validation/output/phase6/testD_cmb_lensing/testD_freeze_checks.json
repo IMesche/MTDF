@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "annulus_sensitivity": {
+    "3.0-4.0 Rv": {
+      "comp_mean": -0.0011183963073628628,
+      "comp_err": 0.0010544476515867629,
+      "snr": 1.0606465913029142,
+      "n_used": 557
+    },
+    "4.0-5.0 Rv": {
+      "comp_mean": -0.0007470916623575199,
+      "comp_err": 0.0010333760086316637,
+      "snr": 0.7229620739374192,
+      "n_used": 557
+    },
+    "3.5-5.0 Rv": {
+      "comp_mean": -0.0008202947289098594,
+      "comp_err": 0.0010328448278157161,
+      "snr": 0.7942090687955881,
+      "n_used": 557
+    }
+  },
+  "mask_threshold_sensitivity": {
+    "50%": {
+      "comp_mean": 0.0022609932834858322,
+      "comp_err": 0.0015182423549232077,
+      "snr": 1.4892176312655911,
+      "n_used": 97,
+      "frac_threshold": 0.5
+    },
+    "60%": {
+      "comp_mean": 0.0027266003260026997,
+      "comp_err": 0.0016217802124883997,
+      "snr": 1.6812391130479418,
+      "n_used": 74,
+      "frac_threshold": 0.6
+    },
+    "70%": {
+      "comp_mean": 0.004729670761409156,
+      "comp_err": 0.0020137275225256637,
+      "snr": 2.348714366021622,
+      "n_used": 49,
+      "frac_threshold": 0.7
+    }
+  },
+  "profile_based_compensated": {
+    "comp_mean": 0.0022488464471209116,
+    "comp_err": 0.0010583012170177462,
+    "snr": 2.124958765008395,
+    "n_voids": 1992,
+    "kappa_centre": 0.0025572540799170657,
+    "kappa_centre_err": 0.0010384974331266097,
+    "kappa_outer": 0.00030840763279615414,
+    "kappa_outer_err": 0.0002037757280214834
+  }
+}

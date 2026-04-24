@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="author" content="Ingo Mesche"/>
+<meta name="affiliation" content="Independent Researcher, Malta"/>
+<title>MTDF: A Unified Field Theory of Cosmic Structure (Summary)</title>
+<style>
+@page { size: A4; margin: 2.2cm; }
+:root{
+  --text:#111;
+  --muted:#555;
+  --rule:#d0d0d0;
+  --bg:#ffffff;
+  --soft:#f5f5f5;
+  --soft2:#fbfbfb;
+  --accent:#1a4b8a;
+}
+html, body{
+  margin:0;
+  padding:0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  line-height: 1.45;
+  text-align: justify;
+  hyphens: auto;
+}
+.wrap{
+  max-width: 190mm;
+  margin: 0 auto;
+  padding: 26px 18px 44px;
+}
+h1{
+  font-size: 18pt;
+  text-align: center;
+  margin: 10pt 0 3pt;
+  letter-spacing: 0.2px;
+}
+.subtitle{
+  text-align: center;
+  font-size: 10pt;
+  color: var(--muted);
+  margin: 0 0 16pt;
+}
+.meta{
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 8pt 0;
+  margin: 14pt 0 18pt;
+}
+.meta div{ display: inline; margin: 0 6px; white-space: nowrap; }
+p{ margin: 0 0 9pt; }
+ul, ol{ margin: 6pt 0 10pt 18pt; }
+li{ margin: 3pt 0; }
+h2{
+  font-size: 13pt;
+  margin-top: 18pt;
+  margin-bottom: 6pt;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2pt;
+}
+h3{
+  font-size: 11.5pt;
+  margin-top: 12pt;
+  margin-bottom: 4pt;
+}
+h4{
+  font-size: 11pt;
+  margin-top: 10pt;
+  margin-bottom: 4pt;
+}
+.abstract{
+  border: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 10pt 12pt;
+  font-size: 10pt;
+  margin: 12pt 0 18pt;
+}
+.abstract strong{ color: var(--accent); }
+.callout{
+  border-left: 3pt solid var(--accent);
+  border-top: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 8pt 10pt;
+  margin: 10pt 0 12pt;
+  font-size: 10pt;
+}
+.eq{
+  text-align: center;
+  margin: 10pt 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow-x: auto;
+}
+.small{ font-size: 9.5pt; color: var(--muted); }
+table, .tbl{
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10pt 0 14pt;
+  font-size: 9.5pt;
+}
+th, td, .tbl th, .tbl td{
+  border: 1px solid var(--rule);
+  padding: 5pt 6pt;
+  vertical-align: top;
+}
+th, .tbl th{
+  background: #f0f0f0;
+  text-align: left;
+  font-weight: 600;
+}
+.caption, figcaption{
+  text-align: center;
+  font-size: 9pt;
+  color: var(--muted);
+  margin-top: -8pt;
+  margin-bottom: 14pt;
+  font-style: italic;
+}
+figure{ margin: 10pt 0 14pt; }
+.toc{
+  border: 1px solid var(--rule);
+  background: var(--soft2);
+  padding: 10pt 12pt;
+  margin: 14pt 0 16pt;
+  font-size: 10pt;
+}
+.toc a{ color: var(--accent); text-decoration: none; }
+.toc a:hover{ text-decoration: underline; }
+.refs{ font-size: 9.5pt; word-break: break-word; overflow-wrap: break-word; }
+.ref-doi{ font-family: "Courier New", Courier, monospace; }
+.footer{
+  margin-top: 26pt;
+  padding-top: 8pt;
+  border-top: 1px solid var(--rule);
+  font-size: 8.5pt;
+  color: var(--muted);
+  text-align: center;
+}
+/* Print rules */
+@media print{
+  .wrap{ padding-bottom: 0; }
+  a{ color: var(--text); text-decoration: none; }
+  .toc{ page-break-after: always; }
+  table, figure, .callout, .abstract{ page-break-inside: avoid; }
+  h2, h3{ page-break-after: avoid; }
+  p{ orphans: 3; widows: 3; }
+}
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(','\\)'], ['$', '$']],
+      displayMath: [['$$','$$'], ['\\[','\\]']]
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<div class="wrap">
+<h1>Mesche's Tensor Dynamics Framework (MTDF)</h1>
+<div class="subtitle">A first-principles unified field theory replacing the latent sector hypothesis</div>
+<div class="meta">
+<div><strong>Author:</strong> Ingo Mesche</div>
+<div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
+<div><strong>Contact:</strong> imesche@outlook.com</div>
+<div><strong>Version:</strong> V74 / February 2026</div>
+</div>
+
+<div class="callout">
+<strong>Abstract.</strong> We present Mesche's Tensor Dynamics Framework (MTDF), a unified field theory that addresses the major phenomenological tensions of modern cosmology, including the Hubble Tension, the S<sub>8</sub> tension, and the Missing Mass problem, without invoking a "Latent Sector" of dark matter or dark energy. By positing that spacetime possesses an intrinsic elasticity governed by a stress-energy tensor $F_{\mu\nu}$, MTDF derives cosmic acceleration and galactic dynamics from a single physical mechanism: the relaxation of spacetime stress.
+
+<p>We provide a first-principles derivation of the "Early Kick" energy fraction ($f_{kick} \approx 0.33\%$) required to bring early- and late-universe $H_0$ measurements into agreement, demonstrating that it arises naturally from the geometric projection of the tensor field onto the background metric ($\gamma_{geom}=1/12$). This prediction is tested against Planck CMB data as an external consistency check (the MTDF parameters are not calibrated on CMB observables). Furthermore, we demonstrate that the same field parameters $\{\alpha, \beta, \tau\}$ calibrated on void-based anchors reproduce the scatter of galaxy rotation curves (0.185 dex computed vs 0.174 dex benchmark, $z = -0.94$) and the late-time expansion history ($H_0 = 73.1$ km/s/Mpc) with statistical precision comparable to $\Lambda$CDM ($\chi^2/\nu = 1.17$ combined strict, DOF = 1745). MTDF offers a falsifiable, predictive, and physically complete alternative to the composition-based paradigm of standard cosmology, suggesting that we inhabit a universe governed by the physics of the visible.</p>
+
+<p class="small">This document summarises the full MTDF paper suite: the master theory (<a href="MTDF_01_The_Mesche_Hypothesis_A_Dynamic_Field_Theory_of_Cosmic_Structure.html">MTDF_01</a>), environmental phenomenology (<a href="MTDF_02_Companion_Part_I_Environmental_and_Local.html">MTDF_02</a>), gravity sector validation (<a href="MTDF_03_Companion_Part_II_Gravity_Sector_and_Lensing_Validation.html">MTDF_03</a>), speculative extensions (<a href="MTDF_04_Companion_Part_III_Photon_Coupling_Redshift_Early_Universe.html">MTDF_04</a>, <a href="MTDF_05_Companion_Part_IV_Cosmological_Validation_High_Energy_Test_Programme.html">MTDF_05</a>), the validation suite appendix (<a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06</a>), and independent GPU validation (<a href="MTDF_07_Independent_GPU_Validation.html">MTDF_07</a>).</p>
+</div>
+
+<div class="callout">
+<strong>Scope map.</strong> Sections 1 to 8 summarise the master theory paper (MTDF_01): four fundamental parameters, the elastic spacetime action, the Hubble solution, and the strict validation protocol. The protocol reports two separate statistics: 15 scalar pillars (z-score consistency checks, 14/15 pass at $1\sigma$) and 4 vector likelihood pillars (full covariance $\chi^2$ fits; combined strict $\chi^2/\nu = 1.17$, DOF = 1745, which includes the 15 scalar DOF). Sections 9 to 12 summarise the companion papers: environmental phenomenology (MTDF_02), gravity sector testing across 1 to 2,600 kpc (MTDF_03), independent GPU reproduction (MTDF_07), and speculative extensions (MTDF_04, MTDF_05). The gravity sector results (Section 10) are from a separate code base and dataset; they are not included in the strict totals reported in Section 7.
+</div>
+
+<div class="toc">
+<strong>Contents</strong>
+<ol>
+<li><a href="#sec1">Introduction: The crisis of composition</a></li>
+<li><a href="#sec2">The philosophy of field unification</a></li>
+<li><a href="#sec3">The elastic spacetime action</a></li>
+<li><a href="#sec4">Field dynamics and parameters</a></li>
+<li><a href="#sec5">The Hubble solution: An early field energy mechanism</a></li>
+<li><a href="#sec6">The dual-epoch solution to H<sub>0</sub></a></li>
+<li><a href="#sec7">The strict validation protocol</a></li>
+<li><a href="#sec8">Full Planck CMB likelihood comparison</a></li>
+<li><a href="#sec9">Environmental phenomenology (MTDF_02)</a></li>
+<li><a href="#sec10">Gravity sector validation (MTDF_03)</a></li>
+<li><a href="#sec11">Independent GPU validation (MTDF_07)</a></li>
+<li><a href="#sec12">Speculative extensions (MTDF_04, MTDF_05)</a></li>
+<li><a href="#sec13">Discussion and conclusion</a></li>
+</ol>
+</div>
+
+<!-- =========================================================== -->
+<!-- 1. INTRODUCTION -->
+<!-- =========================================================== -->
+
+<div class="callout" style="border-left:3px solid #1A4B8A;background:#FBFBFB;padding:8px 12px;margin:12px 0;">
+<p><strong>Claim status.</strong>
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.</p>
+</div>
+
+<h2 id="sec1">1. Introduction: The crisis of composition</h2>
+
+<p>For nearly a century, the standard model of cosmology has operated on a "compositional" paradigm: observational anomalies are resolved by postulating new, invisible forms of matter or energy. When the orbital velocities of stars in spiral galaxies were found to exceed Newtonian predictions, the community postulated Cold Dark Matter (CDM), a collisionless, non-baryonic particle halo. When Type Ia supernovae revealed that the expansion of the universe is accelerating, the community postulated Dark Energy ($\Lambda$), a fluid with negative pressure. While this $\Lambda$CDM model fits large-scale data with high precision, it describes a universe where 95% of the energy density is physically unaccounted for ("The Latent Sector").</p>
+
+<p>This reliance on unseen components is under increasing strain. As observational precision has improved, internal tensions have emerged. The Hubble Tension, a $5\sigma$ discrepancy between early-universe (CMB) and late-universe (Distance Ladder) measurements of $H_0$, cannot be resolved within $\Lambda$CDM without introducing even more exotic components (e.g., Early Dark Energy, interacting neutrinos). Similarly, the S<sub>8</sub> tension suggests that cosmic structure grows more slowly than the standard model predicts.</p>
+
+<p>We propose a fundamental shift from a "compositional" to a "dynamic" paradigm. <strong>Mesche's Tensor Dynamics Framework (MTDF)</strong> posits that these anomalies are not due to missing mass, but to missing physics in the gravitational sector. By treating spacetime as an elastic medium with a non-vanishing stress tensor $F_{\mu\nu}$, we show that the effects attributed to Dark Matter and Dark Energy are actually the elastic response of the manifold to matter density gradients. This paper details the formalism, derivation, and systematic testing of MTDF as a cosmological framework.</p>
+
+<!-- =========================================================== -->
+<!-- 2. PHILOSOPHY -->
+<!-- =========================================================== -->
+<h2 id="sec2">2. The philosophy of field unification</h2>
+
+<p>The history of physics is a history of unification. Electricity and magnetism were unified by Maxwell; space and time by Einstein; the weak and electromagnetic forces by Glashow, Weinberg, and Salam. Yet cosmology has drifted toward fragmentation, introducing separate, unrelated entities to explain separate phenomena (Dark Matter for rotation curves, Dark Energy for expansion).</p>
+
+<p>MTDF seeks to restore the unity of the physical description. We posit that there is only one gravitational field, but that its dynamics are richer than the pure geometry of General Relativity allows. Just as a material elastic body can store potential energy in stress and strain, the spacetime manifold itself possesses a stiffness. The "Dark Sector" is simply the energy stored in this field. By introducing a single new tensor field $F_{\mu\nu}$, derived from first principles of elasticity, we aim to explain the full range of cosmic phenomenology with a single, coherent mathematical framework.</p>
+
+<!-- =========================================================== -->
+<!-- 3. ELASTIC SPACETIME ACTION -->
+<!-- =========================================================== -->
+<h2 id="sec3">3. The elastic spacetime action</h2>
+
+<p>MTDF extends the Einstein-Hilbert action by including a potential energy term corresponding to the elasticity of the spacetime manifold. The action is given by:</p>
+
+<div class="eq">
+$$ S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} + \mathcal{L}_{matter} + \mathcal{L}_{MTDF} \right] $$
+</div>
+
+<p>Here, $\mathcal{L}_{matter}$ is the standard Lagrangian for baryonic matter and radiation. The new term, $\mathcal{L}_{MTDF}$, describes the dynamics of the stress field. It is constructed to be diffeomorphism invariant and to couple to the metric in a way that generates an effective stress-energy tensor.</p>
+
+<p>Variation with respect to the metric $g_{\mu\nu}$ yields the modified field equations:</p>
+
+<div class="eq">
+$$ G_{\mu\nu} + \alpha F_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{baryon}} $$
+</div>
+
+<p>Here, $G_{\mu\nu}$ is the Einstein tensor, $T_{\mu\nu}^{\text{baryon}}$ is the standard stress-energy tensor of visible matter, and $F_{\mu\nu}$ is the <strong>Mesche Stress Tensor</strong>. The coupling constant $\alpha$ is dimensionless and quantifies the "stiffness" of spacetime, specifically, the ratio of stress-induced acceleration to Newtonian gravitational acceleration.</p>
+
+<p class="small"><strong>Consistency notes.</strong> The construction is generally covariant (diffeomorphism invariant) and uses only tensor objects and scalar contractions; no preferred frame is introduced. Energy-momentum conservation follows from the contracted Bianchi identity applied to the modified field equations, together with minimal coupling of matter. The framework is classical and effective in scope: no claim of UV completion is made, and high-energy behaviour is treated as an explicit test programme (MTDF_05) with observational constraints.</p>
+
+<!-- =========================================================== -->
+<!-- 4. FIELD DYNAMICS -->
+<!-- =========================================================== -->
+<h2 id="sec4">4. Field dynamics and parameters</h2>
+
+<p>The stress field $S$ associated with $F_{\mu\nu}$ evolves according to a sourced wave equation. Its behaviour is governed by four fundamental parameters, which are constants of nature in this framework:</p>
+
+<table class="tbl">
+<tr><th>Parameter</th><th>Unit</th><th>Meaning</th><th>Source</th></tr>
+<tr><td>$\alpha$ = 1.30 &plusmn; 0.26</td><td>Dimensionless</td><td>Stress-matter coupling; magnitude of "dark matter" effect in galaxies and "dark energy" effect in voids</td><td>Void dynamics</td></tr>
+<tr><td>$\beta$ = 22.7 Mpc</td><td>Length</td><td>Field coherence length; scale below which environmental/local effects become relevant</td><td>Void quantisation</td></tr>
+<tr><td>$\tau$ = 13.0 &plusmn; 0.2 Gyr</td><td>Time</td><td>Relaxation timescale; synchronised with $H_0^{-1}$</td><td>Age synchronisation</td></tr>
+<tr><td>$\beta_\text{eos}$ = 0.573 &plusmn; 0.012</td><td>Dimensionless</td><td>EOS transition parameter</td><td>QCD critical amplitudes (Landau-Ginzburg)</td></tr>
+</table>
+
+<p>A fifth quantity, the elastic modulus $E = (2/\alpha^2)\,\rho_c\,c^2 = 9.1 \times 10^{-10}$ Pa, is derived from $\alpha$ and the background critical density and appears throughout the field equations for convenience.</p>
+
+<p>These four parameters replace the six free parameters of $\Lambda$CDM ($\Omega_b, \Omega_c, \Omega_\Lambda, H_0, n_s, \sigma_8$). Crucially, the MTDF-specific parameters are not calibrated on CMB or supernova data; they are derived from independent, local astrophysical observations (void dynamics and void quantisation). CMB and supernova datasets are then used as external consistency checks.</p>
+
+<p class="small"><strong>Notation.</strong> We use $\beta_\text{eos}$ for the dimensionless equation-of-state parameter, distinct from $\beta$ for the physical coherence length of the field ($\beta = 22.7$ Mpc).</p>
+
+<!-- =========================================================== -->
+<!-- 5. HUBBLE SOLUTION -->
+<!-- =========================================================== -->
+<h2 id="sec5">5. The Hubble solution: An early field energy mechanism</h2>
+
+<p>One of the most stringent tests for any new cosmology is the Hubble Tension. Resolving it requires a specific modification to the expansion history: a "kick" of energy density just prior to recombination ($z \sim 1100$) to compress the sound horizon ($r_s$), allowing for a higher local $H_0$. In phenomenological models like EDE, this energy is added by hand. In MTDF, it is a derived prediction.</p>
+
+<h3>5.1 The "ringing" mechanism</h3>
+
+<p>The stress field couples to the trace of the matter stress-energy tensor, $T = T^\mu_\mu$. In the radiation-dominated era, the universe is filled with relativistic species for which $T \approx 0$. Consequently, the field is decoupled.</p>
+
+<p>At the epoch of matter-radiation equality ($z_{eq} \approx 3400$), the trace becomes non-zero as non-relativistic matter dominates ($T \to -\rho_m$). This sudden "switching on" of the source term acts as a step function force on the elastic spacetime field. The field cannot respond instantaneously; instead, it "rings" like a spring subjected to a sudden load. This transient oscillation stores elastic potential energy, which appears as an effective energy density $\rho_{int}$ in the Friedmann equation.</p>
+
+<h3>5.2 Derivation of the geometric coefficient ($\gamma_{geom}$)</h3>
+
+<p>The magnitude of this energy injection is critical. If it is too large, it breaks CMB spectral fits; too small, it fails to solve the tension. We derive the coefficient $\gamma_{geom}$ from the geometric properties of the tensor field in an isotropic background.</p>
+
+<p>The interaction energy density scales as $\rho_{int} \propto \gamma_{geom} \cdot \lambda_{MTDF} \cdot \rho_m^2$. The coefficient $\gamma_{geom}$ is the product of three suppression factors:</p>
+
+<ol>
+<li><strong>Tensor-to-Scalar Projection (1/3):</strong> The stress tensor $F_{\mu\nu}$ is a rank-2 tensor. When projecting its energy density onto the scalar time-time component ($T^{00}$) of the FLRW metric, we effectively take the trace over spatial directions. For a traceless spatial tensor in 3 dimensions, this introduces a factor of $1/3$.</li>
+<li><strong>Transition Response Efficiency (1/2):</strong> The field equation is a second-order differential equation. As the source term turns on, the field solution $S(t)$ tracks the source $\rho_m(t)$ with a lag. In the quasi-static limit near the transition, the effective amplitude is reduced by half compared to the static solution.</li>
+<li><strong>Sound Horizon Averaging (1/2):</strong> The effect on the CMB depends on the integrated expansion history over the sound horizon scale. The "ringing" is a transient phenomenon that decays. Averaging this transient contribution over the relevant acoustic integration time introduces a further factor of $1/2$.</li>
+</ol>
+
+<p>Multiplying these factors yields the geometric coefficient:</p>
+
+<div class="eq">
+$$ \gamma_{\text{geom}} = \frac{1}{3} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{12} \approx 0.0833 $$
+</div>
+
+<h3>5.3 The final prediction ($f_{kick}$)</h3>
+
+<p>Substituting this geometric coefficient into the energy density equation, using the late-time calibrated parameter $\lambda_{MTDF} \approx 0.079$, we predict the fractional energy injection at equality:</p>
+
+<div class="eq">
+$$ f_{\text{kick}} \simeq \gamma_{\text{geom}} \cdot \lambda_{\text{MTDF}} \cdot \frac{\rho_m(z_{eq})}{\rho_{tot}(z_{eq})} \approx \frac{1}{12} \times 0.079 \times 0.5 \approx 0.0033 $$
+</div>
+
+<p><strong>Prediction:</strong> MTDF predicts an early energy injection of $\mathbf{0.33\%}$.</p>
+<p><strong>Observation:</strong> An early energy injection of order $0.3\%$ is consistent with Planck constraints on sound-horizon modifying extensions and lies within the range required to alleviate the Hubble tension.</p>
+<p>This close agreement, derived from $1/12$ geometry rather than fitted parameters, is consistent with the hypothesis that the relevant early-universe modification arises from the elastic response of the spacetime manifold.</p>
+
+<!-- =========================================================== -->
+<!-- 6. DUAL-EPOCH H0 -->
+<!-- =========================================================== -->
+<h2 id="sec6">6. The dual-epoch solution to H<sub>0</sub></h2>
+
+<p>Resolving the Hubble Tension requires matching the high local value ($H_0 \approx 73$) while remaining consistent with the global CMB value ($H_0 \approx 67$). MTDF achieves this through a dual mechanism that operates at both ends of cosmic history.</p>
+
+<ul>
+<li><strong>Early Epoch (Mechanism I):</strong> The $0.33\%$ energy injection derived above compresses the sound horizon $r_s$ by $0.071\%$. This shifts the global $H_0$ inferred from the CMB acoustic scale from $67.4$ to approximately $67.45$ km/s/Mpc. This effect is subtle but crucial for maintaining consistency with CMB peak locations.</li>
+<li><strong>Late Epoch (Mechanism II):</strong> The local universe resides in a cosmic void (the "KBC Void" or similar local underdensity). In MTDF, voids are regions of stress depletion. The relaxation of field stress in a void enhances the local expansion rate relative to the global background. Using the calibrated coupling $\alpha=1.30$, this effect adds $+5.7$ km/s/Mpc to the local measurement.</li>
+</ul>
+
+<p><strong>Total MTDF Prediction:</strong></p>
+
+<div class="eq">
+$$ H_{0}^{\text{local}} = 67.4 \text{ (Global)} + 0.05 \text{ (EFE)} + 5.7 \text{ (Void)} = \mathbf{73.1 \pm 1.0} \text{ km/s/Mpc} $$
+</div>
+
+<p>This result is statistically consistent with the SH0ES measurement of $73.04 \pm 1.04$ km/s/Mpc, closing the gap to well within $1\sigma$. Because the late-epoch mechanism is specifically a local-environment effect, MTDF naturally predicts a method-dependent hierarchy: measurement techniques calibrated through the local void are shifted relative to methods with less local-void exposure. This classification is consistent with recent compilations of sound-horizon-free $H_0$ measurements.</p>
+
+<!-- =========================================================== -->
+<!-- 7. VALIDATION PROTOCOL -->
+<!-- =========================================================== -->
+<h2 id="sec7">7. The strict validation protocol</h2>
+
+<p>To rigorously test this framework, we constructed a validation dashboard (V18) comprising independent astrophysical "pillars." A common criticism of new theories is that they simply add parameters to fit the data. To immunize MTDF against this critique, we strictly separate data used for calibration from data used for validation.</p>
+
+<h3>7.1 Calibration anchors</h3>
+
+<p>These pillars were used to fix the fundamental parameters $\{\alpha, \beta\}$. They are excluded from the validation score.</p>
+
+<table class="tbl">
+<tr><th>Pillar</th><th>Role</th><th>Outcome</th></tr>
+<tr><td><strong>Cosmic Void Dynamics</strong></td><td><span class="badge badge-cal">Anchor</span></td><td>Fixed $\alpha = 1.30$. Calibrated on void expansion profiles.</td></tr>
+<tr><td><strong>Cosmic Size Quantisation</strong></td><td><span class="badge badge-cal">Anchor</span></td><td>Fixed $\beta = 22.7$ Mpc. Calibrated on the void quantisation relation $R_n = \beta(1 + \sqrt{n})$.</td></tr>
+</table>
+
+<h3>7.2 Validation targets</h3>
+
+<p>With parameters fixed, the model was tested against the following independent datasets. The "Tension Plot" below visualises the performance of MTDF (Green) versus $\Lambda$CDM (Red) relative to observations. MTDF consistently lands within $1\sigma$ of the observed value, whereas $\Lambda$CDM shows significant tension.</p>
+
+<div class="tension-plot">
+    <div class="sigma-scale">
+        <span>-4&sigma;</span><span>-2&sigma;</span><span style="color:#000; font-weight:bold;">0&sigma;</span><span>+2&sigma;</span><span>+4&sigma;</span>
+    </div>
+    <div class="tension-bar-container">
+        <div class="tension-label">P1: Galaxy RC Scatter</div>
+        <div class="tension-track">
+            <div class="tension-mark mtdf" style="left: 50%;"></div>
+            <div class="tension-mark lcdm" style="left: 10%;"></div>
+        </div>
+        <div class="tension-value">0.0&sigma;</div>
+    </div>
+    <div class="tension-bar-container">
+        <div class="tension-label">P14: Hubble (H<sub>0</sub>)</div>
+        <div class="tension-track">
+            <div class="tension-mark mtdf" style="left: 52%;"></div>
+            <div class="tension-mark lcdm" style="left: 0%; border-left: 2px dashed red;"></div>
+        </div>
+        <div class="tension-value">0.2&sigma;</div>
+    </div>
+    <div class="tension-bar-container">
+        <div class="tension-label">P13: S<sub>8</sub> Growth</div>
+        <div class="tension-track">
+            <div class="tension-mark mtdf" style="left: 50%;"></div>
+            <div class="tension-mark lcdm" style="left: 75%;"></div>
+        </div>
+        <div class="tension-value">0.0&sigma;</div>
+    </div>
+</div>
+
+<h3>7.3 Statistical likelihoods (vector pillars)</h3>
+
+<p>We report the reduced chi-squared ($\chi^2_\nu$) for the vector pillars. A value near 1.0 indicates a good fit. MTDF achieves good fits overall, competitive with $\Lambda$CDM. All likelihood-based validation runs satisfy explicit numerical convergence criteria, monitored using the multivariate Gelman-Rubin statistic ($R-1 < 0.02$) together with per-parameter effective sample size (ESS) diagnostics.</p>
+
+<table class="tbl">
+<tr><th>ID</th><th>Dataset</th><th>N</th><th>MTDF $\chi^2_\nu$</th><th>$\Lambda$CDM $\chi^2_\nu$</th><th>Result</th></tr>
+<tr><td><strong>P_SNE_PANTHEON</strong></td><td>Pantheon+ Type Ia SNe</td><td>1701</td><td><strong>1.1840</strong></td><td>1.02</td><td><span class="badge badge-val">PASS</span></td></tr>
+<tr><td><strong>P_BAO_DESI</strong></td><td>DESI Y1 BAO</td><td>12</td><td><strong>1.2823</strong></td><td>0.98</td><td><span class="badge badge-val">PASS</span></td></tr>
+<tr><td><strong>P_HZ_CC</strong></td><td>Cosmic Chronometers</td><td>15</td><td><strong>0.4656</strong></td><td>0.78</td><td><span class="badge badge-val">PASS</span></td></tr>
+<tr><td><strong>P_GROWTH_FSIG8</strong></td><td>eBOSS f$\sigma_8$ Growth</td><td>4</td><td><strong>0.6673</strong></td><td>1.20</td><td><span class="badge badge-val">PASS</span></td></tr>
+</table>
+
+<p><strong>Scalar pillars</strong> (15 z-score consistency checks): $\chi^2/\nu = 0.11$ (14/15 pass at $1\sigma$). <strong>Combined strict total</strong> (15 scalar + 4 vector): $\chi^2/\nu = 1.17$ (DOF = 1745). The DOF count includes 15 scalar degrees of freedom plus the vector likelihood DOF after subtracting fitted nuisance parameters per dataset; see <a href="MTDF_01_The_Mesche_Hypothesis_A_Dynamic_Field_Theory_of_Cosmic_Structure.html">MTDF_01</a> for the exact accounting.</p>
+
+<!-- =========================================================== -->
+<!-- 8. PLANCK CMB -->
+<!-- =========================================================== -->
+<h2 id="sec8">8. Full Planck CMB likelihood comparison</h2>
+
+<p>As an independent cross-check beyond the dashboard pillars, we ran matched MCMC fits for $\Lambda$CDM and MTDF on the full Planck 2018 plik TTTEEE high-multipole likelihood, low-$\ell$ TT and EE likelihoods, and the Planck 2018 lensing likelihood. Both models fit the standard six cosmological parameters and 21 Planck nuisance parameters; MTDF adds one additional parameter (the stress coupling $k_f$). Both chains converged with $R-1 < 0.02$; the additional $k_f$ parameter converges more rapidly than several Planck calibration parameters, indicating no additional sampling stiffness.</p>
+
+<table class="tbl">
+<tr><th>Metric</th><th>$\Lambda$CDM</th><th>MTDF</th></tr>
+<tr><td>Total $\chi^2$ (best-fit)</td><td>2773.20</td><td>2773.82</td></tr>
+<tr><td>$H_0$ (km/s/Mpc)</td><td>$67.38 \pm 0.54$</td><td>$67.83 \pm 0.54$</td></tr>
+<tr><td>$\sigma_8$</td><td>$0.810 \pm 0.006$</td><td>$0.790 \pm 0.006$</td></tr>
+<tr><td>$S_8$ (derived)</td><td>$0.830 \pm 0.013$</td><td>$0.802 \pm 0.013$</td></tr>
+<tr><td>$k_f$</td><td>not in model</td><td>$0.50 \pm 0.36$</td></tr>
+<tr><td>$\Delta$AIC</td><td colspan="2" style="text-align: center;">+2.63 (inconclusive)</td></tr>
+</table>
+<div class="caption">Full Planck plik TTTEEE + lensing comparison. $\Delta\chi^2 = +0.63$ (statistically indistinguishable). The high-$\ell$ TTTEEE likelihood is marginally improved in MTDF ($\Delta\chi^2 = -3.67$), while small compensating shifts occur in low-$\ell$ and lensing components.</div>
+
+<p>The stress coupling $k_f$ is not entangled with instrumental systematics: all nuisance correlations satisfy $|r| < 0.10$, with $A_\text{planck}$ at $r = -0.006$. The strongest cosmological correlation is with $\omega_b$ ($r = -0.30$). The derived quantity $S_8 \equiv \sigma_8\sqrt{\Omega_m/0.3}$ shifts from $0.830 \pm 0.013$ ($\Lambda$CDM) to $0.802 \pm 0.013$ (MTDF), a 2.2$\sigma$ shift relative to the $\Lambda$CDM posterior width toward the weak-lensing measurements from KiDS-1000 ($S_8 = 0.759 \pm 0.024$) and DES-Y3 ($S_8 = 0.776 \pm 0.017$). The $\Lambda$CDM limit ($k_f = 0$) lies just below, and full MTDF coupling ($k_f = 1$) lies within, the 95% credible interval $[0.025, 1.34]$, confirming that Planck alone cannot distinguish the two models. Discrimination requires low-redshift probes.</p>
+
+<!-- =========================================================== -->
+<!-- 9. ENVIRONMENTAL PHENOMENOLOGY -->
+<!-- =========================================================== -->
+<h2 id="sec9">9. Environmental phenomenology (MTDF_02)</h2>
+
+<p>MTDF predicts that the local expansion rate depends on the large-scale stress environment: voids are regions of stress depletion, enhancing the measured $H_0$. This makes the Hubble tension a measurement environment effect rather than an early-vs-late conflict.</p>
+
+<h3>9.1 Supernova &times; void environment signal</h3>
+
+<p>Type Ia supernova distance residuals are cross-correlated with three independent DESI void catalogues (VoidFinder, REVOLVER, VIDE). The MTDF prediction is not a uniform global environment coefficient, but a localised transition confined to the stress-field coherence scale ($\beta \approx 23$ Mpc, $z \approx 0.04$). A merged sample of 4,188 supernovae (Pantheon+, ZTF DR2, Foundation DR1) confirms this:</p>
+
+<ul>
+<li>Global constant-$\gamma$ model: null ($\Delta\chi^2 < 1.4$), as expected for a localised effect</li>
+<li>Piecewise transition at $z \approx 0.04$: $\Delta\chi^2 = 36$&ndash;$39$ ($p < 0.001$, all three catalogues)</li>
+<li>SALT2 population controls (stretch, colour) shift the result by $< 0.3\sigma$</li>
+<li>Cross-catalogue overlap: the same physical supernovae drive the signal across all three void reconstructions</li>
+</ul>
+
+<h3>9.2 Hubble tension resolution</h3>
+
+<p>The void stress depletion predicts $H_\text{local}/H_0 = S_0 = \alpha\sqrt{\Omega_\text{DE}} = 1.30 \times \sqrt{0.6953} = 1.084$ (adopting the Planck 2018 TT+TE+EE+lowE best-fit $\Omega_\text{DE} = 0.6953$), giving $H_\text{local} = 73.1 \pm 1.0$ km/s/Mpc, matching the SH0ES measurement (73.2 &plusmn; 1.3). This mechanism requires no additional parameters beyond the four already fixed by independent calibration data.</p>
+
+<p>Full details in <a href="MTDF_02_Companion_Part_I_Environmental_and_Local.html">MTDF_02 (Companion Part I)</a>.</p>
+
+<!-- =========================================================== -->
+<!-- 10. GRAVITY SECTOR -->
+<!-- =========================================================== -->
+<h2 id="sec10">10. Gravity sector validation (MTDF_03)</h2>
+
+<p>The gravity sector companion paper tests whether a single frozen parameter set ($\alpha$, $\beta$) can reproduce gravitational phenomenology across scales from 1 kpc to 2,600 kpc, using six independent observational datasets. All predictions use a frozen MTDF parameter set with no fitting to the gravity-sector test data. The only external scaling is the BTFR-based mass-to-$f(M)$ mapping (McGaugh+2012), held fixed across all lensing and halo tests. The programme spans inner-galaxy rotation statistics (SPARC, 1 to 30 kpc), halo-scale dynamics (50 to 500 kpc), galaxy-galaxy lensing (100 to 2,600 kpc), and ultra-low-acceleration local dynamics (wide binaries, 2 to 30 kAU).</p>
+
+<h3>10.1 Compression mechanism and lensing</h3>
+
+<p>In the quasi-static limit, the scalar compression mode satisfies Laplace's equation outside baryonic sources, producing a unique spherically symmetric profile $S(r) = S_0[1 + fL/r]$, where $S_0 = 1.084$ (cosmological background strain), $L = \alpha\beta/(4\pi) = 2{,}347$ kpc (compression scale), and $f(M) = v_\text{flat}(M)/v_\text{ref}$ (source strength from the BTFR). The locally stored elastic energy is quadratic in the excitation: $\Delta u = (E/2)(\delta S)^2$, giving an isothermal stress density $\rho \propto r^{-2}$. Line-of-sight projection yields the analytical excess surface density:</p>
+
+<div class="eq">
+$$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R^2} $$
+</div>
+
+<p>This prediction (no parameters fitted to the lensing data) is tested against two independent surveys (PASS criterion: $\chi^2/\nu < 10$ and improvement over the best-performing $\Lambda$CDM variant):</p>
+
+<table class="tbl">
+<tr><th>Survey</th><th>Data points</th><th>MTDF $\chi^2/\nu$</th><th>$\Lambda$CDM $\chi^2/\nu$</th><th>Improvement</th></tr>
+<tr><td>KiDS &times; GAMA (Brouwer+2021)</td><td>60</td><td><strong>2.93</strong></td><td>8.30</td><td>2.8&times;</td></tr>
+<tr><td>SDSS (Mandelbaum+2016, corrected)</td><td>105</td><td><strong>3.73</strong></td><td>44.11</td><td>12&times;</td></tr>
+</table>
+
+<p>The $\Lambda$CDM baseline uses NFW profiles with stellar-to-halo mass relations (SHMR) and standard concentration-mass relations; the comparison is against the best-performing $\Lambda$CDM variant in each survey. Within the six $\Lambda$CDM baseline variants tested here (three SHMRs &times; two concentration models; worst is 50&times; worse than MTDF), the MTDF prediction gives lower residuals under the stated assumptions. High-mass underprediction in group/cluster centrals (log M<sub>*</sub> &gt; 11.2) is consistent with incomplete baryon accounting and is reduced by a physically anchored one-step baryon completion model with zero free parameters ($\chi^2/\nu$ from 22.8 to 7.16, a 3.2&times; improvement).</p>
+
+<h3>10.2 Elliptical velocity dispersions</h3>
+
+<p>25 SLACS grade-A strong-lensing ellipticals (Auger+2010; Bolton+2008), spanning $\sigma_e = 164$ to 340 km/s. The MTDF isothermal stress field predicts dispersions via the Jeans equation: $\sigma_\text{total} = \sqrt{\sigma_\text{stress}^2 + \sigma_\text{bar}^2}$, with no parameters fitted to the dispersion data. After gas correction for high-mass systems: $\chi^2/\nu = 1.81$, mean bias $-1.4\%$. The Faber-Jackson relation ($\sigma \propto M^{1/4}$) emerges as a structural consequence, not a fitted scaling.</p>
+
+<h3>10.3 Satellite kinematics</h3>
+
+<p>Satellite galaxies as dynamical tracers of the halo-scale potential (50 to 500 kpc), testing the isothermal stress profile $\rho \propto r^{-2}$ at scales well beyond the visible galaxy:</p>
+
+<ul>
+<li><strong>Amplitude test (More+2011):</strong> Host-weighted dispersions across 10 stellar mass bins. Mean |bias| = 6.3%, $\chi^2/\nu = 0.37$ (vs NFW: 116.5, 315&times; worse).</li>
+<li><strong>Radial profile test (Combes &amp; Tiret 2009):</strong> $\sigma_\text{los}(R_\text{proj})$ across 3 mass bins, 57 data points. $\chi^2/\nu = 3.60$ with 2 astrophysical nuisance parameters (vs NFW: 1913, 109&times; worse).</li>
+</ul>
+
+<h3>10.4 Rotation curves and RAR</h3>
+
+<p>175 SPARC galaxies (3,391 data points). At $r \ll \beta = 22{,}685$ kpc, the enhancement is approximately constant: $v_c^2(r) = v_\text{bar}^2(r) \times (1 + \alpha) = 2.30 \times v_\text{bar}^2(r)$. The falsifiable claims are global summary statistics, not per-galaxy fits:</p>
+
+<ul>
+<li><strong>P1 (RMS log velocity scatter):</strong> 0.185 dex, target 0.174 &plusmn; 0.011, z = $-0.94$ (PASS)</li>
+<li><strong>P1B (RAR intrinsic scatter):</strong> 0.029 dex, target 0.035 &plusmn; 0.010, z = $+0.62$ (PASS)</li>
+<li><strong>BTFR normalisation:</strong> within 0.32 dex of McGaugh+2012 (PASS)</li>
+<li><strong>v<sub>flat</sub> consistency:</strong> median ratio 0.915, 88% within 50% (PASS)</li>
+</ul>
+
+<p>Per-point $\chi^2/\nu$ (median = 51 per galaxy) is reported as a diagnostic only. All models, including MOND with fixed $\Upsilon_*$, yield similarly large per-point $\chi^2$ on SPARC without per-galaxy M/L optimisation.</p>
+
+<h3>10.5 Wide binaries</h3>
+
+<p>21,312 Gaia EDR3 pairs (Pittordis &amp; Sutherland 2023) at 2 to 30 kAU. MTDF predicts Newtonian behaviour at these scales: individual binary stars do not produce galaxy-scale stress fields. Gravity boost $\gamma = 1.102 \pm 0.010$, below the 1.15 threshold (PASS). The high-separation excess correlates monotonically with contamination fraction ($r = 0.99$), the classic contamination signature.</p>
+
+<h3>10.6 Solar System screening</h3>
+
+<p>For individual stars, $f_\odot = 5.3 \times 10^{-16}$. The enclosed stress mass at 1 AU is 16.4 kg ($8.2 \times 10^{-30}$ of $M_\odot$). All PPN parameters deviate from GR by less than $10^{-29}$. The suppression is structural ($f \propto M$ gives $f^2 \propto M^2$), not fine-tuned. Mercury precession contribution: $1.7 \times 10^{-21}$ arcsec/cy.</p>
+
+<h3>10.7 Gravity sector summary</h3>
+
+<table class="tbl">
+<tr><th>Regime</th><th>Scale</th><th>Key metric</th><th>Result</th><th>Status</th></tr>
+<tr><td>Inner galaxy (rotation)</td><td>1&ndash;30 kpc</td><td>P1 = 0.185 dex</td><td>z = $-0.94$</td><td>PASS</td></tr>
+<tr><td>Inner galaxy (RAR)</td><td>1&ndash;30 kpc</td><td>P1B = 0.029 dex</td><td>z = $+0.62$</td><td>PASS</td></tr>
+<tr><td>Halo (dispersions)</td><td>1&ndash;10 kpc</td><td>$\chi^2/\nu$ = 1.81</td><td>&lt; 5.0</td><td>PASS</td></tr>
+<tr><td>Halo (satellites, amplitude)</td><td>50&ndash;500 kpc</td><td>|bias| = 6.3%</td><td>&lt; 30%</td><td>PASS</td></tr>
+<tr><td>Halo (satellites, profile)</td><td>50&ndash;500 kpc</td><td>$\chi^2/\nu$ = 3.60</td><td>&lt; 10</td><td>PASS</td></tr>
+<tr><td>GGL (KiDS)</td><td>100&ndash;2600 kpc</td><td>$\chi^2/\nu$ = 2.93</td><td>2.8&times; better</td><td>PASS</td></tr>
+<tr><td>GGL (SDSS, corrected)</td><td>100&ndash;2600 kpc</td><td>$\chi^2/\nu$ = 3.73</td><td>12&times; better</td><td>PASS</td></tr>
+<tr><td>Strong lensing</td><td>cosmological</td><td>density slope $\gamma_\text{iso} = 2.000$</td><td>structural (isothermal)</td><td>PASS</td></tr>
+<tr><td>Ultra-low acceleration</td><td>2&ndash;30 kAU</td><td>$\gamma$ = 1.10</td><td>&lt; 1.15</td><td>PASS</td></tr>
+<tr><td>Solar System</td><td>&lt; 1 AU</td><td>PPN safety</td><td>&gt; 10<sup>20</sup></td><td>PASS</td></tr>
+<tr><td>Cluster baryons</td><td>100&ndash;2600 kpc</td><td>$\chi^2/\nu$ = 7.16</td><td>3.2&times; improvement</td><td>PASS</td></tr>
+</table>
+
+<p>All 11 primary gravity-sector metrics pass. 24/24 computational steps reproduce from clean inputs. Full details in <a href="MTDF_03_Companion_Part_II_Gravity_Sector_and_Lensing_Validation.html">MTDF_03 (Companion Part II)</a>.</p>
+
+<!-- =========================================================== -->
+<!-- 11. GPU VALIDATION -->
+<!-- =========================================================== -->
+<h2 id="sec11">11. Independent GPU validation (MTDF_07)</h2>
+
+<p>An independent GPU-accelerated pipeline re-derived all MTDF predictions from scratch, testing the framework against Planck CMB spectra, supernova environment signals, and future survey forecasts. This is a full independent reproduction, not a rerun of the original code.</p>
+
+<h3>11.1 Phases 1&ndash;4</h3>
+
+<ul>
+<li><strong>Phase 1 (Background cosmology):</strong> Pantheon+ SNe, DESI BAO, cosmic chronometers, growth rate. All pillars reproduced independently with consistent results.</li>
+<li><strong>Phase 2 (CMB power spectra):</strong> Modified CLASS with MTDF stress injection via the $\mu(a)$ parameterisation. At the CMB level, MTDF $\approx$ $\Lambda$CDM as expected ($k_f \to 0$ is the $\Lambda$CDM limit). Phase 2C confirmed $k_f = 1$ (full MTDF) lies within 95% CI in all runs.</li>
+<li><strong>Phase 3 (SN &times; void cross-correlation):</strong> Merged 4,188 SN sample: piecewise $z \approx 0.04$ transition yields $\Delta\chi^2 = 36$&ndash;$39$ ($p < 0.001$, all three void catalogues). Population controls clean ($< 0.3\sigma$ shift).</li>
+<li><strong>Phase 4 (LSST/Rubin forecast):</strong> With 10,000+ SNe: 5$\sigma$ discrimination territory within 2-3 years of operations.</li>
+</ul>
+
+<h3>11.2 Phase 5: Full Planck MCMC</h3>
+
+<p>Full Planck 2018 plik TTTEEE + low-$\ell$ + lensing MCMC with MontePython + modified CLASS. Both chains fully converged ($R-1 < 0.02$, 26,000+ accepted samples). Results: $\Delta\chi^2 = +0.63$ (statistically indistinguishable), $\Delta$AIC = +2.63 (inconclusive). $k_f$ 95% CI includes both 0 and 1. $\sigma_8$ shifts from 0.810 to 0.790, easing the S<sub>8</sub> tension. Phase 5 primarily tests the CMB-level parameterisation ($\alpha$, $\beta_\text{eos}$, $k_f$); the coherence length $\beta$ governs environmental and galactic-scale predictions and is tested in separate low-redshift and local observables.</p>
+
+<h3>11.3 Phase 6: Targeted late-universe tests</h3>
+
+<table class="tbl">
+<tr><th>Test</th><th>Description</th><th>Result</th><th>Status</th></tr>
+<tr><td>6A</td><td>Redshift-dependent transition</td><td>$p < 0.005$</td><td>PASSED</td></tr>
+<tr><td>6B</td><td>Weak lensing &times; voids (DES-Y3 + DESI)</td><td>$|\Delta\gamma_t| < 1.2 \times 10^{-4}$ (95%)</td><td>Null (upper limit)</td></tr>
+<tr><td>6B2</td><td>Trough/ridge split</td><td>$|\Delta\gamma_{t,\text{split}}| < 1.3 \times 10^{-4}$ (95%)</td><td>Null (upper limit)</td></tr>
+<tr><td>6C</td><td>Derived consistency</td><td>All parameters consistent</td><td>PASSED</td></tr>
+<tr><td>6D</td><td>CMB lensing &times; DESI voids</td><td>$\kappa_\text{comp} = -7.5 \times 10^{-4} \pm 1.0 \times 10^{-3}$ (0.7$\sigma$)</td><td>Null (upper limit)</td></tr>
+<tr><td>6E</td><td>BOSS DR12 benchmark</td><td>0.2$\sigma$ correct sign</td><td>COMPLETE</td></tr>
+</table>
+
+<p>Phase 6 establishes that current public data are consistent with MTDF but lack the statistical power to distinguish it from $\Lambda$CDM at the void-lensing level. The null results provide 95% upper bounds that will be tested by future surveys. Matched-filter analyses and deeper data (Euclid, LSST) are needed for $> 3\sigma$ discrimination.</p>
+
+<p>Full details in <a href="MTDF_07_Independent_GPU_Validation.html">MTDF_07 (GPU Validation)</a>.</p>
+
+<!-- =========================================================== -->
+<!-- 12. SPECULATIVE EXTENSIONS -->
+<!-- =========================================================== -->
+<h2 id="sec12">12. Speculative extensions (MTDF_04, MTDF_05)</h2>
+
+<p>Two companion papers explore speculative extensions of the framework that go beyond the tested core:</p>
+
+<ul>
+<li><strong><a href="MTDF_04_Companion_Part_III_Photon_Coupling_Redshift_Early_Universe.html">MTDF_04 (Part III): Photon coupling and redshift.</a></strong> Explores a hypothetical coupling between the stress field and photon propagation, predicting environment-dependent redshift modifications. The EFE (extended field equation) affects only this speculative sector; all tested results (CMB, lensing, rotation curves) are independent of it. Labelled SPECULATIVE throughout.</li>
+<li><strong><a href="MTDF_05_Companion_Part_IV_Cosmological_Validation_High_Energy_Test_Programme.html">MTDF_05 (Part IV): Cosmological validation and high-energy test programme.</a></strong> Outlines extended tests including full CMB spectra, non-linear structure formation, and high-energy constraints. Contains both tested results and speculative projections, with clear labelling.</li>
+</ul>
+
+<p>A detailed validation suite appendix covering all 20 analysis scripts, data provenance, and reproducibility protocols is provided in <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06</a>.</p>
+
+<!-- =========================================================== -->
+<!-- 13. DISCUSSION AND CONCLUSION -->
+<!-- =========================================================== -->
+<h2 id="sec13">13. Discussion and conclusion</h2>
+
+<h3>13.1 Galactic dynamics without dark matter</h3>
+
+<p>The success of P1 (Rotation Curve Scatter) is particularly significant. In $\Lambda$CDM, the scatter in the Baryonic Tully-Fisher Relation (BTFR) is a complex outcome of feedback mechanisms and halo assembly history. In MTDF, it is a direct consequence of the field coupling $\alpha$. The stress field effectively "stiffens" the potential well of galaxies, flattening rotation curves without requiring a halo of invisible particles. The low scatter is a prediction of the field's uniformity.</p>
+
+<h3>13.2 Structure growth and the S<sub>8</sub> tension</h3>
+
+<p>The standard model predicts a clustering amplitude ($\sigma_8$) that is higher than what is observed in weak lensing surveys (the S<sub>8</sub> tension). MTDF alleviates this naturally. The stress field possesses a finite coherence scale $\beta$. On scales smaller than $\beta$, the field resists clustering, suppressing the growth of structure relative to pure CDM. This suppression brings the predicted S<sub>8</sub> value closer to weak-lensing measurements than $\Lambda$CDM achieves.</p>
+
+<p>This growth suppression is independently confirmed by the full Planck MCMC analysis: the derived $S_8$ shifts from $0.830 \pm 0.013$ ($\Lambda$CDM) to $0.802 \pm 0.013$ (MTDF) under identical CMB constraints, moving toward the weak-lensing measurements without altering geometric parameters ($\theta_s$, $\omega_b$) or calibration terms.</p>
+
+<h3>13.3 Summary of tested domains</h3>
+
+<p>MTDF has been tested across the following independent domains:</p>
+
+<ol>
+<li><strong>Background cosmology:</strong> Pantheon+ SNe, DESI BAO, cosmic chronometers, growth rate. All vector pillars pass ($\chi^2/\nu = 1.17$ combined strict, DOF = 1745).</li>
+<li><strong>CMB:</strong> Full Planck 2018 MCMC gives $\Delta\chi^2 = +0.63$ (indistinguishable from $\Lambda$CDM), while shifting $S_8$ toward weak-lensing observations.</li>
+<li><strong>Hubble tension:</strong> Brought into agreement via void stress depletion ($H_\text{local} = 73.1 \pm 1.0$) using the same parameters calibrated on independent data.</li>
+<li><strong>Galaxy-galaxy lensing:</strong> Frozen-parameter predictions (no fitting to lensing data) outperform $\Lambda$CDM NFW by 2.8 to 12&times; across two independent surveys (KiDS, SDSS), with $\Delta$AIC = 4246 on SDSS.</li>
+<li><strong>Galactic dynamics:</strong> 175 SPARC rotation curves, RAR scatter, and BTFR all consistent with a single ($\alpha$, $\beta$) pair. No per-galaxy fitting.</li>
+<li><strong>Halo dynamics:</strong> Elliptical dispersions ($\chi^2/\nu = 1.81$) and satellite kinematics (6.3% bias, 315&times; better than NFW) confirm the isothermal stress profile at 50 to 500 kpc.</li>
+<li><strong>Local dynamics:</strong> Wide binaries confirm Newtonian behaviour at ultra-low accelerations, as MTDF predicts. This is a distinguishing prediction from MOND.</li>
+<li><strong>Solar System:</strong> All PPN parameters safe by $> 10^{20}$. Structural suppression, not fine-tuning.</li>
+<li><strong>Environment signal:</strong> SN &times; void cross-correlation detected at 2$\sigma$, with LSST projected to reach 5$\sigma$.</li>
+</ol>
+
+<figure id="fig-synthesis" style="text-align:center; margin:2em auto; max-width:900px;">
+  <img src="figures/mtdf_synthesis_plot.png" alt="The Stress-Redshift Main Sequence spanning three cosmological anomalies" style="width:100%; height:auto;" />
+  <figcaption><strong>Figure 3.</strong> The Stress-Redshift Main Sequence. Three independent anomalies spanning 3 orders of magnitude in environmental density contrast follow the same MTDF prediction (blue band: &delta;z = &alpha; + &beta;|&delta;| fit). Left: SN Ia void residuals (z ~ 0.04). Centre: CMB quadrupole dipole tension (z ~ 0.1). Right: cluster mass bias M<sub>dyn</sub> &gt; M<sub>WL</sub> excess (MDR ~ 1.14). The photon coupling &kappa; = 0.001 (FIRAS limit) independently modulates the signal at each scale. The &Lambda;CDM baseline (dashed grey) predicts no environment-dependent trend.</figcaption>
+</figure>
+
+<p>MTDF suggests that the phenomena attributed to a latent sector of unknown particles may instead arise from the elastic dynamics of the spacetime manifold itself. The mass profiles conventionally attributed to dark matter halos arise from the elastic energy stored in the compression of the cosmological strain field around baryonic sources, with all derived quantities traceable to four independently measured constants. If this interpretation survives independent replication and the stated hard falsifiers, the framework would offer a candidate dynamical description of cosmic structure without introducing additional matter species.</p>
+
+<div class="callout">
+<strong>Remaining hard falsifiers.</strong> Two tests can decisively challenge MTDF: (1) merging cluster lensing offsets (Bullet Cluster), where lensing peaks offset from baryonic peaks would require MTDF to produce displaced lensing signal, needing N-body simulations; (2) matched-filter CMB lensing &times; voids at $> 3\sigma$, reproducing the Cai+2017 detection with Planck + spectroscopic voids. Both require either dedicated simulations or deeper survey data than currently available.
+</div>
+
+<hr/>
+<h2 id="refs">Key references and datasets</h2>
+
+<table class="tbl">
+<tr><th>Dataset / Reference</th><th>Used in</th></tr>
+<tr><td>Planck 2018 plik TTTEEE + low-l + lensing (Aghanim+2020)</td><td>Sections 8, 11</td></tr>
+<tr><td>Pantheon+ Type Ia SNe (Scolnic+2022, Brout+2022)</td><td>Sections 7, 9, 11</td></tr>
+<tr><td>DESI Y1 BAO (DESI Collaboration 2024)</td><td>Section 7</td></tr>
+<tr><td>Cosmic Chronometers H(z) compilation (Moresco+2022)</td><td>Section 7</td></tr>
+<tr><td>eBOSS DR16 f$\sigma_8$ growth (eBOSS Collaboration 2021)</td><td>Section 7</td></tr>
+<tr><td>SH0ES Cepheid distance ladder (Riess+2022)</td><td>Section 6</td></tr>
+<tr><td>SPARC rotation curves (Lelli+2016)</td><td>Section 10</td></tr>
+<tr><td>KiDS x GAMA galaxy-galaxy lensing (Brouwer+2021)</td><td>Section 10</td></tr>
+<tr><td>SDSS galaxy-galaxy lensing (Mandelbaum+2016)</td><td>Section 10</td></tr>
+<tr><td>SLACS strong-lensing ellipticals (Auger+2010; Bolton+2008)</td><td>Section 10</td></tr>
+<tr><td>Satellite kinematics (More+2011; Combes &amp; Tiret 2009)</td><td>Section 10</td></tr>
+<tr><td>Gaia EDR3 wide binaries (Pittordis &amp; Sutherland 2023)</td><td>Section 10</td></tr>
+<tr><td>REVOLVER void catalogue (Nadathur+2019)</td><td>Sections 9, 11</td></tr>
+<tr><td>DES-Y3 weak lensing (DES Collaboration 2022)</td><td>Section 11</td></tr>
+<tr><td>KiDS-1000 cosmic shear (Asgari+2021)</td><td>Section 8</td></tr>
+</table>
+<p class="small">Full bibliographies and DOIs are provided in each companion paper. All input data files, analysis scripts, and output artefacts are included in the MTDF_Submission package.</p>
+
+<h2>References</h2>
+<ol class="refs">
+<li>Aghanim, N. et al. (Planck Collaboration) 2020, "Planck 2018 results. VI. Cosmological parameters", <em>A&amp;A</em>, 641, A6. DOI: <a href="https://doi.org/10.1051/0004-6361/201833910">10.1051/0004-6361/201833910</a></li>
+<li>DESI Collaboration 2025, "DESI 2024 VI: Cosmological Constraints from BAO", <em>JCAP</em>, 2025, 021. DOI: <a href="https://doi.org/10.1088/1475-7516/2025/02/021">10.1088/1475-7516/2025/02/021</a></li>
+<li>Brout, D. et al. 2022, "The Pantheon+ Analysis: Cosmological Constraints", <em>ApJ</em>, 938, 110. DOI: <a href="https://doi.org/10.3847/1538-4357/ac8e04">10.3847/1538-4357/ac8e04</a></li>
+<li>Scolnic, D. et al. 2022, "The Pantheon+ Analysis: The Full Data Set and Light-Curve Release", <em>ApJ</em>, 938, 113. DOI: <a href="https://doi.org/10.3847/1538-4357/ac8b7a">10.3847/1538-4357/ac8b7a</a></li>
+<li>Riess, A. G. et al. 2022, "A Comprehensive Measurement of the Local Value of the Hubble Constant", <em>ApJL</em>, 934, L7. DOI: <a href="https://doi.org/10.3847/2041-8213/ac5c5b">10.3847/2041-8213/ac5c5b</a></li>
+<li>Moresco, M. et al. 2022, "Unveiling the Universe with emerging cosmological probes", <em>Living Rev. Relativ.</em>, 25, 6. DOI: <a href="https://doi.org/10.1007/s41114-022-00040-z">10.1007/s41114-022-00040-z</a></li>
+<li>Alam, S. et al. (eBOSS Collaboration) 2021, "Completed SDSS-IV eBOSS: Cosmological implications", <em>Phys. Rev. D</em>, 103, 083533. DOI: <a href="https://doi.org/10.1103/PhysRevD.103.083533">10.1103/PhysRevD.103.083533</a></li>
+<li>Lelli, F., McGaugh, S. S. &amp; Schombert, J. M. 2016, "SPARC: Mass Models for 175 Disk Galaxies", <em>AJ</em>, 152, 157. DOI: <a href="https://doi.org/10.3847/0004-6256/152/6/157">10.3847/0004-6256/152/6/157</a></li>
+<li>McGaugh, S. S. et al. 2016, "Radial Acceleration Relation in Rotationally Supported Galaxies", <em>PRL</em>, 117, 201101. DOI: <a href="https://doi.org/10.1103/PhysRevLett.117.201101">10.1103/PhysRevLett.117.201101</a></li>
+<li>McGaugh, S. S. 2012, "The Baryonic Tully-Fisher Relation of Gas-Rich Galaxies", <em>AJ</em>, 143, 40. DOI: <a href="https://doi.org/10.1088/0004-6256/143/2/40">10.1088/0004-6256/143/2/40</a></li>
+<li>Keenan, R. C., Barger, A. J. &amp; Cowie, L. L. 2013, "Evidence for a ~300 Megaparsec Scale Under-density", <em>ApJ</em>, 775, 62. DOI: <a href="https://doi.org/10.1088/0004-637X/775/1/62">10.1088/0004-637X/775/1/62</a></li>
+<li>Farooq, O. &amp; Ratra, B. 2013, "Hubble Parameter Measurement Constraints on the Deceleration-Acceleration Transition Redshift", <em>ApJL</em>, 766, L7. DOI: <a href="https://doi.org/10.1088/2041-8205/766/1/L7">10.1088/2041-8205/766/1/L7</a></li>
+<li>Freedman, W. L. 2021, "Measurements of the Hubble Constant: Tensions in Perspective", <em>ApJ</em>, 919, 16. DOI: <a href="https://doi.org/10.3847/1538-4357/ac0e95">10.3847/1538-4357/ac0e95</a></li>
+<li>Asgari, M. et al. (KiDS Collaboration) 2021, "KiDS-1000 Cosmology: Cosmic shear constraints", <em>A&amp;A</em>, 645, A104. DOI: <a href="https://doi.org/10.1051/0004-6361/202039070">10.1051/0004-6361/202039070</a></li>
+<li>Amon, A. et al. (DES Collaboration) 2022, "Dark Energy Survey Year 3 results: Cosmology from cosmic shear", <em>Phys. Rev. D</em>, 105, 023514. DOI: <a href="https://doi.org/10.1103/PhysRevD.105.023514">10.1103/PhysRevD.105.023514</a></li>
+<li>Brouwer, M. M. et al. 2021, "The weak lensing radial acceleration relation", <em>A&amp;A</em>, 650, A113. DOI: <a href="https://doi.org/10.1051/0004-6361/202040108">10.1051/0004-6361/202040108</a></li>
+<li>Mandelbaum, R. et al. 2016, "Strong bimodality in the host halo mass of central galaxies from galaxy-galaxy lensing", <em>MNRAS</em>, 457, 3200. DOI: <a href="https://doi.org/10.1093/mnras/stw188">10.1093/mnras/stw188</a></li>
+<li>Auger, M. W. et al. 2010, "The Sloan Lens ACS Survey. X.", <em>ApJ</em>, 724, 511. DOI: <a href="https://doi.org/10.1088/0004-637X/724/1/511">10.1088/0004-637X/724/1/511</a></li>
+<li>Bolton, A. S. et al. 2008, "The Sloan Lens ACS Survey. V.", <em>ApJ</em>, 682, 964. DOI: <a href="https://doi.org/10.1086/589327">10.1086/589327</a></li>
+<li>More, S. et al. 2011, "Satellite Kinematics III. Halo Masses of Central Galaxies in SDSS", <em>MNRAS</em>, 410, 210. DOI: <a href="https://doi.org/10.1111/j.1365-2966.2010.17436.x">10.1111/j.1365-2966.2010.17436.x</a></li>
+<li>Pittordis, C. &amp; Sutherland, W. 2023, "Testing Modified Gravity with Wide Binaries in Gaia EDR3", <em>OJAp</em>, 6, 4. DOI: <a href="https://doi.org/10.21105/astro.2205.02846">10.21105/astro.2205.02846</a></li>
+<li>Skordis, C. &amp; Zlośnik, T. 2021, "New Relativistic Theory for Modified Newtonian Dynamics", <em>PRL</em>, 127, 161302. DOI: <a href="https://doi.org/10.1103/PhysRevLett.127.161302">10.1103/PhysRevLett.127.161302</a></li>
+</ol>
+<div class="footer">
+MTDF Summary Paper (V74) | Ingo Mesche | April 2026
+</div>
+</div>
+</body>
+</html>

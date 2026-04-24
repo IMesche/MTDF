@@ -1,0 +1,31 @@
+# Normalize line endings: LF in repo, native on checkout
+* text=auto
+
+# Force LF for scripts (must not have CRLF or they break)
+*.sh text eol=lf
+*.py text eol=lf
+*.c text eol=lf
+*.h text eol=lf
+*.pyx text eol=lf
+*.pxd text eol=lf
+
+# Force LF for config/data
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.ini text eol=lf
+*.pre text eol=lf
+*.csv text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.html text eol=lf
+
+# Binary files (do not normalize)
+*.png binary
+*.pdf binary
+*.xlsx binary
+*.fits binary
+*.npz binary
+*.pkl binary
+*.so binary
+*.dat binary

@@ -1,0 +1,138 @@
+================================================================================
+                    METHODS AT A GLANCE
+         SN x Void Environment Analysis (MTDF Part I, Section 2.3)
+================================================================================
+
+DATA
+--------------------------------------------------------------------------------
+Supernovae:   Pantheon+SH0ES (Scolnic et al. 2022)
+              1701 Type Ia SNe, full 1701x1701 STAT+SYS covariance matrix
+              Distance moduli: MU_SH0ES (Cepheid-calibrated)
+
+Voids:        DESIVAST DR1 (Douglass et al. 2024)
+              Three independent void finders:
+              - VoidFinder: maximal sphere fitting
+              - REVOLVER: watershed transform
+              - VIDE: ZOBOV/Voronoi tessellation
+              Coordinate system: Comoving Mpc/h (Om=0.315, h=1)
+
+Sample Cuts:  0.02 < z <= 0.157 (PV correction cut + DESIVAST limit)
+              Final sample: 564 SNe
+
+ENVIRONMENT METRIC
+--------------------------------------------------------------------------------
+Signed distance to nearest void boundary:
+
+              d_signed = (r_SN - R_void) / R_void
+
+where r_SN is the 3D comoving distance from SN to void center, and R_void is
+the void effective radius. Negative values indicate SNe inside voids.
+
+STATISTICAL MODEL
+--------------------------------------------------------------------------------
+Generalized Least Squares (GLS) with full covariance:
+
+              mu_i = mu_LCDM(z_i) + alpha + gamma_env * d_signed + gamma_M * step(M*)
+
+where:
+  - mu_LCDM(z) = theoretical distance modulus (Om=0.3, H0=70)
+  - alpha = overall zero-point
+  - gamma_env = environment coefficient (parameter of interest)
+  - gamma_M = host-mass step for log(M*) >= 10
+
+Test statistic: Delta-chi^2 between nested models (1 d.o.f.)
+Significance: p-value from chi^2 distribution
+
+ROBUSTNESS CHECKS
+--------------------------------------------------------------------------------
+1. Baseline Stability
+   Added polynomial in log(z) to design matrix
+   Result: gamma_env unchanged (Delta-gamma < 0.1 sigma)
+
+2. NGC/SGC Footprint Split (pre-registered)
+   SNe assigned to NGC/SGC based on which void catalog region contains
+   their nearest void (proper footprint membership)
+   Result: NGC shows highly significant signal (p < 0.01 for REVOLVER, VIDE)
+           SGC shows null result
+
+3. Z-Matched Comparison
+   Applied Inverse Probability Weighting to match SGC z-distribution to NGC
+   Result: Z-matched SGC still shows null signal
+           -> Effect is footprint-specific, not just low-z
+
+4. Continuous Z-Modulation
+   Fit gamma_env = gamma_0 + gamma_1 * (z - z_mean)
+   Result: gamma_1 < 0 (signal weakens with z, as MTDF predicts)
+
+5. Survey Fixed Effects
+   Added per-survey intercepts (15 survey dummies)
+   Result: gamma_env unchanged (Delta-gamma = -0.0004)
+           -> Not driven by survey-specific systematics
+
+6. Leave-One-Survey-Out (LOSO)
+   Dropped each survey in turn, refit gamma_env
+   Result: 12/12 runs maintain positive gamma_env
+           All p-values < 0.0001
+           gamma_env range: [+0.0094, +0.0128]
+           -> No single survey drives the result
+
+KEY RESULTS
+--------------------------------------------------------------------------------
+Combined Sample:
+  Void Finder    gamma_env (mag)        p-value
+  -----------    ----------------       --------
+  VoidFinder     +0.0030 +/- 0.0018     0.088
+  REVOLVER       +0.0047 +/- 0.0023     0.039 *
+  VIDE           +0.0046 +/- 0.0026     0.076
+
+NGC Footprint (highly significant):
+  REVOLVER NGC   +0.0103 +/- 0.0038     0.006 **
+  VIDE NGC       +0.0111 +/- 0.0040     0.006 **
+
+Low-z Bin (z < 0.04, most significant):
+  REVOLVER       +0.013 +/- 0.004       0.003 **
+
+* p < 0.05, ** p < 0.01
+
+INTERPRETATION
+--------------------------------------------------------------------------------
+Direction: Positive gamma_env means SNe OUTSIDE voids appear FAINTER.
+           Equivalently: SNe in/near voids appear BRIGHTER than expected.
+
+MTDF Consistency:
+  - Environment-correlated residuals detected (suggestive to significant)
+  - Effect magnitude ~0.003-0.011 mag (within MTDF bounds)
+  - Direction matches void stress depletion hypothesis
+  - Signal concentrated at low z (consistent with coherence scale)
+  - Independent of host-mass step
+  - Stable under all robustness checks
+
+CAVEATS (stated upfront)
+--------------------------------------------------------------------------------
+1. Only 4 SNe strictly inside void boundaries in low-z sample
+   -> Inference is from continuous signed-distance metric, not binary in/out
+
+2. NGC/SGC asymmetry: strong signal in NGC, null in SGC
+   -> Could reflect better void coverage in NGC, or statistical fluctuation
+
+3. VoidFinder shows weaker signal than REVOLVER/VIDE
+   -> Different void finding algorithms have different sensitivity
+
+4. Combined sample result (p ~ 0.04-0.09) is suggestive, not definitive
+   -> NGC footprint result (p < 0.01) is more significant but is a subgroup
+
+CODE
+--------------------------------------------------------------------------------
+Pipeline:     sn_void_GLS_analysis.py (main analysis)
+              sn_void_preregistered_analysis.py (NGC/SGC + selection checks)
+              sn_void_z_modulation_analysis.py (z-matching + z-modulation)
+              sn_void_survey_control_analysis.py (survey FE + LOSO)
+              sn_void_summary_figure.py (publication figure)
+
+Location:     code/analysis/
+
+REFERENCES
+--------------------------------------------------------------------------------
+Scolnic et al. (2022), ApJ, 938, 113 - Pantheon+ SN Ia compilation
+Douglass et al. (2024), ApJS, 275, 38 - DESIVAST DR1 void catalogs
+================================================================================

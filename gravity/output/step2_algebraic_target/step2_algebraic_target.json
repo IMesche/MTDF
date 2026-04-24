@@ -1,0 +1,280 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 2: Algebraic target for closing the F2 gap",
+  "method": "Compute required \u0394\u03a3_extra at target radii by subtracting MTDF prediction from Brouwer+2021 data",
+  "bins": [
+    {
+      "bin": "bin1",
+      "label": "Bin 1 (8.5-10.3)",
+      "log_Mstar": 10.0,
+      "M_bar": 11500000000.0,
+      "radial_analysis": [
+        {
+          "R_kpc": 100,
+          "ds_data_Msun_kpc2": 13710906.882689623,
+          "ds_mtdf_Msun_kpc2": 839841.111410176,
+          "ds_extra_Msun_kpc2": 12871065.771279447,
+          "M_proj_extra_Msun": 404356456709.2255,
+          "enhancement_factor": 37.45572551018387,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 200,
+          "ds_data_Msun_kpc2": 4757156.730284189,
+          "ds_mtdf_Msun_kpc2": 209442.70658064235,
+          "ds_extra_Msun_kpc2": 4547714.023703546,
+          "M_proj_extra_Msun": 571482598699.7736,
+          "enhancement_factor": 51.98277786377756,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 300,
+          "ds_data_Msun_kpc2": 1958752.0081765838,
+          "ds_mtdf_Msun_kpc2": 92857.61727359938,
+          "ds_extra_Msun_kpc2": 1865894.3909029844,
+          "M_proj_extra_Msun": 527569209975.1696,
+          "enhancement_factor": 48.1586158885446,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 500,
+          "ds_data_Msun_kpc2": 1752474.3581677205,
+          "ds_mtdf_Msun_kpc2": 33266.684962045125,
+          "ds_extra_Msun_kpc2": 1719207.6732056753,
+          "M_proj_extra_Msun": 1350262549034.5378,
+          "enhancement_factor": 119.68609933096083,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 1000,
+          "ds_data_Msun_kpc2": 1384875.4137559691,
+          "ds_mtdf_Msun_kpc2": 8218.378913101578,
+          "ds_extra_Msun_kpc2": 1376657.0348428676,
+          "M_proj_extra_Msun": 4324895627175.061,
+          "enhancement_factor": 378.32299356459805,
+          "beta_local_kpc": NaN
+        }
+      ],
+      "esd_slope_extra": -0.9741443062048107,
+      "rho_3d_slope": -1.9741443062048107,
+      "slope_interpretation": "Required \u0394\u03a3_extra ~ R^-0.97, implying \u03c1_field ~ r^-1.97. Isothermal-like (r^-2)",
+      "sparc_constraint": {
+        "R_sparc_kpc": 20,
+        "status": "SAFE",
+        "note": "SPARC radii are inside the MTDF-valid range"
+      }
+    },
+    {
+      "bin": "bin2",
+      "label": "Bin 2 (10.3-10.6)",
+      "log_Mstar": 10.45,
+      "M_bar": 30438535657.656055,
+      "radial_analysis": [
+        {
+          "R_kpc": 100,
+          "ds_data_Msun_kpc2": 17758771.319852456,
+          "ds_mtdf_Msun_kpc2": 2222915.9666455765,
+          "ds_extra_Msun_kpc2": 15535855.35320688,
+          "M_proj_extra_Msun": 488073290448.68396,
+          "enhancement_factor": 18.32901100851637,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 200,
+          "ds_data_Msun_kpc2": 10935904.923076043,
+          "ds_mtdf_Msun_kpc2": 554359.0689122501,
+          "ds_extra_Msun_kpc2": 10381545.854163792,
+          "M_proj_extra_Msun": 1304583527533.8618,
+          "enhancement_factor": 45.14824097071925,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 300,
+          "ds_data_Msun_kpc2": 7844276.54001995,
+          "ds_mtdf_Msun_kpc2": 245778.25169282028,
+          "ds_extra_Msun_kpc2": 7598498.28832713,
+          "M_proj_extra_Msun": 2148424776083.0815,
+          "enhancement_factor": 72.86542836757482,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 500,
+          "ds_data_Msun_kpc2": 4761229.718407485,
+          "ds_mtdf_Msun_kpc2": 88051.23273297575,
+          "ds_extra_Msun_kpc2": 4673178.485674509,
+          "M_proj_extra_Msun": 3670305799877.2275,
+          "enhancement_factor": 122.85285725990632,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 1000,
+          "ds_data_Msun_kpc2": 2683873.214733603,
+          "ds_mtdf_Msun_kpc2": 21752.64518213661,
+          "ds_extra_Msun_kpc2": 2662120.5695514665,
+          "M_proj_extra_Msun": 8363298424273.163,
+          "enhancement_factor": 277.00532211551183,
+          "beta_local_kpc": NaN
+        }
+      ],
+      "esd_slope_extra": -0.7816388602779595,
+      "rho_3d_slope": -1.7816388602779596,
+      "slope_interpretation": "Required \u0394\u03a3_extra ~ R^-0.78, implying \u03c1_field ~ r^-1.78. Isothermal-like (r^-2)",
+      "sparc_constraint": {
+        "R_sparc_kpc": 30,
+        "status": "SAFE",
+        "note": "SPARC radii are inside the MTDF-valid range"
+      }
+    },
+    {
+      "bin": "bin3",
+      "label": "Bin 3 (10.6-10.8)",
+      "log_Mstar": 10.7,
+      "M_bar": 52624659530.86351,
+      "radial_analysis": [
+        {
+          "R_kpc": 100,
+          "ds_data_Msun_kpc2": 20532801.699656494,
+          "ds_mtdf_Msun_kpc2": 3843161.091128915,
+          "ds_extra_Msun_kpc2": 16689640.608527578,
+          "M_proj_extra_Msun": 524320523268.04126,
+          "enhancement_factor": 12.257694311433086,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 200,
+          "ds_data_Msun_kpc2": 10680976.318675641,
+          "ds_mtdf_Msun_kpc2": 958421.8369590304,
+          "ds_extra_Msun_kpc2": 9722554.48171661,
+          "M_proj_extra_Msun": 1221772229355.4968,
+          "enhancement_factor": 25.505363481725382,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 300,
+          "ds_data_Msun_kpc2": 9848924.823301356,
+          "ds_mtdf_Msun_kpc2": 424921.78207568673,
+          "ds_extra_Msun_kpc2": 9424003.04122567,
+          "M_proj_extra_Msun": 2664574084955.019,
+          "enhancement_factor": 52.91659676628522,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 500,
+          "ds_data_Msun_kpc2": 5468791.962617114,
+          "ds_mtdf_Msun_kpc2": 152230.25824766277,
+          "ds_extra_Msun_kpc2": 5316561.704369452,
+          "M_proj_extra_Msun": 4175617798200.9746,
+          "enhancement_factor": 81.61913448434105,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 1000,
+          "ds_data_Msun_kpc2": 3004156.767186721,
+          "ds_mtdf_Msun_kpc2": 37607.77323457379,
+          "ds_extra_Msun_kpc2": 2966548.993952147,
+          "M_proj_extra_Msun": 9319688525914.258,
+          "enhancement_factor": 179.3424777311999,
+          "beta_local_kpc": NaN
+        }
+      ],
+      "esd_slope_extra": -0.7410226193907671,
+      "rho_3d_slope": -1.7410226193907672,
+      "slope_interpretation": "Required \u0394\u03a3_extra ~ R^-0.74, implying \u03c1_field ~ r^-1.74. Isothermal-like (r^-2)",
+      "sparc_constraint": {
+        "R_sparc_kpc": 35,
+        "status": "SAFE",
+        "note": "SPARC radii are inside the MTDF-valid range"
+      }
+    },
+    {
+      "bin": "bin4",
+      "label": "Bin 4 (10.8-11.0)",
+      "log_Mstar": 10.9,
+      "M_bar": 81815808176.60107,
+      "radial_analysis": [
+        {
+          "R_kpc": 100,
+          "ds_data_Msun_kpc2": 31495675.95652553,
+          "ds_mtdf_Msun_kpc2": 5974980.80608334,
+          "ds_extra_Msun_kpc2": 25520695.15044219,
+          "M_proj_extra_Msun": 801756283991.3385,
+          "enhancement_factor": 12.093822258809336,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 200,
+          "ds_data_Msun_kpc2": 17621430.042286456,
+          "ds_mtdf_Msun_kpc2": 1490062.9830947805,
+          "ds_extra_Msun_kpc2": 16131367.059191676,
+          "M_proj_extra_Msun": 2027127369820.6782,
+          "enhancement_factor": 27.065358834859552,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 300,
+          "ds_data_Msun_kpc2": 9533838.85752289,
+          "ds_mtdf_Msun_kpc2": 660627.9132689603,
+          "ds_extra_Msun_kpc2": 8873210.944253929,
+          "M_proj_extra_Msun": 2508841288459.8623,
+          "enhancement_factor": 32.94753777361318,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 500,
+          "ds_data_Msun_kpc2": 6823734.358837336,
+          "ds_mtdf_Msun_kpc2": 236673.10569792206,
+          "ds_extra_Msun_kpc2": 6587061.253139414,
+          "M_proj_extra_Msun": 5173465810402.189,
+          "enhancement_factor": 65.5050478921463,
+          "beta_local_kpc": NaN
+        },
+        {
+          "R_kpc": 1000,
+          "ds_data_Msun_kpc2": 3257886.346340751,
+          "ds_mtdf_Msun_kpc2": 58468.983711038425,
+          "ds_extra_Msun_kpc2": 3199417.3626297126,
+          "M_proj_extra_Msun": 10051266082205.135,
+          "enhancement_factor": 125.09748470371697,
+          "beta_local_kpc": NaN
+        }
+      ],
+      "esd_slope_extra": -0.9103533817628316,
+      "rho_3d_slope": -1.9103533817628318,
+      "slope_interpretation": "Required \u0394\u03a3_extra ~ R^-0.91, implying \u03c1_field ~ r^-1.91. Isothermal-like (r^-2)",
+      "sparc_constraint": {
+        "R_sparc_kpc": 40,
+        "status": "SAFE",
+        "note": "SPARC radii are inside the MTDF-valid range"
+      }
+    }
+  ],
+  "assessment": {
+    "esd_slope_range": "-0.97 to -0.74",
+    "rho_3d_slope_range": "-1.97 to -1.74",
+    "sparc_constraint": "All bins SAFE",
+    "stress_halo_max_mass": [
+      14950000000.0,
+      39570096354.95287,
+      68412057390.12257,
+      106360550629.5814
+    ],
+    "required_mass_at_100kpc": [
+      404356456709.2255,
+      488073290448.68396,
+      524320523268.04126,
+      801756283991.3385
+    ],
+    "stress_halo_shortfall_factor": [
+      27.047254629379633,
+      12.334397320404635,
+      7.664153707263647,
+      7.538098282168455
+    ],
+    "beta_local_possible": false,
+    "conclusion": "The required field profile has \u0394\u03a3_extra ~ R^-0.9, implying \u03c1_field ~ r^-1.9 (close to isothermal). CRITICAL: No effective \u03b2_local can close the gap. The maximum stress mass under the current ansatz (\u03b1 \u00d7 M_bar) is 8-27x too small. The stress halo ansatz is fundamentally insufficient \u2014 the problem is not concentration but total energy. SPARC constraint: All bins SAFE."
+  }
+}

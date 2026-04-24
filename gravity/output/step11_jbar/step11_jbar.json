@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 11: J_bar identification",
+  "candidates": {
+    "A_rho_c2": {
+      "exponent_linear": 1.0004603199239823,
+      "exponent_screened": 0.25023015996200776
+    },
+    "B_rho_Phi": {
+      "exponent_linear": 1.5000305059279626,
+      "exponent_screened": 0.5000152529639847
+    },
+    "C_rho_v2": {
+      "exponent_linear": 1.499940533511611,
+      "exponent_screened": 0.49997026675580614
+    }
+  },
+  "required_exponent": 0.25,
+  "winner": "A (rho_bar c^2) + quadratic screening (S-S0)^2",
+  "screening_parameter_lambda": {
+    "values": [
+      5.3879366854752795e-48,
+      4.7498971063060364e-48,
+      5.0493774206148804e-48,
+      5.21853128693146e-48
+    ],
+    "mean": 5.101435624831914e-48,
+    "std": 2.356287537982025e-49,
+    "scatter_pct": 4.6188714535815825
+  },
+  "field_equation": "E beta^2 [nabla^2 S - lambda (S-S0)^2] = alpha rho_bar c^2"
+}

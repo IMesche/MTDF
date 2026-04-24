@@ -1,0 +1,60 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "lcdm_chi2_total": 2773.1970752,
+  "mtdf_chi2_total": 2773.822235,
+  "delta_chi2": 0.6251597999998921,
+  "delta_AIC": 2.625159799999892,
+  "delta_BIC": 8.049325081041843,
+  "k_lcdm": 27,
+  "k_mtdf": 28,
+  "chi2_breakdown": {
+    "lowl TT": {
+      "lcdm": 23.250533,
+      "mtdf": 25.899231,
+      "delta": 2.6486979999999996
+    },
+    "lowl EE": {
+      "lcdm": 395.68888,
+      "mtdf": 396.0826,
+      "delta": 0.39372000000003027
+    },
+    "plik TTTEEE": {
+      "lcdm": 2345.4121,
+      "mtdf": 2341.741,
+      "delta": -3.671100000000024
+    },
+    "lensing": {
+      "lcdm": 8.8455622,
+      "mtdf": 10.099404,
+      "delta": 1.2538418
+    }
+  },
+  "lcdm_cosmo": {
+    "logA": 3.0372435,
+    "n_s": 0.96501474,
+    "theta_s_100": 1.0418598,
+    "omega_b": 0.022336663,
+    "omega_cdm": 0.1202177,
+    "tau_reio": 0.05072556,
+    "H0": 67.256795,
+    "sigma8": 0.80882707,
+    "Omega_m": 0.31656737
+  },
+  "mtdf_cosmo": {
+    "logA": 3.0437533,
+    "n_s": 0.9649609,
+    "theta_s_100": 1.0418323,
+    "omega_b": 0.022352476,
+    "omega_cdm": 0.12018133,
+    "tau_reio": 0.053842027,
+    "H0": 67.281802,
+    "sigma8": 0.79463785,
+    "Omega_m": 0.31628668,
+    "mtdf_k_f": 0.028399791
+  },
+  "mtdf_k_f_bestfit": 0.028399791
+}

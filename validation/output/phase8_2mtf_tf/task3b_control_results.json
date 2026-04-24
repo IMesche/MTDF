@@ -1,0 +1,259 @@
+{
+  "timestamp": "2026-04-11T16:24:21.084711",
+  "description": "Control tests for Task 3B 2MTF gamma_TF signal",
+  "n_galaxies": 2062,
+  "tf_band": "K",
+  "tf_scatter": 0.5524868969569074,
+  "control_a": {
+    "R5": {
+      "radius": 5.0,
+      "gamma": 0.06409884140309179,
+      "gamma_err": 0.0060834179712584225,
+      "significance": 10.536649249801954,
+      "delta_chi2": 111.02097741335274,
+      "p_value": 0.0,
+      "n": 2062
+    },
+    "R10": {
+      "radius": 10.0,
+      "gamma": 0.10205653244130737,
+      "gamma_err": 0.006083417971258437,
+      "significance": 16.776182883287174,
+      "delta_chi2": 281.44031213349626,
+      "p_value": 0.0,
+      "n": 2062
+    },
+    "R20": {
+      "radius": 20.0,
+      "gamma": 0.1599749032754536,
+      "gamma_err": 0.006083417971258438,
+      "significance": 26.296878503378686,
+      "delta_chi2": 691.5258190214608,
+      "p_value": 0.0,
+      "n": 2062
+    }
+  },
+  "control_b": {
+    "VoidFinder": {
+      "R5": {
+        "radius": 5.0,
+        "corr_d_rho": 0.05414640487970025,
+        "dchi2_density_vs_null": 111.02097741335274,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 234.95333572828713,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.09338476680036997,
+        "gamma_d_err": 0.006092355411651413,
+        "gamma_d_significance": 15.328187620468583,
+        "n": 2062
+      },
+      "R10": {
+        "radius": 10.0,
+        "corr_d_rho": 0.06511379207733697,
+        "dchi2_density_vs_null": 281.44031213349626,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 219.49318635375403,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.09031934873906576,
+        "gamma_d_err": 0.006096355380663413,
+        "gamma_d_significance": 14.815302438821586,
+        "n": 2062
+      },
+      "R20": {
+        "radius": 20.0,
+        "corr_d_rho": 0.10396520979168425,
+        "dchi2_density_vs_null": 691.5258190214608,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 174.60634167424178,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.08082347764679321,
+        "gamma_d_err": 0.006116564032749461,
+        "gamma_d_significance": 13.213869292309557,
+        "n": 2062
+      }
+    },
+    "REVOLVER": {
+      "R5": {
+        "radius": 5.0,
+        "corr_d_rho": 0.03708285094496945,
+        "dchi2_density_vs_null": 111.02097741335274,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 136.0474673476756,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.07100545259301906,
+        "gamma_d_err": 0.006087605059227739,
+        "gamma_d_significance": 11.663938757884313,
+        "n": 2062
+      },
+      "R10": {
+        "radius": 10.0,
+        "corr_d_rho": 0.04926051711470479,
+        "dchi2_density_vs_null": 281.44031213349626,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 126.20006264112999,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.06842345678800907,
+        "gamma_d_err": 0.0060908124381381466,
+        "gamma_d_significance": 11.233880124032337,
+        "n": 2062
+      },
+      "R20": {
+        "radius": 20.0,
+        "corr_d_rho": 0.08957004326317076,
+        "dchi2_density_vs_null": 691.5258190214608,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 94.67958564899891,
+        "p_void_beyond_density": 0.0,
+        "gamma_d_partial": 0.059432634788375766,
+        "gamma_d_err": 0.006107968795543614,
+        "gamma_d_significance": 9.73034355246509,
+        "n": 2062
+      }
+    },
+    "VIDE": {
+      "R5": {
+        "radius": 5.0,
+        "corr_d_rho": 0.030615591274952503,
+        "dchi2_density_vs_null": 111.02097741335274,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 43.68535352484014,
+        "p_void_beyond_density": 3.856470698337944e-11,
+        "gamma_d_partial": 0.040227145321395305,
+        "gamma_d_err": 0.0060862710147857185,
+        "gamma_d_significance": 6.609489656912952,
+        "n": 2062
+      },
+      "R10": {
+        "radius": 10.0,
+        "corr_d_rho": 0.05097693468628153,
+        "dchi2_density_vs_null": 281.44031213349626,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 36.98690379837444,
+        "p_void_beyond_density": 1.189253473476981e-09,
+        "gamma_d_partial": 0.03704560305614468,
+        "gamma_d_err": 0.006091337740701099,
+        "gamma_d_significance": 6.081685933881713,
+        "n": 2062
+      },
+      "R20": {
+        "radius": 20.0,
+        "corr_d_rho": 0.09511973914850477,
+        "dchi2_density_vs_null": 691.5258190214608,
+        "p_density": 0.0,
+        "dchi2_void_beyond_density": 19.782852576277946,
+        "p_void_beyond_density": 8.675752774967016e-06,
+        "gamma_d_partial": 0.027181020174269866,
+        "gamma_d_err": 0.00611112680837066,
+        "gamma_d_significance": 4.447791876457041,
+        "n": 2062
+      }
+    }
+  },
+  "control_c": {
+    "VoidFinder": {
+      "R5": {
+        "radius": 5.0,
+        "gamma_observed": 0.057582015115165724,
+        "gamma_expected": 0.002069244547440831,
+        "ratio": 27.827554353776666,
+        "slope_tf_vs_delta": 0.03522621650108177,
+        "r_tf_delta": 0.11601875403045377,
+        "slope_delta_vs_dsigned": 0.05874160647872263,
+        "r_delta_dsigned": 0.054146404879700454,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R10": {
+        "radius": 10.0,
+        "gamma_observed": 0.057582015115165724,
+        "gamma_expected": 0.003961920987350623,
+        "ratio": 14.533862562885538,
+        "slope_tf_vs_delta": 0.0691120597247346,
+        "r_tf_delta": 0.1847220866294454,
+        "slope_delta_vs_dsigned": 0.057326044153950845,
+        "r_delta_dsigned": 0.06511379207733714,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R20": {
+        "radius": 20.0,
+        "gamma_observed": 0.057582015115165724,
+        "gamma_expected": 0.009915894649202225,
+        "ratio": 5.8070418406269,
+        "slope_tf_vs_delta": 0.15656662251683154,
+        "r_tf_delta": 0.289554203288067,
+        "slope_delta_vs_dsigned": 0.06333338798399529,
+        "r_delta_dsigned": 0.10396520979168415,
+        "verdict": "EXCESS beyond density-only"
+      }
+    },
+    "REVOLVER": {
+      "R5": {
+        "radius": 5.0,
+        "gamma_observed": 0.05846317399035728,
+        "gamma_expected": 0.0018962339056014597,
+        "ratio": 30.831203796988092,
+        "slope_tf_vs_delta": 0.03522621650108177,
+        "r_tf_delta": 0.11601875403045377,
+        "slope_delta_vs_dsigned": 0.05383018938588616,
+        "r_delta_dsigned": 0.037082850944969374,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R10": {
+        "radius": 10.0,
+        "gamma_observed": 0.05846317399035728,
+        "gamma_expected": 0.004010591115596847,
+        "ratio": 14.577196304803794,
+        "slope_tf_vs_delta": 0.0691120597247346,
+        "r_tf_delta": 0.1847220866294454,
+        "slope_delta_vs_dsigned": 0.05803026463934908,
+        "r_delta_dsigned": 0.04926051711470474,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R20": {
+        "radius": 20.0,
+        "gamma_observed": 0.05846317399035728,
+        "gamma_expected": 0.011430974417630066,
+        "ratio": 5.114452351515121,
+        "slope_tf_vs_delta": 0.15656662251683154,
+        "r_tf_delta": 0.289554203288067,
+        "slope_delta_vs_dsigned": 0.07301028938272709,
+        "r_delta_dsigned": 0.08957004326317064,
+        "verdict": "EXCESS beyond density-only"
+      }
+    },
+    "VIDE": {
+      "R5": {
+        "radius": 5.0,
+        "gamma_observed": 0.045685958611678006,
+        "gamma_expected": 0.0021269573967399925,
+        "ratio": 21.47948928441223,
+        "slope_tf_vs_delta": 0.03522621650108177,
+        "r_tf_delta": 0.11601875403045377,
+        "slope_delta_vs_dsigned": 0.060379955839840904,
+        "r_delta_dsigned": 0.030615591274952548,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R10": {
+        "radius": 10.0,
+        "gamma_observed": 0.045685958611678006,
+        "gamma_expected": 0.005638719428816577,
+        "ratio": 8.102186886299167,
+        "slope_tf_vs_delta": 0.0691120597247346,
+        "r_tf_delta": 0.1847220866294454,
+        "slope_delta_vs_dsigned": 0.08158806800542409,
+        "r_delta_dsigned": 0.050976934686281505,
+        "verdict": "EXCESS beyond density-only"
+      },
+      "R20": {
+        "radius": 20.0,
+        "gamma_observed": 0.045685958611678006,
+        "gamma_expected": 0.01649257496989149,
+        "ratio": 2.770092523155503,
+        "slope_tf_vs_delta": 0.15656662251683154,
+        "r_tf_delta": 0.289554203288067,
+        "slope_delta_vs_dsigned": 0.1053390224862165,
+        "r_delta_dsigned": 0.09511973914850479,
+        "verdict": "EXCESS beyond density-only"
+      }
+    }
+  }
+}

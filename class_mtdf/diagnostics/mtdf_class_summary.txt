@@ -1,0 +1,27 @@
+======================================================================
+MTDF CLASS Implementation - Summary Comparison
+======================================================================
+Generated: 2025-11-27 14:28:33
+
+Dashboard Mapping:
+  'MTDF (baseline)'  <-> CLASS: mtdf_efe=no   (standard early-time physics)
+  'MTDF (EFE)'       <-> CLASS: mtdf_efe=yes  (early field energy active)
+
+----------------------------------------------------------------------
+Parameter                               No EFE        With EFE      Delta
+----------------------------------------------------------------------
+r_s [Mpc]                             150.3201        149.2130    -1.1070
+100*theta_star                          1.0848          1.0768    -0.0080
+ell_peak (TT)                              215             216          1
+----------------------------------------------------------------------
+
+Key Results:
+  Sound horizon reduction: -0.736%
+  Angular size change:     -0.736%
+  C_ell RMS difference:    3.767%
+
+Validation:
+  Predicted Delta_r_s/r_s: -0.74% (analytic MTDF)
+  Computed Delta_r_s/r_s:  -0.74% (CLASS)
+  Agreement: EXCELLENT
+======================================================================

@@ -1,0 +1,155 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Uniform MTDF preamble -- identical across all papers
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage[hidelinks,breaklinks=true]{hyperref}
+\usepackage{microtype}
+
+% Colours matching the HTML theme
+\definecolor{accent}{HTML}{1A4B8A}
+\definecolor{callout-bg}{HTML}{FBFBFB}
+\definecolor{tablehead}{HTML}{F0F0F0}
+
+% Prevent any table from overflowing
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+
+% Caption style (compact, italic, small like the HTML)
+\captionsetup{font=small,labelfont=bf,labelsep=period,justification=centerfirst}
+
+% Hyperref metadata placeholders (filled per-paper below)
+\hypersetup{
+  pdftitle={Executive Briefing: Mesche's Tensor Dynamics Framework (MTDF)},
+  pdfauthor={Ingo Mesche},
+  pdfsubject={MTDF - Mesche's Tensor Dynamics Framework},
+  colorlinks=false
+}
+
+% Prevent overfull hbox from long URLs/DOIs in bibliography
+\sloppy
+\emergencystretch=3em
+
+% Tolerant line breaking so long identifiers (Python filenames etc.) don't
+% produce large overfull hboxes in narrow table columns. These settings keep
+% all content on-page while slightly relaxing right-margin strictness.
+\tolerance=1200
+\hbadness=2000
+\hyphenpenalty=150
+\exhyphenpenalty=50
+
+% ============================================================
+\title{Executive Briefing: Mesche's Tensor Dynamics Framework (MTDF)}
+\author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
+\date{V74 / February 2026}
+
+\begin{document}
+\maketitle
+\begin{center}\itshape A reproducible, first-principles approach to the latent sector crisis\end{center}
+
+
+
+
+
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Claim status.}
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{mdframed}
+
+\section{The Premise}
+For decades, observational anomalies in cosmology have been resolved by postulating invisible compositional components (Cold Dark Matter and Dark Energy). Mesche's Tensor Dynamics Framework (MTDF) proposes a dynamic alternative: spacetime acts as an elastic medium characterised by an intrinsic stress-energy tensor $F_{\mu\nu}$. By introducing just four fundamental, independently measured parameters (including a coherence length $\beta = 22.7$ Mpc) plus the derived elastic modulus $E = (2/\alpha^2)\,\rho_c\,c^2 = 9.1 \times 10^{-10}$ Pa, MTDF recovers the cosmic expansion history and galactic dynamics without latent particle sectors.
+
+\section{The Reproducible Evidence}
+This framework is accompanied by a fully reproducible, GPU-accelerated computational pipeline encompassing modified Boltzmann solvers (class\_\allowbreak{}mtdf) and full MCMC chains. Key empirical results include:
+
+\subsection{CMB Consistency}
+MTDF remains consistent with the full Planck 2018 plik TTTEEE + low-$\ell$ + lensing likelihood as an external consistency check. Full MCMC runs yield a $\Delta\chi^2 = +0.63$ compared to $\Lambda$CDM, demonstrating that the framework is consistent with early-universe physics within the precision and assumptions of this likelihood comparison.
+
+\subsection{The Dual-Epoch $H_0$ Solution}
+MTDF predicts an early-universe energy injection of approximately $0.33\%$ (derived geometrically as $\gamma_{\text{geom}} = 1/12$), shifting the global CMB $H_0$ to $\approx 67.45$ km/\allowbreak{}s/\allowbreak{}Mpc. Simultaneously, it predicts local void stress depletion that enhances local measurements to $H_{\text{local}} = 73.1 \pm 1.0$ km/\allowbreak{}s/\allowbreak{}Mpc, closing the gap to well within $1\sigma$ of SH0ES using parameters calibrated on void-based anchors.
+
+The relevant classification is therefore not simply one $H_0$ value against another, but a method-dependent hierarchy: measurements calibrated through the local void environment are naturally shifted relative to global-background methods. Recent compilations of sound-horizon-free $H_0$ measurements are consistent with this pattern, with distance-ladder methods clustering near 73 km/\allowbreak{}s/\allowbreak{}Mpc while methods with less local-void exposure return lower values.
+
+\subsection{Galactic Dynamics with a Frozen Parameter Set}
+Using a frozen parameter set (no per-galaxy fitting), the framework reproduces the SPARC dataset rotation curves with an RMS log velocity scatter of 0.185 dex. In the tested galaxy-galaxy lensing implementations, it gives lower residuals than the corresponding $\Lambda$CDM NFW baseline profiles across KiDS and SDSS comparisons. These comparisons should be read as model-implementation tests, not as a final exclusion of the full $\Lambda$CDM modelling space.
+
+\subsection{The $S_8$ Tension Reduction}
+The derived $S_8$ shifts from $0.830 \pm 0.013$ ($\Lambda$CDM) to $0.802 \pm 0.013$ (MTDF), moving toward weak-lensing measurements (KiDS-1000, DES-Y3).
+
+\subsection{Solar System Safety}
+MTDF's structural suppression ensures all Post-Newtonian (PPN) parameters remain safe by factors exceeding $10^{20}$ at scales $< 1$ AU. Wide binary tests confirm effectively Newtonian dynamics ($\gamma = 1.10 \pm 0.01$, below the 1.15 threshold). This constitutes a clean external discriminator: MTDF and acceleration-threshold models (e.g. MOND) agree on galaxy-scale phenomenology but differ sharply for wide binaries, where MTDF predicts Newtonian behaviour because the stress field is sourced by galaxy-integrated mass, not by individual stellar systems.
+
+\section{Falsifiable Prediction}
+MTDF predicts that Type Ia Supernova distance residuals should exhibit an environment-linked transition at low redshift, sharply confined to the stress-field coherence scale ($\beta \approx 23$ Mpc, corresponding to $z \approx 0.04$), rather than a uniform global correlation. A merged analysis of 4,188 supernovae (Pantheon+, ZTF DR2, Foundation DR1) across three independent void catalogues (VoidFinder, REVOLVER, VIDE) confirms this: the global constant-$\gamma$ model is null, while a piecewise transition at $z \approx 0.04$ yields $\Delta\chi^2 = 36$--$39$ ($p < 0.001$, all three catalogues). SALT2 population controls (stretch, colour) shift the result by less than 0.3$\sigma$, and the same physical supernovae drive the signal across all three void reconstructions.
+
+\section{Access to Data and Code}
+All assertions in the accompanying DOI publications are backed by a fully open codebase. Researchers can download the data, run the MCMC chains, and test the MTDF constraints directly.
+
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Repository \& Reproducibility:}\begin{itemize}
+  \item \textbf{Source code:} \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}
+  \item \textbf{Papers:} See \texttt{papers/\allowbreak{}} directory (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}07)
+  \item \textbf{Reproduce:} \texttt{bash setup\_\allowbreak{}environment.sh \&\& bash scripts/\allowbreak{}download\_\allowbreak{}data.sh \&\& cd validation/\allowbreak{}code \&\& python run\_\allowbreak{}validate.py}
+  \item \textbf{DOI:} \emph{See CITATION.cff in the repository root}
+\end{itemize}
+\end{mdframed}
+
+\section{Frequently Asked Questions}
+
+\subsection{Is MTDF a modified-gravity theory?}
+MTDF is a field theory in which spacetime possesses an elastic stress-energy component. It does not modify the geodesic motion of particles or photons relative to General Relativity. Instead, it introduces an additional, physically specified stress contribution that alters the effective dynamics at large scales.
+
+\subsection{Does MTDF eliminate dark matter entirely?}
+MTDF does not require a particle dark matter component. The gravitational effects commonly attributed to dark matter are reproduced as an emergent consequence of spacetime stress sourced by baryonic matter.
+
+\subsection{How does MTDF reproduce the CMB power spectrum?}
+MTDF is constructed to be effectively degenerate with $\Lambda$CDM at early times. The model reproduces the observed CMB power spectrum using a derived early-field energy fraction ($f_{\text{kick}} \approx 0.33\%$), without calibrating parameters on CMB data. CMB observations are treated as external validation, not input.
+
+\subsection{What are the free parameters of MTDF?}
+MTDF has four fundamental parameters: $\alpha$, $\beta$, $\tau$, and $\beta_{\text{eos}}$, each determined from independent, non-CMB datasets. Additional quantities, including the elastic modulus $E$ and photon coupling $\kappa$, are derived or observationally anchored and are not free parameters.
+
+\subsection{How does MTDF differ from MOND and other modified gravity models?}
+MTDF differs in both mechanism and predictions. In particular: MTDF does not introduce an acceleration threshold; MTDF predicts Newtonian behaviour in wide binaries; and MTDF produces environment-dependent effects tied to large-scale structure. These distinctions provide direct observational discriminators between MTDF and MOND-like frameworks.
+
+\subsection{Does MTDF make new, testable predictions?}
+Yes. The framework predicts: a correlation between supernova residuals and large-scale environment; a sharp transition in this signal at low redshift ($z \approx 0.04$); null deviations from Newtonian dynamics in wide binaries; and a method-dependent hierarchy in $H_0$ measurements. These predictions are falsifiable with current or near-future datasets.
+
+\subsection{Is MTDF consistent with Solar System tests?}
+Yes. The predicted deviations from General Relativity at Solar System scales are suppressed by more than 20 orders of magnitude, well below current experimental sensitivity.
+
+\subsection{Does MTDF resolve the Hubble tension?}
+MTDF provides a physical mechanism that produces a dual-epoch behaviour in the expansion rate. Early-universe observables remain consistent with CMB-inferred values, while late-time, environment-sensitive measurements naturally produce higher local $H_0$ values. This leads to a method-dependent hierarchy that matches current observational patterns.
+
+\subsection{What would falsify MTDF?}
+MTDF would be falsified if: no statistically significant environment-dependent signal is observed in low-redshift supernova data; no transition is observed near $z \approx 0.04$ in sufficiently large samples; or wide binary systems show sustained deviations from Newtonian dynamics. These conditions are explicitly testable.
+
+\subsection{What is the minimal claim of MTDF?}
+MTDF proposes that a single, physically defined spacetime stress field can account for both cosmological expansion and galaxy-scale dynamics, while remaining consistent with current high-precision observations and making testable predictions at low redshift.
+
+This document accompanies the full MTDF paper suite (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}08). For the complete technical treatment, please refer to the published papers.
+
+
+\end{document}

@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 14: Constitutive law - why (S-S_0)^2",
+  "part_A_btfr_exponent": {
+    "exponent_formula": "(n-1)/(2n)",
+    "n_values": [
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5,
+      4,
+      5,
+      6
+    ],
+    "exponents": [
+      0.0,
+      0.16666666666666666,
+      0.25,
+      0.3,
+      0.3333333333333333,
+      0.35714285714285715,
+      0.375,
+      0.4,
+      0.4166666666666667
+    ],
+    "unique_solution": 2,
+    "algebraic_proof": "4(n-1) = 2n => n = 2",
+    "btfr_uncertainty_n_range": [
+      1.923076923076923,
+      2.0833333333333335
+    ]
+  },
+  "part_B_lambda_prediction": {
+    "principle": "Elastic energy gravitates (equivalence principle)",
+    "derivation": "lambda = alpha / (2 beta^2)",
+    "lambda_base": 1.326530612244898e-48,
+    "lambda_measured": 5.1e-48,
+    "ratio_base": 0.26010404161664663,
+    "variants": {
+      "alpha/(2*beta^2)": 1.326530612244898e-48,
+      "alpha/beta^2": 2.653061224489796e-48,
+      "pi*alpha/(2*beta^2)": 4.1674188261905414e-48,
+      "2*alpha/beta^2": 5.306122448979592e-48,
+      "3*alpha/(2*beta^2)": 3.979591836734694e-48,
+      "4*pi*alpha/beta^2": 3.333935060952433e-47
+    },
+    "variant_ratios": {
+      "alpha/(2*beta^2)": 0.26010404161664663,
+      "alpha/beta^2": 0.5202080832332933,
+      "pi*alpha/(2*beta^2)": 0.8171409463118708,
+      "2*alpha/beta^2": 1.0404161664665865,
+      "3*alpha/(2*beta^2)": 0.78031212484994,
+      "4*pi*alpha/beta^2": 6.537127570494967
+    },
+    "closest_variant": "2*alpha/beta^2",
+    "closest_ratio": 1.0404161664665865
+  },
+  "part_C_freeman_consistency": {
+    "p_freeman": 0.5,
+    "n_from_p": 2.0,
+    "p_from_n": 0.5,
+    "bidirectional": true,
+    "formula": "n = 4(1-3p)/(1-4p)",
+    "stability": "n=2 is leading Landau-Ginzburg anharmonic term"
+  },
+  "part_D_transition": {
+    "transition_f_0.01_log10_Msun": 2.5348840734410327,
+    "transition_f_0.1_log10_Msun": 6.534884073441033,
+    "step13_threshold": 2.5,
+    "key_insight": "Self-sourcing amplification is always present but only produces observable effects above ~10^2.5 M_sun. Solar system safety is structural, not fine-tuned."
+  },
+  "part_E_brouwer_verification": {
+    "chi2_table": {
+      "1": 136.67229635324114,
+      "2": 2.0002676499175904,
+      "3": 14.145962261046485,
+      "4": 39.66546274053491
+    },
+    "best_n": 2,
+    "rms_n2": 0.0353577046935812
+  },
+  "field_equation": "E beta^2 [nabla^2 S - alpha/(2 beta^2) (S-S0)^2] = alpha rho c^2",
+  "status": "n=2 uniquely selected; lambda approximately predicted"
+}

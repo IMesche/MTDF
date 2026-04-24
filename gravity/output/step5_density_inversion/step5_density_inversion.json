@@ -1,0 +1,207 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 5: Invert observed \u0394\u03a3(R) into required 3D stress density \u03c1_stress(r). Uses the correct MTDF potential (GPT fix). Fits isothermal, power-law, and NFW profiles to the residual.",
+  "potential_note": "Fixed: \u03a6(r) = -GM(1+\u03b1)/r + (\u03b1GM/\u03b2)ln(1+\u03b2/r) is the potential consistent with g(r) = GM/r\u00b2 \u00d7 [1+\u03b1/(1+r/\u03b2)]. The previously used \u03a6 = -GM/r \u00d7 [1+\u03b1/(1+r/\u03b2)] does not differentiate to the stated acceleration. Numerical effect < 2% at R << \u03b2.",
+  "bins": [
+    {
+      "bin": "bin1",
+      "label": "8.5 < logM_* < 10.3",
+      "M_bar": 11500000000.0,
+      "isothermal_fit": {
+        "rho_s_rs2": 311990603.4193901,
+        "chi2": 16.617919529924833,
+        "ndof": 12
+      },
+      "powerlaw_fit": {
+        "A": 1391633369.6768544,
+        "n": 1.0596716595711593,
+        "implied_3d_slope": -2.0596716595711593,
+        "chi2": 15.835875842529818,
+        "ndof": 11
+      },
+      "nfw_fit": {
+        "log_M200": 11.955857590511286,
+        "c200": 2.059956595282058,
+        "chi2": 24.040785699013806,
+        "ndof": 11
+      },
+      "density_comparison": [
+        {
+          "r_kpc": 100,
+          "rho_required": 31199.06034193901,
+          "rho_mtdf_stress": 5.1984281577662586,
+          "ratio": 6001.63345439886
+        },
+        {
+          "r_kpc": 200,
+          "rho_required": 7799.7650854847525,
+          "rho_mtdf_stress": 1.2882741348350721,
+          "ratio": 6054.429623772037
+        },
+        {
+          "r_kpc": 300,
+          "rho_required": 3466.5622602154453,
+          "rho_mtdf_stress": 0.5675950334167633,
+          "ratio": 6107.457000368221
+        },
+        {
+          "r_kpc": 500,
+          "rho_required": 1247.9624136775603,
+          "rho_mtdf_stress": 0.2008241341124731,
+          "ratio": 6214.2053752296
+        }
+      ]
+    },
+    {
+      "bin": "bin2",
+      "label": "10.3 < logM_* < 10.6",
+      "M_bar": 30438535657.656055,
+      "isothermal_fit": {
+        "rho_s_rs2": 575372666.619303,
+        "chi2": 33.54180163875373,
+        "ndof": 12
+      },
+      "powerlaw_fit": {
+        "A": 1805130243.0406344,
+        "n": 0.9997703161561163,
+        "implied_3d_slope": -1.9997703161561162,
+        "chi2": 33.54177301028825,
+        "ndof": 11
+      },
+      "nfw_fit": {
+        "log_M200": 12.393285124856396,
+        "c200": 1.9982962948689116,
+        "chi2": 11.828373970090894,
+        "ndof": 11
+      },
+      "density_comparison": [
+        {
+          "r_kpc": 100,
+          "rho_required": 57537.2666619303,
+          "rho_mtdf_stress": 13.759351377733177,
+          "ratio": 4181.684520030728
+        },
+        {
+          "r_kpc": 200,
+          "rho_required": 14384.316665482575,
+          "rho_mtdf_stress": 3.409841581740291,
+          "ratio": 4218.470659314679
+        },
+        {
+          "r_kpc": 300,
+          "rho_required": 6393.0296291033665,
+          "rho_mtdf_stress": 1.5023271011969246,
+          "ratio": 4255.417894019187
+        },
+        {
+          "r_kpc": 500,
+          "rho_required": 2301.490666477212,
+          "rho_mtdf_stress": 0.5315471797478621,
+          "ratio": 4329.795649689869
+        }
+      ]
+    },
+    {
+      "bin": "bin3",
+      "label": "10.6 < logM_* < 10.8",
+      "M_bar": 52624659530.86351,
+      "isothermal_fit": {
+        "rho_s_rs2": 711940738.9423511,
+        "chi2": 29.610208267384547,
+        "ndof": 12
+      },
+      "powerlaw_fit": {
+        "A": 1190247335.6178339,
+        "n": 0.8945320776701159,
+        "implied_3d_slope": -1.894532077670116,
+        "chi2": 22.433550061979297,
+        "ndof": 11
+      },
+      "nfw_fit": {
+        "log_M200": 12.519549880781604,
+        "c200": 1.4729203594546738,
+        "chi2": 15.673462582980694,
+        "ndof": 11
+      },
+      "density_comparison": [
+        {
+          "r_kpc": 100,
+          "rho_required": 71194.07389423512,
+          "rho_mtdf_stress": 23.788305382443774,
+          "ratio": 2992.8182251593976
+        },
+        {
+          "r_kpc": 200,
+          "rho_required": 17798.51847355878,
+          "rho_mtdf_stress": 5.895216324183776,
+          "ratio": 3019.145947290251
+        },
+        {
+          "r_kpc": 300,
+          "rho_required": 7910.452654915012,
+          "rho_mtdf_stress": 2.597347424779676,
+          "ratio": 3045.5889648979205
+        },
+        {
+          "r_kpc": 500,
+          "rho_required": 2847.7629557694045,
+          "rho_mtdf_stress": 0.9189827550651626,
+          "ratio": 3098.820886543706
+        }
+      ]
+    },
+    {
+      "bin": "bin4",
+      "label": "10.8 < logM_* < 11.0",
+      "M_bar": 81815808176.60107,
+      "isothermal_fit": {
+        "rho_s_rs2": 859083155.020848,
+        "chi2": 31.309562723724486,
+        "ndof": 12
+      },
+      "powerlaw_fit": {
+        "A": 1998207873.568843,
+        "n": 0.949417995140142,
+        "implied_3d_slope": -1.949417995140142,
+        "chi2": 28.911747953985405,
+        "ndof": 11
+      },
+      "nfw_fit": {
+        "log_M200": 12.646444990200658,
+        "c200": 2.105376105287734,
+        "chi2": 16.108505185309582,
+        "ndof": 11
+      },
+      "density_comparison": [
+        {
+          "r_kpc": 100,
+          "rho_required": 85908.3155020848,
+          "rho_mtdf_stress": 36.9837913891866,
+          "ratio": 2322.8639432354917
+        },
+        {
+          "r_kpc": 200,
+          "rho_required": 21477.0788755212,
+          "rho_mtdf_stress": 9.165320825612431,
+          "ratio": 2343.298099887965
+        },
+        {
+          "r_kpc": 300,
+          "rho_required": 9545.368389120535,
+          "rho_mtdf_stress": 4.038108380523251,
+          "ratio": 2363.821742665476
+        },
+        {
+          "r_kpc": 500,
+          "rho_required": 3436.332620083392,
+          "rho_mtdf_stress": 1.4287468551111397,
+          "ratio": 2405.1374865956122
+        }
+      ]
+    }
+  ]
+}

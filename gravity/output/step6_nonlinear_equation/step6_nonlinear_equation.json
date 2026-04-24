@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 6: Minimal non-linear equation analysis",
+  "equation": "Self-sourcing with local beta and saturation. Two new params: beta_local, M_sat.",
+  "key_finding": "Ratio M_req/M_MTDF is constant (1.1% spread). Solution = same shape, renormalize. Requires two new parameters beyond the linear 5.",
+  "bins": [
+    {
+      "bin": "bin1",
+      "beta_local_kpc": 3.8130871782433258,
+      "M_sat": 1356735877226.6873,
+      "M_sat_over_Mbar": 117.97703280232064,
+      "mean_slope_50_1000": 0.0898644010323142,
+      "ratios_at_radii": {
+        "50kpc": 1.6832306116904574,
+        "100kpc": 1.0,
+        "200kpc": 0.543925917010142,
+        "300kpc": 0.3728343488908263,
+        "500kpc": 0.22870646665944228,
+        "1000kpc": 0.11626057494040748
+      }
+    },
+    {
+      "bin": "bin2",
+      "beta_local_kpc": 5.465592067250351,
+      "M_sat": 2541963217167.4224,
+      "M_sat_over_Mbar": 83.61721109103362,
+      "mean_slope_50_1000": 0.12076417516958807,
+      "ratios_at_radii": {
+        "50kpc": 1.5838244038528844,
+        "100kpc": 0.9999999999999999,
+        "200kpc": 0.5605863066585007,
+        "300kpc": 0.3881138767028895,
+        "500kpc": 0.2399848187334535,
+        "1000kpc": 0.12272364981506403
+      }
+    },
+    {
+      "bin": "bin3",
+      "beta_local_kpc": 7.643640264520159,
+      "M_sat": 3209933080120.764,
+      "M_sat_over_Mbar": 61.02534372853164,
+      "mean_slope_50_1000": 0.15541532670128788,
+      "ratios_at_radii": {
+        "50kpc": 1.479178249103691,
+        "100kpc": 0.9999999999999997,
+        "200kpc": 0.5808493221933667,
+        "300kpc": 0.40696930090386535,
+        "500kpc": 0.2540631798156132,
+        "1000kpc": 0.1308603072534672
+      }
+    },
+    {
+      "bin": "bin4",
+      "beta_local_kpc": 9.85015519054368,
+      "M_sat": 3953056331598.6514,
+      "M_sat_over_Mbar": 48.32587202443339,
+      "mean_slope_50_1000": 0.18457770111026134,
+      "ratios_at_radii": {
+        "50kpc": 1.397066966966922,
+        "100kpc": 0.9999999999999996,
+        "200kpc": 0.5997124715943416,
+        "300kpc": 0.4248222332688598,
+        "500kpc": 0.2675721681003648,
+        "1000kpc": 0.13874557143832042
+      }
+    }
+  ]
+}

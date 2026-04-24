@@ -1,0 +1,331 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "Phase 6 Test C: Derived parameter consistency",
+  "date": "2026-02-16",
+  "parameters": [
+    {
+      "parameter": "H0",
+      "description": "Hubble constant",
+      "unit": "km/s/Mpc",
+      "lcdm_mean": 67.38231327224983,
+      "lcdm_std": 0.5390053162067084,
+      "lcdm_68": [
+        66.845758,
+        67.916123
+      ],
+      "mtdf_mean": 67.83191447101322,
+      "mtdf_std": 0.541601411544145,
+      "mtdf_68": [
+        67.287904,
+        68.385908
+      ],
+      "delta": 0.4496011987633892,
+      "shift_sigma": 0.5884011839870463,
+      "category": "late"
+    },
+    {
+      "parameter": "sigma8",
+      "description": "Amplitude of matter fluctuations",
+      "unit": "",
+      "lcdm_mean": 0.8101186030928237,
+      "lcdm_std": 0.005948583490621362,
+      "lcdm_68": [
+        0.80425354,
+        0.81602513
+      ],
+      "mtdf_mean": 0.7903040988136404,
+      "mtdf_std": 0.005846271817685216,
+      "mtdf_68": [
+        0.78450837,
+        0.79614783
+      ],
+      "delta": -0.019814504279183298,
+      "shift_sigma": -2.375687177610307,
+      "category": "late"
+    },
+    {
+      "parameter": "Omega_m",
+      "description": "Matter density parameter",
+      "unit": "",
+      "lcdm_mean": 0.3148772703450086,
+      "lcdm_std": 0.007387442535906367,
+      "lcdm_68": [
+        0.30755633,
+        0.32226935
+      ],
+      "mtdf_mean": 0.30897395831180585,
+      "mtdf_std": 0.007229445352446433,
+      "mtdf_68": [
+        0.30161722,
+        0.31618679
+      ],
+      "delta": -0.005903312033202768,
+      "shift_sigma": -0.5711240537560663,
+      "category": "late"
+    },
+    {
+      "parameter": "n_s",
+      "description": "Scalar spectral index",
+      "unit": "",
+      "lcdm_mean": 0.9645845349612843,
+      "lcdm_std": 0.004129492033143249,
+      "lcdm_68": [
+        0.96044851,
+        0.96864915
+      ],
+      "mtdf_mean": 0.9680932479393878,
+      "mtdf_std": 0.004139416750939492,
+      "mtdf_68": [
+        0.96398366,
+        0.97226725
+      ],
+      "delta": 0.003508712978103512,
+      "shift_sigma": 0.600087150013563,
+      "category": "early"
+    },
+    {
+      "parameter": "tau_reio",
+      "description": "Reionization optical depth",
+      "unit": "",
+      "lcdm_mean": 0.053964419452982124,
+      "lcdm_std": 0.007474361056661915,
+      "lcdm_68": [
+        0.046767253,
+        0.061443828
+      ],
+      "mtdf_mean": 0.05168814529666534,
+      "mtdf_std": 0.007437918805286367,
+      "mtdf_68": [
+        0.044456012,
+        0.058898871
+      ],
+      "delta": -0.0022762741563167807,
+      "shift_sigma": -0.21587096010710813,
+      "category": "early"
+    },
+    {
+      "parameter": "theta_s_100",
+      "description": "100 * angular size of sound horizon",
+      "unit": "",
+      "lcdm_mean": 1.041853189340013,
+      "lcdm_std": 0.00029268163004320433,
+      "lcdm_68": [
+        1.041566,
+        1.042147
+      ],
+      "mtdf_mean": 1.0419498402334522,
+      "mtdf_std": 0.00029475275093675116,
+      "mtdf_68": [
+        1.0416521,
+        1.0422425
+      ],
+      "delta": 9.665089343924294e-05,
+      "shift_sigma": 0.23267986895605738,
+      "category": "early"
+    },
+    {
+      "parameter": "omega_b",
+      "description": "Baryon density (h^2)",
+      "unit": "",
+      "lcdm_mean": 0.022358687706823418,
+      "lcdm_std": 0.00014745225279013682,
+      "lcdm_68": [
+        0.022210857,
+        0.022505003
+      ],
+      "mtdf_mean": 0.022363938446926676,
+      "mtdf_std": 0.00015260172434409134,
+      "mtdf_68": [
+        0.022208335,
+        0.022518435
+      ],
+      "delta": 5.250740103258239e-06,
+      "shift_sigma": 0.024744129857809827,
+      "category": "early"
+    },
+    {
+      "parameter": "omega_cdm",
+      "description": "CDM density (h^2)",
+      "unit": "",
+      "lcdm_mean": 0.1199192314818406,
+      "lcdm_std": 0.001197618963053209,
+      "lcdm_68": [
+        0.11873371,
+        0.12112892
+      ],
+      "mtdf_mean": 0.11911244603545762,
+      "mtdf_std": 0.0011863399276859541,
+      "mtdf_68": [
+        0.11790793,
+        0.12029008
+      ],
+      "delta": -0.0008067854463829766,
+      "shift_sigma": -0.47859640318848234,
+      "category": "late"
+    },
+    {
+      "parameter": "S8",
+      "description": "sigma8 * sqrt(Omega_m/0.3)",
+      "unit": "",
+      "lcdm_mean": 0.8299628125805824,
+      "lcdm_std": 0.011486101613846727,
+      "lcdm_68": [
+        0.8184767109667356,
+        0.8414489141944291
+      ],
+      "mtdf_mean": 0.8020372613237019,
+      "mtdf_std": 0.011101548980301617,
+      "mtdf_68": [
+        0.7909357123434003,
+        0.8131388103040035
+      ],
+      "delta": -0.027925551256880454,
+      "shift_sigma": -1.7481663697447325,
+      "category": "late"
+    },
+    {
+      "parameter": "Omega_m_h2",
+      "description": "Physical matter density",
+      "unit": "",
+      "lcdm_mean": 0.142966124590725,
+      "lcdm_std": 0.004059794751678759,
+      "lcdm_68": [
+        0.13890632983904624,
+        0.14702591934240375
+      ],
+      "mtdf_mean": 0.14216412816295299,
+      "mtdf_std": 0.004027246563165572,
+      "mtdf_68": [
+        0.1381368815997874,
+        0.14619137472611857
+      ],
+      "delta": -0.0008019964277720115,
+      "shift_sigma": -0.1402472171184806,
+      "category": "derived"
+    },
+    {
+      "parameter": "A_s",
+      "description": "Primordial scalar amplitude (x1e-9)",
+      "unit": "1e-9",
+      "lcdm_mean": 2.097897785047392,
+      "lcdm_std": 0.030220921358809775,
+      "lcdm_68": [
+        2.067676863688582,
+        2.1281187064062017
+      ],
+      "mtdf_mean": 2.084060629794729,
+      "mtdf_std": 0.029725471795191295,
+      "mtdf_68": [
+        2.054335157999538,
+        2.11378610158992
+      ],
+      "delta": -0.013837155252663009,
+      "shift_sigma": -0.32642538235700763,
+      "category": "early"
+    },
+    {
+      "parameter": "k_f",
+      "description": "MTDF coupling fraction (MTDF only)",
+      "unit": "",
+      "lcdm_mean": null,
+      "lcdm_std": null,
+      "lcdm_68": null,
+      "mtdf_mean": 0.4950114852116888,
+      "mtdf_std": 0.36027436786784073,
+      "mtdf_68": [
+        0.13564994,
+        0.86424896
+      ],
+      "delta": null,
+      "shift_sigma": null,
+      "category": "mtdf"
+    }
+  ],
+  "s8_tension": {
+    "lcdm_vs_S8_des_y3": {
+      "model_S8": 0.8299628125805824,
+      "model_S8_err": 0.011486101613846727,
+      "external_S8": 0.776,
+      "external_S8_err": 0.017,
+      "source": "DES Y3 (Amon et al. 2022)",
+      "tension_sigma": 2.6302035772299894
+    },
+    "mtdf_vs_S8_des_y3": {
+      "model_S8": 0.8020372613237019,
+      "model_S8_err": 0.011101548980301617,
+      "external_S8": 0.776,
+      "external_S8_err": 0.017,
+      "source": "DES Y3 (Amon et al. 2022)",
+      "tension_sigma": 1.282383510152913
+    },
+    "lcdm_vs_S8_kids1000": {
+      "model_S8": 0.8299628125805824,
+      "model_S8_err": 0.011486101613846727,
+      "external_S8": 0.766,
+      "external_S8_err": 0.02,
+      "source": "KiDS-1000 (Asgari et al. 2021)",
+      "tension_sigma": 2.7733207024056936
+    },
+    "mtdf_vs_S8_kids1000": {
+      "model_S8": 0.8020372613237019,
+      "model_S8_err": 0.011101548980301617,
+      "external_S8": 0.766,
+      "external_S8_err": 0.02,
+      "source": "KiDS-1000 (Asgari et al. 2021)",
+      "tension_sigma": 1.5754313696402416
+    }
+  },
+  "passed": true,
+  "issues": [],
+  "external_references": {
+    "H0_shoes": {
+      "value": 73.04,
+      "error": 1.04,
+      "source": "Riess et al. 2022 (SH0ES)"
+    },
+    "H0_planck": {
+      "value": 67.36,
+      "error": 0.54,
+      "source": "Planck 2018 (LCDM baseline)"
+    },
+    "S8_des_y3": {
+      "value": 0.776,
+      "error": 0.017,
+      "source": "DES Y3 (Amon et al. 2022)"
+    },
+    "S8_kids1000": {
+      "value": 0.766,
+      "error": 0.02,
+      "source": "KiDS-1000 (Asgari et al. 2021)"
+    },
+    "S8_planck": {
+      "value": 0.832,
+      "error": 0.013,
+      "source": "Planck 2018 (LCDM baseline)"
+    },
+    "theta_s_100_planck": {
+      "value": 1.04192,
+      "error": 0.00031,
+      "source": "Planck 2018"
+    },
+    "omega_b_bbn": {
+      "value": 0.02233,
+      "error": 0.00036,
+      "source": "Cooke et al. 2018 (BBN D/H)"
+    },
+    "age_planck": {
+      "value": 13.797,
+      "error": 0.023,
+      "source": "Planck 2018 (Gyr)"
+    },
+    "tau_reio_planck": {
+      "value": 0.054,
+      "error": 0.007,
+      "source": "Planck 2018"
+    }
+  }
+}

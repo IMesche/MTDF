@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "phase6B": {
+    "test": "Weak lensing x void environment (KiDS-1000 + DESIVAST BGS)",
+    "statistic": "Delta_gamma_t = <gamma_t>_void - <gamma_t>_random, [5,20] Mpc/h",
+    "mean": -3.65370101756653e-05,
+    "sigma": 4.6764326377394405e-05,
+    "error_method": "bootstrap (500 resamples over void+random centres)",
+    "gaussian_95_ci": [
+      -0.00012819508987535835,
+      5.512106952402773e-05
+    ],
+    "bootstrap_95_ci": [
+      -0.00011984521077401832,
+      5.741453939622621e-05
+    ],
+    "two_sided_95_bound": 0.00011984521077401832,
+    "n_voids": 626,
+    "n_random": 3130,
+    "gamma_x_passed": true
+  },
+  "phase6B2": {
+    "test": "Trough & ridge lensing (KiDS-1000 internal)",
+    "primary_statistic": "Delta_gamma_t_split = <gamma_t>_ridge - <gamma_t>_trough, [3.5,20] Mpc/h",
+    "primary": {
+      "mean": 2.563054593665151e-05,
+      "sigma": 5.4635203891301156e-05,
+      "error_method": "bootstrap (500 resamples)",
+      "gaussian_95_ci": [
+        -8.145445369029875e-05,
+        0.00013271554556360177
+      ],
+      "bootstrap_95_ci": [
+        -9.25929222341941e-05,
+        0.00012750102917308186
+      ],
+      "two_sided_95_bound": 0.00012750102917308186
+    },
+    "secondary_trough": {
+      "statistic": "Delta_gamma_t_trough = <gamma_t>_trough - <gamma_t>_random",
+      "mean": 1.0074165822554825e-05,
+      "sigma": 4.102882092196242e-05,
+      "bootstrap_95_ci": [
+        -6.954392349559045e-05,
+        9.48869472394043e-05
+      ]
+    },
+    "n_trough": 2000,
+    "n_ridge": 2000,
+    "n_random": 10000,
+    "gamma_x_passed_trough": true,
+    "gamma_x_passed_ridge": true
+  },
+  "phase6D": {
+    "test": "CMB lensing x DESI voids (Planck PR4 MV + DESIVAST BGS)",
+    "statistic": "kappa_comp = <kappa>_{R/Rv<0.5} - <kappa>_{R/Rv in [4,5]}, per void then averaged",
+    "mean": -0.0007470916623575199,
+    "sigma_jackknife": 0.0010333760086316637,
+    "sigma_bootstrap": 0.0010681402451648582,
+    "snr_jackknife": 0.7229620739374192,
+    "n_used": 557,
+    "n_total": 1992,
+    "gaussian_95_ci": [
+      -0.0027725086392755807,
+      0.0012783253145605407
+    ],
+    "bootstrap_95_ci": [
+      -0.0029516785726389472,
+      0.0011458932599053022
+    ],
+    "bootstrap_68_ci": [
+      -0.0019402289069333585,
+      0.0002623043367956525
+    ],
+    "two_sided_95_bound": 0.0029516785726389472,
+    "one_sided_95_upper_gaussian": 0.0009476449917984084,
+    "one_sided_95_upper_bootstrap": 0.0008857653968718001,
+    "n_boot": 1000,
+    "error_methods": "jackknife (delete-1) + bootstrap (resample voids with replacement)",
+    "null_tests": {
+      "ra_scramble_p_comp": 0.425,
+      "random_positions_p_comp": 0.08,
+      "note": "RA-scramble is primary null for footprint-coupled modes; random-sky null is secondary"
+    }
+  }
+}

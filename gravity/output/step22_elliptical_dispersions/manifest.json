@@ -1,0 +1,11 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "step22_elliptical_dispersions.json": "8deb23ba8b2e07f6aa2befcd2479f9f2d3e7598de5b3d638757fde6543a17e26",
+  "step22_faber_jackson.png": "657a6a1271266ca09f0b8428a9ec1dcd1590db64d7a11e69998a79c97f818d8f",
+  "step22_residual_diagnostic.png": "d9784434df4b9874aa8c10affa8dd1b935ddcf4ccdf458457057c5c168ce36cb",
+  "step22_sigma_comparison.png": "382fa933d1736d574c2e4483e12f16b97668285a1d3495bed9f76cffada346bc"
+}

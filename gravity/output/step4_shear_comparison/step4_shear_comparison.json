@@ -1,0 +1,596 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "description": "Step 4: Direct comparison of MTDF-predicted shear against observed shear. The MTDF metric potential \u03a6(r) = -GM_bar/r \u00d7 [1+\u03b1/(1+r/\u03b2)] with \u03b7 = 1 predicts a specific photon deflection pattern. This is compared to the measured ESD profiles from Brouwer+2021 KiDS\u00d7GAMA. No NFW model, no \"stress halo\", no \"mass budget\" \u2014 just MTDF prediction vs observation.",
+  "reference": "Brouwer et al. 2021, A&A 650, A113",
+  "mtdf_potential": "\u03a6(r) = -GM_bar/r \u00d7 [1 + \u03b1/(1+r/\u03b2)]",
+  "alpha": 1.3,
+  "beta_kpc": 22685.0,
+  "eta": 1.0,
+  "bins": [
+    {
+      "bin": "bin1",
+      "label": "8.5 < logM_* < 10.3",
+      "M_bar": 11500000000.0,
+      "shortfall_metric": 91.15131551307294,
+      "shortfall_naive": 94.09805434861504,
+      "metric_vs_naive_pct": 1.5393188580430504,
+      "radial": [
+        {
+          "R_kpc": 35.39,
+          "esd_observed": 25.10681917366108,
+          "esd_error": 7.170332179720089,
+          "esd_mtdf_metric": 6.722251774079539,
+          "esd_mtdf_naive": 6.716332014964736,
+          "esd_baryon_only": 2.922717516393316,
+          "ratio_obs_over_mtdf": 3.7348823009680996
+        },
+        {
+          "R_kpc": 48.108,
+          "esd_observed": 22.970435700439456,
+          "esd_error": 5.260374907389552,
+          "esd_mtdf_metric": 3.6378180541596614,
+          "esd_mtdf_naive": 3.6334686779404737,
+          "esd_baryon_only": 1.5816608433151154,
+          "ratio_obs_over_mtdf": 6.314344301572181
+        },
+        {
+          "R_kpc": 65.396,
+          "esd_observed": 17.803533913184683,
+          "esd_error": 3.8743136677796834,
+          "esd_mtdf_metric": 1.9686768572980051,
+          "esd_mtdf_naive": 1.965473776839535,
+          "esd_baryon_only": 0.8559444836228507,
+          "ratio_obs_over_mtdf": 9.04340082385075
+        },
+        {
+          "R_kpc": 88.897,
+          "esd_observed": 15.472287909388923,
+          "esd_error": 2.867929890085354,
+          "esd_mtdf_metric": 1.0653742903034138,
+          "esd_mtdf_naive": 1.0630222367982753,
+          "esd_baryon_only": 0.4632055532861793,
+          "ratio_obs_over_mtdf": 14.522865860581716
+        },
+        {
+          "R_kpc": 120.84,
+          "esd_observed": 10.404847205448032,
+          "esd_error": 2.121667292527225,
+          "esd_mtdf_metric": 0.5765717558798449,
+          "esd_mtdf_naive": 0.5748463218208287,
+          "esd_baryon_only": 0.2506839530268146,
+          "ratio_obs_over_mtdf": 18.046057753159104
+        },
+        {
+          "R_kpc": 164.27,
+          "esd_observed": 6.631415493600998,
+          "esd_error": 1.5743268615968578,
+          "esd_mtdf_metric": 0.31199938740484784,
+          "esd_mtdf_naive": 0.3107355440562046,
+          "esd_baryon_only": 0.13565364052492235,
+          "ratio_obs_over_mtdf": 21.254578570682025
+        },
+        {
+          "R_kpc": 223.3,
+          "esd_observed": 3.5349280936964003,
+          "esd_error": 1.1670438745166494,
+          "esd_mtdf_metric": 0.1688500971373117,
+          "esd_mtdf_naive": 0.16791867583399672,
+          "esd_baryon_only": 0.07341258581509401,
+          "ratio_obs_over_mtdf": 20.93530387975873
+        },
+        {
+          "R_kpc": 303.53999999999996,
+          "esd_observed": 1.8860054196141316,
+          "esd_error": 0.8658391775177355,
+          "esd_mtdf_metric": 0.09137726992610097,
+          "esd_mtdf_naive": 0.09069651502814764,
+          "esd_baryon_only": 0.03972977523188635,
+          "ratio_obs_over_mtdf": 20.63976545960927
+        },
+        {
+          "R_kpc": 412.62,
+          "esd_observed": 1.5118084663709899,
+          "esd_error": 0.6435741035816139,
+          "esd_mtdf_metric": 0.04944767410256681,
+          "esd_mtdf_naive": 0.048951705946643435,
+          "esd_baryon_only": 0.021500443490037494,
+          "ratio_obs_over_mtdf": 30.573904512376494
+        },
+        {
+          "R_kpc": 560.9,
+          "esd_observed": 1.9202078533659457,
+          "esd_error": 0.47963585064598957,
+          "esd_mtdf_metric": 0.0267615649275215,
+          "esd_mtdf_naive": 0.026396187352797886,
+          "esd_baryon_only": 0.011635286663185283,
+          "ratio_obs_over_mtdf": 71.75245014880318
+        },
+        {
+          "R_kpc": 762.46,
+          "esd_observed": 2.060772751722808,
+          "esd_error": 0.35926764165592556,
+          "esd_mtdf_metric": 0.0144809566332805,
+          "esd_mtdf_naive": 0.014216256016252917,
+          "esd_baryon_only": 0.006296712119070127,
+          "ratio_obs_over_mtdf": 142.30915842857289
+        },
+        {
+          "R_kpc": 1036.5,
+          "esd_observed": 1.2810181567222498,
+          "esd_error": 0.26945834305954475,
+          "esd_mtdf_metric": 0.007833666931390839,
+          "esd_mtdf_naive": 0.007643227553757978,
+          "esd_baryon_only": 0.00340729200963072,
+          "ratio_obs_over_mtdf": 163.52726863954246
+        },
+        {
+          "R_kpc": 1408.9,
+          "esd_observed": 0.7244116064994773,
+          "esd_error": 0.2032152317544732,
+          "esd_mtdf_metric": 0.004237021473433932,
+          "esd_mtdf_naive": 0.004101275069320652,
+          "esd_baryon_only": 0.0018441134246665984,
+          "ratio_obs_over_mtdf": 170.97189878350355
+        },
+        {
+          "R_kpc": 1915.2,
+          "esd_observed": 0.31834651023535737,
+          "esd_error": 0.15197247566755642,
+          "esd_mtdf_metric": 0.002293329156298394,
+          "esd_mtdf_naive": 0.0021943387144290265,
+          "esd_baryon_only": 0.000997975090777101,
+          "ratio_obs_over_mtdf": 138.81413811055043
+        },
+        {
+          "R_kpc": 2603.5,
+          "esd_observed": 0.252560107986319,
+          "esd_error": 0.11327399498634948,
+          "esd_mtdf_metric": 0.0012390118448308905,
+          "esd_mtdf_naive": 0.0011698329071009996,
+          "esd_baryon_only": 0.0005400485491013642,
+          "ratio_obs_over_mtdf": 203.8399463572443
+        }
+      ]
+    },
+    {
+      "bin": "bin2",
+      "label": "10.3 < logM_* < 10.6",
+      "M_bar": 30438535657.656055,
+      "shortfall_metric": 60.40482482560495,
+      "shortfall_naive": 62.12435391196557,
+      "metric_vs_naive_pct": 1.5393188580430504,
+      "radial": [
+        {
+          "R_kpc": 35.39,
+          "esd_observed": 33.399640722209256,
+          "esd_error": 9.736123656514193,
+          "esd_mtdf_metric": 17.792652202179283,
+          "esd_mtdf_naive": 17.776983610970525,
+          "esd_baryon_only": 7.735934029564686,
+          "ratio_obs_over_mtdf": 1.8771591971048809
+        },
+        {
+          "R_kpc": 48.108,
+          "esd_observed": 28.377870923871672,
+          "esd_error": 7.100303457795009,
+          "esd_mtdf_metric": 9.628683005009028,
+          "esd_mtdf_naive": 9.617170949084134,
+          "esd_baryon_only": 4.186386085005695,
+          "ratio_obs_over_mtdf": 2.947222471558047
+        },
+        {
+          "R_kpc": 65.396,
+          "esd_observed": 23.453532390821163,
+          "esd_error": 5.232566400422202,
+          "esd_mtdf_metric": 5.2107513668928345,
+          "esd_mtdf_naive": 5.202273360045052,
+          "esd_baryon_only": 2.2655388422372296,
+          "ratio_obs_over_mtdf": 4.500988579082114
+        },
+        {
+          "R_kpc": 88.897,
+          "esd_observed": 19.53496869005694,
+          "esd_error": 3.864773523053658,
+          "esd_mtdf_metric": 2.819863767317433,
+          "esd_mtdf_naive": 2.813638283449183,
+          "esd_baryon_only": 1.22602597830658,
+          "ratio_obs_over_mtdf": 6.927628531728952
+        },
+        {
+          "R_kpc": 120.84,
+          "esd_observed": 14.424901807552951,
+          "esd_error": 2.8678283991840128,
+          "esd_mtdf_metric": 1.5260869522213931,
+          "esd_mtdf_naive": 1.5215200229926715,
+          "esd_baryon_only": 0.663517603739902,
+          "ratio_obs_over_mtdf": 9.45221488628539
+        },
+        {
+          "R_kpc": 164.27,
+          "esd_observed": 10.394698115313963,
+          "esd_error": 2.1261328921862153,
+          "esd_mtdf_metric": 0.8258090851034179,
+          "esd_mtdf_naive": 0.8224639076396468,
+          "esd_baryon_only": 0.35905201514858304,
+          "ratio_obs_over_mtdf": 12.587289608241852
+        },
+        {
+          "R_kpc": 223.3,
+          "esd_observed": 11.288832956125482,
+          "esd_error": 1.5773715886370787,
+          "esd_mtdf_metric": 0.44691736543589144,
+          "esd_mtdf_naive": 0.4444520523443042,
+          "esd_baryon_only": 0.19431057487421513,
+          "ratio_obs_over_mtdf": 25.25932941790068
+        },
+        {
+          "R_kpc": 303.53999999999996,
+          "esd_observed": 7.685297013122773,
+          "esd_error": 1.1711035105702772,
+          "esd_mtdf_metric": 0.2418600251256423,
+          "esd_mtdf_naive": 0.2400581831921226,
+          "esd_baryon_only": 0.10515792870142895,
+          "ratio_obs_over_mtdf": 31.775805072088236
+        },
+        {
+          "R_kpc": 412.62,
+          "esd_observed": 6.565446407729548,
+          "esd_error": 0.8707005916919548,
+          "esd_mtdf_metric": 0.13087954707470748,
+          "esd_mtdf_naive": 0.1295668040834783,
+          "esd_baryon_only": 0.056908001376254375,
+          "ratio_obs_over_mtdf": 50.16403673816138
+        },
+        {
+          "R_kpc": 560.9,
+          "esd_observed": 3.5037703869848067,
+          "esd_error": 0.6481614923222133,
+          "esd_mtdf_metric": 0.07083329115661224,
+          "esd_mtdf_naive": 0.06986619912733116,
+          "esd_baryon_only": 0.030796616346470886,
+          "ratio_obs_over_mtdf": 49.46502315186765
+        },
+        {
+          "R_kpc": 762.46,
+          "esd_observed": 2.8473272371131926,
+          "esd_error": 0.48413189757538233,
+          "esd_mtdf_metric": 0.038328618681659085,
+          "esd_mtdf_naive": 0.03762800136252886,
+          "esd_baryon_only": 0.016666321422809664,
+          "ratio_obs_over_mtdf": 74.2872384930399
+        },
+        {
+          "R_kpc": 1036.5,
+          "esd_observed": 2.6587571424221816,
+          "esd_error": 0.3626777359409729,
+          "esd_mtdf_metric": 0.020734378280116622,
+          "esd_mtdf_naive": 0.020230317776925345,
+          "esd_baryon_only": 0.009018519941842714,
+          "ratio_obs_over_mtdf": 128.22941235579827
+        },
+        {
+          "R_kpc": 1408.9,
+          "esd_observed": 1.1096000243578161,
+          "esd_error": 0.27179263379038066,
+          "esd_mtdf_metric": 0.01121467210446723,
+          "esd_mtdf_naive": 0.010855374559945436,
+          "esd_baryon_only": 0.004881053237693607,
+          "ratio_obs_over_mtdf": 98.9418160443425
+        },
+        {
+          "R_kpc": 1915.2,
+          "esd_observed": 0.6438379799250997,
+          "esd_error": 0.2034080644670205,
+          "esd_mtdf_metric": 0.006070050547715735,
+          "esd_mtdf_naive": 0.005808039756880267,
+          "esd_baryon_only": 0.002641469598788811,
+          "ratio_obs_over_mtdf": 106.06797667729259
+        },
+        {
+          "R_kpc": 2603.5,
+          "esd_observed": 0.2565284022287402,
+          "esd_error": 0.15102861028508793,
+          "esd_mtdf_metric": 0.0032794527147081112,
+          "esd_mtdf_naive": 0.0030963478831559322,
+          "esd_baryon_only": 0.0014294162624945471,
+          "ratio_obs_over_mtdf": 78.222930636636
+        }
+      ]
+    },
+    {
+      "bin": "bin3",
+      "label": "10.6 < logM_* < 10.8",
+      "M_bar": 52624659530.86351,
+      "shortfall_metric": 54.34649696894051,
+      "shortfall_naive": 56.171800377449046,
+      "metric_vs_naive_pct": 1.5393188580430675,
+      "radial": [
+        {
+          "R_kpc": 35.39,
+          "esd_observed": 33.47271417117455,
+          "esd_error": 10.402817387421218,
+          "esd_mtdf_metric": 30.761409642754696,
+          "esd_mtdf_naive": 30.73432048554415,
+          "esd_baryon_only": 13.374522974355585,
+          "ratio_obs_over_mtdf": 1.0881398011309424
+        },
+        {
+          "R_kpc": 48.108,
+          "esd_observed": 40.93838487379607,
+          "esd_error": 7.558636368249586,
+          "esd_mtdf_metric": 16.646864046554835,
+          "esd_mtdf_naive": 16.626961051536885,
+          "esd_baryon_only": 7.237770728065774,
+          "ratio_obs_over_mtdf": 2.4592250383800365
+        },
+        {
+          "R_kpc": 65.396,
+          "esd_observed": 32.64353350722108,
+          "esd_error": 5.5513493215333245,
+          "esd_mtdf_metric": 9.00877820361721,
+          "esd_mtdf_naive": 8.99412072374095,
+          "esd_baryon_only": 3.9168510459107218,
+          "ratio_obs_over_mtdf": 3.6235250518337803
+        },
+        {
+          "R_kpc": 88.897,
+          "esd_observed": 21.757619429418153,
+          "esd_error": 4.133216957099796,
+          "esd_mtdf_metric": 4.875213852187175,
+          "esd_mtdf_naive": 4.864450720456191,
+          "esd_baryon_only": 2.1196551769122123,
+          "ratio_obs_over_mtdf": 4.462905646622455
+        },
+        {
+          "R_kpc": 120.84,
+          "esd_observed": 18.23385533486923,
+          "esd_error": 3.061473038942059,
+          "esd_mtdf_metric": 2.638425421590347,
+          "esd_mtdf_naive": 2.6305297363817655,
+          "esd_baryon_only": 1.1471441459032263,
+          "ratio_obs_over_mtdf": 6.9108852521131805
+        },
+        {
+          "R_kpc": 164.27,
+          "esd_observed": 15.637718078574254,
+          "esd_error": 2.2653784088256486,
+          "esd_mtdf_metric": 1.4277270900885306,
+          "esd_mtdf_naive": 1.4219436704430786,
+          "esd_baryon_only": 0.6207588388474945,
+          "ratio_obs_over_mtdf": 10.952876209419399
+        },
+        {
+          "R_kpc": 223.3,
+          "esd_observed": 7.448620231196273,
+          "esd_error": 1.6844444895515116,
+          "esd_mtdf_metric": 0.7726677281395009,
+          "esd_mtdf_naive": 0.7684054908380448,
+          "esd_baryon_only": 0.33594020293909754,
+          "ratio_obs_over_mtdf": 9.640133733981271
+        },
+        {
+          "R_kpc": 303.53999999999996,
+          "esd_observed": 9.959708112167744,
+          "esd_error": 1.2498604500106565,
+          "esd_mtdf_metric": 0.4181476277148589,
+          "esd_mtdf_naive": 0.4150324542601839,
+          "esd_baryon_only": 0.18180572998397854,
+          "ratio_obs_over_mtdf": 23.818640719299783
+        },
+        {
+          "R_kpc": 412.62,
+          "esd_observed": 5.6840994204869535,
+          "esd_error": 0.929890085353848,
+          "esd_mtdf_metric": 0.2262753925426675,
+          "esd_mtdf_naive": 0.22400581381713547,
+          "esd_baryon_only": 0.09838726247180818,
+          "ratio_obs_over_mtdf": 25.12027205704719
+        },
+        {
+          "R_kpc": 560.9,
+          "esd_observed": 5.318732175660451,
+          "esd_error": 0.6918431762592483,
+          "esd_mtdf_metric": 0.12246245589773191,
+          "esd_mtdf_naive": 0.12079046716120645,
+          "esd_baryon_only": 0.05324373906035848,
+          "ratio_obs_over_mtdf": 43.43153284547969
+        },
+        {
+          "R_kpc": 762.46,
+          "esd_observed": 3.508946422953182,
+          "esd_error": 0.5165785387340025,
+          "esd_mtdf_metric": 0.06626568804413792,
+          "esd_mtdf_naive": 0.06505440283990434,
+          "esd_baryon_only": 0.02881411577651544,
+          "ratio_obs_over_mtdf": 52.9526897934865
+        },
+        {
+          "R_kpc": 1036.5,
+          "esd_observed": 2.9265916310602753,
+          "esd_error": 0.3857161705453106,
+          "esd_mtdf_metric": 0.03584730914283715,
+          "esd_mtdf_naive": 0.03497584762899377,
+          "esd_baryon_only": 0.015591963646004202,
+          "ratio_obs_over_mtdf": 81.64048295505198
+        },
+        {
+          "R_kpc": 1408.9,
+          "esd_observed": 1.7013934700754076,
+          "esd_error": 0.28915772700977355,
+          "esd_mtdf_metric": 0.01938885325777551,
+          "esd_mtdf_naive": 0.01876766992742765,
+          "esd_baryon_only": 0.008438768792119517,
+          "ratio_obs_over_mtdf": 87.75111387225017
+        },
+        {
+          "R_kpc": 1915.2,
+          "esd_observed": 1.5820401700987505,
+          "esd_error": 0.21620606712608215,
+          "esd_mtdf_metric": 0.010494405742817868,
+          "esd_mtdf_naive": 0.010041419803671327,
+          "esd_baryon_only": 0.004566791249776308,
+          "ratio_obs_over_mtdf": 150.75081037165566
+        },
+        {
+          "R_kpc": 2603.5,
+          "esd_observed": 0.5944322091524494,
+          "esd_error": 0.16102546406714638,
+          "esd_mtdf_metric": 0.005669789259907193,
+          "esd_mtdf_naive": 0.005353222473407859,
+          "esd_baryon_only": 0.002471293132747488,
+          "ratio_obs_over_mtdf": 104.84202884856069
+        }
+      ]
+    },
+    {
+      "bin": "bin4",
+      "label": "10.8 < logM_* < 11.0",
+      "M_bar": 81815808176.60107,
+      "shortfall_metric": 39.30292579512495,
+      "shortfall_naive": 40.59418981985154,
+      "metric_vs_naive_pct": 1.539318858043064,
+      "radial": [
+        {
+          "R_kpc": 35.39,
+          "esd_observed": 46.082958662755885,
+          "esd_error": 10.526636287056865,
+          "esd_mtdf_metric": 47.82490970981809,
+          "esd_mtdf_naive": 47.78279406841038,
+          "esd_baryon_only": 20.7934344065763,
+          "ratio_obs_over_mtdf": 0.9635764906273395
+        },
+        {
+          "R_kpc": 48.108,
+          "esd_observed": 44.79097948868884,
+          "esd_error": 7.563812404217962,
+          "esd_mtdf_metric": 25.88095861743505,
+          "esd_mtdf_naive": 25.850015336527488,
+          "esd_baryon_only": 11.252596535400919,
+          "ratio_obs_over_mtdf": 1.7306538042418107
+        },
+        {
+          "R_kpc": 65.396,
+          "esd_observed": 40.15081547939227,
+          "esd_error": 5.545564340156905,
+          "esd_mtdf_metric": 14.005990271165867,
+          "esd_mtdf_naive": 13.983202217568957,
+          "esd_baryon_only": 6.08954692886148,
+          "ratio_obs_over_mtdf": 2.8666888025797617
+        },
+        {
+          "R_kpc": 88.897,
+          "esd_observed": 38.07025200190803,
+          "esd_error": 4.120429103530868,
+          "esd_mtdf_metric": 7.57951813667362,
+          "esd_mtdf_naive": 7.562784644639051,
+          "esd_baryon_only": 3.2954379733911665,
+          "ratio_obs_over_mtdf": 5.02277998619787
+        },
+        {
+          "R_kpc": 120.84,
+          "esd_observed": 19.155392719042737,
+          "esd_error": 3.0688818747399296,
+          "esd_mtdf_metric": 4.10197253731404,
+          "esd_mtdf_naive": 4.089697078010227,
+          "esd_baryon_only": 1.7834704533733863,
+          "ratio_obs_over_mtdf": 4.669800332594531
+        },
+        {
+          "R_kpc": 164.27,
+          "esd_observed": 17.83398118358689,
+          "esd_error": 2.279181171407983,
+          "esd_mtdf_metric": 2.2196940896636588,
+          "esd_mtdf_naive": 2.210702579665583,
+          "esd_baryon_only": 0.9650967157951863,
+          "ratio_obs_over_mtdf": 8.034431981701227
+        },
+        {
+          "R_kpc": 223.3,
+          "esd_observed": 17.482822664948085,
+          "esd_error": 1.6909399072373161,
+          "esd_mtdf_metric": 1.2012701876510221,
+          "esd_mtdf_naive": 1.1946436670698377,
+          "esd_baryon_only": 0.5222878294605213,
+          "ratio_obs_over_mtdf": 14.553614036767367
+        },
+        {
+          "R_kpc": 303.53999999999996,
+          "esd_observed": 9.166962681795576,
+          "esd_error": 1.2567618313018236,
+          "esd_mtdf_metric": 0.6500961033022066,
+          "esd_mtdf_naive": 0.6452529283329691,
+          "esd_baryon_only": 0.28265423211056434,
+          "ratio_obs_over_mtdf": 14.100934669860928
+        },
+        {
+          "R_kpc": 412.62,
+          "esd_observed": 7.827485765901087,
+          "esd_error": 0.9353604449361115,
+          "esd_mtdf_metric": 0.3517914277525819,
+          "esd_mtdf_naive": 0.3482629029259097,
+          "esd_baryon_only": 0.1529631443732834,
+          "ratio_obs_over_mtdf": 22.250359583537747
+        },
+        {
+          "R_kpc": 560.9,
+          "esd_observed": 6.1241639687002065,
+          "esd_error": 0.6960956450254234,
+          "esd_mtdf_metric": 0.1903929619665873,
+          "esd_mtdf_naive": 0.18779351313479437,
+          "esd_baryon_only": 0.08277829406216798,
+          "ratio_obs_over_mtdf": 32.16591572211034
+        },
+        {
+          "R_kpc": 762.46,
+          "esd_observed": 3.956216825161624,
+          "esd_error": 0.5195217748728826,
+          "esd_mtdf_metric": 0.10302358001062228,
+          "esd_mtdf_naive": 0.1011403891491478,
+          "esd_baryon_only": 0.04479744268496703,
+          "ratio_obs_over_mtdf": 38.40108084725571
+        },
+        {
+          "R_kpc": 1036.5,
+          "esd_observed": 3.150582050319189,
+          "esd_error": 0.3886695557743248,
+          "esd_mtdf_metric": 0.055731981824178795,
+          "esd_mtdf_naive": 0.05437711646855431,
+          "esd_baryon_only": 0.0242408999531837,
+          "ratio_obs_over_mtdf": 56.53095309365687
+        },
+        {
+          "R_kpc": 1408.9,
+          "esd_observed": 2.407770143406643,
+          "esd_error": 0.291116501405649,
+          "esd_mtdf_metric": 0.03014394227048785,
+          "esd_mtdf_naive": 0.029178185595740418,
+          "esd_baryon_only": 0.013119793931166721,
+          "ratio_obs_over_mtdf": 79.87575486315698
+        },
+        {
+          "R_kpc": 1915.2,
+          "esd_observed": 1.2012463082684637,
+          "esd_error": 0.2180126051699465,
+          "esd_mtdf_metric": 0.01631570246413181,
+          "esd_mtdf_naive": 0.015611443072540405,
+          "esd_baryon_only": 0.007100012051482204,
+          "ratio_obs_over_mtdf": 73.62516636407565
+        },
+        {
+          "R_kpc": 2603.5,
+          "esd_observed": 0.776801209771544,
+          "esd_error": 0.16245648577605015,
+          "esd_mtdf_metric": 0.008814848297845285,
+          "esd_mtdf_naive": 0.008322680410960953,
+          "esd_baryon_only": 0.00384213117385469,
+          "ratio_obs_over_mtdf": 88.12417225165707
+        }
+      ]
+    }
+  ],
+  "conclusion": "MTDF metric under-predicts observed shear at R > 100 kpc by 39-91\u00d7 across all stellar mass bins. The negative distributed correction from the metric is < 0.01%, confirming that the simple 2.3\u00d7 formula is exact. The shortfall is a direct consequence of the MTDF potential shape, not an artefact of the mass interpretation."
+}

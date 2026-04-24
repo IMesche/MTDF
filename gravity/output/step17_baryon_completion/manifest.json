@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "step": 17,
+  "title": "Group/Cluster Baryon Completion (Bins 5-7)",
+  "files": [
+    "step17_baryon_completion.json",
+    "step17_baryon_completion.png",
+    "step17_residuals.png"
+  ]
+}

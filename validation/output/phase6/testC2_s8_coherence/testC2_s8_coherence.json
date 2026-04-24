@@ -1,0 +1,155 @@
+{
+  "_meta": {
+    "author": "Ingo Mesche",
+    "affiliation": "Independent Researcher, Malta",
+    "framework": "MTDF V74"
+  },
+  "test": "Phase 6 Test C2: S8 cross-probe coherence",
+  "date": "2026-02-17",
+  "definition": "S8 = sigma8 * sqrt(Omega_m / 0.3)",
+  "source": "Phase 5 MCMC posteriors (Planck PR4 TTTEEE+lensing)",
+  "results": {
+    "lcdm": {
+      "sigma8": 0.8101186030928237,
+      "sigma8_err": 0.005948583490621362,
+      "Omega_m": 0.3148772703450086,
+      "Omega_m_err": 0.007387442535906367,
+      "S8": 0.8299628125805824,
+      "S8_err": 0.011486101613846727,
+      "tensions": {
+        "KiDS-1000": {
+          "wl_S8": 0.759,
+          "wl_err": 0.024,
+          "wl_ref": "Asgari et al. 2021",
+          "tension_sigma": 2.66707666202081
+        },
+        "DES Y3": {
+          "wl_S8": 0.776,
+          "wl_err": 0.017,
+          "wl_ref": "Amon et al. 2022; Secco et al. 2022",
+          "tension_sigma": 2.6302035772299894
+        },
+        "HSC Y3": {
+          "wl_S8": 0.763,
+          "wl_err": 0.04,
+          "wl_ref": "Li et al. 2023; Dalal et al. 2023",
+          "tension_sigma": 1.6090459726660173
+        },
+        "Planck 2018": {
+          "wl_S8": 0.832,
+          "wl_err": 0.013,
+          "wl_ref": "Planck Collaboration 2020",
+          "tension_sigma": 0.11743508334124149
+        }
+      }
+    },
+    "mtdf": {
+      "sigma8": 0.7903040988136404,
+      "sigma8_err": 0.005846271817685216,
+      "Omega_m": 0.30897395831180585,
+      "Omega_m_err": 0.007229445352446433,
+      "S8": 0.8020372613237019,
+      "S8_err": 0.011101548980301617,
+      "tensions": {
+        "KiDS-1000": {
+          "wl_S8": 0.759,
+          "wl_err": 0.024,
+          "wl_ref": "Asgari et al. 2021",
+          "tension_sigma": 1.6275342321527069
+        },
+        "DES Y3": {
+          "wl_S8": 0.776,
+          "wl_err": 0.017,
+          "wl_ref": "Amon et al. 2022; Secco et al. 2022",
+          "tension_sigma": 1.282383510152913
+        },
+        "HSC Y3": {
+          "wl_S8": 0.763,
+          "wl_err": 0.04,
+          "wl_ref": "Li et al. 2023; Dalal et al. 2023",
+          "tension_sigma": 0.9403854594667004
+        },
+        "Planck 2018": {
+          "wl_S8": 0.832,
+          "wl_err": 0.013,
+          "wl_ref": "Planck Collaboration 2020",
+          "tension_sigma": 1.7527033436917347
+        }
+      }
+    }
+  },
+  "tension_reductions": {
+    "KiDS-1000": {
+      "tension_lcdm": 2.66707666202081,
+      "tension_mtdf": 1.6275342321527069,
+      "delta_tension": 1.039542429868103,
+      "reduction_pct": 38.976848497502694
+    },
+    "DES Y3": {
+      "tension_lcdm": 2.6302035772299894,
+      "tension_mtdf": 1.282383510152913,
+      "delta_tension": 1.3478200670770764,
+      "reduction_pct": 51.243944717638136
+    },
+    "HSC Y3": {
+      "tension_lcdm": 1.6090459726660173,
+      "tension_mtdf": 0.9403854594667004,
+      "delta_tension": 0.668660513199317,
+      "reduction_pct": 41.55633366344517
+    }
+  },
+  "combined_wl": {
+    "wl_weighted_mean": {
+      "S8": 0.769534301989598,
+      "S8_err": 0.013106577835735277,
+      "surveys": [
+        "KiDS-1000",
+        "DES Y3",
+        "HSC Y3"
+      ]
+    },
+    "lcdm_vs_wl_combined": {
+      "model_S8": 0.8299628125805824,
+      "model_S8_err": 0.011486101613846727,
+      "tension_sigma": 3.46745043322236
+    },
+    "mtdf_vs_wl_combined": {
+      "model_S8": 0.8020372613237019,
+      "model_S8_err": 0.011101548980301617,
+      "tension_sigma": 1.8923095906951963
+    }
+  },
+  "external_data": {
+    "weak_lensing": [
+      {
+        "survey": "KiDS-1000",
+        "S8": 0.759,
+        "err": 0.024,
+        "ref": "Asgari et al. 2021"
+      },
+      {
+        "survey": "DES Y3",
+        "S8": 0.776,
+        "err": 0.017,
+        "ref": "Amon et al. 2022; Secco et al. 2022"
+      },
+      {
+        "survey": "HSC Y3",
+        "S8": 0.763,
+        "err": 0.04,
+        "ref": "Li et al. 2023; Dalal et al. 2023"
+      }
+    ],
+    "planck": {
+      "S8": 0.832,
+      "err": 0.013,
+      "ref": "Planck Collaboration 2020"
+    }
+  },
+  "caveats": [
+    "Gaussian error propagation from MCMC posteriors",
+    "Published WL S8 values assume LCDM growth/lensing kernel",
+    "Proper comparison requires WL likelihood within MTDF framework",
+    "First-order consistency check, not full likelihood analysis"
+  ]
+}

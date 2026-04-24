@@ -1,0 +1,179 @@
+\documentclass[11pt,a4paper]{article}
+
+% ============================================================
+% Uniform MTDF preamble -- identical across all papers
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{mdframed}
+\usepackage{parskip}
+\usepackage{ragged2e}
+\usepackage[hidelinks,breaklinks=true]{hyperref}
+\usepackage{microtype}
+
+% Colours matching the HTML theme
+\definecolor{accent}{HTML}{1A4B8A}
+\definecolor{callout-bg}{HTML}{FBFBFB}
+\definecolor{tablehead}{HTML}{F0F0F0}
+
+% Prevent any table from overflowing
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+
+% Caption style (compact, italic, small like the HTML)
+\captionsetup{font=small,labelfont=bf,labelsep=period,justification=centerfirst}
+
+% Hyperref metadata placeholders (filled per-paper below)
+\hypersetup{
+  pdftitle={MTDF Validation Suite Appendix: Reproducibility Index and Test Outcomes},
+  pdfauthor={Ingo Mesche},
+  pdfsubject={MTDF - Mesche's Tensor Dynamics Framework},
+  colorlinks=false
+}
+
+% Prevent overfull hbox from long URLs/DOIs in bibliography
+\sloppy
+\emergencystretch=3em
+
+% Tolerant line breaking so long identifiers (Python filenames etc.) don't
+% produce large overfull hboxes in narrow table columns. These settings keep
+% all content on-page while slightly relaxing right-margin strictness.
+\tolerance=1200
+\hbadness=2000
+\hyphenpenalty=150
+\exhyphenpenalty=50
+
+% ============================================================
+\title{MTDF Validation Suite Appendix: Reproducibility Index and Test Outcomes}
+\author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
+\date{V74 / February 2026}
+
+\begin{document}
+\maketitle
+\begin{center}\itshape Shared appendix referenced by MTDF Companion Papers Parts I to IV. Updated for Validation\_\allowbreak{}Dashboard\_\allowbreak{}V74.html.\end{center}
+
+\begin{abstract}
+This appendix consolidates the reproducibility index, test scripts, and summary diagnostics for the MTDF validation suite. It provides the complete inventory of tests referenced across the companion papers (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}08), including script locations, input data, and pass/\allowbreak{}fail outcomes under the V18 strict protocol.
+\end{abstract}
+
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Claim status.}
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{mdframed}
+
+
+\section{Purpose and how to use this appendix}
+This appendix consolidates the reproducibility index and quick-look outcomes for the test scripts used across the MTDF companion papers.
+  The intent is simple: keep the core papers readable, while keeping the test inventory, scripts, and summary diagnostics in one stable place.
+
+Files referenced here:
+
+\begin{itemize}
+  \item Companion Part I: Environmental and local evidence
+  \item Companion Part II: Gravity sector and lensing validation (\textit{MTDF\_\allowbreak{}03}~[see companion paper])
+  \item Companion Part III: Photon coupling, redshift, and early universe links
+  \item Companion Part IV: Cosmological validation and high-energy test programme
+  \item Interactive dashboard: Validation\_\allowbreak{}Dashboard\_\allowbreak{}V74.html
+\end{itemize}
+
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Scope note:}
+    This appendix is a reproducibility index. It does not change the evidential status of any result. Claim status is defined in the corresponding main or companion paper. Statistical weight remains with the distance-calibrated observables and the calibration versus validation separation defined in the dashboard workflow.
+\end{mdframed}
+
+\section{Test index and reproducibility}
+\label{sec:appendix-a}
+This appendix records the scripts used to generate the figures and summary diagnostics for Parts I to IV of the broader MTDF validation effort.
+The SN Ia $\times$ void result is treated as primary evidence in Companion Part I. The remaining tests are included as constraints, consistency checks, and forward-looking discriminants across Parts II and III.
+
+\subsection{Script index by paper component}
+\begingroup\footnotesize
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.240\linewidth}}
+\toprule
+\textbf{Paper component} & \textbf{Test} & \textbf{Script} & \textbf{Role} \tabularnewline
+\midrule\endfirsthead
+\toprule
+\textbf{Paper component} & \textbf{Test} & \textbf{Script} & \textbf{Role} \tabularnewline
+\midrule\endhead
+\bottomrule\endfoot
+Part I (environment and independent distances) & SN Ia $\times$ void analysis & sn\_\allowbreak{}void\_\allowbreak{}*.py & Primary evidence for an environment-dependent distance-calibrated residual. \tabularnewline
+\multirow{8}{*}{Part III (photon coupling $\kappa$) \emph{[speculative]}} & Zero-velocity shell & mtdf\_\allowbreak{}zero\_\allowbreak{}velocity\_\allowbreak{}shell\_\allowbreak{}test.py & Null and pipeline integrity check. \tabularnewline
+ & Lensed image $\Delta$z & mtdf\_\allowbreak{}lensing\_\allowbreak{}redshift\_\allowbreak{}split\_\allowbreak{}test.py & Path-dependence test using multiple lensed images of the same source. \tabularnewline
+ & Achromaticity & mtdf\_\allowbreak{}achromaticity\_\allowbreak{}test.py & Wavelength independence requirement for any stress-induced redshift. \tabularnewline
+ & Dipole mismatch & mtdf\_\allowbreak{}dipole\_\allowbreak{}mismatch\_\allowbreak{}test.py & Checks whether a stress-induced dipole can contribute to the quasar dipole anomaly. \tabularnewline
+ & Dipole alignment & mtdf\_\allowbreak{}dipole\_\allowbreak{}vector\_\allowbreak{}alignment.py & Directional consistency check between excess dipole and density gradient. \tabularnewline
+ & Distance duality & mtdf\_\allowbreak{}distance\_\allowbreak{}duality\_\allowbreak{}test.py & Etherington relation and potential environment split. \tabularnewline
+ & Sandage-Loeb drift & mtdf\_\allowbreak{}sandage\_\allowbreak{}loeb\_\allowbreak{}drift\_\allowbreak{}test.py & Long-baseline, future definitive test of evolving redshift physics. \tabularnewline
+ & Synthesis plot & mtdf\_\allowbreak{}synthesis\_\allowbreak{}plot.py & Conceptual summary figure linking multiple anomalies to the same scaling law. \tabularnewline
+\multirow{6}{*}{Part IV (cosmological and lensing)} & S8 tension and growth & mtdf\_\allowbreak{}growth\_\allowbreak{}S8\_\allowbreak{}analysis.py & Large-scale structure growth consistency. \tabularnewline
+ & BAO void split & mtdf\_\allowbreak{}bao\_\allowbreak{}void\_\allowbreak{}split\_\allowbreak{}test.py & Environment split for BAO-scale observables. \tabularnewline
+ & GW standard sirens & mtdf\_\allowbreak{}gw\_\allowbreak{}siren\_\allowbreak{}test.py & Independent distance ladder cross-check using gravitational waves. \tabularnewline
+ & Lensing versus RSD (E\textsubscript{G}) & mtdf\_\allowbreak{}lensing\_\allowbreak{}rsd\_\allowbreak{}test.py & Modified-gravity consistency test, not a direct probe of photon coupling. \tabularnewline
+ & Cluster mass MDR & mtdf\_\allowbreak{}cluster\_\allowbreak{}mass\_\allowbreak{}discrepancy\_\allowbreak{}test.py & Compares dynamical and lensing mass proxies in clusters. \tabularnewline
+ & AP void shape & mtdf\_\allowbreak{}ap\_\allowbreak{}void\_\allowbreak{}test.py & Alcock-Paczynski void geometry constraint. \tabularnewline
+\multirow{3}{*}{Part II (gravity sector and lensing)} & Strong lensing time delays & step20\_\allowbreak{}strong\_\allowbreak{}lensing.py & Time-delay distance consistency check under eta = 1. \tabularnewline
+ & Elliptical galaxy dispersions & step22\_\allowbreak{}elliptical\_\allowbreak{}dispersions.py & Pressure-supported system check (SLACS-style). \tabularnewline
+ & Satellite kinematics & step22b\_\allowbreak{}satellite\_\allowbreak{}kinematics.py & Digitised and table-based comparison (More+2011 style) with robustness notes. \tabularnewline
+\end{longtable}
+\endgroup
+
+\subsection{Outcome snapshot}
+\begingroup\footnotesize
+\begin{longtable}{>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}}
+\toprule
+\textbf{Script} & \textbf{Headline outcome} & \textbf{Interpretation at current sensitivity} \tabularnewline
+\midrule\endfirsthead
+\toprule
+\textbf{Script} & \textbf{Headline outcome} & \textbf{Interpretation at current sensitivity} \tabularnewline
+\midrule\endhead
+\bottomrule\endfoot
+mtdf\_\allowbreak{}zero\_\allowbreak{}velocity\_\allowbreak{}shell\_\allowbreak{}test.py & Consistent & No significant artifact detected in a designed null scenario. \tabularnewline
+mtdf\_\allowbreak{}distance\_\allowbreak{}duality\_\allowbreak{}test.py & Consistent & No significant violation of $\eta$ = 1 at current precision; environment split remains a future target. \tabularnewline
+mtdf\_\allowbreak{}lensing\_\allowbreak{}redshift\_\allowbreak{}split\_\allowbreak{}test.py & Consistent & No significant $\Delta$z between multiple lensed images; current spectroscopy is above the $\kappa$ $\lesssim$ 10\textsuperscript{-3} signal level. \tabularnewline
+mtdf\_\allowbreak{}achromaticity\_\allowbreak{}test.py & Consistent at current precision & No evidence for chromatic redshift; any measured offsets are likely systematics at the present 10\textsuperscript{-5} level. \tabularnewline
+mtdf\_\allowbreak{}dipole\_\allowbreak{}mismatch\_\allowbreak{}test.py & Suggestive (partial amplitude) & At $\kappa$ $\approx$ 0.001, MTDF reproduces the correct sign and roughly 42\% of the reported quasar dipole excess amplitude. \tabularnewline
+mtdf\_\allowbreak{}dipole\_\allowbreak{}vector\_\allowbreak{}alignment.py & Moderate directional agreement & Alignment is not tight enough to be a strong constraint, but it remains informative for future catalogues. \tabularnewline
+mtdf\_\allowbreak{}sandage\_\allowbreak{}loeb\_\allowbreak{}drift\_\allowbreak{}test.py & Future-only & Predicted environment split in \.{z} is far below current detection limits for the derived $\kappa$ value (f\textsubscript{kick}/3). \tabularnewline
+mtdf\_\allowbreak{}synthesis\_\allowbreak{}plot.py & Key synthesis figure & Heuristic summary connecting multiple anomalies across environments. It is not, by itself, a measurement of $\kappa$. \tabularnewline
+mtdf\_\allowbreak{}lensing\_\allowbreak{}rsd\_\allowbreak{}test.py & Consistent & E\textsubscript{G} data are broadly consistent with GR at current precision; not a direct $\kappa$ probe. \tabularnewline
+mtdf\_\allowbreak{}cluster\_\allowbreak{}mass\_\allowbreak{}discrepancy\_\allowbreak{}test.py & Interesting signal (MDR $\approx$ 1.14) & Potential dynamical versus lensing mass tension; interpretation depends on mass calibration and baryonic systematics. \tabularnewline
+mtdf\_\allowbreak{}ap\_\allowbreak{}void\_\allowbreak{}test.py & Consistent & Void shape residuals consistent with zero after RSD correction; $\kappa$ effects are below current precision. \tabularnewline
+mtdf\_\allowbreak{}growth\_\allowbreak{}S8\_\allowbreak{}analysis.py & See Part IV & Growth and S8 analyses are treated in the cosmological validation component. \tabularnewline
+mtdf\_\allowbreak{}bao\_\allowbreak{}void\_\allowbreak{}split\_\allowbreak{}test.py & See Part IV & BAO environment splits are treated as cosmological geometry constraints. \tabularnewline
+mtdf\_\allowbreak{}gw\_\allowbreak{}siren\_\allowbreak{}test.py & See Part IV & GW sirens provide an independent distance check in the cosmological component. \tabularnewline
+step20\_\allowbreak{}strong\_\allowbreak{}lensing.py & See Part II & Time-delay distance chi\^{}2/\allowbreak{}nu = 0.77; isothermal slope gamma = 2.000 (structural prediction). See gravity-sector companion. \tabularnewline
+step22\_\allowbreak{}elliptical\_\allowbreak{}dispersions.py & See Part II & Mean velocity dispersion bias -1.4\%; chi\^{}2/\allowbreak{}nu = 1.81 (gas-corrected). See gravity-sector companion. \tabularnewline
+step22b\_\allowbreak{}satellite\_\allowbreak{}kinematics.py & See Part II & More+2011 amplitude test: mean |bias| 6.3\%; profile chi\^{}2/\allowbreak{}nu = 3.60 (best nuisance). See gravity-sector companion. \tabularnewline
+\end{longtable}
+\endgroup
+
+\subsection{Synthesis figure}
+Figure A.1 provides a compact visual summary that places three anomalies on a single stress-scaling trend.
+This figure is intended as a high-level synthesis and motivates a unified search strategy. It should not be interpreted as a standalone parameter inference for $\kappa$.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth,keepaspectratio]{figures/mtdf_synthesis_plot.png}
+\caption*{\textbf{Figure A.1.} The stress-redshift main sequence synthesis plot (generated by mtdf\_\allowbreak{}synthesis\_\allowbreak{}plot.py).}
+\end{figure}
+
+
+\end{document}

@@ -1,0 +1,701 @@
+{
+  "pillar_tooltips": {
+    "description": "Pillar-specific tooltips - content from semantic sheets",
+    "patterns": {
+      "P1.header": {
+        "tooltip_id": "pillar.P1.header",
+        "pillar_id": "P1",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P1B.header": {
+        "tooltip_id": "pillar.P1B.header",
+        "pillar_id": "P1B",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P2.header": {
+        "tooltip_id": "pillar.P2.header",
+        "pillar_id": "P2",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P3.header": {
+        "tooltip_id": "pillar.P3.header",
+        "pillar_id": "P3",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P4.header": {
+        "tooltip_id": "pillar.P4.header",
+        "pillar_id": "P4",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P5.header": {
+        "tooltip_id": "pillar.P5.header",
+        "pillar_id": "P5",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P6.header": {
+        "tooltip_id": "pillar.P6.header",
+        "pillar_id": "P6",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P7.header": {
+        "tooltip_id": "pillar.P7.header",
+        "pillar_id": "P7",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P8.header": {
+        "tooltip_id": "pillar.P8.header",
+        "pillar_id": "P8",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P9.header": {
+        "tooltip_id": "pillar.P9.header",
+        "pillar_id": "P9",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P10.header": {
+        "tooltip_id": "pillar.P10.header",
+        "pillar_id": "P10",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P10B.header": {
+        "tooltip_id": "pillar.P10B.header",
+        "pillar_id": "P10B",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P11.header": {
+        "tooltip_id": "pillar.P11.header",
+        "pillar_id": "P11",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P12.header": {
+        "tooltip_id": "pillar.P12.header",
+        "pillar_id": "P12",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P13.header": {
+        "tooltip_id": "pillar.P13.header",
+        "pillar_id": "P13",
+        "type": "header",
+        "natural_home": "Pillar_Tests.what + Pillar_Tests.why"
+      },
+      "P1.target": {
+        "tooltip_id": "pillar.P1.target",
+        "pillar_id": "P1",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P1B.target": {
+        "tooltip_id": "pillar.P1B.target",
+        "pillar_id": "P1B",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P2.target": {
+        "tooltip_id": "pillar.P2.target",
+        "pillar_id": "P2",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P3.target": {
+        "tooltip_id": "pillar.P3.target",
+        "pillar_id": "P3",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P4.target": {
+        "tooltip_id": "pillar.P4.target",
+        "pillar_id": "P4",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P5.target": {
+        "tooltip_id": "pillar.P5.target",
+        "pillar_id": "P5",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P6.target": {
+        "tooltip_id": "pillar.P6.target",
+        "pillar_id": "P6",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P7.target": {
+        "tooltip_id": "pillar.P7.target",
+        "pillar_id": "P7",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P8.target": {
+        "tooltip_id": "pillar.P8.target",
+        "pillar_id": "P8",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P9.target": {
+        "tooltip_id": "pillar.P9.target",
+        "pillar_id": "P9",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P10.target": {
+        "tooltip_id": "pillar.P10.target",
+        "pillar_id": "P10",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P10B.target": {
+        "tooltip_id": "pillar.P10B.target",
+        "pillar_id": "P10B",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P11.target": {
+        "tooltip_id": "pillar.P11.target",
+        "pillar_id": "P11",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P12.target": {
+        "tooltip_id": "pillar.P12.target",
+        "pillar_id": "P12",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P13.target": {
+        "tooltip_id": "pillar.P13.target",
+        "pillar_id": "P13",
+        "type": "target",
+        "natural_home": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text"
+      },
+      "P1.coverage": {
+        "tooltip_id": "pillar.P1.coverage",
+        "pillar_id": "P1",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P1B.coverage": {
+        "tooltip_id": "pillar.P1B.coverage",
+        "pillar_id": "P1B",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P2.coverage": {
+        "tooltip_id": "pillar.P2.coverage",
+        "pillar_id": "P2",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P3.coverage": {
+        "tooltip_id": "pillar.P3.coverage",
+        "pillar_id": "P3",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P4.coverage": {
+        "tooltip_id": "pillar.P4.coverage",
+        "pillar_id": "P4",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P5.coverage": {
+        "tooltip_id": "pillar.P5.coverage",
+        "pillar_id": "P5",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P6.coverage": {
+        "tooltip_id": "pillar.P6.coverage",
+        "pillar_id": "P6",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P7.coverage": {
+        "tooltip_id": "pillar.P7.coverage",
+        "pillar_id": "P7",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P8.coverage": {
+        "tooltip_id": "pillar.P8.coverage",
+        "pillar_id": "P8",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P9.coverage": {
+        "tooltip_id": "pillar.P9.coverage",
+        "pillar_id": "P9",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P10.coverage": {
+        "tooltip_id": "pillar.P10.coverage",
+        "pillar_id": "P10",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P10B.coverage": {
+        "tooltip_id": "pillar.P10B.coverage",
+        "pillar_id": "P10B",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P11.coverage": {
+        "tooltip_id": "pillar.P11.coverage",
+        "pillar_id": "P11",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P12.coverage": {
+        "tooltip_id": "pillar.P12.coverage",
+        "pillar_id": "P12",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      },
+      "P13.coverage": {
+        "tooltip_id": "pillar.P13.coverage",
+        "pillar_id": "P13",
+        "type": "coverage",
+        "natural_home": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+      }
+    },
+    "natural_home": {
+      "*.header": "Pillar_Tests.what + Pillar_Tests.why",
+      "*.target": "Pillar_Targets.target_value + target_sigma + Pillar_Tests.proof_condition_text",
+      "*.coverage": "Pillar_Tests.how + Pillar_Tests.when + Pillar_Tests.caveats"
+    }
+  },
+  "ui_tooltips": {
+    "description": "Pure UI tooltips - content stays in UI_Tooltips",
+    "patterns": [
+      {
+        "tooltip_id": "header.model",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.foundation",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.evidence",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.pass",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.tier",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.maxz",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "header.chi2red",
+        "category": "header",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.pass",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.maxz",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.chi2red",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "banner.title",
+        "category": "banner",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "footer.validation",
+        "category": "footer",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.validated",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.failed",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.supported",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.empirical",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.theoretical",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.excellent",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.good",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.moderate",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.poor",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.pass.perfect",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.pass.high",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.pass.low",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.chi2red.excellent",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.chi2red.poor",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.pass.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.chi2red.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.prediction",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.tensor",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.lcdm",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.mond",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.axion",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.sidm",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.requires_components",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.not_supported",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "banner.footer",
+        "category": "banner",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.n",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.nu",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.chi2_total",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.chi2_red",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.aic",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.bic",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.performance",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.foundation.published",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.tier.requirescomponents",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "accordion.chi2_breakdown",
+        "category": "accordion",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "accordion.parameter_structure",
+        "category": "accordion",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "accordion.formulas",
+        "category": "accordion",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "accordion.targets",
+        "category": "accordion",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.k",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.prediction.generic",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.MTDF",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.lcdm_pred_value",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.lcdm_pred_uncertainty",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.mond_pred_value",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.ede_pred_value",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.fdm_pred_value",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.sidm_pred_value",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.mond_pred_uncertainty",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.ede_pred_uncertainty",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.fdm_pred_uncertainty",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.model.sidm_pred_uncertainty",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.model",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.foundation",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.chi2_total",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "chi2.breakdown.performance",
+        "category": "chi2",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "button.recalculate",
+        "category": "button",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.excellent",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.strong",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.moderate",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "cell.evidence.weak",
+        "category": "cell",
+        "natural_home": "UI_Tooltips (stays as-is)"
+      },
+      {
+        "tooltip_id": "pillar.target",
+        "category": "pillar_generic",
+        "natural_home": "UI_Tooltips (template fallback)"
+      },
+      {
+        "tooltip_id": "pillar.target.generic",
+        "category": "pillar_generic",
+        "natural_home": "UI_Tooltips (template fallback)"
+      }
+    ],
+    "categories": [
+      "header",
+      "cell",
+      "accordion",
+      "banner",
+      "footer",
+      "button",
+      "chi2"
+    ]
+  }
+}
