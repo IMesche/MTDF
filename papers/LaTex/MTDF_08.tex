@@ -559,6 +559,23 @@ Ongoing extensions include joint multi-probe fitting with a shared coherence-sca
 
 \section{Appendix A. Data availability and reproducibility}
 \label{sec:secA}
+
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+\texttt{run\_\allowbreak{}validate.py} pipeline, the gravity-sector artefact
+manifest, and the Phase~2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/\allowbreak{}zenodo.\allowbreak{}19741058};
+this release, \texttt{v1.1.2}, DOI
+\href{https://doi.org/10.5281/zenodo.19743916}{10.5281/\allowbreak{}zenodo.\allowbreak{}19743916})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
+The \texttt{v1.1.2} Git tag corresponds to the archived Zenodo release. All
+multi-probe results reported here, including the Cosmicflows-4 peculiar
+velocity analysis, the 2MTF Tully--Fisher residual tests, the H0LiCOW
+time-delay distance fits, and the supporting ISW and S\textsubscript{8} channels,
+can be regenerated from the scripts under \texttt{validation/\allowbreak{}code/\allowbreak{}paper8/\allowbreak{}}
+following the procedure in the top-level \texttt{README.md}.
+
 All analysis scripts and machine-readable results are provided in the MTDF validation repository. The repository is organised into phase folders; the material for this paper spans two phases corresponding to the two primary observational channels.
 
 \subsection{A.1 Analysis scripts}

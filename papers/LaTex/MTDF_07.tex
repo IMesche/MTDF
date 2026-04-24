@@ -959,6 +959,26 @@ f\textsubscript{kick} & 0.003303 & -- & Derived: (1$-$$\beta$\textsubscript{eos}
 \subsection{A.3 \,Historical context: November 2025 runs}
 Previous cobaya + class\_\allowbreak{}mtdf runs (November 2025) provide useful reference points. A single-point evaluation at the Planck $\Lambda$CDM best-fit gave $\chi$$^{2}$~=~614.23 (consistent with full plik TT+TE+EE). An MCMC with Planck TT-only (16 walkers, 200 steps) found \( k_f \approx 0.03 \) in the old normalisation (Convention A), with $\chi$$^{2}$ indistinguishable from $\Lambda$CDM. These early results are consistent with the current Phase 2 conclusion that Planck cannot constrain the EFE amplitude.
 
+\section{Data and code availability}
+\label{sec:data-availability}
+The complete MTDF reproducibility package, including the independent GPU
+pipeline used in this paper, the modified CLASS solver (\texttt{class\_\allowbreak{}mtdf}),
+the cobaya YAML configurations for Phase~5, the Phase~2 CosmoPower emulator
+cache, the V18 strict validation workbook, and the gravity-sector artefact
+manifest, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/\allowbreak{}zenodo.\allowbreak{}19741058};
+this release, \texttt{v1.1.2}, DOI
+\href{https://doi.org/10.5281/zenodo.19743916}{10.5281/\allowbreak{}zenodo.\allowbreak{}19743916})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
+The \texttt{v1.1.2} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here, including the Phase~1 reproduction, the
+Phase~2 plik-lite MCMC, the Phase~3 SN~$\times$~void bootstrap, the Phase~5
+full Planck minimisation and converged MCMC, and the Phase~6 cross-probe
+discriminators, can be regenerated from the scripts under
+\texttt{gpu\_\allowbreak{}validation/} following the procedure in the
+top-level \texttt{README.md}.
+
 \section{References}
 \begin{thebibliography}{19}
 \bibitem{ref1} Aghanim, N. et al. (Planck Collaboration) 2020, "Planck 2018 results. V. Power spectra and likelihoods", \emph{A\&A}, 641, A5. DOI: \href{https://doi.org/10.1051/0004-6361/201936386}{10.1051/\allowbreak{}0004-6361/\allowbreak{}201936386}

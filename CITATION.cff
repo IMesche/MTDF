@@ -6,15 +6,21 @@ authors:
   - family-names: Mesche
     given-names: Ingo
     affiliation: "Independent Researcher, Malta"
-version: "1.1.1"
+version: "1.1.2"
 date-released: "2026-04-24"
-doi: "10.5281/zenodo.19741059"
+doi: "10.5281/zenodo.19743916"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/IMesche/MTDF"
 identifiers:
   - type: doi
+    value: "10.5281/zenodo.19741058"
+    description: "Zenodo concept DOI (all versions) for MTDF"
+  - type: doi
+    value: "10.5281/zenodo.19743916"
+    description: "Zenodo deposit for MTDF v1.1.2 source and CosmoPower emulator cache"
+  - type: doi
     value: "10.5281/zenodo.19741059"
-    description: "Zenodo deposit for MTDF v1.1.1 source and CosmoPower emulator cache"
+    description: "Prior version: MTDF v1.1.1 Zenodo deposit"
 keywords:
   - cosmology
   - dark matter

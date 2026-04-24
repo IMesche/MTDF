@@ -8,6 +8,29 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
+## [v1.1.2] (2026-04-24)
+
+- Added a "Data and code availability" paragraph to all eight arXiv-destined
+  papers (MTDF_01 through MTDF_08). Each paragraph cites the Zenodo concept
+  DOI 10.5281/zenodo.19741058 (all versions) plus the fixed v1.1.2 version
+  DOI, and the GitHub mirror at github.com/IMesche/MTDF. In MTDF_03 and
+  MTDF_07 a new dedicated `Data and code availability` section was added;
+  the other six papers already had reproducibility blocks and the paragraph
+  was inserted inside them.
+- The paragraph uses the phrasing "The v1.1.2 Git tag corresponds to the
+  archived Zenodo release", avoiding any claim of byte-for-byte identity
+  between the Git tree and the Zenodo zip container.
+- `CITATION.cff`: version bumped 1.1.1 to 1.1.2. The top-level `doi` field
+  points at the reserved v1.1.2 version DOI; the `identifiers` list now
+  enumerates the concept DOI, the v1.1.2 version DOI, and the v1.1.1
+  version DOI (as a prior-version reference).
+- `README.md`: top-level summary table now shows Release v1.1.2, the concept
+  DOI, and the v1.1.2 version DOI on separate rows.
+- All eight `papers/arxiv_zips/*.zip` were repackaged with the updated
+  LaTeX sources.
+- No numerical results changed. No scientific claims changed. The update is
+  archival-linkage metadata only.
+
 ## [v1.1.1] (2026-04-24)
 
 - Integrated reserved Zenodo DOI 10.5281/zenodo.19741059 (record 19741059)

@@ -8,8 +8,9 @@
 | **Affiliation** | Independent Researcher, Malta |
 | **Theory Version** | V74 |
 | **Workbook Version** | V18 |
-| **Release** | v1.1.1 (2026-04-24) |
-| **DOI** | [10.5281/zenodo.19741059](https://doi.org/10.5281/zenodo.19741059) |
+| **Release** | v1.1.2 (2026-04-24) |
+| **DOI (concept, all versions)** | [10.5281/zenodo.19741058](https://doi.org/10.5281/zenodo.19741058) |
+| **DOI (this version, v1.1.2)** | [10.5281/zenodo.19743916](https://doi.org/10.5281/zenodo.19743916) |
 | **License** | GPL-3.0 |
 
 ---

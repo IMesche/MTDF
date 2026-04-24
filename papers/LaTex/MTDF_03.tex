@@ -665,6 +665,24 @@ Satellite kinematics (profiles) & Combes \& Tiret (2009, ASP Conf 421, 170) & \t
 
 \textbf{Scaling relations (not data files).} Several steps use published scaling relations evaluated analytically from their fitted parameters: Moster+2013 SHMR, Duffy+2008 and Dutton+Macci\`o 2014 c(M), Giodini+2009 gas fraction, Yang+2007 satellite fraction, Gonzalez+2007 ICL fraction, Shen+2003 and van der Wel+2014 size-mass relations, Behroozi+2010 SHMR. These are referenced in the code comments with table/\allowbreak{}equation numbers.
 
+\section{Data and code availability}
+\label{sec:data-availability}
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+\texttt{run\_\allowbreak{}validate.py} pipeline, the gravity-sector artefact
+manifest (\texttt{gravity/\allowbreak{}MANIFEST.sha256}), and the Phase~2
+CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/\allowbreak{}zenodo.\allowbreak{}19741058};
+this release, \texttt{v1.1.2}, DOI
+\href{https://doi.org/10.5281/zenodo.19743916}{10.5281/\allowbreak{}zenodo.\allowbreak{}19743916})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
+The \texttt{v1.1.2} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here, including the GGL ESD predictions, the
+SLACS dispersion residuals, the wide-binary statistics, and the elliptical
+Einstein-radius ratios, can be regenerated from the shipped workbook and
+scripts following the procedure in the top-level \texttt{README.md}.
+
 \section{References}
 \label{sec:references}
 \begin{itemize}
