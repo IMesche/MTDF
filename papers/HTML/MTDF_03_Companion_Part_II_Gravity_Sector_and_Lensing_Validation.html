@@ -662,7 +662,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <p>All 11 primary metrics pass. 24/24 computational steps reproduce from clean inputs.</p>
 
 <figure id="fig-lensing-rsd" style="text-align:center; margin:2em auto; max-width:900px;">
-  <img src="figures/mtdf_lensing_rsd_test.png" alt="Lensing vs RSD E_G test and void lensing profiles" style="width:100%; height:auto;" />
+  <img src="../figures/mtdf_lensing_rsd_test.png" alt="Lensing vs RSD E_G test and void lensing profiles" style="width:100%; height:auto;" />
   <figcaption><strong>Figure 2.</strong> Lensing-vs-RSD consistency test. Left: E<sub>G</sub> measurements from six surveys (KiDS-BOSS, DES Y1, BOSS LOWZ/CMASS, KiDS-2dFLenS, eBOSS) compared with the GR prediction E<sub>G</sub> = &Omega;<sub>m</sub>/f = 0.38. Combined measurement E<sub>G</sub> = 0.39 &pm; 0.03 shows excellent agreement with GR. Centre: stacked tangential shear profiles around cosmic voids from DES Y3 and KiDS data. Right: test summary. The MTDF photon coupling &kappa; = 0.00102 predicts &Delta;E<sub>G</sub> ~ 0.001 in voids, below current measurement precision. Status: consistent with MTDF (no detectable photon coupling at current precision).</figcaption>
 </figure>
 
@@ -807,6 +807,23 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <!-- =========================================================== -->
 <!-- REFERENCES -->
 <!-- =========================================================== -->
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
+
 <h2 id="references">References</h2>
 
 <ul>

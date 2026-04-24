@@ -1224,6 +1224,23 @@ Convention C initially used \( f_{\rm kick} = \alpha\kappa = 0.001326 \) instead
 Previous cobaya + class_mtdf runs (November 2025) provide useful reference points. A single-point evaluation at the Planck &Lambda;CDM best-fit gave &chi;&sup2;&nbsp;=&nbsp;614.23 (consistent with full plik TT+TE+EE). An MCMC with Planck TT-only (16 walkers, 200 steps) found \( k_f \approx 0.03 \) in the old normalisation (Convention A), with &chi;&sup2; indistinguishable from &Lambda;CDM. These early results are consistent with the current Phase 2 conclusion that Planck cannot constrain the EFE amplitude.
 </p>
 
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
+
 <h2>References</h2>
 <ol class="refs">
 <li>Aghanim, N. et al. (Planck Collaboration) 2020, "Planck 2018 results. V. Power spectra and likelihoods", <em>A&amp;A</em>, 641, A5. DOI: <a href="https://doi.org/10.1051/0004-6361/201936386">10.1051/0004-6361/201936386</a></li>

@@ -223,6 +223,23 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <p>MTDF predicts that Type Ia Supernova distance residuals should exhibit an environment-linked transition at low redshift, sharply confined to the stress-field coherence scale ($\beta \approx 23$ Mpc, corresponding to $z \approx 0.04$), rather than a uniform global correlation. A merged analysis of 4,188 supernovae (Pantheon+, ZTF DR2, Foundation DR1) across three independent void catalogues (VoidFinder, REVOLVER, VIDE) confirms this: the global constant-$\gamma$ model is null, while a piecewise transition at $z \approx 0.04$ yields $\Delta\chi^2 = 36$&ndash;$39$ ($p &lt; 0.001$, all three catalogues). SALT2 population controls (stretch, colour) shift the result by less than 0.3$\sigma$, and the same physical supernovae drive the signal across all three void reconstructions.</p>
 
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
+
 <h2>Access to Data and Code</h2>
 
 <p>All assertions in the accompanying DOI publications are backed by a fully open codebase. Researchers can download the data, run the MCMC chains, and test the MTDF constraints directly.</p>

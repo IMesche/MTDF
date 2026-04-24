@@ -619,7 +619,7 @@ $$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R
 </ol>
 
 <figure id="fig-synthesis" style="text-align:center; margin:2em auto; max-width:900px;">
-  <img src="figures/mtdf_synthesis_plot.png" alt="The Stress-Redshift Main Sequence spanning three cosmological anomalies" style="width:100%; height:auto;" />
+  <img src="../figures/mtdf_synthesis_plot.png" alt="The Stress-Redshift Main Sequence spanning three cosmological anomalies" style="width:100%; height:auto;" />
   <figcaption><strong>Figure 3.</strong> The Stress-Redshift Main Sequence. Three independent anomalies spanning 3 orders of magnitude in environmental density contrast follow the same MTDF prediction (blue band: &delta;z = &alpha; + &beta;|&delta;| fit). Left: SN Ia void residuals (z ~ 0.04). Centre: CMB quadrupole dipole tension (z ~ 0.1). Right: cluster mass bias M<sub>dyn</sub> &gt; M<sub>WL</sub> excess (MDR ~ 1.14). The photon coupling &kappa; = 0.001 (FIRAS limit) independently modulates the signal at each scale. The &Lambda;CDM baseline (dashed grey) predicts no environment-dependent trend.</figcaption>
 </figure>
 
@@ -651,6 +651,23 @@ $$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R
 <tr><td>KiDS-1000 cosmic shear (Asgari+2021)</td><td>Section 8</td></tr>
 </table>
 <p class="small">Full bibliographies and DOIs are provided in each companion paper. All input data files, analysis scripts, and output artefacts are included in the MTDF_Submission package.</p>
+
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
 
 <h2>References</h2>
 <ol class="refs">

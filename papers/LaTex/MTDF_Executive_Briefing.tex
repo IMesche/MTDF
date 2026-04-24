@@ -108,12 +108,24 @@ MTDF predicts that Type Ia Supernova distance residuals should exhibit an enviro
 \section{Access to Data and Code}
 All assertions in the accompanying DOI publications are backed by a fully open codebase. Researchers can download the data, run the MCMC chains, and test the MTDF constraints directly.
 
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+\texttt{run\_\allowbreak{}validate.py} pipeline, the gravity-sector artefact
+manifest, and the Phase~2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/\allowbreak{}zenodo.\allowbreak{}19741058};
+this release, \texttt{v1.1.2}, DOI
+\href{https://doi.org/10.5281/zenodo.19743916}{10.5281/\allowbreak{}zenodo.\allowbreak{}19743916})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
+The \texttt{v1.1.2} Git tag corresponds to the archived Zenodo release.
+
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
 \textbf{Repository \& Reproducibility:}\begin{itemize}
-  \item \textbf{Source code:} \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}
-  \item \textbf{Papers:} See \texttt{papers/\allowbreak{}} directory (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}07)
+  \item \textbf{Zenodo (concept):} \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/\allowbreak{}zenodo.\allowbreak{}19741058}
+  \item \textbf{Zenodo (v1.1.2):} \href{https://doi.org/10.5281/zenodo.19743916}{10.5281/\allowbreak{}zenodo.\allowbreak{}19743916}
+  \item \textbf{Source code:} \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF} (tag \texttt{v1.1.2})
+  \item \textbf{Papers:} See \texttt{papers/\allowbreak{}} directory (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}08)
   \item \textbf{Reproduce:} \texttt{bash setup\_\allowbreak{}environment.sh \&\& bash scripts/\allowbreak{}download\_\allowbreak{}data.sh \&\& cd validation/\allowbreak{}code \&\& python run\_\allowbreak{}validate.py}
-  \item \textbf{DOI:} \emph{See CITATION.cff in the repository root}
 \end{itemize}
 \end{mdframed}
 

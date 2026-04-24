@@ -577,7 +577,7 @@ y_i = \alpha + \gamma \cdot d_{\mathrm{signed},i} + \varepsilon_i
 <p>The central result of this paper is not any individual channel significance but the convergence of independent probes at a single coherence scale.</p>
 
 <figure id="fig-sn-void-summary" style="text-align:center; margin:2em auto; max-width:900px;">
-  <img src="figures/sn_void_summary_figure.png" alt="Four-panel summary of the SN x void environment signal" style="width:100%; height:auto;" />
+  <img src="../figures/sn_void_summary_figure.png" alt="Four-panel summary of the SN x void environment signal" style="width:100%; height:auto;" />
   <figcaption><strong>Figure 1.</strong> Four-panel summary of the supernova-void environment signal. (a) Environment coefficient &gamma;<sub>env</sub> vs. redshift, showing the localised signal at z &lt; 0.04 with p &lt; 0.01 significance. (b) Leave-one-survey-out stability test confirming no single survey drives the detection. (c) Key results across three void catalogues (REVOLVER, VIDE, VoidFinder) and robustness checks including 12/12 bootstrap realisations with p &lt; 0.05. (d) Physical interpretation: SNe in cosmic voids appear ~0.01 mag brighter than those in overdense regions, consistent with the MTDF stress-field coherence scale prediction.</figcaption>
 </figure>
 
@@ -706,6 +706,23 @@ y_i = \alpha + \gamma \cdot d_{\mathrm{signed},i} + \varepsilon_i
 <!-- ════════════════════════════════════════════════════════════════ -->
 <!-- A. DATA AVAILABILITY AND REPRODUCIBILITY -->
 <!-- ════════════════════════════════════════════════════════════════ -->
+
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
 
 <h2 id="secA">Appendix A. Data availability and reproducibility</h2>
 

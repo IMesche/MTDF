@@ -739,9 +739,28 @@ These signatures are presented as a programme of discriminating tests, not as cl
 <h2 id="sec12">12. References (DOIs)</h2>
 <p class="small">This list is automatically assembled from the V18 workbook sources. Where a DOI represents a dataset or a calibration source, it should be cited when reproducing the corresponding pillar or parameter provenance.</p>
 <ol class="refs"><li><span class="ref-doi">10.1051/0004-6361/201833910</span> <span class="ref-label">Field Relaxation Time (τ)</span></li><li><span class="ref-doi">10.1088/1475-7516/2025/02/021</span> <span class="ref-label">P_BAO_DESI DESI 2024 VI</span></li><li><span class="ref-doi">10.1088/0004-637X/775/1/62</span> <span class="ref-label">Stress Tensor-Matter Coupling (α) - KBC 2013 local underdensity</span></li><li><span class="ref-doi">10.1111/j.1365-2966.2011.20197.x</span> <span class="ref-label">Coherence Length (β) - Pan et al. 2012 void radius distribution</span></li><li><span class="ref-doi">10.1093/mnras/stt1082</span> <span class="ref-label">P_HZ_CC Melia &amp; Maier 2013</span></li><li><span class="ref-doi">10.1103/PhysRevD.103.083533</span> <span class="ref-label">P_GROWTH_FSIG8 eBOSS 2021</span></li><li><span class="ref-doi">10.1103/PhysRevD.106.043526</span> <span class="ref-label">Smith, Lucca, Poulin &amp; Franco Abell&aacute;n 2022, &ldquo;Hints of Early Dark Energy in Planck, SPT, and ACT Data&rdquo; (EDE comparator benchmark; previous label &ldquo;P_SNE_PANTHEON&rdquo; was incorrect &mdash; Pantheon+ SNe are cited via Brout+2022, 10.3847/1538-4357/ac8e04)</span></li><li><span class="ref-doi">10.1103/PhysRevD.85.054503</span> <span class="ref-label">HotQCD collaboration 2012, &ldquo;Chiral and deconfinement aspects of the QCD transition&rdquo; (cited as a physics analogue for the EoS Transition parameter &beta;<sub>eos</sub>; the exact value &beta;<sub>eos</sub> = 0.573 is an MTDF fit, not a direct observable of this paper)</span></li><li><span class="ref-doi">10.1103/PhysRevLett.127.161302</span> <span class="ref-label">P_CMB_DIST Skordis &amp; Złośnik 2021</span></li><li><span class="ref-doi">10.3847/1538-4357/ac8e04</span> <span class="ref-label">P_SNE_PANTHEON Brout+ 2022</span></li><li><span class="ref-doi">10.3847/2041-8213/836/2/L24</span> <span class="ref-label">MOND acceleration scale a₀ (McGaugh+2016 discovery)</span></li><li><span class="ref-doi">10.3847/1538-4357/836/2/152</span> <span class="ref-label">MOND acceleration scale a₀ (Lelli+2017, 240-galaxy confirmation)</span></li><li><span class="ref-doi">10.1088/2041-8205/766/1/L7</span> <span class="ref-label">Transition redshift (z_t) - Farooq &amp; Ratra 2013</span></li><li><span class="ref-doi">10.3847/1538-4357/ac0e95</span> <span class="ref-label">H₀ anchor - Freedman 2021 TRGB</span></li></ol>
+
+<section id="data-and-code-availability" style="margin-top:1.5em">
+<h2>Data and code availability</h2>
+<p>The complete MTDF reproducibility package, including the modified CLASS solver
+(<code>class_mtdf</code>), the V18 strict validation workbook, the
+<code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
+this release, <code>v1.1.2</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+and mirrored on GitHub at
+<a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
+The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level <code>README.md</code>.</p>
+</section>
+
 <div class="footer">
 MTDF Master Paper (V74) | Ingo Mesche | April 2026
 </div>
+
 </div>
+
 </body>
 </html>
