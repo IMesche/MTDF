@@ -10,26 +10,70 @@ workbook version **V18**.
 
 ## [v1.1.2] (2026-04-24)
 
-- Added a "Data and code availability" paragraph to all eight arXiv-destined
-  papers (MTDF_01 through MTDF_08). Each paragraph cites the Zenodo concept
-  DOI 10.5281/zenodo.19741058 (all versions) plus the fixed v1.1.2 version
-  DOI, and the GitHub mirror at github.com/IMesche/MTDF. In MTDF_03 and
-  MTDF_07 a new dedicated `Data and code availability` section was added;
-  the other six papers already had reproducibility blocks and the paragraph
-  was inserted inside them.
+Release scope: Zenodo DOI integration, archival-linkage metadata only. No
+numerical results changed, no scientific claims changed.
+
+Reserved and then published Zenodo v1.1.2 deposit under concept DOI
+10.5281/zenodo.19741058 with fixed version DOI 10.5281/zenodo.19743916.
+
+LaTeX sources
+
+- Added a "Data and code availability" paragraph to all eleven LaTeX sources
+  in `papers/LaTex/`: the eight arXiv-destined papers (MTDF_01 through
+  MTDF_08), the combined document MTDF_00_Master_Compilation, the
+  MTDF_Executive_Briefing, and the MTDF_short summary.
+- Each paragraph cites the Zenodo concept DOI 10.5281/zenodo.19741058 (all
+  versions) plus the fixed v1.1.2 version DOI 10.5281/zenodo.19743916, and
+  the GitHub mirror at github.com/IMesche/MTDF.
+- In MTDF_03 and MTDF_07 a new dedicated `Data and code availability`
+  section was added; the other six arXiv papers already had reproducibility
+  blocks and the paragraph was inserted inside them. MTDF_08 already had
+  an Appendix A "Data availability and reproducibility"; the paragraph was
+  inserted at the top of that appendix.
+- The Executive Briefing's pre-existing "Access to Data and Code" section
+  was augmented with the DOI-bearing paragraph and the repository-bullets
+  list was updated to expose both DOIs directly.
 - The paragraph uses the phrasing "The v1.1.2 Git tag corresponds to the
   archived Zenodo release", avoiding any claim of byte-for-byte identity
   between the Git tree and the Zenodo zip container.
-- `CITATION.cff`: version bumped 1.1.1 to 1.1.2. The top-level `doi` field
-  points at the reserved v1.1.2 version DOI; the `identifiers` list now
-  enumerates the concept DOI, the v1.1.2 version DOI, and the v1.1.1
-  version DOI (as a prior-version reference).
-- `README.md`: top-level summary table now shows Release v1.1.2, the concept
-  DOI, and the v1.1.2 version DOI on separate rows.
+
+HTML renders
+
+- Matching HTML `Data and code availability` `<section>` inserted into all
+  ten HTML renders under `papers/HTML/`, positioned before the page footer
+  and inside the styled `wrap` container (initial placement for MTDF_01
+  and MTDF_06 landed outside the wrap and after the footer and was
+  corrected in this same release).
+- Fixed three broken figure relative paths introduced in an earlier
+  revision: `src="figures/..."` to `src="../figures/..."` in
+  MTDF_03 (`mtdf_lensing_rsd_test.png`), MTDF_08
+  (`sn_void_summary_figure.png`), and MTDF_short
+  (`mtdf_synthesis_plot.png`). Browser-loaded HTML renders now resolve
+  the figure files correctly.
+
+PDFs
+
+- All eleven PDFs in `papers/PDF_from_Tex/` were regenerated from the
+  updated LaTeX sources (two `pdflatex` passes each). Each PDF's extracted
+  text contains the fixed v1.1.2 DOI 10.5281/zenodo.19743916.
+
+arXiv submission bundles
+
 - All eight `papers/arxiv_zips/*.zip` were repackaged with the updated
-  LaTeX sources.
-- No numerical results changed. No scientific claims changed. The update is
-  archival-linkage metadata only.
+  LaTeX sources. Each zip contains exactly one occurrence of the v1.1.2
+  DOI in its `.tex` source and no placeholder tokens remain.
+
+Repository metadata
+
+- `CITATION.cff`: version bumped 1.1.1 to 1.1.2. The top-level `doi` field
+  points at the v1.1.2 version DOI; the `identifiers` list now enumerates
+  the concept DOI (10.5281/zenodo.19741058), the v1.1.2 version DOI
+  (10.5281/zenodo.19743916), and the v1.1.1 version DOI
+  (10.5281/zenodo.19741059, as a prior-version reference).
+- `README.md`: top-level summary table now shows Release v1.1.2, the
+  concept DOI, and the v1.1.2 version DOI on separate rows.
+- `THIRD_PARTY_NOTICES.md`: unchanged relative to v1.1.1 (the CosmoPower
+  section already documents the Zenodo-hosted emulator cache).
 
 ## [v1.1.1] (2026-04-24)
 
