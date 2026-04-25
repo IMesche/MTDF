@@ -1,0 +1,819 @@
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array,longtable,adjustbox}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{newunicodechar}
+% Unicode mappings for PDFLaTeX/arXiv-safe compilation.
+\newunicodechar{á}{\'a}
+\newunicodechar{ł}{l}
+\newunicodechar{ś}{s}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{ν}{\ensuremath{\nu}}
+\newunicodechar{ξ}{\ensuremath{\xi}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{∆}{\ensuremath{\Delta}}
+\newunicodechar{Λ}{\ensuremath{\Lambda}}
+\newunicodechar{Φ}{\ensuremath{\Phi}}
+\newunicodechar{Ψ}{\ensuremath{\Psi}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{Γ}{\ensuremath{\Gamma}}
+\newunicodechar{“}{``}
+\newunicodechar{”}{''}
+\newunicodechar{‘}{`}
+\newunicodechar{’}{'}
+\newunicodechar{–}{--}
+\newunicodechar{—}{--}
+\newunicodechar{ }{\,}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≪}{\ensuremath{\ll}}
+\newunicodechar{≫}{\ensuremath{\gg}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{☉}{\ensuremath{\odot}}
+\newunicodechar{‖}{\ensuremath{\|}}
+\newunicodechar{ⁱ}{\ensuremath{^{i}}}
+\newunicodechar{ʲ}{\ensuremath{^{j}}}
+\newunicodechar{ᵏ}{\ensuremath{^{k}}}
+\newunicodechar{ᶻ}{\ensuremath{^{z}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{⁺}{\ensuremath{^{+}}}
+\newunicodechar{⁰}{\ensuremath{^{0}}}
+\newunicodechar{¹}{\ensuremath{^{1}}}
+\newunicodechar{²}{\ensuremath{^{2}}}
+\newunicodechar{³}{\ensuremath{^{3}}}
+\newunicodechar{⁴}{\ensuremath{^{4}}}
+\newunicodechar{⁵}{\ensuremath{^{5}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{⁷}{\ensuremath{^{7}}}
+\newunicodechar{⁸}{\ensuremath{^{8}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₃}{\ensuremath{_{3}}}
+\newunicodechar{₄}{\ensuremath{_{4}}}
+\newunicodechar{₅}{\ensuremath{_{5}}}
+\newunicodechar{₆}{\ensuremath{_{6}}}
+\newunicodechar{₇}{\ensuremath{_{7}}}
+\newunicodechar{₈}{\ensuremath{_{8}}}
+\newunicodechar{₉}{\ensuremath{_{9}}}
+\newunicodechar{ₜ}{\ensuremath{_{t}}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{√}{\ensuremath{\sqrt{}}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{†}{\ensuremath{\dagger}}
+\newunicodechar{ⱼ}{\ensuremath{_{j}}}
+\newunicodechar{ₖ}{\ensuremath{_{k}}}
+\newunicodechar{ₗ}{\ensuremath{_{l}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlist{itemsep=2pt, topsep=4pt, parsep=0pt}
+\emergencystretch=3em
+\sloppy
+
+\newcommand{\tablecaptiontext}[1]{\begin{center}\small\itshape #1\end{center}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\doi}[1]{\texttt{#1}}
+\newcommand{\href}[2]{#2}
+\newcommand{\url}[1]{\texttt{#1}}
+
+\newenvironment{abstractbox}{%
+  \begin{framed}\small
+}{%
+  \end{framed}
+}
+
+\newenvironment{calloutbox}{%
+  \begin{leftbar}\small
+}{%
+  \end{leftbar}
+}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries MTDF Companion Paper Part IV: Cosmological Validation, High Energy, and Test Programme\par}
+\vspace{0.25em}
+{\small Extensions, hypotheses, and test programmes (draft for release)\par}
+\vspace{0.75em}
+\hrule\vspace{0.5em}
+{\small Author: Ingo Mesche \quad Affiliation: Independent Researcher, Malta \quad Contact: imesche@outlook.com \quad Version: V74 / February 2026\par}
+\vspace{0.5em}\hrule
+\end{center}
+
+\begin{abstractbox}
+\textbf{Abstract.}  This companion paper (Part IV) documents the cosmological validation of MTDF through a matched CMB+BAO comparison and a full Planck plik TTTEEE + low-ℓ + lensing hard-falsifier, alongside high-energy and cluster-scale phenomenology. The full Planck Phase 5 comparison (Section 2.4) yields a total Δχ² = +0.63 relative to ΛCDM (one additional parameter k\(_{f}\)). Two component-level numbers near +1.25 also appear in this paper, a narrower CMB+BAO summary run in Section 2.1 and the lensing-likelihood contribution within Phase 5; neither is the full-Planck total. Under the MTDF void-enhancement mapping, the SH0ES tension is reduced from 3.8σ to 1.3σ without retuning the global fit. We additionally present falsifiable predictions for lensing in merging clusters and stress-support contributions to hydrostatic mass bias.
+\end{abstractbox}
+\tableofcontents\clearpage
+
+\begin{calloutbox}
+\textbf{Claim status.} 
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{calloutbox}
+
+
+\section*{1. Purpose and scope}
+\addcontentsline{toc}{section}{1. Purpose and scope}
+
+This companion part documents two extension tracks and their tests: (i) a likelihood-based cosmological validation exercise comparing MTDF and ΛCDM on Planck 2018 TTTEEE and DESI DR1 BAO, including an explicit global-versus-local H0 interpretation when a SH0ES prior is introduced, and (ii) high-energy and cluster-scale phenomenology where stress support may affect lensing, hydrostatic mass bias, and merging systems.
+
+
+The aim is to state clear, falsifiable expectations, report analyses conducted to date with full provenance, and define what would count as decisive failure modes. Where comparisons are made, the baseline choices are matched across models.
+
+
+\begin{calloutbox}
+Note on separation from the dashboard: the strict dashboard scorecard is intentionally conservative and does not include the full-likelihood MCMC results reported here. Those results are presented as an independent cross-check, alongside the diagnostic-only CMB distance-prior view already used elsewhere.
+\end{calloutbox}
+
+
+\section*{2. Cosmological validation: CMB, BAO, and local H0}
+\addcontentsline{toc}{section}{2. Cosmological validation: CMB, BAO, and local H0}
+
+This section documents a matched, reproducible cosmological comparison between ΛCDM and MTDF using Planck 2018 TTTEEE likelihoods and DESI BAO, followed by an explicit test of the SH0ES local H0 prior under an MTDF void-enhancement mapping. All quantities below are reported exactly as evaluated by the likelihood code used for the MCMC runs.
+
+
+\begin{calloutbox}
+Methodological note: this section reports a matched CMB+BAO comparison (Planck TTTEEE plus DESI BAO) and then adds a local-H0 interpretation layer (SH0ES). The SH0ES layer is treated as a test of whether one parameter set can jointly accommodate global and local expansion in a controlled way. These results are reported here and are not included in the dashboard strict scorecard. The definitive full Planck plik TTTEEE + low-ℓ + lensing hard-falsifier is reported separately in Section 2.4.
+\end{calloutbox}
+
+
+\subsection*{2.1 Matched CMB + BAO comparison (Planck 2018 TTTEEE + DESI BAO)}
+\addcontentsline{toc}{subsection}{2.1 Matched CMB + BAO comparison (Planck 2018 TTTEEE + DESI BAO)}
+
+We ran joint MCMC fits for ΛCDM and MTDF on identical data and nuisance settings. MTDF adds one additional parameter (k\_f) while keeping the standard six cosmological parameters. In this CMB+BAO summary run, MTDF matches the fit quality to within Δχ² ≈ 1.25. This number refers only to the CMB+BAO summary table below; the full Planck plik TTTEEE + low-ℓ + lensing Phase 5 comparison is reported in Section 2.4 and gives total Δχ² = +0.63.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Model} & \textbf{χ² Total} & \textbf{χ² Planck} & \textbf{χ² BAO} & \textbf{H0 (km/s/Mpc)} & \textbf{k\_f} \\
+\hline
+ΛCDM & 1018.57 & 1004.78 & 13.79 & 68.03 (+0.43/-0.29) & n/a \\
+\hline
+MTDF & 1019.82 & 1005.23 & 14.59 & 68.13 (+0.54/-0.35) & 0.10 (+0.01/-0.01) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+Interpretation: this indicates that, within the stated implementation, introducing k\_f does not produce a statistically meaningful degradation of the global CMB+BAO fit. Any claimed advantage must then come from additional, independently testable phenomena, such as the local-environment mapping tested in Part I.
+
+
+\subsection*{2.2 SH0ES prior and the global vs local H0 test}
+\addcontentsline{toc}{subsection}{2.2 SH0ES prior and the global vs local H0 test}
+
+We then evaluated the SH0ES H0 prior as an additional constraint. A naive application (treating SH0ES as directly measuring the global H0) does not relieve the tension. In contrast, the MTDF two-component interpretation treats Planck as probing a global effective expansion rate and SH0ES as probing a locally void-enhanced rate. Under that mapping, the residual tension is reduced substantially in the current run.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Model} & \textbf{χ²\_SH0ES} & \textbf{χ² Total} & \textbf{Residual tension} \\
+\hline
+ΛCDM + SH0ES & 14.2 & 1034.7 & 3.8σ \\
+\hline
+MTDF (naive) + SH0ES & 14.0 & 1033.4 & 3.8σ \\
+\hline
+MTDF (with void mapping) + SH0ES & 1.64 & 1019.4 & 1.3σ \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\begin{calloutbox}
+\textbf{Two-component H0 summary from the current run:}
+
+\begin{itemize}
+\item H0\_global (Planck-like, global): 68.56 km/s/Mpc
+\item Void stress depletion enhancement: +5.81 km/s/Mpc
+\item H0\_local (SH0ES-like, void-enhanced): 74.37 km/s/Mpc
+\item SH0ES observed: 73.04 ± 1.04 km/s/Mpc
+\item Residual tension: 1.3σ
+\end{itemize}
+\end{calloutbox}
+
+Within MTDF, the Hubble tension is not treated as a measurement error or an unmodelled systematic; it is interpreted as an environmental split between a global expansion rate and a locally inferred, environment-enhanced rate. In the implementation tested here, CMB plus BAO constrain a global-average value near 67 to 68 km/s/Mpc, while the local distance ladder probes a void-weighted value near 73 to 74 km/s/Mpc. Under these assumptions, both measurements can be accommodated as probes of different effective regimes within the same field model.
+
+
+\begin{itemize}
+\item Planck (CMB) probes the global-average H0, approximately 67 to 68 km/s/Mpc.
+\item SH0ES (local ladder) probes a locally weighted H0 in low-density environments, approximately 73 to 74 km/s/Mpc.
+\item Interpretation: both are consistent if they weight different environmental regimes.
+\end{itemize}
+
+
+This is falsifiable: the void-enhancement mapping must remain consistent under future void catalogues, alternative low-z calibrators, and expanded local samples. If the mapping fails, the interpretation is constrained without affecting the matched CMB+BAO fit result in Section 2.1.
+
+
+\subsection*{2.3 Conservative fit philosophy}
+\addcontentsline{toc}{subsection}{2.3 Conservative fit philosophy}
+
+To avoid artefactual improvements, we report likelihood contributions transparently and keep optional layers separated. In particular, the SH0ES reduction above is not obtained by tuning the global CMB+BAO likelihood, but by adding a separately testable environmental mapping whose sign and scale are constrained by the Part I supernova void analysis.
+
+
+The growth behaviour inferred from the full Planck likelihood  -  in particular, the shift in S\(_{8}\) and the source of constraint within individual likelihood components  -  motivates further tests beyond the scope of this work.
+
+
+\subsection*{2.4 Full Planck plik TTTEEE + lensing validation (Phase 5)}
+\addcontentsline{toc}{subsection}{2.4 Full Planck plik TTTEEE + lensing validation (Phase 5)}
+
+This section reports the results of a matched MCMC comparison between ΛCDM and MTDF using the full Planck 2018 plik TTTEEE high-multipole likelihood, low-ℓ TT and EE likelihoods, and the Planck 2018 lensing likelihood. MTDF adds a single additional parameter, the stress coupling k\(_{f}\), to the standard six ΛCDM cosmological parameters and 21 Planck nuisance parameters. Both chains were run under identical Cobaya configurations with the drag sampler, and convergence was assessed using the multivariate Gelman-Rubin statistic (R−1) with an automatic stopping criterion of R−1 < 0.02 applied consecutively. Full chain files, configuration YAML, and post-processing scripts are provided in the reproducibility package.
+
+
+\subsubsection*{2.4.1 Convergence diagnostics}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Diagnostic} & \textbf{ΛCDM} & \textbf{MTDF} \\
+\hline
+Accepted samples & 26,400 & 27,160 \\
+\hline
+Multivariate R−1 & 0.0191 & 0.0185 \\
+\hline
+Converged & Yes & Yes \\
+\hline
+Slowest-mixing parameter & ps\_A\_143\_217 (R−1 = 0.0019) & calib\_100T (R−1 = 0.0017) \\
+\hline
+ESS (H\(_{0}\)) & 1,156 & 807 \\
+\hline
+ESS (σ\(_{8}\)) & 1,136 & 866 \\
+\hline
+ESS (k\(_{f}\)) & - & 877 \\
+\hline
+Acceptance rate & 2.81\% & 2.93\% \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The additional MTDF coupling parameter k\(_{f}\) converges more rapidly than several Planck calibration parameters (per-parameter R−1 = 0.0012 vs 0.0017 for the slowest nuisance term), indicating no additional sampling stiffness from the extended parameter space.
+
+
+\subsubsection*{2.4.2 Posterior parameter comparison}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Parameter} & \textbf{ΛCDM (mean ± σ)} & \textbf{MTDF (mean ± σ)} & \textbf{Shift (Δ/σ\(_{ΛCDM}\))†} \\
+\hline
+ln(10\(^{10}\)A\(_{s}\)) & 3.044 ± 0.014 & 3.037 ± 0.014 & −0.5 \\
+\hline
+n\(_{s}\) & 0.9646 ± 0.0041 & 0.9681 ± 0.0041 & +0.9 \\
+\hline
+100θ\(_{s}\) & 1.04185 ± 0.00029 & 1.04195 ± 0.00029 & +0.3 \\
+\hline
+ω\(_{b}\) & 0.02236 ± 0.00015 & 0.02236 ± 0.00015 & +0.0 \\
+\hline
+ω\(_{\mathrm{cdm}}\) & 0.1199 ± 0.0012 & 0.1191 ± 0.0012 & −0.7 \\
+\hline
+τ\(_{\mathrm{reio}}\) & 0.054 ± 0.007 & 0.052 ± 0.007 & −0.3 \\
+\hline
+H\(_{0}\) (km/s/Mpc) & 67.38 ± 0.54 & 67.83 ± 0.54 & +0.8 \\
+\hline
+σ\(_{8}\) & 0.810 ± 0.006 & 0.790 ± 0.006 & −3.4 \\
+\hline
+Ω\(_{m}\) & 0.315 ± 0.007 & 0.309 ± 0.007 & −0.8 \\
+\hline
+k\(_{f}\) & - & 0.50 ± 0.36 & - \\
+\hline
+S\(_{8}\) (derived) & 0.830 ± 0.013 & 0.802 ± 0.013 & −2.2 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+All parameter shifts occur in the direction that reduces the S\(_{8}\) and Hubble tensions; no parameter exhibits pathological broadening. The dominant effect is a 3.4σ downward shift in σ\(_{8}\) relative to the ΛCDM posterior width (not a detection significance), accompanied by a modest increase in H\(_{0}\) and n\(_{s}\), while geometric parameters (θ\(_{s}\), ω\(_{b}\)) are essentially unchanged. Error bars are comparable in both models, confirming that the additional k\(_{f}\) parameter does not introduce degeneracies that inflate uncertainties.
+
+
+\subsubsection*{2.4.3 Chi-squared breakdown by likelihood component}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Component} & \textbf{ΛCDM χ²} & \textbf{MTDF χ²} & \textbf{Δχ²} \\
+\hline
+plik TTTEEE (high-ℓ) & 2345.41 & 2341.74 & −3.67 \\
+\hline
+Low-ℓ TT & 23.25 & 25.90 & +2.65 \\
+\hline
+Low-ℓ EE & 395.69 & 396.08 & +0.39 \\
+\hline
+Lensing & 8.85 & 10.10 & +1.25 \\
+\hline
+\textbf{Total} & \textbf{2773.20} & \textbf{2773.82} & \textbf{+0.63} \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The high-ℓ TTTEEE likelihood is marginally improved in MTDF (Δχ² = −3.67), while small compensating shifts occur in low-ℓ TT (+2.65) and lensing (+1.25), resulting in a statistically indistinguishable total Δχ² = +0.63. The +1.25 value is therefore a component-level lensing contribution, not the total model comparison. The opposing directions confirm that k\(_{f}\) is redistributing fit quality across multipole ranges rather than uniformly degrading or improving the fit.
+
+
+\subsubsection*{2.4.4 Model selection}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Metric} & \textbf{Value} & \textbf{Interpretation} \\
+\hline
+Δχ² (MTDF − ΛCDM) & +0.63 & Statistically indistinguishable \\
+\hline
+ΔAIC & +2.63 & Inconclusive (|ΔAIC| < 4) \\
+\hline
+ΔBIC & +8.05 & ΛCDM mildly preferred by Occam penalty \\
+\hline
+k\(_{ΛCDM}\) / k\(_{\mathrm{MTDF}}\) & 27 / 28 & +1 parameter (k\(_{f}\)) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The χ² comparison and the information-criterion comparison answer different questions. The small Δχ² indicates fit-level consistency, while the positive ΔBIC reflects the penalty for the additional parameter. We therefore interpret this result as CMB consistency, not as a CMB preference for MTDF. The Planck data alone do not distinguish between the two models. This result is expected: in MTDF, the stress correction to the CMB power spectrum is sub-percent at the redshifts probed by Planck, so the primary CMB is not the arena where MTDF deviates from ΛCDM. The potentially decisive tests lie at low redshift (supernovae in voids, growth of structure), as documented in Part I and the Phase 3 environment analysis.
+
+
+\subsubsection*{2.4.5 Stress coupling k\(_{f}\) posterior}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|}
+\hline
+\textbf{Statistic} & \textbf{Value} \\
+\hline
+Mean ± σ & 0.50 ± 0.36 \\
+\hline
+Median & 0.42 \\
+\hline
+Best-fit (MAP) & 0.028 \\
+\hline
+68\% CI & [0.14, 0.86] \\
+\hline
+95\% CI & [0.025, 1.34] \\
+\hline
+k\(_{f}\) = 1 within 95\% CI & Yes \\
+\hline
+k\(_{f}\) = 0 (ΛCDM limit) within 95\% CI & Yes \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The posterior is broad, reflecting the fact that Planck alone has limited sensitivity to the stress correction at the sub-percent level. Both k\(_{f}\) = 0 (ΛCDM) and k\(_{f}\) = 1 (full MTDF coupling) lie within the 95\% credible interval. The best-fit value sits near the prior boundary, while the posterior mean is pulled toward moderate coupling by the marginal high-ℓ improvement. This is consistent with Phase 2C results and confirms that Planck is insufficient to distinguish MTDF from ΛCDM; discrimination requires low-redshift probes.
+
+
+\subsubsection*{2.4.6 k\(_{f}\) parameter correlations}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Cosmological parameters}} & \multicolumn{2}{c|}{\textbf{Nuisance parameters (top 5)}} \\
+\hline
+\textbf{Parameter} & \textbf{r(k\(_{f}\))} & \textbf{Parameter} & \textbf{r(k\(_{f}\))} \\
+\hline
+ω\(_{b}\) & −0.30 & ps\_A\_217\_217 & +0.094 \\
+\hline
+σ\(_{8}\) & +0.17 & ps\_A\_143\_217 & +0.091 \\
+\hline
+n\(_{s}\) & +0.14 & ksz\_norm & −0.074 \\
+\hline
+H\(_{0}\) & +0.10 & A\_sz & +0.064 \\
+\hline
+θ\(_{s}\) & +0.08 & ps\_A\_100\_100 & −0.056 \\
+\hline
+Ω\(_{m}\) & −0.08 & A\(_{\mathrm{planck}}\) & −0.006 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The stress coupling is not entangled with instrumental systematics: all nuisance correlations satisfy |r| < 0.10, and the Planck absolute calibration A\(_{\mathrm{planck}}\) shows negligible correlation (r = −0.006). The strongest cosmological correlation is with ω\(_{b}\) (r = −0.30), reflecting a mild parameter trade-off in the damping tail. The positive correlation with σ\(_{8}\) and H\(_{0}\) confirms the expected direction of MTDF effects: higher coupling reduces clustering and raises the inferred expansion rate.
+
+
+\subsubsection*{2.4.7 k\(_{f}\) quartile analysis by likelihood component}
+
+To identify which Planck components drive the constraint on k\(_{f}\), the posterior chain was split into quartiles by k\(_{f}\) value. The weighted mean χ² of each likelihood component was computed per quartile, and the shift from Q1 (lowest k\(_{f}\)) to Q4 (highest k\(_{f}\)) is reported:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Component} & \textbf{Q1 (low k\(_{f}\))} & \textbf{Q4 (high k\(_{f}\))} & \textbf{Δχ² (Q4−Q1)} \\
+\hline
+plik TTTEEE (high-ℓ) & 2356.93 & 2359.41 & +2.48 \\
+\hline
+Low-ℓ TT & 25.21 & 24.82 & −0.39 \\
+\hline
+Lensing & 9.10 & 9.25 & +0.15 \\
+\hline
+Low-ℓ EE & 396.76 & 396.67 & −0.09 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The high-multipole TTTEEE likelihood provides the dominant constraint on k\(_{f}\), with a +2.48 penalty for high coupling. The low-ℓ TT likelihood mildly favours higher k\(_{f}\) (Δχ² = −0.39), while lensing and low-ℓ EE are essentially uncorrelated with the coupling strength. This confirms that the stress correction is primarily constrained by the damping tail and acoustic peak structure rather than by the integrated Sachs-Wolfe effect or reionisation.
+
+
+\subsubsection*{2.4.8 Growth suppression: S\(_{8}\) comparison}
+
+The derived quantity S\(_{8}\) ≡ σ\(_{8}\)√(Ω\(_{m}\)/0.3), evaluated under identical Planck constraints:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Model} & \textbf{S\(_{8}\) (mean ± σ)} & \textbf{16th / 50th / 84th pctile} \\
+\hline
+ΛCDM & 0.830 ± 0.013 & 0.817 / 0.830 / 0.843 \\
+\hline
+MTDF & 0.802 ± 0.013 & 0.789 / 0.802 / 0.815 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+The MTDF posterior mean for S\(_{8}\) is shifted downward by 0.028 (2.2σ) relative to ΛCDM, moving toward the weak-lensing measurements from KiDS-1000 (S\(_{8}\) = 0.759 ± 0.024) and DES-Y3 (S\(_{8}\) = 0.776 ± 0.017). This shift occurs without significant alteration of n\(_{s}\), τ\(_{\mathrm{reio}}\), or calibration parameters, and is driven primarily by the reduction in σ\(_{8}\) under non-zero stress coupling. The direction is consistent with the physical expectation that MTDF stress support partially suppresses late-time structure growth.
+
+
+\subsubsection*{2.4.9 Figures}
+
+The following figures are provided in the reproducibility package (\texttt{results/phase5/}):
+
+
+\begin{itemize}
+\item \textbf{phase5\_triangle.png}   -  Joint posterior contours for all cosmological parameters in both models, showing the shift in σ\(_{8}\) and H\(_{0}\).
+\item \textbf{phase5\_kf\_posterior.png}   -  Marginalised posterior of k\(_{f}\) with 68\% and 95\% credible intervals marked.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Reproducibility.} Full chain files (
+\texttt{lcdm\_mcmc.1.txt},
+\texttt{mtdf\_mcmc.1.txt}), Cobaya YAML configurations, checkpoint files, and the analysis scripts (
+\texttt{analyze\_phase5.py},
+\texttt{kf\_analysis.py}) are provided in the repository under
+\texttt{results/phase5/}. All numbers in this section are computed from the converged chains with 30\% burn-in applied.
+\end{calloutbox}
+
+
+\section*{3. High-energy phenomenology}
+\addcontentsline{toc}{section}{3. High-energy phenomenology}
+
+
+\subsection*{3.1 Black holes as stress singularities}
+\addcontentsline{toc}{subsection}{3.1 Black holes as stress singularities}
+
+
+\begin{calloutbox}
+Hypothesis (to be tested).
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Compact objects and accretion systems exhibit jets, variability, and energetic outflows that are not always easy to connect to a single universal mechanism across mass scales.
+
+
+\subsubsection*{MTDF mechanism}
+
+In this hypothesis, extreme curvature environments correspond to extreme stress concentrations. Discharge, relaxation, or topological transitions could manifest as energetic events or persistent jets when fed by accretion driven stress loading.
+
+
+\[\frac{d}{dt}\,u_{\mathrm{tensor}} \approx \mathcal{P}_{\mathrm{load}} - \mathcal{P}_{\mathrm{relax}}\]
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item Event energetics and recurrence times should correlate with an inferred stress loading rate proxy, not only with mass.
+\item Systems in similar accretion states but different environments could show systematic differences if background stress matters.
+\item If discharge is real, there should be identifiable precursors in variability statistics.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Search for precursor signatures in power spectra and time series of well monitored AGN and X ray binaries.
+\item Test whether jet power correlates better with stress proxies than with halo or environment measures used in standard models.
+\item Use population studies to look for bimodality that could indicate threshold discharge behaviour.
+\end{itemize}
+
+
+\begin{calloutbox}
+Methodological note: Even if the hypothesis fails, the exercise clarifies which high energy observations are most diagnostic for stress based extensions.
+\end{calloutbox}
+
+
+\subsection*{3.2 Fast radio bursts as localised stress oscillations}
+\addcontentsline{toc}{subsection}{3.2 Fast radio bursts as localised stress oscillations}
+
+
+\begin{calloutbox}
+Hypothesis (to be tested).
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+FRBs show rapid time structure, diverse repetition behaviour, and complex environments. Many models exist. A stress based hypothesis must compete with strong alternatives.
+
+
+\subsubsection*{MTDF mechanism}
+
+Localised stress oscillations in a magnetised plasma environment could act as a trigger or modulator, producing bursts when a threshold is crossed. The stress term is not the full mechanism; it is a proposed enabling channel.
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item If stress oscillations contribute, repetition rates may correlate with large scale environment or with local structure proxies.
+\item There could be a characteristic distribution of waiting times consistent with relaxation and recharge dynamics.
+\item Bursts might show correlated behaviour with other tracers of rapid structural change in the host region.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Use well localised FRB samples to test for environment correlations beyond host galaxy properties.
+\item Fit waiting time distributions with recharge style models and compare across repeating and non repeating classes.
+\item Search for cross correlations with transient high energy or optical activity in hosts where data exist.
+\end{itemize}
+
+
+\section*{4. Lensing and merging clusters}
+\addcontentsline{toc}{section}{4. Lensing and merging clusters}
+
+Lensing is a high leverage domain because it probes the gravitational field without relying on tracer dynamics. Any extension that aims to replace dark matter must ultimately be compatible with lensing on galaxy and cluster scales.
+
+
+\subsection*{4.1 Lensing consistency as a gatekeeper test}
+\addcontentsline{toc}{subsection}{4.1 Lensing consistency as a gatekeeper test}
+
+
+\begin{calloutbox}
+Cross-cutting requirement: any field-based alternative to dark matter must reproduce the empirical weak-lensing mass maps, including in merging systems. This section states the requirement and the associated falsifiers for MTDF-based extensions.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Weak lensing and strong lensing provide mass map constraints that are often described as evidence for collisionless dark matter when compared to baryonic tracers.
+
+
+\subsubsection*{MTDF mechanism}
+
+A stress field contribution must generate lensing potentials consistent with observed shear and deflection statistics, using the same parameter set used for other scales, and without hiding tuning freedom.
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item Cluster scale lensing maps should be reproducible when baryon distributions and stress field response are modelled transparently.
+\item Merging cluster morphologies are a particularly sharp test, because they separate baryonic gas and inferred lensing mass.
+\item If the stress field has memory, transient lensing signatures might exist in unrelaxed systems.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Define a benchmark set of clusters and merging systems and specify in advance which modelling degrees of freedom are permitted.
+\item Run blinded analyses comparing stress field based reconstructions against standard mass models.
+\item Require that the same parameter set fits both galaxy kinematics and lensing within declared uncertainties.
+\end{itemize}
+
+
+\subsection*{4.2 Cluster scale mass bias and stress supported hydrostatics}
+\addcontentsline{toc}{subsection}{4.2 Cluster scale mass bias and stress supported hydrostatics}
+
+
+\begin{calloutbox}
+Note: Extension. This section reframes known cluster systematics as potential stress support signatures. It is not asserted as a completed fit.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Galaxy clusters are routinely weighed by several methods that do not always agree. X-ray and SZ based hydrostatic masses can differ from weak-lensing masses,
+and the mismatch is often discussed as "hydrostatic mass bias" driven by non-thermal pressure support, turbulence, and departures from equilibrium.
+
+
+\subsubsection*{MTDF mechanism}
+
+In MTDF, the stress field can contribute an additional, non-baryonic support term that affects both the effective force balance of the intracluster medium and
+the lensing potential inferred from light deflection. In this framing, part of the apparent mass discrepancy is not missing matter but stress support that is not
+captured by purely thermal hydrostatic modelling.
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item \textbf{Dynamical state dependence:}  the mass mismatch should be larger in disturbed or recently merged systems where stress gradients are expected to be stronger.
+\item \textbf{Spatial signatures:}  residuals should have a characteristic radial profile linked to stress coherence and relaxation, rather than the profile expected from an additional collisionless component.
+\item \textbf{Cross-probe consistency:}  a single stress-support prescription should improve consistency between X-ray, SZ, galaxy dynamics, and weak lensing without retuning the fundamental parameter set.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Use cluster samples with both weak lensing maps and high quality X-ray or SZ pressure profiles. Quantify the residual force balance required beyond thermal support and compare it across dynamical states.
+\item Test whether the inferred "extra support" correlates with large scale environment and merger indicators (substructure measures, centroid shifts, shock features).
+\item State falsifiers explicitly: if residuals are fully explained by conventional non-thermal pressure models with no additional coherent term, then this stress-support extension is constrained to be negligible at cluster scales.
+\end{itemize}
+
+
+\subsection*{4.3 Merging clusters and mass map offsets as a critical test}
+\addcontentsline{toc}{subsection}{4.3 Merging clusters and mass map offsets as a critical test}
+
+
+\begin{calloutbox}
+High-priority falsifier: merging-cluster lensing offsets are a decisive test for any alternative to dark matter. This subsection states the quantitative target and what would rule out the proposed stress-peak interpretation.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Some merging clusters exhibit weak-lensing mass peaks that are offset from the hot gas traced by X-ray emission. In the standard interpretation, this is evidence for
+a dominant collisionless component that separates from baryons during the merger.
+
+
+\subsubsection*{MTDF mechanism}
+
+A viable MTDF extension must allow transient, spatially localised stress concentrations during mergers. In such a picture, merger dynamics can generate stress peaks that
+propagate and relax on timescales set by the field dynamics, producing an effective lensing contribution that does not coincide with the gas distribution at a given snapshot.
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item \textbf{Time dependence:}  offsets should depend on merger phase. The relative position of lensing peaks, galaxies, and gas should evolve predictably rather than remain static.
+\item \textbf{Pattern consistency across systems:}  the distribution of offsets across many mergers should follow a stress-propagation pattern tied to shock geometry and relaxation, not an arbitrary set of displacements.
+\item \textbf{Multi-wavelength linkage:}  stress peak locations should correlate with merger features such as shocks and shear flows that indicate rapid stress loading.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Assemble a catalogue of merging clusters with comparable lensing reconstructions and X-ray maps. Compare offset statistics against merger stage indicators.
+\item Use forward simulations that include a stress field component to test whether observed offset amplitudes and morphologies can be reproduced without introducing a new particle component.
+\item \textbf{Hard falsifier:}  if realistic stress-field simulations cannot produce the observed offset morphologies and amplitudes while preserving the successful galaxy-scale behaviour, the MTDF extension fails at cluster scale.
+\end{itemize}
+
+
+\section*{5. Structured test programme}
+\addcontentsline{toc}{section}{5. Structured test programme}
+
+To keep this companion scientifically useful, each hypothesis should be paired with a small set of near term tests and a longer term roadmap. A suggested ordering:
+
+
+\textbf{Additional high leverage items for this part:}
+
+
+\begin{itemize}
+\item Cluster mass bias: joint weak-lensing plus X-ray or SZ analyses with explicit residual force-balance accounting.
+\item Merging clusters: offset statistics across a controlled sample, with phase indicators and forward modelling.
+\item Cross-check: require that any cluster-scale extension does not spoil the galaxy-scale relations when the same fundamental parameters are held fixed.
+\end{itemize}
+
+
+\textbf{Link:}  Non-merging cluster-scale forward predictions and baryon completion checks are reported in the gravity-sector companion paper (see Step 21 in \href{MTDF\_03\_Companion\_Part\_II\_Gravity\_Sector\_and\_Lensing\_Validation.html}{MTDF\_03 (Companion Part II)}). The merger offset morphology programme remains an open, higher-complexity falsifier.
+
+
+\begin{enumerate}
+\item Start with high leverage, low ambiguity probes: lensing consistency, isotropy constraints, and standard ruler cross checks.
+\item Move to environment split analyses on well characterised datasets.
+\item Only then elevate high energy phenomenology claims, after basic constraints are satisfied.
+\end{enumerate}
+
+
+\begin{calloutbox}
+\textbf{Reproducibility and interactive materials.} \begin{itemize}
+\item Validation suite appendix: \href{MTDF\_06\_Validation\_Suite\_Appendix.html}{MTDF\_06\_Validation\_Suite\_Appendix.html}
+\item Interactive dashboard: \href{Validation\_Dashboard\_V74.html}{Validation\_Dashboard\_V74.html}
+\end{itemize}
+\end{calloutbox}
+
+
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_mtdf}), the V18 strict validation workbook, the
+\texttt{run\_validate.py} pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/zenodo.19741058};
+this release, \texttt{v1.1.3}, DOI
+\href{https://doi.org/10.5281/zenodo.19767336}{10.5281/zenodo.19767336})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/IMesche/MTDF}.
+The \texttt{v1.1.3} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level \texttt{README.md}.
+
+
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{enumerate}
+\item Aghanim, N. et al. (Planck Collaboration) 2020, "Planck 2018 results. VI. Cosmological parameters", \emph{A\&A} , 641, A6. DOI: \href{https://doi.org/10.1051/0004-6361/201833910}{10.1051/0004-6361/201833910}
+\item Aghanim, N. et al. (Planck Collaboration) 2020, "Planck 2018 results. VIII. Gravitational lensing", \emph{A\&A} , 641, A8. DOI: \href{https://doi.org/10.1051/0004-6361/201833886}{10.1051/0004-6361/201833886}
+\item DESI Collaboration 2025, "DESI 2024 VI: Cosmological Constraints from BAO", \emph{JCAP} , 2025, 021. DOI: \href{https://doi.org/10.1088/1475-7516/2025/02/021}{10.1088/1475-7516/2025/02/021}
+\item Riess, A. G. et al. 2022, "A Comprehensive Measurement of the Local Value of the Hubble Constant", \emph{ApJL} , 934, L7. DOI: \href{https://doi.org/10.3847/2041-8213/ac5c5b}{10.3847/2041-8213/ac5c5b}
+\item Asgari, M. et al. (KiDS Collaboration) 2021, "KiDS-1000 Cosmology: Cosmic shear constraints", \emph{A\&A} , 645, A104. DOI: \href{https://doi.org/10.1051/0004-6361/202039070}{10.1051/0004-6361/202039070}
+\item Amon, A. et al. (DES Collaboration) 2022, "Dark Energy Survey Year 3 results: Cosmology from cosmic shear", \emph{Phys. Rev. D} , 105, 023514. DOI: \href{https://doi.org/10.1103/PhysRevD.105.023514}{10.1103/PhysRevD.105.023514}
+\item Torrado, J. \& Lewis, A. 2021, "Cobaya: Code for Bayesian Analysis of hierarchical physical models", \emph{JCAP} , 2021, 057. DOI: \href{https://doi.org/10.1088/1475-7516/2021/05/057}{10.1088/1475-7516/2021/05/057}
+\item Clowe, D. et al. 2006, "A Direct Empirical Proof of the Existence of Dark Matter", \emph{ApJL} , 648, L109. DOI: \href{https://doi.org/10.1086/508162}{10.1086/508162}
+\item Ade, P. A. R. et al. (Planck Collaboration) 2016, "Planck 2015 results. XXIV. Cosmology from SZ cluster counts", \emph{A\&A} , 594, A24. DOI: \href{https://doi.org/10.1051/0004-6361/201525833}{10.1051/0004-6361/201525833}
+\item Alam, S. et al. (eBOSS Collaboration) 2021, "Completed SDSS-IV eBOSS: Cosmological implications", \emph{Phys. Rev. D} , 103, 083533. DOI: \href{https://doi.org/10.1103/PhysRevD.103.083533}{10.1103/PhysRevD.103.083533}
+\end{enumerate}
+
+
+MTDF Companion Part IV: Cosmological Validation (V74) | Ingo Mesche | April 2026
+
+\end{document}

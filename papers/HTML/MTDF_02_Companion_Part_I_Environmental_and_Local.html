@@ -729,7 +729,12 @@ The population controls (Test 3) substantially weaken the standard objection tha
 <p>The detection of an environment-dependent residual does not uniquely select MTDF. Its importance is that the sign, redshift localisation, and coherence-scale interpretation match an a priori MTDF expectation and define a sharp falsification target for future low-redshift supernova samples.</p>
 </div>
 
-<h4>Summary figure</h4><p>Figure S1 summarises the low-redshift environment signal and the main robustness chain (catalogue replication, footprint assignment, baseline stability, redshift modulation, survey controls, and leave-one-survey-out stability).</p><div class="callout"><strong>Figure S1:</strong> <a href="sn_void_summary_figure.pdf">sn_void_summary_figure.pdf</a> (keep the PDF in the same folder as this HTML file).</div><object data="sn_void_summary_figure.pdf" style="width:100%; height:520px; border:1px solid var(--line); border-radius:12px;" type="application/pdf"><p>Your browser cannot display embedded PDFs. Please open the PDF link above.</p></object><h2 id="local">3. Local anomalies and Solar System scale signatures</h2>
+<h4>Summary figure</h4><p>Figure S1 summarises the low-redshift environment signal and the main robustness chain (catalogue replication, footprint assignment, baseline stability, redshift modulation, survey controls, and leave-one-survey-out stability).</p>
+<figure id="fig-sn-void-summary" style="text-align:center; margin:2em auto; max-width:900px;">
+  <img src="../figures/sn_void_summary_figure.png" alt="Four-panel summary of the SN x void environment signal and robustness chain" style="width:100%; height:auto;" />
+  <figcaption><strong>Figure S1.</strong> Four-panel summary of the supernova-void environment signal: (a) environment coefficient versus redshift, showing the localised signal at z &lt; 0.04; (b) leave-one-survey-out stability test confirming no single survey drives the detection; (c) results across three void catalogues (REVOLVER, VIDE, VoidFinder) and bootstrap robustness checks; (d) physical interpretation: SNe in cosmic voids appear ~0.01 mag brighter than those in overdense regions, consistent with the MTDF stress-field coherence scale prediction.</figcaption>
+</figure>
+<h2 id="local">3. Local anomalies and Solar System scale signatures</h2>
 <p class="small"><strong>Note:</strong> Quantitative Solar System screening and post-Newtonian safety bounds are treated in the gravity-sector companion paper (<a href="MTDF_03_Companion_Part_II_Gravity_Sector_and_Lensing_Validation.html">MTDF_03 (Companion Part II)</a>). This section proposes additional precision signatures near the critical acceleration regime.</p>
 <p>
 The master paper keeps local tests conservative. This companion collects possible signatures near the critical acceleration scale, stated carefully to remain compatible with existing Solar System constraints.
@@ -754,7 +759,7 @@ $$</div></div>
 <li>This part proposes environment and time domain extensions that should be tested without adding tuning freedom.</li>
 <li>If these extensions fail observationally, the core theory claims can remain intact, but the extension path is constrained.</li>
 </ul>
-<div class="callout"><body><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></body></div>
+<div class="callout"><body><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="../../validation/output/Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></body></div>
 
 <section id="data-and-code-availability" style="margin-top:1.5em">
 <h2>Data and code availability</h2>
@@ -763,11 +768,11 @@ $$</div></div>
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.2</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+this release, <code>v1.1.3</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>

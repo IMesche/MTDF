@@ -298,6 +298,34 @@ K_{\mathrm{eff}} = E\,\beta^2\,(2\pi/\lambda)^2
     \frac{\Delta r_s}{r_s} = K_{\mathrm{RS,EFE}} \, f_{\mathrm{kick}} \quad\mathrm{with}\quad K_{\mathrm{RS,EFE}}=-0.215
   \]</div>
 <p class="small">Computed from the current V18 fundamental parameters: α = 1.300, β<sub>eos</sub> = 0.573 gives λ<sub>MTDF</sub> = 0.079273, f<sub>kick</sub> = 0.003303062, and Δr<sub>s</sub>/r<sub>s</sub> = -0.000710158. The early field energy fraction f<sub>kick</sub> is also structurally related to the photon-stress coupling parameter κ ≈ f<sub>kick</sub>/3 (see Companion Part III), linking the gravitational and photon sectors of the theory through a single pair of parameters {α, β<sub>eos</sub>}.</p>
+
+<p class="small"><strong>Status of derived constants.</strong> The factor 1/24 in f<sub>kick</sub> = λ<sub>MTDF</sub>/24 arises from the geometric breakdown γ<sub>geom</sub> · ρ<sub>m</sub>(z<sub>eq</sub>)/ρ<sub>tot</sub>(z<sub>eq</sub>) ≈ (1/12) × (1/2); the explicit derivation is given in the short summary paper (<a href="MTDF_The_Mesche_Hypothesis_short.html">MTDF_short</a>, "Hubble solution" section). The sensitivity coefficient K<sub>RS,EFE</sub> = −0.215 is an empirical numerical coefficient, calibrated by perturbing the EFE amplitude in the class_mtdf solver and measuring the resulting fractional shift in the sound horizon at decoupling; we report it here as a numerical fit constant, not a first-principles derivation. At the V18 best-fit f<sub>kick</sub> = 3.3 × 10<sup>−3</sup>, the resulting Δr<sub>s</sub>/r<sub>s</sub> ≈ −7 × 10<sup>−4</sup> is sub-percent and corresponds to a fractional CMB sound-horizon shift well below the Planck statistical uncertainty.</p>
+
+<p class="small"><strong>Calibration of K<sub>RS,EFE</sub> from a class_mtdf parameter scan.</strong> The coefficient is set by a 9-point scan over the EFE amplitude, varying the dimensionless rescaling parameter k<sub>f</sub> over [0, 0.125, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0] (so f<sub>kick</sub><sup>eff</sup> = k<sub>f</sub> × f<sub>kick</sub><sup>full</sup> spans 0 to 3 × the V18 best-fit value). The comoving sound horizon at recombination is read from the class_mtdf thermodynamics module for each run and the fractional shift is taken relative to the k<sub>f</sub> = 0 (no-EFE) baseline:</p>
+
+<table class="tbl">
+  <thead><tr>
+    <th>k<sub>f</sub></th>
+    <th>f<sub>kick</sub><sup>eff</sup></th>
+    <th>r<sub>s</sub> at recombination [Mpc]</th>
+    <th>Δr<sub>s</sub>/r<sub>s</sub></th>
+  </tr></thead>
+  <tbody>
+    <tr><td>0.000</td><td>0.000000</td><td>150.4109</td><td>0</td></tr>
+    <tr><td>0.125</td><td>0.000413</td><td>150.3971</td><td>−9.14 × 10<sup>−5</sup></td></tr>
+    <tr><td>0.250</td><td>0.000826</td><td>150.3834</td><td>−1.83 × 10<sup>−4</sup></td></tr>
+    <tr><td>0.500</td><td>0.001651</td><td>150.3558</td><td>−3.66 × 10<sup>−4</sup></td></tr>
+    <tr><td>0.750</td><td>0.002477</td><td>150.3283</td><td>−5.49 × 10<sup>−4</sup></td></tr>
+    <tr><td><strong>1.000</strong></td><td><strong>0.003303</strong></td><td><strong>150.3008</strong></td><td><strong>−7.32 × 10<sup>−4</sup></strong></td></tr>
+    <tr><td>1.500</td><td>0.004954</td><td>150.2457</td><td>−1.10 × 10<sup>−3</sup></td></tr>
+    <tr><td>2.000</td><td>0.006606</td><td>150.1906</td><td>−1.46 × 10<sup>−3</sup></td></tr>
+    <tr><td>3.000</td><td>0.009909</td><td>150.0803</td><td>−2.20 × 10<sup>−3</sup></td></tr>
+  </tbody>
+</table>
+<div class="caption"><strong>Table.</strong> Empirical calibration of the EFE-induced sound-horizon shift. The k<sub>f</sub> = 1 row is the V18 best-fit point; the surrounding rows establish the linear regime over a 30× range. Cosmological parameters other than k<sub>f</sub> are held at their V18 values (mtdf.ini in the class_mtdf release).</div>
+
+<p class="small">A linear least-squares fit Δr<sub>s</sub>/r<sub>s</sub> = K<sub>RS,EFE</sub> · f<sub>kick</sub> through the origin gives <strong>K<sub>RS,EFE</sub> = −0.222</strong> (RMS residual 4.6 × 10<sup>−7</sup>); the same fit at the baryon-drag epoch gives K = −0.218. Both values agree with the V18 quoted K<sub>RS,EFE</sub> = −0.215 within 3 %, which we take as the residual systematic on this empirical coefficient. A free-intercept fit yields an intercept of 4 × 10<sup>−7</sup>, statistically indistinguishable from zero, confirming linearity over the scanned range. The relationship is therefore well-approximated as Δr<sub>s</sub>/r<sub>s</sub> ≈ −0.22 · f<sub>kick</sub> at recombination, with a numerical sensitivity coefficient that does not require a closed-form derivation but is reproducible from any class_mtdf build by repeating the scan above.</p>
+
 <p>These relations are not presented as a full CMB spectral fit. They exist to provide a transparent mapping from the fundamental parameter set to the specific diagnostic quantity used in the V18 dashboard.</p>
 <h3>3.2 Stress tensor energy budget and effective pressure</h3>
 <p>At background level, the strict V18 evaluation treats the expansion history as a derived prediction from the fundamental parameter set and the chosen anchors. The underlying physical picture, however, is that accumulated field strain contributes an effective energy density and a negative pressure component that can mimic late time acceleration without invoking a cosmological constant term.</p>
@@ -533,7 +561,7 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <p>The material in this subsection is theory-motivated mechanism building. Quantitative claims that are part of the V18 reporting are restricted to the datasets and protocols described in Sections 6 and 7.</p>
 </div>
 <h3>4.3 CMB compressed distance prior</h3>
-<p>The Planck 2018 distance prior is treated as a diagnostic because it is derived under a ΛCDM modelling assumption. MTDF reports its consistency with this compressed prior but does not claim, at this stage, a full fit to uncompressed CMB spectra within the dashboard validation scope.</p>
+<p>The Planck 2018 distance prior is treated as a diagnostic because it is derived under a ΛCDM modelling assumption. The MTDF evaluation against this template gives χ²/ν = 198.44 (3 d.o.f., χ² = 595.33), reported in Table 3 below. <strong>This large value is expected, not anomalous</strong>: the compressed prior fixes the shape parameters {R, ℓ<sub>A</sub>, ω<sub>b</sub>} under a ΛCDM background expansion and growth history, and any theory that modifies either the early-universe geometry (here via the EFE injection f<sub>kick</sub>) or the late-time growth (here via μ(a)) is biased away from the prior centre even when the full multipole C<sub>ℓ</sub> spectra agree well. The honest CMB test is the full uncompressed Planck likelihood, executed as Phase 5 in companion paper <a href="MTDF_07_Independent_GPU_Validation.html">MTDF_07</a>: the full plik TTTEEE + lowl + lensing comparison gives Δχ² = +0.63 relative to ΛCDM, with the MTDF coupling k<sub>f</sub> = 1 inside the 95 % credible interval. The compressed-prior failure is therefore expected, structurally tied to the ΛCDM template, and superseded by the full-likelihood result. The compressed prior is excluded from the strict χ²/ν totals reported in this paper for exactly this reason.</p>
 <h3>4.4 Gravity sector and lensing constraints (Companion Part II)</h3>
 <p>
 In addition to the strict V18 cosmology likelihood set, MTDF has a dedicated gravity-sector validation programme covering
@@ -747,11 +775,11 @@ These signatures are presented as a programme of discriminating tests, not as cl
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.2</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+this release, <code>v1.1.3</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>

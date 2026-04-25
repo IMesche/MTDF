@@ -1,0 +1,1018 @@
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array,longtable,adjustbox}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{newunicodechar}
+% Unicode mappings for PDFLaTeX/arXiv-safe compilation.
+\newunicodechar{á}{\'a}
+\newunicodechar{ł}{l}
+\newunicodechar{ś}{s}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{ν}{\ensuremath{\nu}}
+\newunicodechar{ξ}{\ensuremath{\xi}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{∆}{\ensuremath{\Delta}}
+\newunicodechar{Λ}{\ensuremath{\Lambda}}
+\newunicodechar{Φ}{\ensuremath{\Phi}}
+\newunicodechar{Ψ}{\ensuremath{\Psi}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{Σ}{\ensuremath{\Sigma}}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+\newunicodechar{■}{\ensuremath{\blacksquare}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{▲}{\ensuremath{\blacktriangle}}
+\newunicodechar{✔}{\ensuremath{\checkmark}}
+\newunicodechar{✖}{\ensuremath{\times}}
+\newunicodechar{Γ}{\ensuremath{\Gamma}}
+\newunicodechar{“}{``}
+\newunicodechar{”}{''}
+\newunicodechar{‘}{`}
+\newunicodechar{’}{'}
+\newunicodechar{–}{--}
+\newunicodechar{—}{--}
+\newunicodechar{ }{\,}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≪}{\ensuremath{\ll}}
+
+\newunicodechar{≲}{\ensuremath{\lesssim}}
+\newunicodechar{≳}{\ensuremath{\gtrsim}}
+\newunicodechar{≫}{\ensuremath{\gg}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{☉}{\ensuremath{\odot}}
+\newunicodechar{‖}{\ensuremath{\|}}
+\newunicodechar{ⁱ}{\ensuremath{^{i}}}
+\newunicodechar{ʲ}{\ensuremath{^{j}}}
+\newunicodechar{ᵏ}{\ensuremath{^{k}}}
+\newunicodechar{ᶻ}{\ensuremath{^{z}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{⁺}{\ensuremath{^{+}}}
+\newunicodechar{⁰}{\ensuremath{^{0}}}
+\newunicodechar{¹}{\ensuremath{^{1}}}
+\newunicodechar{²}{\ensuremath{^{2}}}
+\newunicodechar{³}{\ensuremath{^{3}}}
+\newunicodechar{⁴}{\ensuremath{^{4}}}
+\newunicodechar{⁵}{\ensuremath{^{5}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{⁷}{\ensuremath{^{7}}}
+\newunicodechar{⁸}{\ensuremath{^{8}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₃}{\ensuremath{_{3}}}
+\newunicodechar{₄}{\ensuremath{_{4}}}
+\newunicodechar{₅}{\ensuremath{_{5}}}
+\newunicodechar{₆}{\ensuremath{_{6}}}
+\newunicodechar{₇}{\ensuremath{_{7}}}
+\newunicodechar{₈}{\ensuremath{_{8}}}
+\newunicodechar{₉}{\ensuremath{_{9}}}
+\newunicodechar{ₜ}{\ensuremath{_{t}}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{√}{\ensuremath{\sqrt{}}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{†}{\ensuremath{\dagger}}
+\newunicodechar{ⱼ}{\ensuremath{_{j}}}
+\newunicodechar{ₖ}{\ensuremath{_{k}}}
+\newunicodechar{ₗ}{\ensuremath{_{l}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlist{itemsep=2pt, topsep=4pt, parsep=0pt}
+\emergencystretch=3em
+\sloppy
+
+\newcommand{\tablecaptiontext}[1]{\begin{center}\small\itshape #1\end{center}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\doi}[1]{\texttt{#1}}
+\newcommand{\href}[2]{#2}
+\newcommand{\url}[1]{\texttt{#1}}
+
+\newenvironment{abstractbox}{%
+  \begin{framed}\small
+}{%
+  \end{framed}
+}
+
+\newenvironment{calloutbox}{%
+  \begin{leftbar}\small
+}{%
+  \end{leftbar}
+}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Multi-Probe Evidence for an Environment-Dependent Cosmological Transition atz< 0.04\par}
+\vspace{0.25em}
+{\small MTDF Companion Paper VIII. Independent multi-channel validation of the coherence-scale transition.\par}
+\vspace{0.75em}
+\hrule\vspace{0.5em}
+{\small Author: Ingo Mesche \quad Affiliation: Independent Researcher, Malta \quad Contact: imesche@outlook.com \quad Date: April 2026\par}
+\vspace{0.5em}\hrule
+\end{center}
+
+\begin{abstractbox}
+\textbf{Abstract.}  \textbf{Headline result.}  Four independent low-redshift probes converge on a common environment-dependent transition at \(z = 0.040 \pm 0.005\), coinciding with the coherence length \(\beta = 22.7\) Mpc predicted independently from void quantisation by the Mesche Tensor Dynamics Framework (MTDF). The convergence is summarised in the table below.
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Probe} & \textbf{Dataset} & \textbf{Transition scale} & \textbf{Headline statistic} \\
+\hline
+SNe piecewise & Pantheon+ merged (3 void finders) & \(z = 0.040 \pm 0.005\) & \(\Delta\chi^2 = 36\text{--}39\), \(p < 0.001\) \\
+\hline
+Peculiar velocity & Cosmicflows-4 (VoidFinder, V2G, REVOLVER) & Signal concentrated at \(z < 0.04\) & 9.0\(\sigma\) N-body tension (MDPL2, 100 observers) \\
+\hline
+Tully-Fisher residuals & 2MTF (J, H, K bands) & Entire sample \(z < 0.033\) (in-regime) & 4.2\(\sigma\) N-body tension, achromatic \\
+\hline
+Time-delay distances & H0LiCOW strong lenses & Geometric, local \(H_0\) (\(S_0 = 1.084\)) & 5.5\(\times\) preferred over \(\Lambda\)CDM in \(\chi^2/\mathrm{dof}\) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table A1.}  Multi-probe convergence at the MTDF coherence scale.}
+Multiple independent low-redshift observables are tested for a common environment-dependent transition near a single coherence scale. The Mesche Tensor Dynamics Framework (MTDF) predicts that such deviations should concentrate below \(z \approx 0.04\), set by the coherence length \(\beta = 22.7\) Mpc. Four channels provide direct evidence. Supernova luminosity distances show an environment signal (\(p = 0.003\)) with a sharp piecewise cutoff at \(z = 0.04\). Cosmicflows-4 peculiar velocities reveal a void-geometric coupling that survives a seven-layer control chain and exhibits a qualitative sign mismatch against full N-body \(\Lambda\)CDM expectations (\(9.0\sigma\) tension, MDPL2, 100 observers). 2MTF Tully-Fisher residuals independently confirm the pattern, achromatic across three infrared bands, with \(4.2\sigma\) N-body tension. An additional geometric support channel, strong-lens time-delay distances, favours the MTDF-predicted local \(H_0\) by 5.5\(\times\) in \(\chi^2/\mathrm{dof}\). Two further channels (ISW void stacking, weak-lensing S\(_{8}\) splits) establish methodology and show directional consistency but remain below detection threshold with current data. The convergence of independent probes at a single coherence scale motivates targeted independent replication and dedicated \(\Lambda\)CDM systematics tests of the same environment-dependent observables.
+\end{abstractbox}
+\tableofcontents\clearpage
+
+\begin{calloutbox}
+\textbf{Claim status.} 
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{calloutbox}
+
+
+\begin{calloutbox}
+\textbf{Nominal significance.}  Unless explicitly stated otherwise, quoted significances are conditional on the specified catalogue, control chain, redshift cut, and metric definition. They should be read as nominal or pipeline-conditioned significances, not as final global discovery significances after all possible analysis choices. A full look-elsewhere assessment across alternative void metrics, redshift partitions, catalogue choices, and environment definitions remains a priority for independent replication.
+\end{calloutbox}
+
+
+\section*{1. Introduction}
+\addcontentsline{toc}{section}{1. Introduction}
+
+Standard cosmological analyses typically treat low-redshift probes independently. Supernova distance moduli, peculiar velocity fields, galaxy scaling relations, and CMB secondary anisotropies are each analysed within their own pipelines, subject to their own systematics, and compared against \(\Lambda\)CDM expectations in isolation. Environment is usually treated as a nuisance variable to be marginalised over rather than a carrier of physical information.
+
+
+This paper takes a different approach. It tests whether several independent low-redshift observables point to a common environment-linked transition concentrated near a single redshift scale. If multiple probes, each with different physics, different systematics, and different survey selection functions, converge on the same transition regime, this constitutes a physical clue that cannot easily be attributed to any one dataset or method.
+
+
+The motivation arises from the Mesche Tensor Dynamics Framework (MTDF), which predicts a finite coherence scale \(\beta = 22.7\) Mpc corresponding to a characteristic redshift \(z \approx 0.04\). Below this scale, the MTDF stress tensor field couples to observables in an environment-dependent manner; above it, the effect averages out over multiple coherence volumes. This prediction was established in MTDF\_01 and MTDF\_02 before the multi-probe tests reported here were conducted.
+
+
+The paper is structured as follows. Section 2 states the working hypothesis and its quantitative prediction. Section 3 describes the six datasets. Section 4 presents the shared analysis logic applied uniformly across all channels. Section 5 reports the results for each channel with its associated controls. Section 6 synthesises the cross-probe evidence. Section 7 presents the \(\Lambda\)CDM mock comparison, including full N-body results. Sections 8 and 9 discuss interpretation and limitations. Section 10 concludes.
+
+
+\section*{2. Working hypothesis and prediction}
+\addcontentsline{toc}{section}{2. Working hypothesis and prediction}
+
+MTDF introduces a stress tensor field with a finite coherence length \(\beta = 22.7\) Mpc, corresponding to a comoving distance of approximately 170 Mpc or \(z \approx 0.04\) in the standard cosmological background. The framework predicts that environment-dependent deviations from \(\Lambda\)CDM should exhibit a scale hierarchy governed by the dimensionless product \(\beta k\), where \(k\) is the characteristic wavenumber of the observation:
+
+
+\begin{center}\small \[ \beta k \ll 1 \;\Rightarrow\; \text{effects active (cosmological scales)}, \qquad \beta k \gg 1 \;\Rightarrow\; \text{effects suppressed (local scales)} \]\end{center}
+
+The specific, falsifiable prediction tested in this paper is:
+
+
+\begin{calloutbox}
+\textbf{Prediction.}  Environment-dependent residuals in distance indicators and velocity fields should be (i) present below \(z \approx 0.04\), (ii) absent or strongly suppressed above \(z \approx 0.04\), and (iii) correlated with the signed distance to the nearest void boundary as classified by independent void-finding algorithms applied to galaxy redshift surveys.
+\end{calloutbox}
+
+This prediction was derived from the MTDF parameter set established in MTDF\_01 (specifically \(\beta = 22.7\) Mpc and scale factor \(S_0 = 1.084\)) and published in MTDF\_02 before any of the multi-probe tests reported in Sections 5-7 were conducted. The prediction is sharp: a smooth or absent transition would falsify the coherence-scale interpretation.
+
+
+\section*{3. Datasets and observables}
+\addcontentsline{toc}{section}{3. Datasets and observables}
+
+Six independent observables are tested. They span different physical processes, different survey instruments, different galaxy populations, and different redshift ranges within the low-\(z\) universe. No two channels share calibration systems or host-galaxy properties.
+
+
+\subsection*{3.1 Supernova luminosity distances}
+\addcontentsline{toc}{subsection}{3.1 Supernova luminosity distances}
+
+The merged sample comprises 4,188 Type Ia supernovae from Pantheon+ (1,533 SNe with full STAT+SYS covariance), ZTF DR2 (2,650 SNe, Tripp-standardised), and Foundation DR1 (5 unique SNe after deduplication). Distance modulus residuals are computed after SALT2 standardisation. Environment classification uses DESI DESIVAST void catalogues cross-matched at 5 arcsecond tolerance. The low-redshift subsample at \(z < 0.04\) provides the primary test regime. This channel was established in MTDF\_02 and the GPU validation paper MTDF\_07; it is summarised here for completeness.
+
+
+\subsection*{3.2 Strong-lens time-delay distances}
+\addcontentsline{toc}{subsection}{3.2 Strong-lens time-delay distances}
+
+Seven multiply-imaged quasar systems from the TDCOSMO/H0LiCOW programme provide time-delay distance measurements that are geometrically independent of supernova luminosity distances. An additional 25 SLACS lens systems provide velocity dispersion-based distance estimates at lower redshifts (\(z_L = 0.08\text{--}0.35\)), where DESIVAST void coverage is more complete.
+
+
+\subsection*{3.3 Cosmicflows-4 peculiar velocities}
+\addcontentsline{toc}{subsection}{3.3 Cosmicflows-4 peculiar velocities}
+
+The Cosmicflows-4 catalogue (Tully et al. 2023) contains 55,877 galaxies in 38,053 groups at \(z < 0.05\), with distances measured via eight independent methods (primarily Tully-Fisher for spirals and Fundamental Plane for ellipticals). Group-averaged peculiar velocities are used to reduce individual measurement scatter. The catalogue is accessed from the Extragalactic Distance Database (EDD). Environment classification uses the same DESIVAST void catalogues as the supernova analysis.
+
+
+\subsection*{3.4 2MTF Tully-Fisher distances}
+\addcontentsline{toc}{subsection}{3.4 2MTF Tully-Fisher distances}
+
+The 2MASS Tully-Fisher survey (Hong et al. 2019) provides Tully-Fisher distances for 2,062 nearby spiral galaxies at \(600 < cz < 10{,}000\) km/s (\(z < 0.033\)). Distances are measured in three independent infrared bands (J, H, K) from 2MASS photometry, combined with HI 21 cm linewidths. The entire sample falls below \(z = 0.04\), placing it entirely within the predicted MTDF-active regime.
+
+
+\subsection*{3.5 ISW void stacking}
+\addcontentsline{toc}{subsection}{3.5 ISW void stacking}
+
+The integrated Sachs-Wolfe (ISW) effect is tested via stacked CMB temperature profiles centred on voids from the BOSS and DESIVAST catalogues. Planck PR4 SMICA temperature maps provide the CMB signal. A total of 889 BOSS voids and 563 DESIVAST voids (1,452 combined) are used. MTDF predicts a specific void radial profile shape that differs from the step-function template commonly used in ISW analyses.
+
+
+\subsection*{3.6 Weak-lensing S\(_{8}\) environment split}
+\addcontentsline{toc}{subsection}{3.6 Weak-lensing S\(_{8}\) environment split}
+
+Galaxy-galaxy lensing (GGL) tangential shear profiles are measured from KiDS-1000 source galaxies around GAMA spectroscopic group lenses, split by foreground DESIVAST void classification. The analysis processes 2.7 billion source-lens pairs across 1,724 void-embedded and 80 wall-embedded galaxy groups.
+
+
+\section*{4. Common analysis logic}
+\addcontentsline{toc}{section}{4. Common analysis logic}
+
+All channels are evaluated under a shared methodological framework. This consistency is essential: without it, multi-probe convergence could be an artefact of inconsistent analysis choices rather than a physical signal.
+
+
+\subsection*{4.1 Signed-distance environment metric}
+\addcontentsline{toc}{subsection}{4.1 Signed-distance environment metric}
+
+Environment is quantified using a continuous signed-distance metric rather than a binary void/wall classification. For each object, the signed distance \(d_\mathrm{signed}\) to the nearest DESIVAST void boundary is computed as:
+
+
+\begin{center}\small \[ d_\mathrm{signed} = \frac{r_\mathrm{obj} - R_\mathrm{void}}{R_\mathrm{void}} \]\end{center}
+
+where \(r_\mathrm{obj}\) is the distance from the object to the void centre and \(R_\mathrm{void}\) is the void radius. Negative values indicate positions inside a void; positive values indicate wall or filament environments. This continuous metric retains more information than a binary split and enables gradient analysis even when one environment class has few or zero members.
+
+
+\subsection*{4.2 Three independent void catalogues}
+\addcontentsline{toc}{subsection}{4.2 Three independent void catalogues}
+
+All analyses are repeated with three independent void-finding algorithms applied to the DESI Bright Galaxy Survey: VoidFinder, REVOLVER, and VIDE. These algorithms use different void definitions, identification procedures, and boundary conventions. Consistency across all three provides robustness against void-finder-specific artefacts.
+
+
+\subsection*{4.3 GLS regression framework}
+\addcontentsline{toc}{subsection}{4.3 GLS regression framework}
+
+Each channel is tested using generalised least-squares (GLS) regression of the observable residual against \(d_\mathrm{signed}\):
+
+
+\begin{center}\small \[ y_i = \alpha + \gamma \cdot d_{\mathrm{signed},i} + \varepsilon_i \]\end{center}
+
+where \(y_i\) is the residual for the \(i\)-th object (distance modulus residual, peculiar velocity residual, or TF residual), \(\gamma\) is the environment coupling coefficient, and the covariance structure is channel-specific. The null hypothesis is \(\gamma = 0\).
+
+
+\subsection*{4.4 Piecewise redshift split}
+\addcontentsline{toc}{subsection}{4.4 Piecewise redshift split}
+
+For channels with sufficient redshift range, a piecewise model splits the sample at \(z = 0.04\) and fits separate \(\gamma\) values above and below the cut. The \(\Delta\chi^2\) between the piecewise model and the single-\(\gamma\) model quantifies the evidence for a redshift-dependent transition. This directly tests the coherence-scale prediction.
+
+
+\subsection*{4.5 Robustness chain}
+\addcontentsline{toc}{subsection}{4.5 Robustness chain}
+
+Each channel is subjected to a seven-layer control chain (layers applied where applicable):
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Layer} & \textbf{Control test} & \textbf{Question addressed} \\
+\hline
+A & Density substitution & Is \(d_\mathrm{signed}\) simply a proxy for local galaxy number density? \\
+\hline
+B & Partial correlation & Does \(d_\mathrm{signed}\) carry information beyond local density? \\
+\hline
+C & \(\Lambda\)CDM chain rule & Is the observed coupling consistent with the density-observable relation predicted by \(\Lambda\)CDM? \\
+\hline
+D & 2M++ velocity-field subtraction & Does the signal survive after removing the best \(\Lambda\)CDM velocity reconstruction? \\
+\hline
+E & Malmquist bias test & Is the signal driven by distance-dependent selection effects or catalogue geometry? \\
+\hline
+F & Leave-one-method-out (LOSO) & Does the signal depend on a single distance-method family? \\
+\hline
+N-body & MDPL2 mock (100 observers) & Can a full non-linear \(\Lambda\)CDM simulation reproduce the signal? \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 1.}  Standard control chain applied to each observable channel.}
+
+Layers E and F are applied where the dataset combines multiple distance methods (CF4). Additionally, all channels are checked for footprint consistency (NGC vs SGC) and permutation significance (10,000 shuffles of \(d_\mathrm{signed}\) labels with 5,000 bootstrap resamples).
+
+
+\section*{5. Channel results}
+\addcontentsline{toc}{section}{5. Channel results}
+
+
+\subsection*{5.1 Supernovae: environment cutoff at \emph{z}  = 0.04}
+\addcontentsline{toc}{subsection}{5.1 Supernovae: environment cutoff at \emph{z}  = 0.04}
+
+The supernova environment signal was established in MTDF\_02 and independently validated in MTDF\_07. On the merged 4,188-SN sample, a piecewise model with a break at \(z = 0.04\) yields \(\Delta\chi^2 = 36\text{--}39\) (\(p < 0.001\)) compared to a single-regime fit. The signal is concentrated in the low-redshift bin:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Regime} & \textbf{\(\gamma_\mathrm{env}\)} & \textbf{Significance} & \textbf{Void catalogues} \\
+\hline
+\(z \in [0.02, 0.04)\) & \(+0.013 \pm 0.004\) & \(p = 0.003\text{--}0.005\) & REVOLVER, VIDE \\
+\hline
+\(z > 0.04\) & Consistent with zero & \(p > 0.84\) & All three \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 2.}  Supernova environment signal by redshift regime (Pantheon+ × DESIVAST).}
+
+
+\begin{calloutbox}
+\textbf{Control outcome.}  The piecewise cutoff at \(z = 0.04\) was derived from MTDF's coherence scale \(\beta = 22.7\) Mpc before the redshift-binned analysis was performed. The signal passes LOSO (16/16 surveys retain positive \(\gamma_\mathrm{env}\)), permutation tests (\(p_\mathrm{perm} = 0.025\text{--}0.062\)), block bootstrap (95\% CI excludes zero for REVOLVER and VIDE), and survey fixed effects (\(\gamma_\mathrm{env}\) stable within 0.0005 mag). SALT2 population controls shift \(\gamma_\mathrm{env}\) by less than 0.3\(\sigma\).
+\end{calloutbox}
+
+
+\subsection*{5.2 Time-delay distances: independent geometric support}
+\addcontentsline{toc}{subsection}{5.2 Time-delay distances: independent geometric support}
+
+This channel differs in kind from the other probes: it does not test the void-wall environment split directly but provides an independent geometric consistency check on the MTDF low-redshift interpretation. Seven TDCOSMO/H0LiCOW lenses provide time-delay distance measurements that test the MTDF scale factor \(S_0 = 1.084\), which maps the Planck-calibrated \(H_0 = 67.36\) km/s/Mpc to an effective local value of \(H_0 \approx 73.1\) km/s/Mpc.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Model} & \textbf{\(\chi^2/\mathrm{dof}\)} & \textbf{Mean residual} & \textbf{Residual pattern} \\
+\hline
+\(\Lambda\)CDM (\(H_0 = 67.36\)) & 26.05/7 = 3.72 & \(-1.58\sigma\) & All 7 negative (systematic) \\
+\hline
+MTDF (\(H_0 = 73.1\) via \(S_0\)) & 4.77/7 = 0.68 & \(-0.10\sigma\) & Mixed +/\(-\) (unbiased) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 3.}  Time-delay distance goodness of fit: MTDF vs \(\Lambda\)CDM.}
+
+MTDF fits the time-delay data 5.5 times better than Planck \(\Lambda\)CDM. The \(\Lambda\)CDM residuals are systematically negative across all seven lenses, indicating a coherent underprediction of time-delay distances. The MTDF residuals scatter around zero with no systematic bias.
+
+
+An environment correlation test on the TDCOSMO lenses is inconclusive: all seven systems are massive ellipticals residing in wall environments (\(d_\mathrm{signed} > 0\)), providing zero void sightlines. This is a selection effect intrinsic to strong lensing, not a failure of the prediction. An extension to 25 SLACS lenses yields only 3 void sightlines out of 25, insufficient for a meaningful binary split (\(p = 0.30\)).
+
+
+\begin{calloutbox}
+\textbf{Interpretation.}  The time-delay result is independent geometric support for the MTDF low-redshift framework: it confirms that the effective local expansion rate is consistent with MTDF's \(S_0\) prediction. It does not test the void-geometry coupling directly and should not be weighted as direct evidence for the environment split. Its role here is to remove the Hubble tension as a competing explanation, since MTDF resolves it naturally through the scale factor.
+\end{calloutbox}
+
+
+\subsection*{5.3 Cosmicflows-4 peculiar velocities}
+\addcontentsline{toc}{subsection}{5.3 Cosmicflows-4 peculiar velocities}
+
+This is the primary new result of this paper. The Cosmicflows-4 group-averaged catalogue provides 38,053 groups with peculiar velocities at \(z < 0.05\), cross-matched against all three DESIVAST void catalogues.
+
+
+\subsubsection*{5.3.1 Baseline signal}
+
+The environment coupling coefficient \(\gamma_v\) measures the slope of peculiar velocity residuals (after shell-median subtraction in redshift bins of width 0.005) against \(d_\mathrm{signed}\):
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Void finder} & \textbf{\(\gamma_v\) (km/s per Mpc)} & \textbf{Significance} & \textbf{\(\Delta\chi^2\)} & \textbf{\(p_\mathrm{perm}\)} \\
+\hline
+VoidFinder & \(-53.6 \pm 2.7\) & \(19.6\sigma\) & 386 & \(<10^{-4}\) \\
+\hline
+REVOLVER & \(-61.5 \pm 4.0\) & \(15.5\sigma\) & 240 & \(<10^{-4}\) \\
+\hline
+VIDE & \(-58.2 \pm 5.3\) & \(11.0\sigma\) & 120 & \(<10^{-4}\) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 4.}  CF4 peculiar velocity environment coupling: baseline results.}
+
+
+\subsubsection*{5.3.2 Piecewise redshift split}
+
+The signal concentrates below \(z = 0.04\), exactly as predicted by the MTDF coherence scale:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Regime} & \textbf{\(\gamma_v\) (km/s per Mpc)} & \textbf{Significance} & \textbf{\(\Delta\chi^2\)} \\
+\hline
+\(z < 0.04\) & \(-52.9 \pm 3.6\) & \(14.7\sigma\) & 216 \\
+\hline
+\(z \geq 0.04\) & \(-13.9 \pm 7.4\) & \(1.9\sigma\) & 3.5 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 5.}  CF4 piecewise split at \(z = 0.04\) (VoidFinder).}
+
+
+\subsubsection*{5.3.3 Control chain}
+
+\textbf{Control A (density substitution).}  Local galaxy number density, computed as neighbour counts within spheres of radius 5, 10, and 20 Mpc/h, is also significantly correlated with peculiar velocity residuals (13.7-29.3\(\sigma\)). This is expected: peculiar velocities are driven by the density field in any cosmological model. The question is whether \(d_\mathrm{signed}\) carries additional information.
+
+
+\textbf{Control B (partial correlation).}  After regressing out local density, \(d_\mathrm{signed}\) adds substantial \(\chi^2\) at all density scales:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Void finder} & \textbf{\(R = 5\) Mpc/h} & \textbf{\(R = 10\)} & \textbf{\(R = 20\)} \\
+\hline
+VoidFinder & +206 (14.3\(\sigma\)) & +259 (16.1\(\sigma\)) & +275 (16.6\(\sigma\)) \\
+\hline
+REVOLVER & +141 (11.9\(\sigma\)) & +165 (12.8\(\sigma\)) & +170 (13.0\(\sigma\)) \\
+\hline
+VIDE & +71 (8.4\(\sigma\)) & +77 (8.8\(\sigma\)) & +76 (8.7\(\sigma\)) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 6.}  CF4 partial correlation: \(\Delta\chi^2\) added by \(d_\mathrm{signed}\) beyond local density.}
+
+The piecewise pattern survives density removal: at \(z < 0.04\), \(d_\mathrm{signed}\) adds 80-181 \(\Delta\chi^2\) (9-13\(\sigma\)); at \(z \geq 0.04\), it adds 1-7 \(\Delta\chi^2\) (1-3\(\sigma\), marginal).
+
+
+\textbf{Control C (\(\Lambda\)CDM chain rule).}  The observed \(\gamma_v\) exceeds the prediction from the \(\Lambda\)CDM density-velocity relation by a factor of 150-610. The signal is not "velocity tracing density" at the expected amplitude.
+
+
+\textbf{Control D (2M++ velocity-field subtraction).}  The gold-standard test: the Carrick et al. (2015) 2M++ reconstructed \(\Lambda\)CDM velocity field, used by Pantheon+, SH0ES, and all major peculiar velocity analyses, is subtracted from the CF4 peculiar velocities before recomputing \(\gamma_v\). This removes the full \(\Lambda\)CDM density-velocity coupling, not merely a local density proxy.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Void finder} & \textbf{Before 2M++ (\(\sigma\))} & \textbf{After 2M++ (\(\sigma\))} & \textbf{Retention} \\
+\hline
+VoidFinder & 19.6 & 9.2 & 65\% \\
+\hline
+REVOLVER & 15.5 & 5.9 & 57\% \\
+\hline
+VIDE & 11.0 & 5.2 & 77\% \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 6b.}  CF4 environment coupling after 2M++ velocity-field subtraction.}
+
+The 2M++ field absorbs the standard density-velocity coupling that \(\Lambda\)CDM explains, reducing \(\gamma_v\) from approximately \(-55\) to \(-30\) km/s. Notably, the 2M++ predicted velocity is itself anti-correlated with \(d_\mathrm{signed}\) (\(r \approx -0.18\)), indicating that the reconstruction partially captures the environment-dependent component by attributing it to gravitational infall; the partial-correlation framework of Control B is therefore essential for disentangling the two contributions. All three void catalogues remain above \(5\sigma\) after subtraction. The piecewise \(z = 0.04\) concentration also survives: VoidFinder retains \(4.1\sigma\) at \(z < 0.04\) after 2M++ subtraction. The residual void-geometric signal at 5-9\(\sigma\) represents the component that the best available \(\Lambda\)CDM velocity reconstruction cannot account for.
+
+
+\begin{calloutbox}
+\textbf{Control E (Malmquist bias).}  The signed distance \(d_\mathrm{signed}\) correlates with heliocentric distance (\(r = -0.63\)), reflecting the redshift-dependent completeness of the DESIVAST void catalogues. To test whether this drives the signal, the sample is split by distance-error quality (high/low) and by distance bins. The signal is present in the high-quality subsample at \(11.6\sigma\), in every distance bin from 0 to 300 Mpc, and weakens only beyond 300 Mpc, where the MTDF coherence scale predicts the transition to fade (\(z \sim 0.07\)). The calibrator subsample, which has the most precise distances and is the most local, shows the strongest per-galaxy signal. This is the opposite of what a Malmquist-driven artefact would produce.
+
+\textbf{Control F (leave-one-method-out).}  The CF4 catalogue combines four distance-method families: Tully-Fisher (TF, \(\sim\)10,000 groups), Fundamental Plane (FP, \(\sim\)28,000), Type Ia supernovae (945), and calibrators (336). Each method is removed in turn and \(\gamma_v\) is recomputed from the remainder; separately, each method is tested alone:
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Method} & \textbf{Leave-out \(\gamma_v\) (\(\sigma\))} & \textbf{Single-method \(\gamma_v\) (\(\sigma\))} \\
+\hline
+TF (\(\sim\)10K) & \(-67.7\) (\(18.8\sigma\)) & \(-34.5\) (\(8.2\sigma\)) \\
+\hline
+FP (\(\sim\)28K) & \(-64.5\) (\(14.9\sigma\)) & \(-37.2\) (\(9.7\sigma\)) \\
+\hline
+SNIa (945) & \(-64.8\) (\(21.0\sigma\)) & \(-15.5\) (\(2.7\sigma\)) \\
+\hline
+Calibrators (336) & \(-40.2\) (\(14.4\sigma\)) & \(-495.2\) (\(29.0\sigma\)) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 6c.}  Leave-one-method-out (LOSO) and single-method stability (VoidFinder).}
+The signal does not disappear when any single method is removed. Both TF and FP independently deliver the signal above \(8\sigma\). The leave-out shifts between methods (20-30\%) are consistent with differences in sky coverage and redshift distribution. The calibrator single-method result is extreme in amplitude because of the very small sample size (336 groups); it is informative only for sign consistency and local precision, not for amplitude comparison. No single distance pipeline drives the observed void-geometric coupling.
+\end{calloutbox}
+
+
+\begin{calloutbox}
+\textbf{Full control summary.}  The CF4 signal survives seven control layers: density substitution (A), partial correlation at 8-17\(\sigma\) (B), \(\Lambda\)CDM chain-rule excess of 150-610\(\times\) (C), 2M++ subtraction at 5-9\(\sigma\) (D), Malmquist bias test across distance bins and quality halves (E), cross-method LOSO stability (F), and MDPL2 N-body mock tension of 9.0\(\sigma\) with sign mismatch. None of the standard mechanisms tested in this analysis accounts for the observed void-geometric coupling under the stated assumptions.
+\end{calloutbox}
+
+
+\subsection*{5.4 2MTF Tully-Fisher distances}
+\addcontentsline{toc}{subsection}{5.4 2MTF Tully-Fisher distances}
+
+The 2MTF sample provides an independent distance indicator. All 2,062 galaxies fall below \(z = 0.033\), entirely within the predicted MTDF-active regime.
+
+
+\subsubsection*{5.4.1 Baseline signal}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Void finder} & \textbf{Band} & \textbf{\(\gamma_\mathrm{TF}\) (mag/Mpc)} & \textbf{Significance} & \textbf{\(p_\mathrm{perm}\)} \\
+\hline
+VoidFinder & K & \(0.058 \pm 0.007\) & \(7.9\sigma\) & \(<10^{-4}\) \\
+\hline
+VoidFinder & H & \(0.055 \pm 0.007\) & \(7.5\sigma\) & \(<10^{-4}\) \\
+\hline
+VoidFinder & J & \(0.053 \pm 0.007\) & \(7.3\sigma\) & \(<10^{-4}\) \\
+\hline
+REVOLVER & K & \(0.058 \pm 0.010\) & \(6.0\sigma\) & \(<10^{-4}\) \\
+\hline
+VIDE & K & \(0.046 \pm 0.013\) & \(3.5\sigma\) & \(0.0007\) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 7.}  2MTF Tully-Fisher environment coupling across infrared bands and void finders.}
+
+The consistency across J, H, and K bands is a critical systematic check. Interstellar dust produces wavelength-dependent extinction; a real distance or environment effect is achromatic. The band-to-band variation in \(\gamma_\mathrm{TF}\) is less than 10\%, consistent with an achromatic signal. The direction of the TF coupling matches the supernova \(\gamma_\mathrm{env}\): galaxies closer to void boundaries show systematic distance residuals.
+
+
+\subsubsection*{5.4.2 Control chain}
+
+\textbf{Control B (partial correlation).}  After removing local density, \(d_\mathrm{signed}\) adds:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Void finder} & \textbf{\(R = 5\) Mpc/h} & \textbf{\(R = 10\)} & \textbf{\(R = 20\)} \\
+\hline
+VoidFinder & +235 (15.3\(\sigma\)) & +219 (14.8\(\sigma\)) & +175 (13.2\(\sigma\)) \\
+\hline
+REVOLVER & +136 (11.7\(\sigma\)) & +126 (11.2\(\sigma\)) & +95 (9.7\(\sigma\)) \\
+\hline
+VIDE & +44 (6.6\(\sigma\)) & +37 (6.1\(\sigma\)) & +20 (4.4\(\sigma\)) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 8.}  2MTF partial correlation: \(\Delta\chi^2\) added by \(d_\mathrm{signed}\) beyond local density.}
+
+\textbf{Control C.}  The observed \(\gamma_\mathrm{TF}\) exceeds the density chain prediction by a factor of 3-31.
+
+
+\begin{calloutbox}
+\textbf{Band consistency.}  The achromatic nature of the 2MTF signal (J, H, K consistent within 10\%) rules out dust as the source of the environment-distance correlation. The signal is void-geometric, density-independent, and present across all three void catalogues and both galactic caps (NGC and SGC).
+\end{calloutbox}
+
+\textbf{Note on void classification.}  All 2,062 galaxies are classified as "wall" by all three void finders (\(n_\mathrm{void} = 0\)). The DESIVAST void catalogues, constructed from the DESI Bright Galaxy Survey, do not extend to the environments where 2MTF spirals reside at these redshifts. The \(\gamma_\mathrm{TF}\) signal is therefore a gradient within the wall population measured by the continuous \(d_\mathrm{signed}\) metric, not a binary void-versus-wall split. This does not invalidate the result but should be noted when comparing to the supernova binary split.
+
+
+\subsection*{5.5 Supporting channels}
+\addcontentsline{toc}{subsection}{5.5 Supporting channels}
+
+
+\subsubsection*{5.5.1 ISW void stacking}
+
+The ISW analysis stacks Planck PR4 SMICA CMB temperature profiles on 889 BOSS and 563 DESIVAST voids. Absolute significance levels are sub-threshold (0.2-0.4\(\sigma\)), which is physically expected: the ISW temperature signal is intrinsically weak, and 1,452 voids provide insufficient statistical power for a detection.
+
+
+However, the MTDF-predicted void template achieves 2.4-3.7 times the signal-to-noise of a step-function template matched filter. This sensitivity advantage is a methodological result: the MTDF void profile shape better captures whatever ISW signal exists, even at sub-threshold amplitude. With 10 times more voids (DESI Y5, Euclid), the MTDF template could reach 1-2\(\sigma\) while the step-function template remains below 0.5\(\sigma\).
+
+
+\begin{calloutbox}
+\textbf{Status.}  No ISW detection claim is made. The result is a 2.4-3.7× template sensitivity gain, establishing methodology for future surveys with larger void catalogues.
+\end{calloutbox}
+
+
+\subsubsection*{5.5.2 Weak-lensing S\(_{8}\) environment split}
+
+Galaxy-galaxy lensing profiles for GAMA groups embedded in DESIVAST voids (1,724 groups) versus walls (80 groups) show an amplitude difference of 1.71\(\sigma\). The direction is consistent with the MTDF prediction: S\(_{8,trough}\) < S\(_{8,ridge}\) (0.47\(\sigma\) in the trough/ridge proxy). The wall sample is very small (80 groups), limiting statistical power. Euclid and LSST would provide a 10-15 times sensitivity improvement.
+
+
+\begin{calloutbox}
+\textbf{Status.}  Suggestive at 1.71\(\sigma\), directionally consistent. Methodology established. Below detection threshold with current data.
+\end{calloutbox}
+
+
+\subsubsection*{5.5.3 Distance duality and lensed-image redshifts}
+
+Two additional channels were tested and found to be insensitive to the predicted signal with current data. The distance duality test using DESI Y1 BAO yields \(\eta = 1.001 \pm 0.012\), with the MTDF signal 4.7 times below current precision. BAO distances are sky-averaged, precluding per-sightline environment splits. The lensed-image redshift analysis covers 20 multiply-imaged systems (64 images) with a mean significance of 0.49\(\sigma\); the MTDF predicted signal (\(\sim 10^{-7}\)) is three orders of magnitude below spectroscopic precision (\(\sim 10^{-4}\)). Both channels establish methodology for future instrumentation (DESI Y5, ELT/ANDES) but provide no constraint at present.
+
+
+\section*{6. Cross-probe synthesis}
+\addcontentsline{toc}{section}{6. Cross-probe synthesis}
+
+The central result of this paper is not any individual channel significance but the convergence of independent probes at a single coherence scale.
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{figures/sn_void_summary_figure.png}
+\caption*{\textbf{Figure 1.}  Four-panel summary of the supernova-void environment signal. (a) Environment coefficient γ\(_{\mathrm{env}}\) vs. redshift, showing the localised signal at z < 0.04 with p < 0.01 significance. (b) Leave-one-survey-out stability test confirming no single survey drives the detection. (c) Key results across three void catalogues (REVOLVER, VIDE, VoidFinder) and robustness checks including 12/12 bootstrap realisations with p < 0.05. (d) Physical interpretation: SNe in cosmic voids appear \textasciitilde{}0.01 mag brighter than those in overdense regions, consistent with the MTDF stress-field coherence scale prediction.}
+\label{fig-sn-void-summary}
+\end{figure}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Channel} & \textbf{Observable} & \textbf{Signal strength} & \textbf{Controls passed} & \textbf{Outcome} & \textbf{Role} \\
+\hline
+SNe & Distance modulus residual & \(\gamma_\mathrm{env} = +0.013 \pm 0.004\) & LOSO, permutation, bootstrap, survey FE, SALT2 & Positive (\(p = 0.003\)) & Direct evidence \\
+\hline
+SNe cutoff & Piecewise \(z = 0.04\) & \(\Delta\chi^2 = 36\text{--}39\) & \(p < 0.001\), consistent across 3 void finders & Sharp transition confirmed & Direct evidence \\
+\hline
+Time delays & Time-delay distance & \(\chi^2/\mathrm{dof}\): 0.68 vs 3.72 & 7 independent lenses, geometric observable & Supports MTDF low-\(z\) scale factor & Geometric support \\
+\hline
+CF4 vpec & Peculiar velocity residual & 5-9\(\sigma\) after 2M++ & A, B, C, D (2M++), E (Malmquist), F (LOSO), N-body (9.0\(\sigma\)) & Sign mismatch with \(\Lambda\)CDM & Direct evidence \\
+\hline
+2MTF TF & TF distance residual & 4-15\(\sigma\) beyond density & A, B, C, N-body (4.2\(\sigma\) tension) & Achromatic, J/H/K consistent & Direct evidence \\
+\hline
+ISW & CMB temperature profile & 2.4-3.7× template gain & BOSS + DESIVAST voids & Methodological (sub-threshold) & Methodology \\
+\hline
+S\(_{8}\) split & GGL amplitude & 1.71\(\sigma\) & Directional consistency & Suggestive (underpowered) & Suggestive \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 9.}  Summary of multi-probe evidence. Each row represents an independent observable with different physics, different systematics, and different survey selection.}
+
+The direct-evidence channels are the supernova environment signal, the \(z = 0.04\) piecewise cutoff, CF4 peculiar velocities, and 2MTF Tully-Fisher residuals. Time delays provide independent geometric support for the MTDF low-redshift interpretation but do not test the void-geometry coupling directly. ISW and S\(_{8}\) establish methodology and directional consistency but remain below detection threshold. No two of the direct-evidence channels share calibration systems, host-galaxy populations, or distance-indicator physics. The convergence of these independent observables toward a common environment-linked transition near \(z \approx 0.04\) is the paper's primary result.
+
+
+\begin{calloutbox}
+\textbf{Key observation.}  The same coherence scale appears across independent probes. In the supernova channel, the piecewise cutoff at \(z = 0.04\) yields \(\Delta\chi^2 = 36\text{--}39\). In the CF4 channel, the piecewise split shows 14.7\(\sigma\) below \(z = 0.04\) and 1.9\(\sigma\) above, with the concentration surviving density removal at 9-13\(\sigma\) and confirmed independently in Tully-Fisher, Fundamental Plane, supernova, and calibrator distance methods. The 2MTF sample sits entirely below \(z = 0.04\). All four direct-evidence channels converge on the same low-redshift transition regime.
+\end{calloutbox}
+
+
+\section*{7. \(\Lambda\)CDM mock comparison}
+\addcontentsline{toc}{section}{7. \(\Lambda\)CDM mock comparison}
+
+The most important objection to the CF4 and 2MTF results is that the signal might arise from standard gravitational dynamics within \(\Lambda\)CDM. Peculiar velocities are driven by the density field; Tully-Fisher residuals have known environmental dependencies. Three levels of mock comparison address this objection.
+
+
+\subsection*{7.1 Linear-theory reconstruction}
+\addcontentsline{toc}{subsection}{7.1 Linear-theory reconstruction}
+
+Mock 1 reconstructs \(\Lambda\)CDM-predicted velocities from the measured CF4 density field using linear perturbation theory (\(v \propto f H \delta r\)), adding realistic Gaussian noise matched to the observed velocity dispersion. Over 100 realisations:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Regime} & \textbf{Observed \(\gamma_v\)} & \textbf{Mock \(\gamma_v\)} & \textbf{Tension} \\
+\hline
+Full sample & \(-53.6\) & \(+8.7 \pm 3.1\) & \(19.9\sigma\) \\
+\hline
+\(z < 0.04\) & \(-52.9\) & \(-15.7 \pm 4.2\) & \(8.8\sigma\) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 10.}  Linear-theory mock vs observed CF4 signal.}
+
+The key discrepancy is not only the magnitude but the direction. \(\Lambda\)CDM linear theory predicts a weak positive \(\gamma_v\) for the full sample, while the observed slope is strongly negative. This indicates a qualitative sign reversal rather than a simple underestimation of amplitude.
+
+
+\subsection*{7.2 Full N-body mock (MDPL2)}
+\addcontentsline{toc}{subsection}{7.2 Full N-body mock (MDPL2)}
+
+To close the non-linear escape hatch, the identical analysis pipeline is applied to halo catalogues from the MDPL2 N-body simulation (3840\(^{3}\) particles, Planck cosmology). For CF4, 100 randomly placed observers each select approximately 480,000 halos within a CF4-like volume; voids are identified using the same algorithm and \(\gamma_v\) is computed identically to the data analysis. For 2MTF, the same mock halos are used with TF-like distance errors applied.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Channel} & \textbf{Observed} & \textbf{N-body mean} & \textbf{Tension} & \textbf{Sign} \\
+\hline
+CF4 \(\gamma_v\) (full) & \(-53.6\) & \(+1.4 \pm 6.3\) & \(9.0\sigma\) & Mismatch \\
+\hline
+2MTF \(\gamma_\mathrm{TF}\) (K-band) & \(0.058\) & \(+0.002 \pm 0.013\) & \(4.2\sigma\) & 30× too small \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 11.}  N-body mock (MDPL2, 100 observers for CF4, 20 for 2MTF) vs observed signal.}
+
+Non-linear effects move the N-body mean from \(+8.7\) (linear theory) toward zero, not toward the observed \(-53.6\). Full non-linear \(\Lambda\)CDM dynamics slightly wash out the linear-theory signal rather than amplifying it toward the data. With 100 observer positions, the CF4 tension stands at \(9.0\sigma\). This closes the argument that non-linear corrections could rescue the \(\Lambda\)CDM prediction.
+
+
+\subsection*{7.3 Null baseline}
+\addcontentsline{toc}{subsection}{7.3 Null baseline}
+
+A pure-noise mock (100 realisations of Gaussian random velocities with matched dispersion) yields \(\gamma_v = 0.05 \pm 2.9\), confirming that the null distribution is centred at zero with the expected scatter. The observed signal lies 18.4\(\sigma\) from the noise floor.
+
+
+\begin{calloutbox}
+\textbf{Mock and reconstruction summary.}  The CF4 signal survives seven layers of control: density substitution, partial correlation (8-17\(\sigma\)), \(\Lambda\)CDM chain-rule excess (150-610×), 2M++ velocity-field subtraction (5-9\(\sigma\) retained), Malmquist bias test (signal in all distance bins and both quality halves), leave-one-method-out (cross-method stability across TF, FP, SNIa, and calibrators), and MDPL2 N-body mock (9.0\(\sigma\) tension with 100 observers, sign mismatch). The 2MTF signal independently survives density controls (4-15\(\sigma\)) and N-body comparison (4.2\(\sigma\) tension). Neither linear-theory, full non-linear \(\Lambda\)CDM dynamics, the best available reconstructed velocity field, distance-dependent selection effects, nor any single distance method can account for the observed void-geometric coupling.
+\end{calloutbox}
+
+
+\section*{8. Interpretation within MTDF}
+\addcontentsline{toc}{section}{8. Interpretation within MTDF}
+
+The first half of this paper is purely observational: multiple probes converge on an environment-linked transition at a single low-redshift scale. This section considers why MTDF provides a natural interpretation of this pattern.
+
+
+MTDF predicts a finite coherence length \(\beta = 22.7\) Mpc through the structure of its stress tensor field. This coherence length sets the scale below which environment-dependent effects are active and above which they average out. The predicted transition redshift of \(z \approx 0.04\) is not a free parameter fitted to the multi-probe data; it is derived from \(\beta\), which was empirically constrained in MTDF\_01 from the MTDF void quantization ansatz \(R_n = \beta(1+\sqrt{n})\) matched to observed void radii, not fitted to Pantheon+, DESI, or any of the multi-probe observables presented here.
+
+
+The specific features of the multi-probe evidence that align with MTDF predictions include:
+
+
+(i) \emph{Sharp transition.}  The supernova piecewise split and the CF4 redshift concentration both show a transition that is abrupt rather than gradual. A gradual transition would be consistent with slowly varying astrophysical systematics; a sharp transition at a specific scale points to a physical threshold.
+
+
+(ii) \emph{Void geometry beyond density.}  The partial-correlation controls demonstrate that \(d_\mathrm{signed}\) carries information about observables that raw local density does not. In MTDF, void boundaries correspond to regions where the stress tensor field transitions between regimes, producing geometric signatures that are not captured by a scalar density field.
+
+
+(iii) \emph{Hubble tension resolution.}  MTDF's scale factor \(S_0 = 1.084\) naturally maps the Planck \(H_0\) to the locally measured value, resolving the time-delay tension with \(\chi^2/\mathrm{dof} = 0.68\). This is a parameter derived from the field theory, not fitted to the time-delay data.
+
+
+(iv) \emph{Consistency across observables.}  Supernova lightcurve distances, strong-lens time-delay distances, peculiar velocities, and Tully-Fisher distances all respond to environment in a manner consistent with the MTDF coherence scale. These observables probe different physical processes, making a common systematic explanation difficult to construct.
+
+
+It should be emphasised that this paper establishes convergent evidence for an environment-dependent transition, with MTDF as the coherent interpretive framework. It does not claim that every aspect of MTDF is validated by these results. The photon-coupling sector (\(\kappa = 1.10 \times 10^{-3}\)), the CMB modifications, and the deep-space propagation predictions remain subjects of their respective companion papers and future observational programmes.
+
+
+\section*{9. Limitations and caveats}
+\addcontentsline{toc}{section}{9. Limitations and caveats}
+
+Three caveats of the current analysis should be noted.
+
+
+\textbf{Void classification gap.}  None of the Phase 3 analyses (CF4, 2MTF) contain void-classified galaxies: all objects lie in wall environments as defined by DESIVAST. The signals are gradients within the wall population measured by the continuous \(d_\mathrm{signed}\) metric. This is physically meaningful because the MTDF stress tensor field varies continuously with distance to the void boundary; the binary void/wall label is an artefact of the classification algorithm, not a property of the underlying field. The partial-correlation controls (Tables 6 and 8) demonstrate that these wall-internal gradients carry void-geometric information well beyond raw density, so the impact of this gap on the main conclusions is low. The continuous signed-distance statistic is the physically relevant quantity for these channels. Nevertheless, the traditional binary void-versus-wall split remains unperformed.
+
+
+\textbf{Signed-distance and heliocentric-distance correlation.}  The environment metric \(d_\mathrm{signed}\) correlates with heliocentric distance (\(r \approx -0.63\) for CF4), reflecting the redshift-dependent completeness of the DESIVAST void catalogues rather than a physical coupling. Dedicated tests (Section 5.3.3, Control E) show that the void-geometric signal persists across distance bins, in both quality halves, and in every distance-method family, indicating that this geometric correlation does not explain the observed environment coupling.
+
+
+\textbf{Data-limited supporting channels.}  The ISW and S\(_{8}\) channels are suggestive but below detection threshold with current void catalogue sizes and weak-lensing survey areas. They are included to establish methodology and directional consistency, not as independent confirmations. Next-generation survey volumes (DESI Y5, Euclid, LSST/Rubin) will provide the 10-15 times sensitivity gain needed to push these channels from suggestive to decisive.
+
+
+\section*{10. Conclusion}
+\addcontentsline{toc}{section}{10. Conclusion}
+
+This paper reports convergent evidence from multiple independent low-redshift observables for a common environment-dependent transition near a single coherence scale.
+
+
+The supernova environment signal (\(\gamma_\mathrm{env} = +0.013 \pm 0.004\), \(p = 0.003\)) exhibits a sharp piecewise cutoff at \(z = 0.04\) (\(\Delta\chi^2 = 36\text{--}39\)). Strong-lens time-delay distances prefer an MTDF-predicted \(H_0 \approx 73.1\) over Planck \(\Lambda\)CDM by a factor of 5.5 in \(\chi^2/\mathrm{dof}\). Cosmicflows-4 peculiar velocities show a void-geometric signal that survives a seven-layer control chain, including partial correlation beyond density (8-17\(\sigma\)), 2M++ velocity-field subtraction (5-9\(\sigma\) retained), Malmquist bias testing across distance bins and quality halves, and leave-one-method-out stability across TF, FP, SNIa, and calibrator subsamples. The signal is concentrated below \(z = 0.04\) and exhibits a qualitative sign mismatch against full N-body \(\Lambda\)CDM expectations (9.0\(\sigma\) tension with MDPL2 across 100 observers). 2MTF Tully-Fisher distances independently confirm a void-geometric signal at 4-15\(\sigma\) beyond density, achromatic across three infrared bands, with 4.2\(\sigma\) N-body tension.
+
+
+The convergence of these signals, arising from different physical processes, different survey instruments, different galaxy populations, and different distance-indicator calibrations, at a single environment-linked redshift scale, constitutes evidence that is difficult to attribute to any one dataset or method. The Mesche Tensor Dynamics Framework provides a coherent interpretation through its coherence length \(\beta = 22.7\) Mpc, which was established independently of the multi-probe data presented here.
+
+
+Ongoing extensions include joint multi-probe fitting with a shared coherence-scale parameter and morphological type splits for 2MTF (requiring external cross-matching, as the 2MTF catalogue does not include morphology data). Next-generation survey volumes (DESI Y5, Euclid, LSST/Rubin) will provide the statistical power to push the supporting ISW and S\(_{8}\) channels from suggestive to decisive.
+
+
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_mtdf}), the V18 strict validation workbook, the
+\texttt{run\_validate.py} pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/zenodo.19741058};
+this release, \texttt{v1.1.3}, DOI
+\href{https://doi.org/10.5281/zenodo.19767336}{10.5281/zenodo.19767336})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/IMesche/MTDF}.
+The \texttt{v1.1.3} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level \texttt{README.md}.
+
+
+\section*{Appendix A. Data availability and reproducibility}
+\addcontentsline{toc}{section}{Appendix A. Data availability and reproducibility}
+
+All analysis scripts and machine-readable results are provided in the MTDF validation repository. The repository is organised into phase folders; the material for this paper spans two phases corresponding to the two primary observational channels.
+
+
+\subsection*{A.1 Analysis scripts}
+\addcontentsline{toc}{subsection}{A.1 Analysis scripts}
+
+Nine Python scripts reproduce every quantitative result reported in this paper. All scripts are located in \texttt{validation/code/paper8/}:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Script} & \textbf{Section} & \textbf{Description} \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}cosmicflows4\_\allowbreak{}vpec.py}{task3a\_\allowbreak{}cosmicflows4\_\allowbreak{}vpec.py} & 5.3.1-5.3.2 & CF4 baseline: gamma\_\allowbreak{}v fits, piecewise z-split, permutation tests (3 void catalogues) \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}control\_\allowbreak{}tests.py}{task3a\_\allowbreak{}control\_\allowbreak{}tests.py} & 5.3.3 (A-C) & CF4 controls: density substitution, partial correlation, LCDM chain rule \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}2mpp\_\allowbreak{}reconstruction.py}{task3a\_\allowbreak{}2mpp\_\allowbreak{}reconstruction.py} & 5.3.3 (D) & CF4 control D: 2M++ velocity-field subtraction (Carrick et al. 2015) \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}robustness.py}{task3a\_\allowbreak{}robustness.py} & 5.3.3 (E-F) & CF4 controls E-F: leave-one-method-out (LOSO) and Malmquist bias diagnostics \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}lcdm\_\allowbreak{}mock.py}{task3a\_\allowbreak{}lcdm\_\allowbreak{}mock.py} & 7.1, 7.3 & LCDM linear-theory mock (100 realisations) and pure-noise baseline \\
+\hline
+\href{../validation/code/paper8/task3a\_\allowbreak{}nbody\_\allowbreak{}mock.py}{task3a\_\allowbreak{}nbody\_\allowbreak{}mock.py} & 7.2 & MDPL2 N-body mock for CF4 (100 observers, halos from CosmoSim TAP) \\
+\hline
+\href{../validation/code/paper8/task3b\_\allowbreak{}2mtf\_\allowbreak{}tully\_\allowbreak{}fisher.py}{task3b\_\allowbreak{}2mtf\_\allowbreak{}tully\_\allowbreak{}fisher.py} & 5.4.1 & 2MTF baseline: gamma\_\allowbreak{}TF fits across J/H/K bands and 3 void catalogues \\
+\hline
+\href{../validation/code/paper8/task3b\_\allowbreak{}control\_\allowbreak{}tests.py}{task3b\_\allowbreak{}control\_\allowbreak{}tests.py} & 5.4.2 & 2MTF controls: density substitution, partial correlation, LCDM chain rule \\
+\hline
+\href{../validation/code/paper8/task3b\_\allowbreak{}nbody\_\allowbreak{}mock.py}{task3b\_\allowbreak{}nbody\_\allowbreak{}mock.py} & 7.2 & MDPL2 N-body mock for 2MTF (50 observers) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table A1.}  Analysis scripts for MTDF\_08.}
+
+
+\subsection*{A.2 Machine-readable results}
+\addcontentsline{toc}{subsection}{A.2 Machine-readable results}
+
+All numerical results are stored as JSON files with full metadata. Phase 7 covers the CF4 peculiar velocity channel; Phase 8 covers the 2MTF Tully-Fisher channel.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Phase} & \textbf{File} & \textbf{Contents} \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}cf4\_\allowbreak{}results.json}{task3a\_\allowbreak{}cf4\_\allowbreak{}results.json} & Baseline gamma\_\allowbreak{}v per void catalogue, piecewise z-split, Delta-chi2 \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}control\_\allowbreak{}results.json}{task3a\_\allowbreak{}control\_\allowbreak{}results.json} & Controls A-C: density, partial correlation, chain rule \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}2mpp\_\allowbreak{}results.json}{task3a\_\allowbreak{}2mpp\_\allowbreak{}results.json} & Control D: gamma\_\allowbreak{}v after 2M++ subtraction (Tables 6b) \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}robustness\_\allowbreak{}results.json}{task3a\_\allowbreak{}robustness\_\allowbreak{}results.json} & Controls E-F: LOSO stability (Table 6c), Malmquist diagnostics \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}lcdm\_\allowbreak{}mock\_\allowbreak{}results.json}{task3a\_\allowbreak{}lcdm\_\allowbreak{}mock\_\allowbreak{}results.json} & Linear mock gamma\_\allowbreak{}v distribution (Table 10), noise baseline \\
+\hline
+7 (CF4) & \href{../validation/output/phase7\_\allowbreak{}cf4\_\allowbreak{}vpec/task3a\_\allowbreak{}nbody\_\allowbreak{}mock\_\allowbreak{}results.json}{task3a\_\allowbreak{}nbody\_\allowbreak{}mock\_\allowbreak{}results.json} & MDPL2 N-body mock gamma\_\allowbreak{}v (Table 11, 100 observers) \\
+\hline
+8 (2MTF) & \href{../validation/output/phase8\_\allowbreak{}2mtf\_\allowbreak{}tf/task3b\_\allowbreak{}2mtf\_\allowbreak{}results.json}{task3b\_\allowbreak{}2mtf\_\allowbreak{}results.json} & Baseline gamma\_\allowbreak{}TF per band and void catalogue (Table 7) \\
+\hline
+8 (2MTF) & \href{../validation/output/phase8\_\allowbreak{}2mtf\_\allowbreak{}tf/task3b\_\allowbreak{}control\_\allowbreak{}results.json}{task3b\_\allowbreak{}control\_\allowbreak{}results.json} & Controls A-C (Table 8) \\
+\hline
+8 (2MTF) & \href{../validation/output/phase8\_\allowbreak{}2mtf\_\allowbreak{}tf/task3b\_\allowbreak{}nbody\_\allowbreak{}mock\_\allowbreak{}results.json}{task3b\_\allowbreak{}nbody\_\allowbreak{}mock\_\allowbreak{}results.json} & MDPL2 N-body mock gamma\_\allowbreak{}TF (Table 11, 50 observers) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table A2.}  Result files (JSON) with SHA256 integrity hashes.}
+
+
+\subsection*{A.3 Diagnostic plots}
+\addcontentsline{toc}{subsection}{A.3 Diagnostic plots}
+
+32 diagnostic plots for the CF4 channel are in \href{../validation/output/phase7\_cf4\_vpec/}{validation/output/phase7\_cf4\_vpec/}. 11 diagnostic plots for the 2MTF channel are in \href{../validation/output/phase8\_2mtf\_tf/}{validation/output/phase8\_2mtf\_tf/}. Each phase folder includes a \texttt{manifest.json} with SHA256 hashes for integrity verification.
+
+
+\subsection*{A.4 External data sources}
+\addcontentsline{toc}{subsection}{A.4 External data sources}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Dataset} & \textbf{Source} & \textbf{Access} \\
+\hline
+Cosmicflows-4 groups & Tully et al. (2023) & \href{https://edd.ifa.hawaii.edu/CF4groupsHD/}{Extragalactic Distance Database} \\
+\hline
+2MTF catalogue & Hong et al. (2019) & \href{https://vizier.cds.unistra.fr/viz-bin/VizieR-3?-source=J/MNRAS/487/2061}{VizieR J/MNRAS/487/2061} \\
+\hline
+DESIVAST void catalogues & DESI Collaboration & \href{https://data.desi.lbl.gov/public/papers/c3/void\_\allowbreak{}catalog\_\allowbreak{}dr1/v1/}{DESI data release} (VoidFinder, REVOLVER, VIDE) \\
+\hline
+2M++ velocity/density fields & Carrick et al. (2015) & \href{https://cosmicflows.iap.fr/2MPP/}{cosmicflows.iap.fr/2MPP} \\
+\hline
+MDPL2 N-body halos & Klypin et al. (2016) & \href{https://www.cosmosim.org/}{CosmoSim TAP API} (auto-downloaded by script) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table A3.}  External datasets required for reproduction.}
+
+
+\section*{11. References}
+\addcontentsline{toc}{section}{11. References}
+
+Brout, D. et al. (2022). The Pantheon+ Analysis: Cosmological Constraints. \emph{ApJ} , 938, 110. doi:10.3847/1538-4357/ac8e04
+
+Carrick, J., Turnbull, S. J., Lavaux, G., \& Hudson, M. J. (2015). Cosmological parameters from the comparison of peculiar velocities with predictions from the 2M++ density field. \emph{MNRAS} , 450, 317. doi:10.1093/mnras/stv547
+
+DESI Collaboration (2024). DESI 2024 VI: Cosmological Constraints from BAO measurements. \emph{arXiv:2404.03002}
+
+Hong, T. et al. (2019). 2MTF VII. 2MASS Tully-Fisher survey final data release. \emph{MNRAS} , 487, 2061. doi:10.1093/mnras/stz1413
+
+Klypin, A. et al. (2016). MultiDark simulations: the story of dark matter halo concentrations and density profiles. \emph{MNRAS} , 457, 4340. doi:10.1093/mnras/stw248
+
+Mesche, I. (2026a). Mesche's Tensor Dynamics Framework (MTDF): A Dynamic Field Theory of Cosmic Structure. MTDF\_01.
+
+Mesche, I. (2026b). MTDF Companion Paper Part I: Environmental and Local Phenomenology. MTDF\_02.
+
+Mesche, I. (2026c). MTDF Companion Paper Part II: Gravity Sector and Lensing Validation. MTDF\_03.
+
+Mesche, I. (2026d). MTDF Companion Paper Part III: Photon Coupling, Redshift, Early Universe. MTDF\_04.
+
+Mesche, I. (2026e). MTDF Independent GPU Validation: Phases 1-6. MTDF\_07.
+
+Millon, M. et al. (2020). TDCOSMO I. An exploration of systematic uncertainties in the inference of H\(_{0}\) from time-delay cosmography. \emph{A\&A} , 639, A101. doi:10.1051/0004-6361/201937351
+
+Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. \emph{A\&A} , 641, A6. doi:10.1051/0004-6361/201833910
+
+Tully, R. B. et al. (2023). Cosmicflows-4. \emph{ApJ} , 944, 94. doi:10.3847/1538-4357/ac94d8
+
+Wong, K. C. et al. (2020). H0LiCOW XIII. A 2.4\% measurement of H\(_{0}\) from lensed quasars. \emph{MNRAS} , 498, 1420. doi:10.1093/mnras/stz3094
+
+
+MTDF\_08: Multi-Probe Evidence for an Environment-Dependent Cosmological Transition at
+\emph{z} < 0.04 | Ingo Mesche | April 2026
+\\Reference: MTDF\_01-07 • Pantheon+ • DESI DESIVAST • Cosmicflows-4 • 2MTF • Planck PR4 • MDPL2
+
+\end{document}

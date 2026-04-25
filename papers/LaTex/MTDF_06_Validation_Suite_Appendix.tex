@@ -1,0 +1,331 @@
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array,longtable,adjustbox}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{newunicodechar}
+% Unicode mappings for PDFLaTeX/arXiv-safe compilation.
+\newunicodechar{á}{\'a}
+\newunicodechar{ł}{l}
+\newunicodechar{ś}{s}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{ν}{\ensuremath{\nu}}
+\newunicodechar{ξ}{\ensuremath{\xi}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{θ}{\ensuremath{\theta}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{∆}{\ensuremath{\Delta}}
+\newunicodechar{Λ}{\ensuremath{\Lambda}}
+\newunicodechar{Φ}{\ensuremath{\Phi}}
+\newunicodechar{Ψ}{\ensuremath{\Psi}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{Γ}{\ensuremath{\Gamma}}
+\newunicodechar{“}{``}
+\newunicodechar{”}{''}
+\newunicodechar{‘}{`}
+\newunicodechar{’}{'}
+\newunicodechar{–}{--}
+\newunicodechar{—}{--}
+\newunicodechar{ }{\,}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≪}{\ensuremath{\ll}}
+
+\newunicodechar{≲}{\ensuremath{\lesssim}}
+\newunicodechar{≳}{\ensuremath{\gtrsim}}
+\newunicodechar{≫}{\ensuremath{\gg}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{☉}{\ensuremath{\odot}}
+\newunicodechar{‖}{\ensuremath{\|}}
+\newunicodechar{ⁱ}{\ensuremath{^{i}}}
+\newunicodechar{ʲ}{\ensuremath{^{j}}}
+\newunicodechar{ᵏ}{\ensuremath{^{k}}}
+\newunicodechar{ᶻ}{\ensuremath{^{z}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{⁺}{\ensuremath{^{+}}}
+\newunicodechar{⁰}{\ensuremath{^{0}}}
+\newunicodechar{¹}{\ensuremath{^{1}}}
+\newunicodechar{²}{\ensuremath{^{2}}}
+\newunicodechar{³}{\ensuremath{^{3}}}
+\newunicodechar{⁴}{\ensuremath{^{4}}}
+\newunicodechar{⁵}{\ensuremath{^{5}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{⁷}{\ensuremath{^{7}}}
+\newunicodechar{⁸}{\ensuremath{^{8}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₃}{\ensuremath{_{3}}}
+\newunicodechar{₄}{\ensuremath{_{4}}}
+\newunicodechar{₅}{\ensuremath{_{5}}}
+\newunicodechar{₆}{\ensuremath{_{6}}}
+\newunicodechar{₇}{\ensuremath{_{7}}}
+\newunicodechar{₈}{\ensuremath{_{8}}}
+\newunicodechar{₉}{\ensuremath{_{9}}}
+\newunicodechar{ₜ}{\ensuremath{_{t}}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{√}{\ensuremath{\sqrt{}}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{†}{\ensuremath{\dagger}}
+\newunicodechar{ⱼ}{\ensuremath{_{j}}}
+\newunicodechar{ₖ}{\ensuremath{_{k}}}
+\newunicodechar{ₗ}{\ensuremath{_{l}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlist{itemsep=2pt, topsep=4pt, parsep=0pt}
+\emergencystretch=3em
+\sloppy
+
+\newcommand{\tablecaptiontext}[1]{\begin{center}\small\itshape #1\end{center}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\doi}[1]{\texttt{#1}}
+\newcommand{\href}[2]{#2}
+\newcommand{\url}[1]{\texttt{#1}}
+
+\newenvironment{abstractbox}{%
+  \begin{framed}\small
+}{%
+  \end{framed}
+}
+
+\newenvironment{calloutbox}{%
+  \begin{leftbar}\small
+}{%
+  \end{leftbar}
+}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries MTDF Validation Suite Appendix: Reproducibility Index and Test Outcomes\par}
+\vspace{0.25em}
+{\small \par}
+\vspace{0.75em}
+\hrule\vspace{0.5em}
+{\small Author: Ingo Mesche \quad Affiliation: Independent Researcher, Malta \quad Contact: imesche@outlook.com \quad Version: V74 / February 2026\par}
+\vspace{0.5em}\hrule
+\end{center}
+
+\begin{abstractbox}
+\textbf{Abstract.}  This appendix consolidates the reproducibility index, test scripts, and summary diagnostics for the MTDF validation suite. It provides the complete inventory of tests referenced across the companion papers (MTDF\_01 through MTDF\_08), including script locations, input data, and pass/fail outcomes under the V18 strict protocol.
+\end{abstractbox}
+\tableofcontents\clearpage
+Shared appendix referenced by MTDF Companion Papers Parts I to IV. Updated for Validation\_Dashboard\_V74.html.
+
+
+\begin{calloutbox}
+\textbf{Claim status.} 
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{calloutbox}
+
+
+\section*{Purpose and how to use this appendix}
+\addcontentsline{toc}{section}{Purpose and how to use this appendix}
+
+This appendix consolidates the reproducibility index and quick-look outcomes for the test scripts used across the MTDF companion papers.
+  The intent is simple: keep the core papers readable, while keeping the test inventory, scripts, and summary diagnostics in one stable place.
+
+
+Files referenced here:
+
+
+\begin{itemize}
+\item Companion Part I: Environmental and local evidence
+\item Companion Part II: Gravity sector and lensing validation (\href{MTDF\_03\_Companion\_Part\_II\_Gravity\_Sector\_and\_Lensing\_Validation.html}{MTDF\_03})
+\item Companion Part III: Photon coupling, redshift, and early universe links
+\item Companion Part IV: Cosmological validation and high-energy test programme
+\item Interactive dashboard: \href{Validation\_Dashboard\_V74.html}{Validation\_Dashboard\_V74.html}
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Scope note:} This appendix is a reproducibility index. It does not change the evidential status of any result. Claim status is defined in the corresponding main or companion paper. This appendix records scripts and diagnostics. Statistical weight remains with the distance-calibrated observables and the calibration versus validation separation defined in the dashboard workflow.
+\end{calloutbox}
+
+
+\section*{1. Test index and reproducibility}
+\addcontentsline{toc}{section}{1. Test index and reproducibility}
+
+This appendix records the scripts used to generate the figures and summary diagnostics for Parts I to IV of the broader MTDF validation effort.
+The SN Ia × void result is treated as primary evidence in Companion Part I. The remaining tests are included as constraints, consistency checks, and forward-looking discriminants across Parts II and III.
+
+
+\subsection*{1.1 Script index by paper component}
+\addcontentsline{toc}{subsection}{1.1 Script index by paper component}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Paper component} & \textbf{Test} & \textbf{Script} & \textbf{Role} \\
+\hline
+Part I (environment and independent distances) & SN Ia × void analysis & sn\_\allowbreak{}void\_\allowbreak{}*.py & Primary evidence for an environment-dependent distance-calibrated residual. \\
+\hline
+Part III (photon coupling κ) \emph{[speculative]} & Zero-velocity shell & mtdf\_\allowbreak{}zero\_\allowbreak{}velocity\_\allowbreak{}shell\_\allowbreak{}test.py & Null and pipeline integrity check. \\
+\hline
+Lensed image Δz & mtdf\_\allowbreak{}lensing\_\allowbreak{}redshift\_\allowbreak{}split\_\allowbreak{}test.py & Path-dependence test using multiple lensed images of the same source. &   \\
+\hline
+Achromaticity & mtdf\_\allowbreak{}achromaticity\_\allowbreak{}test.py & Wavelength independence requirement for any stress-induced redshift. &   \\
+\hline
+Dipole mismatch & mtdf\_\allowbreak{}dipole\_\allowbreak{}mismatch\_\allowbreak{}test.py & Checks whether a stress-induced dipole can contribute to the quasar dipole anomaly. &   \\
+\hline
+Dipole alignment & mtdf\_\allowbreak{}dipole\_\allowbreak{}vector\_\allowbreak{}alignment.py & Directional consistency check between excess dipole and density gradient. &   \\
+\hline
+Distance duality & mtdf\_\allowbreak{}distance\_\allowbreak{}duality\_\allowbreak{}test.py & Etherington relation and potential environment split. &   \\
+\hline
+Sandage-Loeb drift & mtdf\_\allowbreak{}sandage\_\allowbreak{}loeb\_\allowbreak{}drift\_\allowbreak{}test.py & Long-baseline, future definitive test of evolving redshift physics. &   \\
+\hline
+Synthesis plot & mtdf\_\allowbreak{}synthesis\_\allowbreak{}plot.py & Conceptual summary figure linking multiple anomalies to the same scaling law. &   \\
+\hline
+Part IV (cosmological and lensing) & S8 tension and growth & mtdf\_\allowbreak{}growth\_\allowbreak{}S8\_\allowbreak{}analysis.py & Large-scale structure growth consistency. \\
+\hline
+BAO void split & mtdf\_\allowbreak{}bao\_\allowbreak{}void\_\allowbreak{}split\_\allowbreak{}test.py & Environment split for BAO-scale observables. &   \\
+\hline
+GW standard sirens & mtdf\_\allowbreak{}gw\_\allowbreak{}siren\_\allowbreak{}test.py & Independent distance ladder cross-check using gravitational waves. &   \\
+\hline
+Lensing versus RSD (E\(_{G}\)) & mtdf\_\allowbreak{}lensing\_\allowbreak{}rsd\_\allowbreak{}test.py & Modified-gravity consistency test, not a direct probe of photon coupling. &   \\
+\hline
+Cluster mass MDR & mtdf\_\allowbreak{}cluster\_\allowbreak{}mass\_\allowbreak{}discrepancy\_\allowbreak{}test.py & Compares dynamical and lensing mass proxies in clusters. &   \\
+\hline
+AP void shape & mtdf\_\allowbreak{}ap\_\allowbreak{}void\_\allowbreak{}test.py & Alcock-Paczynski void geometry constraint. &   \\
+\hline
+Part II (gravity sector and lensing) & Strong lensing time delays & step20\_\allowbreak{}strong\_\allowbreak{}lensing.py & Time-delay distance consistency check under eta = 1. \\
+\hline
+Elliptical galaxy dispersions & step22\_\allowbreak{}elliptical\_\allowbreak{}dispersions.py & Pressure-supported system check (SLACS-style). &   \\
+\hline
+Satellite kinematics & step22b\_\allowbreak{}satellite\_\allowbreak{}kinematics.py & Digitised and table-based comparison (More+2011 style) with robustness notes. &   \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\subsection*{1.2 Outcome snapshot}
+\addcontentsline{toc}{subsection}{1.2 Outcome snapshot}
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Script} & \textbf{Headline outcome} & \textbf{Interpretation at current sensitivity} \\
+\hline
+mtdf\_\allowbreak{}zero\_\allowbreak{}velocity\_\allowbreak{}shell\_\allowbreak{}test.py & Consistent & No significant artifact detected in a designed null scenario. \\
+\hline
+mtdf\_\allowbreak{}distance\_\allowbreak{}duality\_\allowbreak{}test.py & Consistent & No significant violation of η = 1 at current precision; environment split remains a future target. \\
+\hline
+mtdf\_\allowbreak{}lensing\_\allowbreak{}redshift\_\allowbreak{}split\_\allowbreak{}test.py & Consistent & No significant Δz between multiple lensed images; current spectroscopy is above the κ ≲ 10\(^{-3}\) signal level. \\
+\hline
+mtdf\_\allowbreak{}achromaticity\_\allowbreak{}test.py & Consistent at current precision & No evidence for chromatic redshift; any measured offsets are likely systematics at the present 10\(^{-5}\) level. \\
+\hline
+mtdf\_\allowbreak{}dipole\_\allowbreak{}mismatch\_\allowbreak{}test.py & Suggestive (partial amplitude) & At κ ≈ 0.001, MTDF reproduces the correct sign and roughly 42\% of the reported quasar dipole excess amplitude. \\
+\hline
+mtdf\_\allowbreak{}dipole\_\allowbreak{}vector\_\allowbreak{}alignment.py & Moderate directional agreement & Alignment is not tight enough to be a strong constraint, but it remains informative for future catalogues. \\
+\hline
+mtdf\_\allowbreak{}sandage\_\allowbreak{}loeb\_\allowbreak{}drift\_\allowbreak{}test.py & Future-only & Predicted environment split in ż is far below current detection limits for the derived κ value (f\(_{\mathrm{kick}}\)/3). \\
+\hline
+mtdf\_\allowbreak{}synthesis\_\allowbreak{}plot.py & Key synthesis figure & Heuristic summary connecting multiple anomalies across environments. It is not, by itself, a measurement of κ. \\
+\hline
+mtdf\_\allowbreak{}lensing\_\allowbreak{}rsd\_\allowbreak{}test.py & Consistent & E\(_{G}\) data are broadly consistent with GR at current precision; not a direct κ probe. \\
+\hline
+mtdf\_\allowbreak{}cluster\_\allowbreak{}mass\_\allowbreak{}discrepancy\_\allowbreak{}test.py & Interesting signal (MDR ≈ 1.14) & Potential dynamical versus lensing mass tension; interpretation depends on mass calibration and baryonic systematics. \\
+\hline
+mtdf\_\allowbreak{}ap\_\allowbreak{}void\_\allowbreak{}test.py & Consistent & Void shape residuals consistent with zero after RSD correction; κ effects are below current precision. \\
+\hline
+mtdf\_\allowbreak{}growth\_\allowbreak{}S8\_\allowbreak{}analysis.py & See Part IV & Growth and S8 analyses are treated in the cosmological validation component. \\
+\hline
+mtdf\_\allowbreak{}bao\_\allowbreak{}void\_\allowbreak{}split\_\allowbreak{}test.py & See Part IV & BAO environment splits are treated as cosmological geometry constraints. \\
+\hline
+mtdf\_\allowbreak{}gw\_\allowbreak{}siren\_\allowbreak{}test.py & See Part IV & GW sirens provide an independent distance check in the cosmological component. \\
+\hline
+step20\_\allowbreak{}strong\_\allowbreak{}lensing.py & See Part II & Time-delay distance chi\textasciicircum{}2/nu = 0.77; isothermal slope gamma = 2.000 (structural prediction). See gravity-sector companion. \\
+\hline
+step22\_\allowbreak{}elliptical\_\allowbreak{}dispersions.py & See Part II & Mean velocity dispersion bias -1.4\%; chi\textasciicircum{}2/nu = 1.81 (gas-corrected). See gravity-sector companion. \\
+\hline
+step22b\_\allowbreak{}satellite\_\allowbreak{}kinematics.py & See Part II & More+2011 amplitude test: mean |bias| 6.3\%; profile chi\textasciicircum{}2/nu = 3.60 (best nuisance). See gravity-sector companion. \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\subsection*{1.3 Synthesis figure}
+\addcontentsline{toc}{subsection}{1.3 Synthesis figure}
+
+Figure A.1 provides a compact visual summary that places three anomalies on a single stress-scaling trend.
+This figure is intended as a high-level synthesis and motivates a unified search strategy. It should not be interpreted as a standalone parameter inference for κ.
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{figures/mtdf_synthesis_plot.png}
+\caption*{\textbf{Figure A.1.}  The stress-redshift main sequence synthesis plot (generated by mtdf\_synthesis\_plot.py).}
+\label{fig}
+\end{figure}
+
+
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_mtdf}), the V18 strict validation workbook, the
+\texttt{run\_validate.py} pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/zenodo.19741058};
+this release, \texttt{v1.1.3}, DOI
+\href{https://doi.org/10.5281/zenodo.19767336}{10.5281/zenodo.19767336})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/IMesche/MTDF}.
+The \texttt{v1.1.3} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level \texttt{README.md}.
+
+
+MTDF Validation Suite Appendix (V74) | Ingo Mesche | April 2026
+
+\end{document}

@@ -302,6 +302,16 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <p>The constitutive power n = 2, Freeman's disk scaling law (\(R_d \propto M^{1/2}\)), and the BTFR exponent 1/4 form a self-consistent triple: perturbing any one breaks the other two.</p>
 
+<p><strong>BTFR slope vs normalisation.</strong> The MTDF prediction here is rigid for the <em>slope</em> of the BTFR: the n = 2 constitutive law uniquely selects v<sup>4</sup> ∝ M<sub>b</sub> from the screened matching condition above. The <em>normalisation</em> A<sub>BTFR</sub> is consumed as an external calibration anchor in the gravity-sector predictions below (single global value from McGaugh+2012, not fitted to lensing or halo-scale data) rather than predicted from first principles. The discriminating MTDF claim in this gravity sector is the slope and the per-galaxy compression mechanism, not a precision normalisation.</p>
+
+<p><strong>Quantitative justification of the 0.5 dex pass threshold for the BTFR-normalisation diagnostic.</strong> The threshold is chosen to match the documented systematic floor on baryonic-mass estimates at population level, not as a soft science target. The dominant per-galaxy contributions are:
+<ul>
+<li>Stellar mass-to-light ratio in the K / 3.6 μm band (the SPARC anchor): σ<sub>M/L</sub> ≈ 0.10 dex, based on Schombert &amp; McGaugh (2014), Lelli et al. (2016, ApJ 152, 157), and the population-synthesis models compiled in McGaugh &amp; Schombert (2015) and updated in Schombert, McGaugh &amp; Lelli (2022, AJ 163, 154).</li>
+<li>HI gas-fraction estimates (the dominant baryonic correction at low M<sub>*</sub>): σ<sub>gas</sub> ≈ 0.30 dex per galaxy, based on the GASS scaling-relation residuals of Catinella et al. (2010, MNRAS 403, 683) and Catinella et al. (2013, MNRAS 436, 34).</li>
+<li>Distance-ladder uncertainty propagating into M<sub>b</sub>: σ<sub>d</sub> ≈ 0.05 dex for SPARC and the McGaugh+2012 BTFR sample.</li>
+</ul>
+Quadrature sum of these three contributions gives a per-galaxy systematic floor of ≈ 0.32 dex. At population level the floor does not average down, because the dominant terms (M/L choice, gas-mass prescription, ICL inclusion) are systematic rather than statistical: switching to a different but equally defensible baryon-accounting prescription shifts the inferred BTFR normalisation by 0.2–0.4 dex across the literature. As an independent comparison from cosmological hydrodynamical simulations, the BTFR normalisation predicted by ΛCDM + galaxy-formation simulations varies by ≈ 0.2–0.5 dex between feedback prescriptions: the EAGLE suite gives a slope of 3.0 with intrinsic scatter ≈ 0.18 dex, while IllustrisTNG gives a slope of ≈ 3.65 with a different normalisation, and the FIRE-2 suite differs again from both. The 0.5 dex MTDF pass threshold therefore brackets both (i) the per-galaxy and population-level baryon-accounting systematic floor (≈ 0.3–0.4 dex) and (ii) the model-dependence of ΛCDM + feedback normalisation predictions (≈ 0.3–0.5 dex). The MTDF result of +0.32 dex offset from McGaugh+2012 lies inside this systematic floor; an independent tight normalisation test would require an analysis with baryonic content constrained to &lt; 0.05 dex per galaxy, which is not claimed here.</p>
+
 <h3>2.4 Lensing prediction</h3>
 
 <p>The locally stored elastic energy above the cosmological background is:</p>
@@ -815,11 +825,11 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.2</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+this release, <code>v1.1.3</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>

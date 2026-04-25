@@ -8,6 +8,122 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
+## [v1.1.3] (2026-04-25)
+
+Release scope: clean rebuild of the LaTeX paper suite from improved HTML-to-LaTeX
+conversion, plus additional supporting material covering data-reduction
+transparency, an empirical calibration table for the EFE sound-horizon
+sensitivity coefficient, and a quantitative justification of the
+BTFR-normalisation pass threshold. Numerical scientific results unchanged
+from v1.1.2.
+
+Reserved Zenodo v1.1.3 DOI: 10.5281/zenodo.19767336 under concept DOI
+10.5281/zenodo.19741058.
+
+LaTeX paper suite
+
+- All 11 LaTeX paper sources in `papers/LaTex/` were rebuilt from scratch using
+  an improved HTML-to-LaTeX conversion pipeline. The v1.1.2 LaTeX sources had
+  carried over conversion errors from an earlier export (latent character-set
+  drift, broken table layouts in the long companion papers, mis-tracked
+  cross-references) that propagated into the v1.1.2 PDFs and the arXiv zips.
+  v1.1.3 ships fully regenerated LaTeX where the HTML is the canonical source
+  of truth.
+- Source files renamed from short numeric identifiers (`MTDF_01.tex`,
+  `MTDF_02.tex`, ...) to long descriptive names
+  (`MTDF_01_The_Mesche_Hypothesis.tex`,
+  `MTDF_02_Companion_Part_I_Environmental_and_Local.tex`, ...) so an arXiv
+  reviewer or downstream reader can identify each paper from the filename
+  alone.
+- The combined-paper-suite document is now provided as a single curated
+  artefact `papers/PDF_from_Tex/MTDF_Combined_Paper_Suite_with_Global_Glossary.pdf`,
+  replacing the earlier `MTDF_00_Master_Compilation.tex/pdf` pair. The
+  combined PDF includes a global glossary across all eight companion papers.
+- All 11 PDFs in `papers/PDF_from_Tex/` were regenerated from the new clean
+  LaTeX. All 8 `papers/arxiv_zips/*_arxiv.zip` were repacked from the new
+  LaTeX, including the missing `figures/sn_void_summary_figure.png` that the
+  v1.1.2 `MTDF_02_arxiv.zip` had failed to bundle.
+
+Additional supporting material (HTML and LaTeX)
+
+- A "Status of derived constants" paragraph was added in MTDF_01 making
+  explicit that (i) the geometric factor 1/24 in f_kick = lambda_MTDF / 24 is
+  derived (cross-referenced to the geometric breakdown in the short summary
+  paper) and (ii) the sound-horizon sensitivity coefficient
+  K_RS,EFE = -0.215 is an empirical numerical fit calibrated by perturbing
+  the EFE amplitude in the class_mtdf solver, not a closed-form derivation.
+- A new empirical-calibration table in MTDF_01 tabulates a 9-point class_mtdf
+  scan over k_f in [0, 0.125, 0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0]
+  (effectively f_kick from 0 to 3 x the V18 best-fit value), reading the
+  comoving sound horizon at recombination from each run. A linear fit through
+  the origin gives K_RS,EFE = -0.222 at recombination and -0.218 at the
+  baryon-drag epoch (RMS residual 4.6 x 10^-7), agreeing with the V18 quoted
+  value of -0.215 within 3 % and confirming linearity over a 30 x range.
+- The MTDF_05 Section 4.3 paragraph on the Planck CMB compressed distance
+  prior was expanded to state explicitly that the diagnostic value
+  chi^2/nu = 198.44 is expected and not anomalous: the compressed prior
+  fixes shape parameters under a LCDM template and is structurally biased
+  away from theories that modify either early-universe geometry or
+  late-time growth, even when the full multipole spectra agree well. The
+  honest CMB test is the full Planck plik TTTEEE + lowl + lensing Phase 5
+  comparison reported in MTDF_07, which gives Delta chi^2 = +0.63 with
+  k_f = 1 inside the 95 % credible interval. A mirror inline note was added
+  next to the chi^2/nu = 198.44 row in the MTDF_07 chi^2 breakdown table.
+- The BTFR-normalisation 0.5 dex pass threshold was justified
+  quantitatively. The MTDF_03 gravity-sector paper now distinguishes the
+  BTFR slope (rigid first-principles prediction from the n = 2 constitutive
+  law uniquely selected by the screened matching condition) from the BTFR
+  normalisation (consumed as an external calibration anchor from
+  McGaugh+2012). A new paragraph cites the per-galaxy systematic floor on
+  baryonic-mass estimates: sigma_M/L approximately 0.10 dex from the SPARC
+  K / 3.6 micron stellar M/L (Schombert and McGaugh 2014; Schombert,
+  McGaugh and Lelli 2022), sigma_gas approximately 0.30 dex from HI gas
+  fractions (Catinella et al. 2010, 2013 GASS scaling relations),
+  sigma_d approximately 0.05 dex from distance-ladder propagation,
+  summing in quadrature to approximately 0.32 dex. Population-level shifts
+  from baryon-accounting choice add another 0.2 to 0.4 dex, and LCDM +
+  galaxy-formation simulations themselves differ in BTFR normalisation by
+  approximately 0.2 to 0.5 dex between feedback prescriptions (EAGLE slope
+  3.0, IllustrisTNG approximately 3.65, FIRE-2 different again). The 0.5
+  dex MTDF threshold therefore brackets all three independent estimates,
+  not a soft science target. The MTDF_short paper carries a condensed
+  version of the same justification.
+
+HTML cross-reference repairs
+
+- Seven broken inter-paper HTML links were fixed:
+  - `href="MTDF_Validation_Suite_Appendix.html"` (referenced from MTDF_02
+    and MTDF_04, total 3 occurrences) repointed to the canonical
+    `MTDF_06_Validation_Suite_Appendix.html`.
+  - `href="Validation_Dashboard_V74.html"` (referenced from MTDF_02,
+    MTDF_04, MTDF_05, MTDF_06, total 4 occurrences) repointed to the
+    correct relative path
+    `../../validation/output/Validation_Dashboard_V74.html`, where the
+    dashboard actually lives in the repository tree.
+- MTDF_02 figure reference fixed: the page previously linked to
+  `sn_void_summary_figure.pdf` (no path prefix, wrong extension) inside a
+  callout and an `<object>` PDF embed. Both replaced with a proper
+  `<figure>` + `<img src="../figures/sn_void_summary_figure.png">` +
+  `<figcaption>` block matching the pattern used in MTDF_03, MTDF_08, and
+  the short summary.
+
+Repository metadata
+
+- `CITATION.cff`: version bumped 1.1.2 to 1.1.3, top-level `doi` repointed
+  to 10.5281/zenodo.19767336, `date-released` set to 2026-04-25. The
+  `identifiers` list now enumerates the concept DOI, the v1.1.3 version
+  DOI, the v1.1.2 prior-version DOI, and the v1.1.1 prior-version DOI.
+- `README.md`: top-level summary table now shows Release v1.1.3, the
+  concept DOI, and the v1.1.3 version DOI.
+- All 10 HTML files in `papers/HTML/` and all 11 LaTeX files in
+  `papers/LaTex/` carry the updated v1.1.3 / 19767336 references in the
+  Data and code availability paragraph.
+
+No numerical scientific results changed in this release. The CHANGELOG
+previously documented v1.1.2 as a metadata-only DOI integration; v1.1.3
+adds a clean LaTeX rebuild and the additional supporting material described
+above on top of that, again without touching any numerical claim.
+
 ## [v1.1.2] (2026-04-24)
 
 Release scope: Zenodo DOI integration, archival-linkage metadata only. No

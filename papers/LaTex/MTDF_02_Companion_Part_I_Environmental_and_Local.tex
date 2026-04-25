@@ -1,0 +1,829 @@
+
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=2.54cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,tabularx,array,longtable,adjustbox}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{framed}
+\usepackage{newunicodechar}
+% Unicode mappings for PDFLaTeX/arXiv-safe compilation.
+\newunicodechar{á}{\'a}
+\newunicodechar{ł}{l}
+\newunicodechar{ś}{s}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{β}{\ensuremath{\beta}}
+\newunicodechar{γ}{\ensuremath{\gamma}}
+\newunicodechar{δ}{\ensuremath{\delta}}
+\newunicodechar{η}{\ensuremath{\eta}}
+\newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{ν}{\ensuremath{\nu}}
+\newunicodechar{ξ}{\ensuremath{\xi}}
+\newunicodechar{π}{\ensuremath{\pi}}
+\newunicodechar{ρ}{\ensuremath{\rho}}
+\newunicodechar{σ}{\ensuremath{\sigma}}
+\newunicodechar{τ}{\ensuremath{\tau}}
+\newunicodechar{χ}{\ensuremath{\chi}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{Δ}{\ensuremath{\Delta}}
+\newunicodechar{∆}{\ensuremath{\Delta}}
+\newunicodechar{Λ}{\ensuremath{\Lambda}}
+\newunicodechar{Φ}{\ensuremath{\Phi}}
+\newunicodechar{Ω}{\ensuremath{\Omega}}
+\newunicodechar{Γ}{\ensuremath{\Gamma}}
+\newunicodechar{“}{``}
+\newunicodechar{”}{''}
+\newunicodechar{‘}{`}
+\newunicodechar{’}{'}
+\newunicodechar{–}{--}
+\newunicodechar{—}{--}
+\newunicodechar{ }{\,}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{≃}{\ensuremath{\simeq}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{≪}{\ensuremath{\ll}}
+\newunicodechar{≫}{\ensuremath{\gg}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{→}{\ensuremath{\to}}
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{☉}{\ensuremath{\odot}}
+\newunicodechar{‖}{\ensuremath{\|}}
+\newunicodechar{ⁱ}{\ensuremath{^{i}}}
+\newunicodechar{ʲ}{\ensuremath{^{j}}}
+\newunicodechar{ᵏ}{\ensuremath{^{k}}}
+\newunicodechar{ᶻ}{\ensuremath{^{z}}}
+\newunicodechar{⁻}{\ensuremath{^{-}}}
+\newunicodechar{⁺}{\ensuremath{^{+}}}
+\newunicodechar{⁰}{\ensuremath{^{0}}}
+\newunicodechar{¹}{\ensuremath{^{1}}}
+\newunicodechar{²}{\ensuremath{^{2}}}
+\newunicodechar{³}{\ensuremath{^{3}}}
+\newunicodechar{⁴}{\ensuremath{^{4}}}
+\newunicodechar{⁵}{\ensuremath{^{5}}}
+\newunicodechar{⁶}{\ensuremath{^{6}}}
+\newunicodechar{⁷}{\ensuremath{^{7}}}
+\newunicodechar{⁸}{\ensuremath{^{8}}}
+\newunicodechar{⁹}{\ensuremath{^{9}}}
+\newunicodechar{₀}{\ensuremath{_{0}}}
+\newunicodechar{₁}{\ensuremath{_{1}}}
+\newunicodechar{₂}{\ensuremath{_{2}}}
+\newunicodechar{₃}{\ensuremath{_{3}}}
+\newunicodechar{₄}{\ensuremath{_{4}}}
+\newunicodechar{₅}{\ensuremath{_{5}}}
+\newunicodechar{₆}{\ensuremath{_{6}}}
+\newunicodechar{₇}{\ensuremath{_{7}}}
+\newunicodechar{₈}{\ensuremath{_{8}}}
+\newunicodechar{₉}{\ensuremath{_{9}}}
+\newunicodechar{ₜ}{\ensuremath{_{t}}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{√}{\ensuremath{\sqrt{\,}}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{§}{\S}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{ⱼ}{\ensuremath{_{j}}}
+\newunicodechar{ₖ}{\ensuremath{_{k}}}
+\newunicodechar{ₗ}{\ensuremath{_{l}}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlist{itemsep=2pt, topsep=4pt, parsep=0pt}
+\emergencystretch=3em
+\sloppy
+
+\newcommand{\tablecaptiontext}[1]{\begin{center}\small\itshape #1\end{center}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\doi}[1]{\texttt{#1}}
+\newcommand{\href}[2]{#2}
+\newcommand{\url}[1]{\texttt{#1}}
+
+\newenvironment{abstractbox}{%
+  \begin{framed}\small
+}{%
+  \end{framed}
+}
+
+\newenvironment{calloutbox}{%
+  \begin{leftbar}\small
+}{%
+  \end{leftbar}
+}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries MTDF Companion Paper Part I: Environmental and Local Phenomenology\par}
+\vspace{0.25em}
+{\small Extensions, hypotheses, and test programmes (draft for release)\par}
+\vspace{0.75em}
+\hrule\vspace{0.5em}
+{\small Author: Ingo Mesche \quad Affiliation: Independent Researcher, Malta \quad Contact: imesche@outlook.com \quad Version: V74 / February 2026\par}
+\vspace{0.5em}\hrule
+\end{center}
+
+\begin{abstractbox}
+\textbf{Abstract.}  This companion paper (Part I) presents the environmental and local modulation phenomenology of MTDF. Starting from the observation that many astrophysical relations depend on large-scale environment, we derive MTDF predictions for environment-dependent effective dynamics, the local Hubble expansion enhancement via void stress depletion, and the resulting scale factor S\(_{0}\) = 1.084 that maps the Planck-calibrated global H\(_{0}\) to local distance-ladder measurements. Each extension is clearly labelled as hypothesis or validated result, with explicit falsification criteria. All tests use the frozen parameter set \{α, β, τ\} established in the master paper (MTDF\_01).
+\end{abstractbox}
+\tableofcontents\clearpage
+
+\begin{calloutbox}
+\textbf{Claim status.} 
+This paper distinguishes between:
+(i) calibration anchors,
+(ii) validation targets,
+(iii) diagnostic consistency checks, and
+(iv) speculative extensions.
+Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+\end{calloutbox}
+
+
+\section*{1. Purpose and scope}
+\addcontentsline{toc}{section}{1. Purpose and scope}
+
+This companion series collects extension material and phenomenology that is intentionally kept out of the master paper to protect the clarity of the core theory claims.
+Here the focus is on an observation led narrative: we start from an empirical regularity or anomaly, state the MTDF mechanism that could account for it, and list tests that could confirm or falsify the proposed link.
+
+
+\begin{calloutbox}
+\textbf{Reading guide:} If a subsection is labelled as “Hypothesis”, treat it as a proposed extension rather than a validated result. Where possible, the tests are framed so that a null outcome is genuinely informative.
+\end{calloutbox}
+
+
+\section*{2. Environmental and local modulation}
+\addcontentsline{toc}{section}{2. Environmental and local modulation}
+
+Across astrophysics, many relations are not only functions of mass or radius but also of environment: voids versus filaments, isolation versus group membership, and baryon distribution differences. In MTDF, that is not an extra complication. It is a natural consequence of a stress field with finite coherence scale and relaxation dynamics.
+
+
+\subsection*{2.1 Environment dependent effective dynamics}
+\addcontentsline{toc}{subsection}{2.1 Environment dependent effective dynamics}
+
+
+\begin{calloutbox}
+\textbf{Status:} Extension. Consistent with the core field picture, but not a validated pillar on its own in the master paper.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Galaxy scaling relations show measurable scatter that correlates with environment, and structure growth differs between void and filament regions. In standard approaches this is often attributed to halo assembly history, feedback, and selection effects.
+
+
+\subsubsection*{MTDF mechanism}
+
+In MTDF, baryonic structure sources a stress response that superposes with a large scale background component. Because stress propagates with finite coherence length, the effective field experienced by a tracer is environment dependent, even at fixed baryonic mass distribution.
+
+
+\[F_{\mu\nu} = E\,\tilde{S}_{\mu\nu}\]
+\[u_{\mathrm{tensor}} = \frac{E}{2}\,\mathrm{Tr}\!\left(\tilde{S}_{\mu\nu}\tilde{S}^{\mu\nu}\right)\]
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item At fixed baryonic distribution, the inferred residual acceleration term should correlate with a local environment proxy (void depth, filament membership, or large scale density estimate).
+\item Scatter in galaxy scale relations should reduce when an environment term is included that is constructed from large scale structure observables rather than halo properties.
+\item The transition between regimes should occur near the same critical acceleration scale, but with a measurable environment dependent offset.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Perform matched samples of galaxies with similar baryonic profiles in different environments and compare residuals after standard baryonic modelling.
+\item Use void catalogues and filament finders from the same survey to build a purely geometric environment proxy and test for correlation with residuals.
+\item Test for redshift evolution of the environment term consistent with stress relaxation timescales.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Scope:} This subsection specifies testable implications and measurement targets for environment-dependent behaviour. It uses the same core parameter set and does not present a fitted result. It is provided to guide targeted analyses.
+\end{calloutbox}
+
+
+\subsection*{2.2 Relaxation and memory effects in local structure}
+\addcontentsline{toc}{subsection}{2.2 Relaxation and memory effects in local structure}
+
+
+\begin{calloutbox}
+\textbf{Status:} Hypothesis. A time domain extension of the relaxation picture.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Some astrophysical systems show signs of hysteresis or delayed response: star formation histories, transient structure growth, and environment dependent offsets that appear larger than simple instantaneous models would suggest.
+
+
+\subsubsection*{MTDF mechanism}
+
+If the stress field relaxes on cosmological timescales, then the local stress configuration can encode a form of memory of past structure formation. In that case, observables may depend not only on the present baryonic configuration but on recent assembly history and relaxation state.
+
+
+\[\frac{\partial^2 \phi}{\partial t^2} - c^2\nabla^2\phi + \gamma\,\frac{\partial \phi}{\partial t} = 8\pi G\rho\]
+\[\gamma \sim t_{\mathrm{cosmic}}^{-1}\]
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item Post merger systems should show enhanced residual signatures that decay with an observable timescale.
+\item Environmental correlations may differ between relaxed and unrelaxed populations, even at similar mass.
+\item A measurable phase lag could exist between baryonic structure growth and the inferred stress term in time domain probes.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Split samples by relaxation indicators (morphology, kinematic disturbance, merger classification) and test whether residuals differ systematically.
+\item Use simulation based assembly metrics as a label and search for correlations in the data, while keeping the model side purely geometric to avoid circularity.
+\item If the stress field induces a time dependent component, it should leave signatures in transient lensing and structure growth statistics.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Scope:} This subsection lists extension tests and explicit falsifiers. If an effect is absent at the stated level, the outcome constrains the extension without impacting the core field formulation.
+\end{calloutbox}
+
+
+\subsection*{2.3 Supernova residuals and local expansion in underdense environments}
+\addcontentsline{toc}{subsection}{2.3 Supernova residuals and local expansion in underdense environments}
+
+
+\begin{calloutbox}
+\textbf{Status:} Extension. This is a targeted environmental consequence of the stress relaxation picture. It is not claimed as a completed validation result in the master paper.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Local measurements of the expansion rate can vary depending on the line of sight and the large scale density environment sampled. 
+Type Ia supernova residuals and distance ladder steps are known to be sensitive to astrophysical systematics (dust, metallicity, population drift), 
+and standard analyses already test for environment correlations. The open question is whether there is an additional, explicitly large scale 
+environment term that is not reducible to host-galaxy physics alone.
+
+
+\subsubsection*{MTDF mechanism}
+
+If the stress field carries a finite coherence scale and relaxes on cosmological timescales, then large underdensities can sustain a different stress state 
+than high density regions. In MTDF language, void stress depletion shifts the effective background experienced by tracers inside or behind the void, 
+modifying inferred distances and expansion parameters by a small, environment dependent amount. This is not a replacement for expansion: it is a perturbative 
+environment term tied to the stress configuration.
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item \textbf{Environment correlated residuals:}  after controlling for host properties, supernova distance residuals should show a statistically measurable correlation with void depth or large scale density along the line of sight.
+\item \textbf{Distinct signature from astrophysical systematics:}  the correlation should track \emph{large scale}  environment proxies (void catalogues, filament membership, density reconstruction) more strongly than local host indicators, and should persist under cuts that equalise host populations.
+\item \textbf{Magnitude bound:}  any coherent environment term must remain compatible with observed residual scatter. As a practical bound, an effect much larger than a few hundredths of a magnitude across typical survey volumes would likely be in tension with current dispersion budgets, while an effect below the percent level in distance may require very large samples and careful forward modelling to detect.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Cross correlate supernova residuals with void catalogues and density reconstructions built from the same survey volume, using matched host-property subsamples and standard dust and population corrections.
+\item Run a null test in which void assignments are randomised (or lines of sight are shuffled) while preserving redshift and host distributions.
+\item Compare splits by environment at fixed redshift to separate a stress-linked effect from selection drift.
+\item Report explicit falsifiers: if residual-environment correlations vanish once large scale proxies are included (or if the sign flips with improved density reconstruction), the stress-environment extension is ruled out or requires revision.
+\end{itemize}
+
+
+\textbf{Note:}  This subsection is written in an observation-led style. The bullets state the hypothesised mechanism and expected order of magnitude. The analysis that follows then tests the claim using Pantheon+ supernovae and DESI void catalogues under full covariance and multiple robustness controls.
+
+
+\subsubsection*{Rigorous cross-match analysis using Pantheon+ and DESI void environments}
+
+
+\begin{calloutbox}
+\textbf{Status:} extension test. Evidence is assessed under a pre-declared GLS protocol (full Pantheon+ covariance) and strengthened by pre-registered low-z and robustness checks. Not part of the master paper validated core.
+\end{calloutbox}
+
+
+\subsubsection*{Method summary}
+
+We performed a generalised least squares (GLS) test of Pantheon+ Type Ia supernova distance modulus residuals against DESI DESIVAST void environments,
+using the full Pantheon+ STAT+SYS covariance matrix. The environment proxy is the continuous signed distance to the nearest void boundary,
+defined as \(d_{\mathrm{signed}} = (r_{\mathrm{SN}} - R_{\mathrm{void}})/R_{\mathrm{void}}\), where negative values lie inside the void.
+
+
+\begin{calloutbox}
+\textbf{Sign convention.} Throughout, \(d_{\mathrm{signed}} < 0\) means the supernova lies inside or nearer the void interior (\(r_{\mathrm{SN}} < R_{\mathrm{void}}\)), while \(d_{\mathrm{signed}} > 0\) means it lies outside the void boundary. Positive \(\gamma_{\mathrm{env}}\) therefore means that increasing \(d_{\mathrm{signed}}\) corresponds to larger residual modulus (\(\Delta\mu > 0\)) under this convention.
+\end{calloutbox}
+
+\[\mu_i = \mu_{\mathrm{base}}(z_i) + \alpha + \gamma_{\mathrm{env}}\, d_{\mathrm{signed}} + \gamma_M\,\mathrm{step}(\log M_* \ge 10) + \epsilon_i\]
+\[\Delta \chi^2 = \chi^2(\gamma_{\mathrm{env}} = 0) - \chi^2(\hat\gamma_{\mathrm{env}})\]
+
+The primary endpoint is \(\hat\gamma_{\mathrm{env}}\) and \(\Delta\chi^2\) for adding the environment term.
+To close baseline model dependence, we also include a flexible redshift baseline nuisance term in \(\mu_{\mathrm{base}}(z)\) (a low order polynomial in \(\log z\))
+and verify that \(\hat\gamma_{\mathrm{env}}\) is stable.
+
+
+\subsubsection*{Main GLS results}
+
+Generalised least squares (GLS) fit using the full Pantheon+ STAT+SYS covariance, restricted to
+0.02 < z ≤ 0.157 (n = 564). The environment variable is the signed distance to the nearest void
+boundary, d\(_{\mathrm{signed}}\) = (r\(_{\mathrm{SN}}\) - R\(_{\mathrm{void}}\))/R\(_{\mathrm{void}}\). Negative values indicate SNe inside voids.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Void catalogue} & \textbf{γ\(_{\mathrm{env}}\) (mag)} & \textbf{Δχ\(^{2}\)} & \textbf{p-value} & \textbf{Interpretation} \\
+\hline
+VoidFinder & +0.0030 ± 0.0018 & 2.91 & 0.088 & Marginal \\
+\hline
+REVOLVER & +0.0047 ± 0.0023 & 4.25 & 0.039 & Nominal p < 0.05 \\
+\hline
+VIDE & +0.0046 ± 0.0026 & 3.15 & 0.076 & Marginal \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 1.}  Combined-sample GLS environment coefficient (uncorrected p-values).}
+
+
+\begin{calloutbox}
+\textbf{Directionality:} All three void finders return positive γ
+\(_{\mathrm{env}}\). Under the sign convention above (d
+\(_{\mathrm{signed}}\)< 0 inside voids), this corresponds to SNe in or nearer voids appearing slightly
+\emph{brighter} than the baseline expectation, and SNe closer to walls/filaments appearing slightly dimmer, consistent with the MTDF stress-depletion picture of void interiors.
+\\\textbf{Baseline stability:} Adding a flexible z-baseline nuisance (polynomial in log(z)) shifts γ
+\(_{\mathrm{env}}\)by +0.0001 (less than 0.1σ), indicating the result is not an artefact of the fixed baseline model.
+\end{calloutbox}
+
+
+\subsubsection*{Footprint-based NGC and SGC splits}
+
+To address footprint and edge effects, we assign each SN to NGC or SGC using proper footprint membership:
+the region is taken from the void catalogue that contains the SN's nearest void. This avoids RA-proxy misassignment.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Void catalogue} & \multicolumn{3}{c|}{\textbf{NGC}} & \multicolumn{3}{c|}{\textbf{SGC}} \\
+\hline
+\textbf{n} & \textbf{γ\(_{\mathrm{env}}\) (mag)} & \textbf{p-value} & \textbf{n} & \textbf{γ\(_{\mathrm{env}}\) (mag)} & \textbf{p-value} &   \\
+\hline
+REVOLVER & 351 & +0.0103 ± 0.0038 & 0.0063 & 213 & -0.0012 ± 0.0034 & 0.732 \\
+\hline
+VIDE & 419 & +0.0111 ± 0.0040 & 0.0058 & 145 & -0.0004 ± 0.0038 & 0.921 \\
+\hline
+VoidFinder & 305 & +0.0044 ± 0.0040 & 0.277 & 259 & +0.0002 ± 0.0023 & 0.918 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 2.}  Footprint-based splits (uncorrected p-values). Combined-sample results remain the primary outcome; footprint splits are reported as a targeted robustness analysis.}
+
+
+\begin{calloutbox}
+\textbf{Interpretation:} The footprint-based splits reveal a stronger signal in the NGC footprint for two independent algorithms (REVOLVER and VIDE), while SGC is consistent with null across all three catalogues. This NGC/SGC asymmetry warrants further investigation (for example, void sampling differences, large-scale structure, or residual systematics). Even with p < 0.01 in NGC for two catalogues, this remains a subgroup analysis and should be interpreted alongside the combined-sample result in Table 1.
+\end{calloutbox}
+
+Important note: only 4 SNe lie strictly inside void boundaries in this low-z sample, so binary inside/outside tests have low power. Inference is mainly driven by the continuous signed-distance metric.
+
+
+\subsubsection*{Interpretation and robustness}
+
+\begin{itemize}
+\item \textbf{Consistent direction:}  all three independent void finders return \(\gamma_{\mathrm{env}} > 0\); under the sign convention above (\(d_{\mathrm{signed}} < 0\) inside voids), this corresponds to supernovae in or nearer voids appearing slightly \emph{brighter}  than the baseline expectation, with the opposite-sign shift for SNe closer to walls or filaments.
+\item \textbf{Baseline stability:}  adding the flexible redshift nuisance changes \(\hat\gamma_{\mathrm{env}}\) by far less than 1\(\sigma\), indicating the signal is not an artefact of the fixed baseline.
+\item \textbf{Host-mass control:}  the environment coefficient persists when the host-mass step is removed, suggesting it is not solely driven by host population differences. The stronger signal in low-mass hosts (log M\(_{*}\) < 10) is physically expected in MTDF, where shallower gravitational potential wells provide less stress screening, but is also consistent with demographic differences between void and non-void galaxy populations.
+\item \textbf{Footprint split:}  NGC and SGC splits are broadly consistent in sign for the V2 catalogues (REVOLVER and VIDE), while VoidFinder shows weaker regional stability. The NGC/SGC amplitude difference is currently consistent with MTDF expectations (stress anisotropy from nearby large-scale structure within the coherence scale β) but is not statistically significant and is also consistent with the 3:1 DESI coverage ratio.
+\item \textbf{Population systematics:}  SN populations differ systematically between void and non-void environments: void galaxies host proportionally more core-collapse SNe and fewer Type Ia events. Stretch, colour, and host-mass distributions should be matched between void and non-void subsamples in future analyses to separate cosmological environment effects from astrophysical population differences.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Important caveat:} only 4 supernovae lie strictly inside void boundaries in the low-redshift sample used here. Binary in-void tests therefore have low power.
+The inference is mainly driven by the continuous signed-distance metric \(d_{\mathrm{signed}}\).
+\end{calloutbox}
+
+\textbf{How to read this result:}  this section reports evidence for an environment-correlated supernova residual that is consistent in sign across independent void catalogues and is strongest at low redshift. We avoid detection language: p-values are nominal, and where multiple catalogues or sensitivity checks are involved they are treated as exploratory unless explicitly pre-registered. The purpose of this companion paper is to document the analysis transparently without changing the validated core of the master paper.
+
+
+\subsubsection*{Update: Footprint split, baseline stability, and redshift dependence}
+
+We extended the rigorous GLS cross-match analysis with three additional robustness checks that directly address
+two common concerns: footprint assignment and baseline-model dependence. The primary environment metric remains the
+signed distance to the nearest void boundary,
+\(d_{\rm signed} = (r_{\rm SN}-R_{\rm void})/R_{\rm void}\),
+and the fit continues to use the full Pantheon+ STAT+SYS covariance.
+
+
+\begin{calloutbox}
+\textbf{Interpretation note:} All p-values reported below are nominal and uncorrected for the number of sensitivity checks.
+We report them to document stability and to identify where the signal concentrates, not to claim a standalone discovery.
+\end{calloutbox}
+
+
+\subsubsection*{Pre-registered NGC and SGC analyses (footprint-based assignment)}
+
+We treated the Northern and Southern Galactic Caps (NGC and SGC) as two separate, pre-registered analyses, assigning each supernova
+to a footprint using the nearest-void region metadata rather than a right-ascension proxy.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|Y|}
+\hline
+\textbf{Void catalogue} & \textbf{NGC \(\gamma_{\rm env}\)} & \textbf{NGC p-value} & \textbf{SGC \(\gamma_{\rm env}\)} & \textbf{SGC p-value} \\
+\hline
+VoidFinder & +0.0009 & 0.79 & +0.0018 & 0.42 \\
+\hline
+REVOLVER & +0.0077 & 0.032 & +0.0004 & 0.90 \\
+\hline
+VIDE & +0.0095 & 0.014 & +0.0004 & 0.92 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\subsubsection*{Selection-function check and what it does (and does not) explain}
+
+A basic selection-function audit indicates that the NGC subset is dominated by lower-redshift events than the SGC subset.
+This naturally increases sensitivity if the effect weakens with redshift, but it does not fully resolve the footprint asymmetry on its own.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Region} & \textbf{Typical mean redshift} & \textbf{Observed status} \\
+\hline
+NGC & \(\bar z \approx 0.04\) & Nominal support in REVOLVER and VIDE \\
+\hline
+SGC & \(\bar z \approx 0.08\) to \(0.10\) & Null across catalogues \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\subsubsection*{Z-matched cross-check (footprint specificity)}
+
+To isolate redshift-distribution effects from footprint effects, we reweighted the SGC sample to match the NGC redshift distribution.
+The environment term remains in NGC but not in z-matched SGC, suggesting a footprint-specific component beyond a simple low-z versus high-z mix.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Region} & \textbf{\(\gamma_{\rm env}\)} & \textbf{p-value} & \textbf{Status} \\
+\hline
+NGC (unweighted) & +0.008 & 0.032 & Nominal p < 0.05 \\
+\hline
+SGC (z-matched) & +0.000 & 0.90 & Null \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+
+\subsubsection*{Continuous redshift modulation}
+
+A redshift-binned analysis shows the correlation is concentrated at the lowest redshifts and is consistent with weakening toward higher redshift.
+This provides a concrete, testable structure for future replication efforts.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Redshift range} & \textbf{N} & \textbf{\(\gamma_{\rm env}\)} & \textbf{p-value} \\
+\hline
+[0.02, 0.04) & 318 & +0.013 & 0.003 \\
+\hline
+[0.04, 0.06) & 85 & +0.001 & 0.84 \\
+\hline
+[0.06, 0.10) & 63 & +0.000 & 0.97 \\
+\hline
+[0.10, 0.16) & 98 & -0.001 & 0.90 \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+
+A simple linear interaction fit yields a negative z-interaction coefficient (\(\gamma_1 < 0\), nominal p \(\approx 0.08\)),
+and a piecewise two-regime model (low-z versus higher-z) yields \(\Delta\chi^2 \approx 4\) to \(5\) with nominal p \(\approx 0.03\) to \(0.04\).
+These are reported as structure-finding diagnostics rather than as standalone detection claims.
+
+
+The sharp confinement of the environment signal to z < 0.04 (comoving distance \textasciitilde{}170 Mpc, corresponding to approximately 7β) is the most MTDF-specific feature of this analysis. The MTDF stress field has finite coherence length β = 22.7 Mpc, and the environmental signal is naturally expected to decay beyond this scale. No known SN population effect predicts a sharp redshift cutoff of this form. This localisation, supported in sign and scale though not yet decisive individually, provides the strongest current basis for interpreting the environment signal as cosmological rather than astrophysical in origin.
+
+
+\subsubsection*{Specificity test using an alternate environment metric}
+
+As a non-boundary control, we tested an alternate metric based on a local void-density count
+(number of nearby void centres within 50 Mpc, weighted by void size). This metric shows no significant correlation with residuals,
+suggesting the effect, if present, is linked to proximity to void boundaries (the \(d_{\rm signed}\) geometry) rather than generalised
+"voidness" of the environment.
+
+
+\subsubsection*{Survey fixed-effects control}
+
+
+\begin{calloutbox}
+\textbf{Status:} Robustness check against survey-specific calibration or selection offsets.
+The analysis introduces per-survey intercepts (fixed effects) while keeping the same environment metric and GLS covariance model.
+\end{calloutbox}
+
+A common reviewer concern is that a weak environment term could be induced by survey-dependent zero-point offsets or survey-specific selection.
+To address this, we refit the GLS model with survey fixed effects (per-survey intercepts), then compared the recovered environment coefficient.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Sample} & \textbf{Without survey fixed effects} & \textbf{With survey fixed effects} \\
+\hline
+Full sample & γ\(_{\mathrm{env}}\) = +0.0047 (p = 0.039) & γ\(_{\mathrm{env}}\) = +0.0043 (p = 0.064) \\
+\hline
+NGC only & γ\(_{\mathrm{env}}\) = +0.0077 (p = 0.032) & γ\(_{\mathrm{env}}\) = +0.0072 (p = 0.058) \\
+\hline
+Low redshift (z < 0.05) & γ\(_{\mathrm{env}}\) = +0.0098 (p = 0.005) & γ\(_{\mathrm{env}}\) = +0.0095 (p = 0.010) \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 3.}  Survey fixed-effects robustness (nominal p-values, uncorrected).}
+
+\begin{itemize}
+\item \textbf{Coefficient stability:}  γ\(_{\mathrm{env}}\) changes by only about 4×10\(^{-4}\) mag when survey fixed effects are added, indicating the effect is not driven by survey-specific intercept shifts.
+\item \textbf{Power and conservatism:}  adding 15 survey intercepts reduces statistical power, so p-values become more conservative even when the coefficient remains stable.
+\item \textbf{Within-survey sign check:}  in a within-survey analysis, 5 of 6 contributing surveys yield a positive γ\(_{\mathrm{env}}\), with the strongest single-survey contribution coming from the Foundation subset (nominal p ≈ 0.06).
+\end{itemize}
+
+
+Taken together, these controls argue against a purely survey-specific systematic origin for the environment term.
+They do not, by themselves, explain the NGC versus SGC asymmetry, which may involve void catalogue completeness, footprint geometry, or redshift coverage.
+
+
+\subsubsection*{Leave-one-survey-out robustness}
+
+
+\begin{calloutbox}
+\textbf{Status:} Robustness check (survey dominance). This analysis asks whether the low-redshift signal is driven by a single survey or calibration family.
+\end{calloutbox}
+
+We repeated the full GLS fit on the low-redshift subset (z < 0.05), each time dropping one contributing survey and refitting the same model with the full Pantheon+ covariance.
+This leave-one-survey-out (LOSO) procedure directly tests the common critique that an apparent environment effect is an artefact of a single survey.
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|Y|}
+\hline
+\textbf{Survey dropped} & \textbf{N dropped} & \textbf{γ\(_{\mathrm{env}}\) (mag)} & \textbf{p-value} \\
+\hline
+CfA3 (largest) & 112 & +0.0123 & < 0.0001 \\
+\hline
+Foundation & 55 & +0.0094 & < 0.0001 \\
+\hline
+CfA3S & 45 & +0.0107 & < 0.0001 \\
+\hline
+Misc. low-z group & 38 & +0.0106 & < 0.0001 \\
+\hline
+\textbf{All 12 surveys (range across LOSO fits)} & n/a & \textbf{+0.0094 to +0.0128} & \textbf{< 0.0001 (all)} \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 4.}  Leave-one-survey-out robustness on the low-redshift subset (z < 0.05). Nominal p-values are reported.}
+
+\begin{itemize}
+\item \textbf{Sign stability:}  12 out of 12 LOSO runs yield a positive γ\(_{\mathrm{env}}\).
+\item \textbf{Strength:}  all LOSO fits remain highly significant in this low-z subset.
+\item \textbf{Magnitude stability:}  γ\(_{\mathrm{env}}\) varies only modestly across survey drops, indicating no single-survey leverage point.
+\end{itemize}
+
+
+\emph{Interpretation.}  The LOSO test strengthens the claim that the low-z environment trend is not an artefact of any one survey. As with all subgroup analyses, this does not by itself eliminate all global systematics, but it closes the specific “single survey drives the signal” line of attack.
+
+
+\subsubsection*{Merged-sample hardening}
+
+
+\begin{calloutbox}
+\textbf{Status:} Extended hardening analysis using a merged Pantheon+ / ZTF DR2 / Foundation DR1 sample (4,188 SNe, 3,082 at z < 0.157). Diagonal covariance with σ
+\(_{\mathrm{int}}\)= 0.12 mag intrinsic scatter. Not a replacement for the full-covariance Pantheon+ analysis above, but a targeted test of the signal's physical structure with 5× larger low-z statistics.
+\end{calloutbox}
+
+To test whether the environment signal is better described as a global constant coefficient or a localised low-redshift transition, we constructed a merged sample by combining Pantheon+ (1,533 SNe), ZTF DR2 (2,650 SNe, Tripp-standardised with α = 0.148, β = 3.112), and Foundation DR1 (5 unique SNe after deduplication). Cross-matching at 5 arcsec removes duplicates, with Pantheon+ retained preferentially. A diagonal covariance is used with σ\(_{\mathrm{tot}}\)\(^{2}\) = σ\(_{\mathrm{mB}}\)\(^{2}\) + σ\(_{\mathrm{int}}\)\(^{2}\) (σ\(_{\mathrm{int}}\) = 0.12 mag).
+
+
+Six hardening tests were applied to the merged sample. The results sharpen the physical interpretation:
+
+
+\begin{center}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabularx}{\textwidth}{|Y|Y|Y|}
+\hline
+\textbf{Test} & \textbf{Result} & \textbf{Interpretation} \\
+\hline
+1. Scrambled void geometry & Δχ\(^{2}\) < 1.4, p > 0.5 (all catalogues) & Constant-γ model is null in the merged sample \\
+\hline
+2. Piecewise z-transition & Δχ\(^{2}\) = 36-39 at z = 0.04 (all three catalogues, p < 0.001) & \textbf{Sharp low-z transition confirmed at > 5σ} \\
+\hline
+3. Population controls (x\(_{1}\), c) & γ shifts by < 0.3σ with SALT2 covariates & Not an astrophysical population artefact \\
+\hline
+4. Wrong-sign / inverted metric & Symmetric (constant model null); centroid-only picks up partial REVOLVER signal & Consistent with null global model \\
+\hline
+5. Alternative metrics & IDW metric significant (p < 0.013, all catalogues); single-nearest-void metrics weak & Multi-void weighting improves detection \\
+\hline
+6. Cross-catalogue overlap & Top-30 pairwise overlap 60-77\%; three-way 60\% & Same physical SNe drive signal across independent void reconstructions \\
+\hline
+\end{tabularx}
+\end{adjustbox}
+\end{center}
+\tablecaptiontext{\textbf{Table 5.}  Merged-sample hardening scorecard (3,082 SNe at z < 0.157).}
+
+\textbf{Interpretation.}  In the merged sample, the environment signal is not well described by a single global coefficient. Instead, the dominant empirical structure is a sharp low-redshift transition near z ≈ 0.04, precisely where MTDF predicts coherence-limited local effects should be concentrated. The constant-γ model (Table 1) serves as a diagnostic baseline; the piecewise z-transition is the primary phenomenological summary.
+
+
+The piecewise model at z = 0.04 yields γ\(_{\mathrm{low}}\) > 0 (dimming toward void interiors at z < 0.04) and γ\(_{\mathrm{high}}\) < 0 (sign reversal at z > 0.04) across all three void catalogues. This sign structure is consistent with a finite coherence scale: the stress-field modulation acts within its coherence length (β ≈ 23 Mpc, corresponding to z ≈ 0.04) and averages to noise beyond it.
+
+
+The population controls (Test 3) substantially weaken the standard objection that the signal could arise from SN population drift between void and non-void environments. The cross-catalogue overlap (Test 6) demonstrates that the same physical supernovae drive the residual structure regardless of which void reconstruction is used, arguing against catalogue-specific artefacts.
+
+
+\begin{calloutbox}
+\textbf{Limitation:} The merged sample uses a diagonal covariance approximation. The ZTF and Foundation contributions lack the full systematic covariance treatment available for Pantheon+. This is acceptable for hardening tests (which probe signal structure and robustness, not precision parameter estimation) but should not be used to replace the full-covariance results in Table 1 for cosmological inference.
+\end{calloutbox}
+
+
+\begin{calloutbox}
+\textbf{Interpretive caveats.}  The quoted significances are conditional on the stated void catalogues, redshift cuts, covariance treatment, and signed-distance metric. They should be interpreted as evidence for an environment-linked residual requiring independent replication, not as a standalone proof of the MTDF mechanism. The result is strongest when treated as a continuous signed-distance effect; the number of supernovae strictly inside void interiors remains small.
+
+The detection of an environment-dependent residual does not uniquely select MTDF. Its importance is that the sign, redshift localisation, and coherence-scale interpretation match an a priori MTDF expectation and define a sharp falsification target for future low-redshift supernova samples.
+\end{calloutbox}
+
+
+\subsubsection*{Summary figure}
+
+Figure S1 summarises the low-redshift environment signal and the main robustness chain (catalogue replication, footprint assignment, baseline stability, redshift modulation, survey controls, and leave-one-survey-out stability).
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=\textwidth,height=0.78\textheight,keepaspectratio]{figures/sn_void_summary_figure.png}
+\caption*{\textbf{Figure S1.}  Four-panel summary of the supernova-void environment signal: (a) environment coefficient versus redshift, showing the localised signal at z < 0.04; (b) leave-one-survey-out stability test confirming no single survey drives the detection; (c) results across three void catalogues (REVOLVER, VIDE, VoidFinder) and bootstrap robustness checks; (d) physical interpretation: SNe in cosmic voids appear \textasciitilde{}0.01 mag brighter than those in overdense regions, consistent with the MTDF stress-field coherence scale prediction.}
+\label{fig-sn-void-summary}
+\end{figure}
+\clearpage
+
+
+\section*{3. Local anomalies and Solar System scale signatures}
+\addcontentsline{toc}{section}{3. Local anomalies and Solar System scale signatures}
+
+\textbf{Note:}  Quantitative Solar System screening and post-Newtonian safety bounds are treated in the gravity-sector companion paper (\href{MTDF\_03\_Companion\_Part\_II\_Gravity\_Sector\_and\_Lensing\_Validation.html}{MTDF\_03 (Companion Part II)}). This section proposes additional precision signatures near the critical acceleration regime.
+
+
+The master paper keeps local tests conservative. This companion collects possible signatures near the critical acceleration scale, stated carefully to remain compatible with existing Solar System constraints.
+
+
+\subsection*{3.1 Near threshold signatures and precision dynamics}
+\addcontentsline{toc}{subsection}{3.1 Near threshold signatures and precision dynamics}
+
+
+\begin{calloutbox}
+\textbf{Status:} Hypothesis. Included to motivate specific, falsifiable checks.
+\end{calloutbox}
+
+
+\subsubsection*{Observation}
+
+Precision ephemerides and spacecraft tracking strongly constrain deviations from Newtonian plus relativistic dynamics on Solar System scales. However, the critical acceleration scale relevant to galaxy dynamics is not entirely irrelevant: some regimes approach it in the far field or in specific configurations.
+
+
+\subsubsection*{MTDF mechanism}
+
+If the stress contribution becomes relevant only near a threshold acceleration, local systems may show extremely small but structured residuals that depend on geometry, trajectory, or environment rather than simply radius.
+
+
+\[\frac{d\mathbf{v}_*}{dt} = -\nabla \Phi_{\mathrm{Newt}} - \frac{1}{\rho_*}\nabla_j F^{j}{}_{t}\]
+
+
+\subsubsection*{Predictions}
+
+\begin{itemize}
+\item Any residual should be non universal: it should depend on geometry and be largest where accelerations approach the threshold regime.
+\item Residuals should correlate with external environment proxies rather than with local mass alone.
+\item If present, the effect should be bounded well below current constraints, which makes it a precision programme rather than a headline claim.
+\end{itemize}
+
+
+\subsubsection*{How to test}
+
+\begin{itemize}
+\item Use publicly available ephemeris residual datasets to test for structured correlations with external field proxies.
+\item Analyse spacecraft tracking data for non random residual patterns in regimes of lowest acceleration.
+\item If no signal exists at the predicted level, the constraint can be used to bound the coupling of any local extension of the stress term.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Scope:} This section defines falsifiers and precision targets in the local regime. Any empirical claim in this regime requires dedicated control of systematics, so the purpose here is to state what would count as decisive evidence for or against the proposed local behaviour.
+\end{calloutbox}
+
+
+\section*{4. How this part links back to the master paper}
+\addcontentsline{toc}{section}{4. How this part links back to the master paper}
+
+\begin{itemize}
+\item The master paper defines the core objects, parameter set, and validated claims.
+\item This part proposes environment and time domain extensions that should be tested without adding tuning freedom.
+\item If these extensions fail observationally, the core theory claims can remain intact, but the extension path is constrained.
+\end{itemize}
+
+
+\begin{calloutbox}
+\textbf{Reproducibility and interactive materials.} \begin{itemize}
+\item Validation suite appendix: \href{MTDF\_Validation\_Suite\_Appendix.html}{MTDF\_Validation\_Suite\_Appendix.html}
+\item Interactive dashboard: \href{Validation\_Dashboard\_V74.html}{Validation\_Dashboard\_V74.html}
+\end{itemize}
+\end{calloutbox}
+
+
+\section*{Data and code availability}
+\addcontentsline{toc}{section}{Data and code availability}
+The complete MTDF reproducibility package, including the modified CLASS solver
+(\texttt{class\_mtdf}), the V18 strict validation workbook, the
+\texttt{run\_validate.py} pipeline, the gravity-sector artefact manifest,
+and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
+(concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/zenodo.19741058};
+this release, \texttt{v1.1.3}, DOI
+\href{https://doi.org/10.5281/zenodo.19767336}{10.5281/zenodo.19767336})
+and mirrored on GitHub at
+\href{https://github.com/IMesche/MTDF}{github.com/IMesche/MTDF}.
+The \texttt{v1.1.3} Git tag corresponds to the archived Zenodo release. All
+numerical results reported here can be regenerated from the shipped workbook
+and scripts following the procedure in the top-level \texttt{README.md}.
+
+
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{enumerate}
+\item Brout, D. et al. 2022, "The Pantheon+ Analysis: Cosmological Constraints", \emph{ApJ} , 938, 110. DOI: \href{https://doi.org/10.3847/1538-4357/ac8e04}{10.3847/1538-4357/ac8e04}
+\item Rezaei, S. et al. (DESI Collaboration) 2025, "DESIVAST: Catalogs of Low-Redshift Voids Using Data from the DESI DR1 Bright Galaxy Survey", \emph{ApJ} , 982, 38. DOI: \href{https://doi.org/10.3847/1538-4357/adb559}{10.3847/1538-4357/adb559}
+\item Rigault, M. et al. 2025, "ZTF SN Ia DR2: Overview", \emph{A\&A} , 694, A1. DOI: \href{https://doi.org/10.1051/0004-6361/202450388}{10.1051/0004-6361/202450388}
+\item Foley, R. J. et al. 2018, "The Foundation Supernova Survey: Motivation, Design, Implementation, and First Data Release", \emph{MNRAS} , 475, 193. DOI: \href{https://doi.org/10.1093/mnras/stx3136}{10.1093/mnras/stx3136}
+\item Guy, J. et al. 2007, "SALT2: using distant supernovae to improve the use of type Ia supernovae as distance indicators", \emph{A\&A} , 466, 11. DOI: \href{https://doi.org/10.1051/0004-6361:20066930}{10.1051/0004-6361:20066930}
+\end{enumerate}
+
+
+MTDF Companion Part I: Environmental and Local (V74) | Ingo Mesche | April 2026
+
+\end{document}

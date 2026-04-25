@@ -504,7 +504,8 @@ $$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R
 <ul>
 <li><strong>P1 (RMS log velocity scatter):</strong> 0.185 dex, target 0.174 &plusmn; 0.011, z = $-0.94$ (PASS)</li>
 <li><strong>P1B (RAR intrinsic scatter):</strong> 0.029 dex, target 0.035 &plusmn; 0.010, z = $+0.62$ (PASS)</li>
-<li><strong>BTFR normalisation:</strong> within 0.32 dex of McGaugh+2012 (PASS)</li>
+<li><strong>BTFR normalisation:</strong> within 0.32 dex of McGaugh+2012 (PASS) <span class="small">(see note below on threshold rationale)</span></li>
+<li><strong>Note on the BTFR normalisation pass threshold.</strong> The 0.5 dex pass threshold matches the documented per-galaxy and population-level systematic floor on baryonic-mass estimates: σ<sub>M/L</sub> ≈ 0.10 dex for the SPARC K / 3.6 μm stellar M/L (Schombert &amp; McGaugh 2014; Schombert, McGaugh &amp; Lelli 2022), σ<sub>gas</sub> ≈ 0.30 dex for HI gas fractions (Catinella et al. 2010, 2013 GASS scaling relations), and σ<sub>d</sub> ≈ 0.05 dex from distance-ladder propagation, summing in quadrature to a ≈ 0.32 dex floor per galaxy. At population level, switching between equally defensible baryon-accounting prescriptions shifts the inferred BTFR normalisation by 0.2–0.4 dex; ΛCDM + galaxy-formation simulations themselves differ in BTFR normalisation by ≈ 0.2–0.5 dex between feedback prescriptions (EAGLE slope 3.0 vs IllustrisTNG ≈ 3.65, with FIRE-2 different again). The 0.5 dex threshold therefore brackets the documented systematic floor, not a soft science target. The rigid MTDF prediction here is the BTFR <em>slope</em> (3.85, equivalent to v<sup>4</sup> ∝ M<sub>b</sub>), uniquely selected by the n = 2 constitutive law derived in the gravity sector companion paper. The +0.32 dex normalisation offset is consistent with observation at the baryon-mass systematic level. An independent tight test of the normalisation would require an analysis with baryonic content constrained to &lt; 0.05 dex per galaxy, which is not claimed here.</li>
 <li><strong>v<sub>flat</sub> consistency:</strong> median ratio 0.915, 88% within 50% (PASS)</li>
 </ul>
 
@@ -660,11 +661,11 @@ $$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.2</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19743916">10.5281/zenodo.19743916</a>)
+this release, <code>v1.1.3</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.2</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>
