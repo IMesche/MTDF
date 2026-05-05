@@ -182,7 +182,7 @@ figure{ margin: 10pt 0 14pt; }
 </div>
 
 <div class="callout">
-<strong>Abstract.</strong> We present Mesche's Tensor Dynamics Framework (MTDF), a unified field theory that addresses the major phenomenological tensions of modern cosmology, including the Hubble Tension, the S<sub>8</sub> tension, and the Missing Mass problem, without invoking a "Latent Sector" of dark matter or dark energy. By positing that spacetime possesses an intrinsic elasticity governed by a stress-energy tensor $F_{\mu\nu}$, MTDF derives cosmic acceleration and galactic dynamics from a single physical mechanism: the relaxation of spacetime stress.
+<strong>Abstract.</strong> We present Mesche's Tensor Dynamics Framework (MTDF), a unified field theory that addresses the major phenomenological tensions of modern cosmology, including the Hubble Tension, the S<sub>8</sub> tension, and the Missing Mass problem, without invoking a "Latent Sector" of dark matter or dark energy. By positing that spacetime possesses an intrinsic elasticity governed by a stress-energy tensor $\Sigma_{\mu\nu}$, MTDF derives cosmic acceleration and galactic dynamics from a single physical mechanism: the relaxation of spacetime stress.
 
 <p>We provide a first-principles derivation of the "Early Kick" energy fraction ($f_{kick} \approx 0.33\%$) required to bring early- and late-universe $H_0$ measurements into agreement, demonstrating that it arises naturally from the geometric projection of the tensor field onto the background metric ($\gamma_{geom}=1/12$). This prediction is tested against Planck CMB data as an external consistency check (the MTDF parameters are not calibrated on CMB observables). Furthermore, we demonstrate that the same field parameters $\{\alpha, \beta, \tau\}$ calibrated on void-based anchors reproduce the scatter of galaxy rotation curves (0.185 dex computed vs 0.174 dex benchmark, $z = -0.94$) and the late-time expansion history ($H_0 = 73.1$ km/s/Mpc) with statistical precision comparable to $\Lambda$CDM ($\chi^2/\nu = 1.17$ combined strict, DOF = 1745). MTDF offers a falsifiable, predictive, and physically complete alternative to the composition-based paradigm of standard cosmology, suggesting that we inhabit a universe governed by the physics of the visible.</p>
 
@@ -232,7 +232,7 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <p>This reliance on unseen components is under increasing strain. As observational precision has improved, internal tensions have emerged. The Hubble Tension, a $5\sigma$ discrepancy between early-universe (CMB) and late-universe (Distance Ladder) measurements of $H_0$, cannot be resolved within $\Lambda$CDM without introducing even more exotic components (e.g., Early Dark Energy, interacting neutrinos). Similarly, the S<sub>8</sub> tension suggests that cosmic structure grows more slowly than the standard model predicts.</p>
 
-<p>We propose a fundamental shift from a "compositional" to a "dynamic" paradigm. <strong>Mesche's Tensor Dynamics Framework (MTDF)</strong> posits that these anomalies are not due to missing mass, but to missing physics in the gravitational sector. By treating spacetime as an elastic medium with a non-vanishing stress tensor $F_{\mu\nu}$, we show that the effects attributed to Dark Matter and Dark Energy are actually the elastic response of the manifold to matter density gradients. This paper details the formalism, derivation, and systematic testing of MTDF as a cosmological framework.</p>
+<p>We propose a fundamental shift from a "compositional" to a "dynamic" paradigm. <strong>Mesche's Tensor Dynamics Framework (MTDF)</strong> posits that these anomalies are not due to missing mass, but to missing physics in the gravitational sector. By treating spacetime as an elastic medium with a non-vanishing stress tensor $\Sigma_{\mu\nu}$, we show that the effects attributed to Dark Matter and Dark Energy are actually the elastic response of the manifold to matter density gradients. This paper details the formalism, derivation, and systematic testing of MTDF as a cosmological framework.</p>
 
 <!-- =========================================================== -->
 <!-- 2. PHILOSOPHY -->
@@ -241,7 +241,7 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <p>The history of physics is a history of unification. Electricity and magnetism were unified by Maxwell; space and time by Einstein; the weak and electromagnetic forces by Glashow, Weinberg, and Salam. Yet cosmology has drifted toward fragmentation, introducing separate, unrelated entities to explain separate phenomena (Dark Matter for rotation curves, Dark Energy for expansion).</p>
 
-<p>MTDF seeks to restore the unity of the physical description. We posit that there is only one gravitational field, but that its dynamics are richer than the pure geometry of General Relativity allows. Just as a material elastic body can store potential energy in stress and strain, the spacetime manifold itself possesses a stiffness. The "Dark Sector" is simply the energy stored in this field. By introducing a single new tensor field $F_{\mu\nu}$, derived from first principles of elasticity, we aim to explain the full range of cosmic phenomenology with a single, coherent mathematical framework.</p>
+<p>MTDF seeks to restore the unity of the physical description. We posit that there is only one gravitational field, but that its dynamics are richer than the pure geometry of General Relativity allows. Just as a material elastic body can store potential energy in stress and strain, the spacetime manifold itself possesses a stiffness. The "Dark Sector" is simply the energy stored in this field. By introducing a single new tensor field $\Sigma_{\mu\nu}$, derived from first principles of elasticity, we aim to explain the full range of cosmic phenomenology with a single, coherent mathematical framework.</p>
 
 <!-- =========================================================== -->
 <!-- 3. ELASTIC SPACETIME ACTION -->
@@ -259,10 +259,10 @@ $$ S = \int d^4x \sqrt{-g} \left[ \frac{R}{16\pi G} + \mathcal{L}_{matter} + \ma
 <p>Variation with respect to the metric $g_{\mu\nu}$ yields the modified field equations:</p>
 
 <div class="eq">
-$$ G_{\mu\nu} + \alpha F_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{baryon}} $$
+$$ G_{\mu\nu} + \alpha \Sigma_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{baryon}} $$
 </div>
 
-<p>Here, $G_{\mu\nu}$ is the Einstein tensor, $T_{\mu\nu}^{\text{baryon}}$ is the standard stress-energy tensor of visible matter, and $F_{\mu\nu}$ is the <strong>Mesche Stress Tensor</strong>. The coupling constant $\alpha$ is dimensionless and quantifies the "stiffness" of spacetime, specifically, the ratio of stress-induced acceleration to Newtonian gravitational acceleration.</p>
+<p>Here, $G_{\mu\nu}$ is the Einstein tensor, $T_{\mu\nu}^{\text{baryon}}$ is the standard stress-energy tensor of visible matter, and $\Sigma_{\mu\nu}$ is the <strong>Mesche Stress Tensor</strong>. The coupling constant $\alpha$ is dimensionless and quantifies the "stiffness" of spacetime, specifically, the ratio of stress-induced acceleration to Newtonian gravitational acceleration.</p>
 
 <p class="small"><strong>Consistency notes.</strong> The construction is generally covariant (diffeomorphism invariant) and uses only tensor objects and scalar contractions; no preferred frame is introduced. Energy-momentum conservation follows from the contracted Bianchi identity applied to the modified field equations, together with minimal coupling of matter. The framework is classical and effective in scope: no claim of UV completion is made, and high-energy behaviour is treated as an explicit test programme (MTDF_05) with observational constraints.</p>
 
@@ -271,7 +271,7 @@ $$ G_{\mu\nu} + \alpha F_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{baryon}} $$
 <!-- =========================================================== -->
 <h2 id="sec4">4. Field dynamics and parameters</h2>
 
-<p>The stress field $S$ associated with $F_{\mu\nu}$ evolves according to a sourced wave equation. Its behaviour is governed by four fundamental parameters, which are constants of nature in this framework:</p>
+<p>The stress field $S$ associated with $\Sigma_{\mu\nu}$ evolves according to a sourced wave equation. Its behaviour is governed by four fundamental parameters, which are constants of nature in this framework:</p>
 
 <table class="tbl">
 <tr><th>Parameter</th><th>Unit</th><th>Meaning</th><th>Source</th></tr>
@@ -307,7 +307,7 @@ $$ G_{\mu\nu} + \alpha F_{\mu\nu} = 8\pi G T_{\mu\nu}^{\text{baryon}} $$
 <p>The interaction energy density scales as $\rho_{int} \propto \gamma_{geom} \cdot \lambda_{MTDF} \cdot \rho_m^2$. The coefficient $\gamma_{geom}$ is the product of three suppression factors:</p>
 
 <ol>
-<li><strong>Tensor-to-Scalar Projection (1/3):</strong> The stress tensor $F_{\mu\nu}$ is a rank-2 tensor. When projecting its energy density onto the scalar time-time component ($T^{00}$) of the FLRW metric, we effectively take the trace over spatial directions. For a traceless spatial tensor in 3 dimensions, this introduces a factor of $1/3$.</li>
+<li><strong>Tensor-to-Scalar Projection (1/3):</strong> The stress tensor $\Sigma_{\mu\nu}$ is a rank-2 tensor. When projecting its energy density onto the scalar time-time component ($T^{00}$) of the FLRW metric, we effectively take the trace over spatial directions. For a traceless spatial tensor in 3 dimensions, this introduces a factor of $1/3$.</li>
 <li><strong>Transition Response Efficiency (1/2):</strong> The field equation is a second-order differential equation. As the source term turns on, the field solution $S(t)$ tracks the source $\rho_m(t)$ with a lag. In the quasi-static limit near the transition, the effective amplitude is reduced by half compared to the static solution.</li>
 <li><strong>Sound Horizon Averaging (1/2):</strong> The effect on the CMB depends on the integrated expansion history over the sound horizon scale. The "ringing" is a transient phenomenon that decays. Averaging this transient contribution over the relevant acoustic integration time introduces a further factor of $1/2$.</li>
 </ol>
@@ -661,11 +661,11 @@ $$ \Delta\Sigma(R) = \frac{\pi\,\rho_0\,f^2\,L^2}{R} + \frac{M_\text{bar}}{\pi R
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.3</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
+this release, <code>v1.1.4</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19958783">10.5281/zenodo.19958783</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.4</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>

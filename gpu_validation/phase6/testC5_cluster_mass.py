@@ -438,15 +438,15 @@ def write_readme(cases, detect_results, requirements, outdir):
     lines.append("\n## Key Insight: Gravitational Slip Matters\n\n")
     lines.append("The predicted mass discrepancy depends critically on whether "
                  "MTDF introduces gravitational slip (eta != 1):\n\n")
-    lines.append("- If MTDF's strain tensor F_mu_nu has **no anisotropic stress** "
+    lines.append("- If MTDF's strain tensor Σ_mu_nu has **no anisotropic stress** "
                  "(eta = 1): both potentials are enhanced equally, "
                  "M_dyn/M_lens = 1, and cluster mass comparisons cannot "
                  "detect anything.\n")
-    lines.append("- If F_mu_nu has **anisotropic stress** (eta != 1): a mass "
+    lines.append("- If Σ_mu_nu has **anisotropic stress** (eta != 1): a mass "
                  "discrepancy appears. For Case A (eta -> inf), the offset is "
                  "~5% at z=0, marginally within reach of stacked analyses.\n\n")
     lines.append("Determining the MTDF slip parameter requires solving the "
-                 "full perturbed field equations for F_mu_nu, which has not "
+                 "full perturbed field equations for Σ_mu_nu, which has not "
                  "yet been done.\n")
 
     lines.append("\n## Interpretation\n\n")

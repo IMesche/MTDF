@@ -212,9 +212,9 @@ The MTDF field modifies gravity through a strain tensor coupled to matter:
 
 
 \begin{itemize}
-\item \textbf{Modified Einstein Field Equations:} \(G_{\mu\nu} + \alpha\,F_{\mu\nu} = \frac{8\pi G}{c^4}\,T_{\mu\nu}^{\mathrm{baryon}}\)
+\item \textbf{Modified Einstein Field Equations:} \(G_{\mu\nu} + \alpha\,\Sigma_{\mu\nu} = \frac{8\pi G}{c^4}\,T_{\mu\nu}^{\mathrm{baryon}}\)
 \item \textbf{Strain:} \(S_{\mu\nu} = \beta\,\nabla_\mu\xi_\nu\) (dimensionless)
-\item \textbf{Stress:} \(F_{\mu\nu} = E\,S_{\mu\nu}\) (linear Hooke's law)
+\item \textbf{Stress:} \(\Sigma_{\mu\nu} = E\,S_{\mu\nu}\) (linear Hooke's law)
 \item \textbf{Evolution:} Damped wave equation with relaxation rate \(\gamma = 1/\tau\)
 \end{itemize}
 
@@ -1064,11 +1064,11 @@ The complete MTDF reproducibility package, including the modified CLASS solver
 \texttt{run\_validate.py} pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{10.5281/zenodo.19741058};
-this release, \texttt{v1.1.3}, DOI
-\href{https://doi.org/10.5281/zenodo.19767336}{10.5281/zenodo.19767336})
+this release, \texttt{v1.1.4}, DOI
+\href{https://doi.org/10.5281/zenodo.19958783}{10.5281/zenodo.19958783})
 and mirrored on GitHub at
 \href{https://github.com/IMesche/MTDF}{github.com/IMesche/MTDF}.
-The \texttt{v1.1.3} Git tag corresponds to the archived Zenodo release. All
+The \texttt{v1.1.4} Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level \texttt{README.md}.
 

@@ -244,8 +244,12 @@ Only results explicitly labelled as validation targets are used as evidence for 
 \]</div>
 <p>Stress is defined through a constitutive relation with an effective elastic modulus:</p>
 <div class="eq">\[
-F_{\mu\nu} = E\,\tilde{S}_{\mu\nu}
+\Sigma_{\mu\nu} = E\,\tilde{S}_{\mu\nu}
 \]</div>
+<div class="callout">
+<h4>Construction versus postulate</h4>
+<p>The primary field degree of freedom in MTDF is the displacement-like field ξ<sub>ν</sub>. The strain tensor S̃<sub>μν</sub> is defined from its covariant gradient, and the elastic stress tensor Σ<sub>μν</sub> follows from the constitutive relation Σ<sub>μν</sub> = E S̃<sub>μν</sub>. Thus Σ<sub>μν</sub> is not introduced as an independent field-strength tensor or as an additional matter component. It is the stress response of the spacetime medium associated with the strain field.</p>
+</div>
 <p>The associated field energy density and an effective negative pressure contribution can be written schematically as:</p>
 <div class="eq">\[
 u_\mathrm{tensor} = \frac{E}{2}\,\tilde{S}_{\mu\nu}\,\tilde{S}^{\mu\nu},\qquad
@@ -259,7 +263,7 @@ p_\mathrm{tensor} \approx -\frac{1}{3}u_\mathrm{tensor}
 <p>Here \(\rho\) denotes the baryonic source term, \(c_s\) is an effective propagation speed for stress perturbations, and \(\gamma\) sets the relaxation rate. In many analytic arguments \(\gamma\) is treated as the inverse of a cosmic scale relaxation time \(\tau\), which is part of the minimal parameter set.</p>
 <div class="callout">
 <h4>On analogies and what is not claimed</h4>
-<p>The stress-strain behavior of spacetime (F<sub>μν</sub> = E S̃<sub>μν</sub>) manifests dynamical patterns with direct analogues in condensed matter systems:</p><p>These parallels provide physical motivation for the stress-tensor analogy used in MTDF, illustrating how material physics principles scale to cosmic phenomena when applied to spacetime itself with elastic modulus E = 9.1×10⁻¹⁰ Pa.</p>
+<p>The stress-strain behavior of spacetime (Σ<sub>μν</sub> = E S̃<sub>μν</sub>) manifests dynamical patterns with direct analogues in condensed matter systems:</p><p>These parallels provide physical motivation for the stress-tensor analogy used in MTDF, illustrating how material physics principles scale to cosmic phenomena when applied to spacetime itself with elastic modulus E = 9.1×10⁻¹⁰ Pa.</p>
 </div>
 <h3>2.5 Regime transition and critical acceleration</h3>
 <p>The framework is constructed to recover the classical limit at high accelerations while producing measurable departures in the low acceleration regime. A commonly used summary quantity is a critical acceleration scale that depends on the fundamental length scale \(\beta\):</p>
@@ -329,8 +333,8 @@ K_{\mathrm{eff}} = E\,\beta^2\,(2\pi/\lambda)^2
 <p>These relations are not presented as a full CMB spectral fit. They exist to provide a transparent mapping from the fundamental parameter set to the specific diagnostic quantity used in the V18 dashboard.</p>
 <h3>3.2 Stress tensor energy budget and effective pressure</h3>
 <p>At background level, the strict V18 evaluation treats the expansion history as a derived prediction from the fundamental parameter set and the chosen anchors. The underlying physical picture, however, is that accumulated field strain contributes an effective energy density and a negative pressure component that can mimic late time acceleration without invoking a cosmological constant term.</p>
-<h4>Core Mechanism</h4><p>Cosmic acceleration emerges from negative pressure in the elastic stress tensor F<sub>μν</sub> = E S̃<sub>μν</sub>, where spacetime's measurable elastic modulus E = (9.1 ± 0.4) × 10⁻¹⁰ Pa drives expansion through accumulated structural stress.</p><p><strong>Stress Tensor Energy Density:</strong></p><div class="eq">
-<strong>u<sub>tensor</sub> = (E/2) |S̃<sub>μν</sub>|² = (1/2E) F<sub>μν</sub> F<sup>μν</sup> [E142]</strong>
+<h4>Core Mechanism</h4><p>Cosmic acceleration emerges from negative pressure in the elastic stress tensor Σ<sub>μν</sub> = E S̃<sub>μν</sub>, where spacetime's measurable elastic modulus E = (9.1 ± 0.4) × 10⁻¹⁰ Pa drives expansion through accumulated structural stress.</p><p><strong>Stress Tensor Energy Density:</strong></p><div class="eq">
+<strong>u<sub>tensor</sub> = (E/2) |S̃<sub>μν</sub>|² = (1/2E) Σ<sub>μν</sub> Σ<sup>μν</sup> [E142]</strong>
 </div><p><strong>Negative Pressure:</strong></p><div class="eq">
 <strong>p<sub>tensor</sub> = -(1/3) u<sub>tensor</sub> = -(E/6) |S̃<sub>μν</sub>|² [E143]</strong>
 </div><div class="callout">
@@ -370,10 +374,10 @@ K_{\mathrm{eff}} = E\,\beta^2\,(2\pi/\lambda)^2
 </ul>
 <p style="font-size:0.9em; margin-top:0.3em;"><strong>Note:</strong> The base value 67.4 km/s/Mpc is the Planck LCDM background posterior. The workbook anchor H₀ = 70.0 km/s/Mpc (Table 2) is a calibration choice for the validation pipeline distance calculations and is not used in the Hubble tension derivation.</p>
 </div><p><strong>Mechanism:</strong> Reduced stress tensor in KBC void:</p><div class="eq">
-<strong>‖F<sup>void</sup><sub>μν</sub>‖ = 0.75 ‖F<sup>cosmic</sup><sub>μν</sub>‖ [E148]</strong>
+<strong>‖Σ<sup>void</sup><sub>μν</sub>‖ = 0.75 ‖Σ<sup>cosmic</sup><sub>μν</sub>‖ [E148]</strong>
 </div><div class="callout">
 <h4>Dimensional verification:</h4>
-<p>[‖F<sup>void</sup><sub>μν</sub>‖/‖F<sup>cosmic</sup><sub>μν</sub>‖] = [ML⁻¹T⁻²]/[ML⁻¹T⁻²] = [1] ✓ (stress tensor ratio)</p>
+<p>[‖Σ<sup>void</sup><sub>μν</sub>‖/‖Σ<sup>cosmic</sup><sub>μν</sub>‖] = [ML⁻¹T⁻²]/[ML⁻¹T⁻²] = [1] ✓ (stress tensor ratio)</p>
 </div>
 <h3>3.4 Stress evolution and near term forecasts</h3>
 <p>Because the stress field is dynamical and relaxes over a finite timescale, the model implies not only a present day expansion rate but also an evolution that can be tested by future probes. In V18, these appear as falsifiable targets rather than as calibration inputs.</p>
@@ -400,12 +404,12 @@ K_{\mathrm{eff}} = E\,\beta^2\,(2\pi/\lambda)^2
 <div class="eq">\[
 \frac{d\mathbf{v}_*}{dt} = -\nabla\Phi_\mathrm{Newt} - \frac{1}{\rho_*}\,\nabla_j F^j{}_t
 \]</div>
-<h4>Physical Foundation</h4><p>Outer stars experience deceleration due to spacetime stress divergence, governed by the elastic stress tensor F<sub>μν</sub> = E S̃<sub>μν</sub>:</p><div class="eq">
-<strong>dv<sub>*</sub>/dt = -∇Φ<sub>Newt</sub> - (1/ρ<sub>*</sub>)∇<sub>j</sub>F<sup>j</sup><sub>t</sub> [E16]</strong>
-</div><p>where F<sup>j</sup><sub>t</sub> = time-space components of stress tensor representing the resistance force density from spacetime deformation.</p><div class="callout">
+<h4>Physical Foundation</h4><p>Outer stars experience deceleration due to spacetime stress divergence, governed by the elastic stress tensor Σ<sub>μν</sub> = E S̃<sub>μν</sub>:</p><div class="eq">
+<strong>dv<sub>*</sub>/dt = -∇Φ<sub>Newt</sub> - (1/ρ<sub>*</sub>)∇<sub>j</sub>Σ<sup>j</sup><sub>t</sub> [E16]</strong>
+</div><p>where Σ<sup>j</sup><sub>t</sub> = time-space components of stress tensor representing the resistance force density from spacetime deformation.</p><div class="callout">
 <h4>Dimensional verification:</h4>
 <p>[∇Φ] = [L²T⁻²]/[L] = [LT⁻²] (gravitational acceleration)<br/>
-[(1/ρ)∇<sub>j</sub>F<sup>j</sup><sub>t</sub>] = [M⁻¹L³] × [L⁻¹][ML⁻¹T⁻²] = [LT⁻²] (stress acceleration)<br/>
+[(1/ρ)∇<sub>j</sub>Σ<sup>j</sup><sub>t</sub>] = [M⁻¹L³] × [L⁻¹][ML⁻¹T⁻²] = [LT⁻²] (stress acceleration)<br/>
 Total: [LT⁻²] = [LT⁻²] ✓</p>
 </div><h4>Critical Acceleration Threshold</h4><p>The stress tensor effects become dominant when stress divergence approaches gravitational acceleration:</p><div class="eq">
 <strong>a<sub>crit</sub> = αc²/β = (1.67 ± 0.33) × 10⁻⁷ m/s² [E17]</strong>
@@ -414,7 +418,7 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <p>[αc²/β] = [1] × [L²T⁻²] / [L] = [LT⁻²] ✓ (acceleration units)</p>
 </div><p>This scale characterises where stress tensor contributions to the effective potential become comparable to Newtonian gravity. It is not a sharp threshold: MTDF galaxy phenomenology uses the full enhancement factor 1 + α/(1 + r/β) rather than an acceleration-dependent transition. Note that a<sub>crit</sub> ≈ 10⁻⁷ m/s² is several orders of magnitude above the MOND scale a<sub>0</sub> ≈ 1.2 × 10⁻¹⁰ m/s²; MTDF reproduces flat rotation curves through a constant ~2.3× enhancement at r ≪ β, not through a MOND-like acceleration threshold.</p><div class="callout">
 <h4>Critical Acceleration Parameter</h4>
-<p><strong>Tensor Origin:</strong> Derived from stress tensor divergence threshold where ∇<sub>j</sub>F<sup>j</sup><sub>t</sub>/ρ ≈ ∇Φ</p>
+<p><strong>Tensor Origin:</strong> Derived from stress tensor divergence threshold where ∇<sub>j</sub>Σ<sup>j</sup><sub>t</sub>/ρ ≈ ∇Φ</p>
 </div>
 <h4>Tensor-based rotation curve solution and coherence length</h4>
 <h4>Modified Potential</h4><p>In the weak-field limit, MTDF modifies the effective gravitational potential through spacetime strain effects derived from the stress tensor:</p><div class="eq">
@@ -436,7 +440,7 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <h4>RAR Validation Results</h4>
 <ul>
 <li><strong>Tight correlation:</strong> Shows correlation across 4+ orders of magnitude in acceleration</li>
-<li><strong>No tuning required:</strong> Emerges from stress tensor formalism F<sub>μν</sub> = E S̃<sub>μν</sub></li>
+<li><strong>No tuning required:</strong> Emerges from stress tensor formalism Σ<sub>μν</sub> = E S̃<sub>μν</sub></li>
 <li><strong>First-principles derivation:</strong> Unlike MOND, which hardcodes the RAR, MTDF derives it from tensor mechanics</li>
 <li><strong>Environmental dependence:</strong> Predicts systematic variations with cosmic environment</li>
 </ul>
@@ -480,7 +484,7 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <p>MTDF includes a qualitative framework for interpreting persistent outliers (for example, strong non equilibrium systems, interacting galaxies, or environments with unusual baryonic distributions). In V18 these are treated as diagnostic cases and not used to tune parameters.</p>
 <h4>First-Principles Solutions</h4><div class="callout">
 <h4>Tensor-Based Anomaly Resolution</h4>
-<p><strong>Mechanistic Foundation:</strong> All solutions derive from stress tensor divergence ∇<sub>μ</sub>F<sup>μν</sup> = 8πG/c⁴ T<sub>μν</sub> rather than phenomenological adjustments</p>
+<p><strong>Mechanistic Foundation:</strong> All solutions derive from stress tensor divergence ∇<sub>μ</sub>Σ<sup>μν</sup> = 8πG/c⁴ T<sub>μν</sub> rather than phenomenological adjustments</p>
 </div><div class="callout">
 <h4>Environmental Parameter Derivation</h4>
 <p><strong>Environmental Coupling Relationship:</strong> α<sub>cluster</sub> = 0.7α<sub>void</sub></p>
@@ -509,13 +513,13 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <h4>Stress accumulation, relaxation cycles, and hierarchy</h4>
 <p>Building on the elastic stress tensor framework (Section 2.2), spacetime operates through fundamental stress-relaxation cycles governed by the viscoelastic evolution equation:</p><div class="eq">
 <strong>∂²φ/∂t² - c²∇²φ + γ∂φ/∂t = 8πGρ [E1]</strong>
-</div><h4>Stress Buildup Phase</h4><p>The elastic stress tensor F<sub>μν</sub> = E S̃<sub>μν</sub> accumulates energy through multiple mechanisms:</p><ul>
+</div><h4>Stress Buildup Phase</h4><p>The elastic stress tensor Σ<sub>μν</sub> = E S̃<sub>μν</sub> accumulates energy through multiple mechanisms:</p><ul>
 <li><strong>Galactic Motion:</strong> As galaxies rotate and evolve, their movement creates increasing stress in surrounding spacetime, characterized by strain magnitude |S̃<sub>μν</sub>| ~ α = 1.30</li>
 <li><strong>Stellar Orbits:</strong> Individual stars experience ultra-slow deceleration (approximately 0.001% per million years) as they interact with stress tensor resistance over the characteristic time τ = 13.0 ± 0.2 Gyr</li>
 <li><strong>Energy Storage:</strong> Lost kinetic energy is stored as increasing stress tensor magnitude with energy density u<sub>tensor</sub> = (E/2)|S̃<sub>μν</sub>|² rather than being dissipated</li>
 <li><strong>Critical Accumulation:</strong> Stress builds over billions of years until reaching critical thresholds defined by the coherence length β = 22.7 Mpc</li>
 </ul><h4>Relaxation Phase</h4><p>When stress tensor gradients exceed critical thresholds, the elastic spacetime undergoes structured energy release:</p><ul>
-<li><strong>High-Energy Events:</strong> When stress exceeds critical levels |∇F<sub>μν</sub>| &gt; T<sub>crit</sub> = 2.1 × 10⁻⁹ Pa, sudden releases occur through quasars, black holes, and other high-energy phenomena</li>
+<li><strong>High-Energy Events:</strong> When stress exceeds critical levels |∇Σ<sub>μν</sub>| &gt; T<sub>crit</sub> = 2.1 × 10⁻⁹ Pa, sudden releases occur through quasars, black holes, and other high-energy phenomena</li>
 <li><strong>Cosmic Expansion:</strong> Large-scale stress tensor relaxation drives cosmic expansion through negative pressure p<sub>tensor</sub> = -(1/3)u<sub>tensor</sub> as the universe attempts to reduce overall stress</li>
 <li><strong>Structural Reorganization:</strong> Elastic stress tensor gradients reconfigure, creating new cosmic web patterns over the relaxation time τ</li>
 <li><strong>Energy Redistribution:</strong> Released energy redistributes throughout the stress tensor system while maintaining total energy conservation</li>
@@ -523,35 +527,35 @@ Total: [LT⁻²] = [LT⁻²] ✓</p>
 <strong>w(z) = -1 + (2/3)α(1+z)⁻³ - β<sub>eos</sub> e⁻²ᶻ/ᶻᵗ + δ<sub>bf</sub>_term(z) [E3]</strong>
 </div><p>where β<sub>eos</sub> = 0.573 ± 0.012 emerges from universal critical amplitudes. This is a phenomenological MTDF fit; the physics-analogue DOI (HotQCD 2012) is not the source of the value.</p>
 <h4>Topology, defects, and filament formation</h4>
-<p>The elastic stress tensor F<sub>μν</sub> = E S̃<sub>μν</sub> creates hierarchical structure through scale-dependent interactions:</p><h4>Multi-Scale Structure Formation</h4><ul>
+<p>The elastic stress tensor Σ<sub>μν</sub> = E S̃<sub>μν</sub> creates hierarchical structure through scale-dependent interactions:</p><h4>Multi-Scale Structure Formation</h4><ul>
 <li><strong>Around Individual Masses:</strong> Elastic stress tensor gradients wrap around planets, stars, and galaxies, creating localized stress patterns that govern orbital mechanics and stellar dynamics with characteristic strain |S̃<sub>μν</sub>| ~ α</li>
 <li><strong>Galactic Scale:</strong> Stress tensor gradients encompass entire galaxies, with stress tensor magnitude building as stars orbit through spacetime over billions of years, creating the observed flat rotation curves through the modified potential Φ<sub>eff</sub>(r) = Φ<sub>Newton</sub>(r) + Φ<sub>strain</sub>(r)</li>
 <li><strong>Cosmic Scale:</strong> Stress tensor gradients extend throughout the universe, creating a web-like structure. Galaxy clusters act as gravitational "poles," generating stress tensor gradients that span millions of light-years with coherence length β = 22.7 Mpc</li>
 </ul><p>The stress tensor's properties naturally create the observed cosmic web through elastic dynamics, where matter concentrates along stress tensor gradients creating dense filaments, while regions between gradients form vast cosmic voids.</p><div class="callout">
 <h4>Stress Tensor Structure Formation</h4>
-<p>The elastic stress tensor F<sub>μν</sub> organizes matter through:</p>
+<p>The elastic stress tensor Σ<sub>μν</sub> organizes matter through:</p>
 <ul>
-<li><strong>Stress Concentration:</strong> |F<sub>μν</sub>| ~ Eα = (9.1×10⁻¹⁰)(1.30) = 1.2×10⁻⁹ Pa at galactic centers</li>
-<li><strong>Stress Gradients:</strong> ∇F<sub>μν</sub> drives matter flow along minimum resistance paths</li>
+<li><strong>Stress Concentration:</strong> |Σ<sub>μν</sub>| ~ Eα = (9.1×10⁻¹⁰)(1.30) = 1.2×10⁻⁹ Pa at galactic centers</li>
+<li><strong>Stress Gradients:</strong> ∇Σ<sub>μν</sub> drives matter flow along minimum resistance paths</li>
 <li><strong>Coherence Scale:</strong> β = 22.7 Mpc defines maximum correlation length for stress patterns</li>
 <li><strong>Energy Density:</strong> u = (E/2)|S̃<sub>μν</sub>|² = 7.7×10⁻¹⁰ J/m³ characteristic stress tensor energy</li>
 </ul>
-<p><strong>Mathematical Foundation:</strong> F<sub>μν</sub> = E S̃<sub>μν</sub> = E β ∇<sub>μ</sub>ξ<sub>ν</sub> converts dimensionless strain to measurable stress</p>
+<p><strong>Mathematical Foundation:</strong> Σ<sub>μν</sub> = E S̃<sub>μν</sub> = E β ∇<sub>μ</sub>ξ<sub>ν</sub> converts dimensionless strain to measurable stress</p>
 </div>
 <h4>Cosmic web topology and causal propagation</h4>
-<h4>Cosmic Structure Mapping</h4><p>The stress tensor F<sub>μν</sub> organizes matter via:</p><div class="eq">
-<strong>d²xⁱ/dt² = -Γⁱ<sub>jk</sub>ẋʲẋᵏ + (1/ρ)∇<sub>j</sub>F<sup>iⱼ</sup> [E6']</strong>
+<h4>Cosmic Structure Mapping</h4><p>The stress tensor Σ<sub>μν</sub> organizes matter via:</p><div class="eq">
+<strong>d²xⁱ/dt² = -Γⁱ<sub>jk</sub>ẋʲẋᵏ + (1/ρ)∇<sub>j</sub>Σ<sup>iⱼ</sup> [E6']</strong>
 </div><div class="callout">
 <h4>Observable Manifestations</h4>
 </div><h4>Structure Formation Mechanics</h4><p>Matter flow velocity:</p><div class="eq">
-<strong>v<sub>flow</sub>ⁱ = -(D<sub>tensor</sub>/ρ) gⁱʲ ∇<sub>j</sub>‖F<sub>μν</sub>‖ [E8]</strong>
+<strong>v<sub>flow</sub>ⁱ = -(D<sub>tensor</sub>/ρ) gⁱʲ ∇<sub>j</sub>‖Σ<sub>μν</sub>‖ [E8]</strong>
 </div><p>where D<sub>tensor</sub> = E/(ρ<sub>tensor</sub> γ) = 4.85 × 10¹⁷ m²/s</p><div class="callout">
 <h4>Dimensional verification:</h4>
 <p>[D/ρ] = [L²T⁻¹]/[ML⁻³] = [ML⁻¹L²T⁻¹]</p>
 <p>[∇‖F‖] = [L⁻¹][ML⁻¹T⁻²] = [ML⁻²T⁻²L⁻¹]</p>
 <p>[v] = [ML⁻¹L²T⁻¹] × [ML⁻²T⁻²L⁻¹] = [LT⁻¹] ✓</p>
 </div><h4>Tensor Equation with Causality</h4><div class="eq">
-<strong>□F<sub>μν</sub> - γ∂<sub>t</sub>F<sub>μν</sub> = (8πG/c⁴)T<sub>μν</sub><sup>matter</sup> [E1']</strong>
+<strong>□Σ<sub>μν</sub> - γ∂<sub>t</sub>Σ<sub>μν</sub> = (8πG/c⁴)T<sub>μν</sub><sup>matter</sup> [E1']</strong>
 </div><p>where □ = ∂ₜ² - c²∇² ensures c-limited propagation</p><div class="callout">
 <h4>Material Parameters Table</h4>
 <p><strong>Reference:</strong> Complete parameter derivations are summarised in Section 5 and cross-referenced to the validation workbook.</p>
@@ -775,11 +779,11 @@ These signatures are presented as a programme of discriminating tests, not as cl
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.3</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.19767336">10.5281/zenodo.19767336</a>)
+this release, <code>v1.1.4</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.19958783">10.5281/zenodo.19958783</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.3</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.4</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>

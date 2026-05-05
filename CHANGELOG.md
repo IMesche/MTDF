@@ -8,6 +8,96 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
+## [v1.1.4] (2026-05-05)
+
+Release scope: notational clarification and explanatory restructuring only.
+No equations, parameter values, validation results, numerical predictions,
+or scientific conclusions are changed.
+
+Reserved Zenodo v1.1.4 DOI: 10.5281/zenodo.19958783 under concept DOI
+10.5281/zenodo.19741058.
+
+Notation
+
+- The elastic stress tensor previously denoted F_{mu nu} is renamed to
+  Sigma_{mu nu} throughout. The previous symbol collides with the
+  established convention for the Faraday and Yang-Mills field-strength
+  tensors and risks immediate confusion for any field-theory or cosmology
+  reader. The new symbol Sigma_{mu nu} is the standard continuum-mechanics
+  stress-tensor letter, pairs cleanly with the strain tensor S-tilde
+  used elsewhere in the framework, and avoids collision with the
+  established uses of the lowercase sigma_{mu nu} (shear) and tau (the
+  MTDF relaxation parameter).
+- The rename propagates through MTDF_01 (lead paper), MTDF_02
+  (Companion Part I), MTDF_03 (Companion Part II), the Executive
+  Briefing, and the short summary. The other companion papers
+  (MTDF_04 through MTDF_08) reference the framework by name in prose
+  and do not use the symbol directly, so their LaTeX and HTML are
+  unchanged on this point. Three Python module docstrings and
+  in-source comments
+  (gravity/code/step3_nonlinear_source.py, gpu_validation/phase6/testC5_cluster_mass.py,
+  gpu_validation/phase6/testC5b_gravitational_slip.py) are updated to
+  match. No internal Python variable names changed; the rename is
+  confined to documentation strings.
+
+Documentation
+
+- A new "Construction versus postulate" boxed paragraph was added in
+  MTDF_01 immediately after the first definition of Sigma_{mu nu}.
+  The paragraph makes explicit the construction chain: the primary
+  field degree of freedom is the displacement-like field xi_nu; the
+  strain tensor S-tilde_{mu nu} is defined from its covariant
+  gradient; and Sigma_{mu nu} follows from the linear constitutive
+  relation Sigma_{mu nu} = E S-tilde_{mu nu}. Sigma_{mu nu} is
+  therefore not introduced as an independent field-strength tensor or
+  as an additional matter component; it is the stress response of the
+  spacetime medium associated with the strain field. The same callout
+  is mirrored in the MTDF_01 HTML render.
+
+Repository metadata
+
+- CITATION.cff: version bumped 1.1.3 to 1.1.4, top-level doi
+  repointed to the v1.1.4 reserved DOI, date-released set to the
+  v1.1.4 release date. The identifiers list now enumerates the
+  concept DOI, the v1.1.4 version DOI, the v1.1.3 prior-version DOI,
+  the v1.1.2 prior-version DOI, and the v1.1.1 prior-version DOI.
+- README.md: top-level summary table now shows Release v1.1.4, the
+  concept DOI, and the v1.1.4 version DOI.
+- All 10 HTML files in papers/HTML/ and all 10 LaTeX files in
+  papers/LaTex/ carry the updated v1.1.4 DOI in the Data and code
+  availability paragraph.
+
+Package contents
+
+- The combined paper-suite PDF (MTDF_Combined_Paper_Suite_with_Global_Glossary.pdf),
+  introduced in v1.1.3, is removed from this release in response to
+  external feedback that a single concatenated document was not the
+  appropriate distribution format for the paper suite. The eight
+  individual paper PDFs, the Executive Briefing PDF, and the short
+  summary PDF remain the canonical distribution; arXiv-bound zips in
+  papers/arxiv_zips/ likewise distribute the papers individually.
+
+Downstream artefacts
+
+- The 5 paper PDFs whose body text changed under the notation rename
+  (MTDF_01, MTDF_02, MTDF_03, MTDF_Executive_Briefing,
+  MTDF_The_Mesche_Hypothesis_short) are regenerated from the updated
+  LaTeX. The remaining 5 PDFs (MTDF_04, MTDF_05, MTDF_06, MTDF_07,
+  MTDF_08) are rebuilt only because their Data and code availability
+  paragraph carries the new v1.1.4 DOI. Total: 10 PDFs in
+  papers/PDF_from_Tex/.
+- All 8 papers/arxiv_zips/*.zip are repackaged with the updated
+  LaTeX so the arXiv submission set is internally consistent with
+  the v1.1.4 archive.
+
+No numerical scientific results changed in this release. v1.1.4 is a
+notational and presentational refinement of v1.1.3 in response to
+external feedback that the elastic stress tensor symbol carried a
+collision with established field-theory convention and that the lead
+paper's introduction of the tensor read as more declarative than
+constructive. Both points are addressed by the rename and the
+construction-versus-postulate clarification respectively.
+
 ## [v1.1.3] (2026-04-25)
 
 Release scope: clean rebuild of the LaTeX paper suite from improved HTML-to-LaTeX

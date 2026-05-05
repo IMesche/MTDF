@@ -12,10 +12,10 @@ postulates, including the self-sourcing feedback (stress energy → gravity
 framework can close the F2 gap (8–27× shortfall from Step 2).
 
 Core postulates used:
-  - Modified EFE:   G_μν + α F_μν = (8πG/c⁴) T_μν^baryon
+  - Modified EFE:   G_μν + α Σ_μν = (8πG/c⁴) T_μν^baryon
   - Strain:         S̃_μν = β ∇_μ ξ_ν   (dimensionless)
-  - Constitutive:   F_μν = E S̃_μν        (linear Hooke's law)
-  - Evolution [E1']: □F_μν − γ ∂_t F_μν = (8πG/c⁴) T_μν^matter
+  - Constitutive:   Σ_μν = E S̃_μν        (linear Hooke's law)
+  - Evolution [E1']: □Σ_μν − γ ∂_t Σ_μν = (8πG/c⁴) T_μν^matter
   - Energy density:  u = (E/2) S̃²
   - Equation of state: p = -(1/3) u    (w = -1/3)
 
@@ -69,7 +69,7 @@ def strain_from_E1prime(r_m, M_kg):
     Compute the dimensionless strain S̃(r) from the [E1'] evolution
     equation in the static spherical limit.
 
-    [E1']: □F_μν − γ ∂_t F_μν = (8πG/c⁴) T_μν^matter
+    [E1']: □Σ_μν − γ ∂_t Σ_μν = (8πG/c⁴) T_μν^matter
 
     Static (∂_t = 0), using □ = ∂_t² − c² ∇²:
        −c² ∇² F_00 = (8πG/c⁴) T_00

@@ -9,7 +9,7 @@ Phase 6 Test C5b: Gravitational Slip η = Φ/Ψ — Numerical Verification
 Computes η(k,z) = Φ(k,z)/Ψ(k,z) directly from class_mtdf transfer functions
 to verify that the MTDF implementation introduces no gravitational slip.
 
-This resolves the "key unknown" from C5: whether MTDF's strain tensor F_μν
+This resolves the "key unknown" from C5: whether MTDF's strain tensor Σ_μν
 introduces η ≠ 1. If η = 1 (confirmed here), then Σ = μ and M_dyn/M_lens = 1,
 meaning the cluster mass ratio channel is not a discriminator.
 
