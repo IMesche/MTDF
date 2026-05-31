@@ -8,6 +8,84 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
+## [v1.1.5] (2026-05-31)
+
+Release scope: validation-dashboard presentation and paper-source typography
+only. No equations, parameter values, validation inputs, numerical
+predictions, or scientific conclusions are changed. All committed chi-squared
+values are identical to v1.1.4: strict combined chi2/nu = 1.1683 over
+DOF = 1745, and the CMB compressed-prior diagnostic remains chi2/nu = 198.4441
+(chi2 = 595.33 over 3 dof). The dashboard was regenerated from the unchanged
+workbook (DB_Workbook_STRICT_V18.xlsx) and external datasets; every pillar
+value matches the prior render.
+
+Reserved Zenodo v1.1.5 DOI: 10.5281/zenodo.20474512 under concept DOI
+10.5281/zenodo.19741058.
+
+Validation dashboard: CMB presentation
+
+- The Planck 2018 compressed CMB distance-prior pillar (CMB*, role D) is no
+  longer rendered as a column in the main validation table. Previously it was
+  the only CMB number visible at a glance (chi2/nu = 198.4441), which invites
+  misreading as an MTDF CMB fit even though the table already excluded it from
+  strict totals. It is now reported solely in a new collapsed "Diagnostics and
+  Known Tensions" section, explicitly labelled as a diagnostic, not a
+  validation test, and excluded from every pass count and combined chi2/nu.
+- A new top-of-page card, "CMB: full Planck likelihood test", presents the
+  model-neutral result the compressed prior is commonly mistaken for: the full
+  Planck 2018 TTTEEE + low-l + lensing likelihood evaluated with class_mtdf
+  gives delta chi2 = +0.63 relative to LCDM (delta BIC = +8.05; the plik
+  TTTEEE high-l block alone favours MTDF by -3.67). These figures are read
+  live at build time from
+  validation/output/phase5/phase5_minimize_comparison.json; none are
+  hardcoded.
+- The scope-toggle system drops the "Full (A+B+V+D)" preset and the "D" badge,
+  since the diagnostic is no longer a table column. The strict (A+B+V) and
+  validation-only (V) scopes, and the scalar/vector type scopes, are unchanged.
+- The detailed chi2 breakdown panel relabels its two combined columns to
+  "Combined (strict)" and "+ CMB* diagnostic", and its summary now states that
+  the strict figure is the headline, the prior-inclusive figure is not a
+  validation score, and the model-neutral CMB test is the full Planck
+  likelihood (delta chi2 = +0.63). The reading guide and tension-plot
+  descriptions are updated to match, and the tension plot no longer offers a
+  way to surface the CMB* marker. No combined values changed; only labels and
+  framing.
+- Files: validation/code/UI/dashboard.py, validation/code/UI/scripts.py, and
+  the regenerated validation/output/Validation_Dashboard_V74.html.
+
+Paper sources: typography and labelling
+
+- Cosmetic hyphenation sweep across four LaTeX sources (47 substitutions):
+  compound modifiers such as field-based, non-relativistic, scale-dependent,
+  late-time, near-term, low-acceleration and stress-energy are hyphenated
+  where they qualify a following noun. Plural-noun uses ("at high
+  accelerations", "at late times", "from first principles") are left
+  unchanged. Files: MTDF_01, MTDF_02, MTDF_04, MTDF_05. No scientific content,
+  equations, parameters, or references change.
+- The companion-paper subtitle "Extensions, hypotheses, and test programmes
+  (draft for release)" drops the trailing "(draft for release)" parenthetical,
+  which incorrectly implied draft status on a released, archived paper. The
+  subtitle now reads "Extensions, hypotheses, and test programmes". Applied to
+  the .tex and .html of MTDF_02, MTDF_04, and MTDF_05. No content change.
+- Fixed three unescaped percent signs per line in the validation-target
+  tension summary of the short summary paper
+  (MTDF_The_Mesche_Hypothesis_short.tex). A bare "%" begins a LaTeX comment, so
+  the three bullets truncated in the compiled PDF (e.g. "MTDF at 50", dropping
+  "%; LambdaCDM at 10%; MTDF offset 0.0sigma"). The percent signs are now
+  escaped as "\%", restoring the full text on recompilation. The values are
+  unchanged and already rendered correctly in the HTML version, which uses a
+  graphical tension bar. PDF-only correction.
+
+Repository metadata
+
+- CITATION.cff: version bumped 1.1.4 to 1.1.5, top-level doi repointed to the
+  v1.1.5 reserved DOI, date-released set to 2026-05-31, and the v1.1.4
+  version DOI added to the prior-version identifiers list.
+- README.md: top-level summary table now shows Release v1.1.5 and the v1.1.5
+  version DOI.
+- The "Data and code availability" paragraph in the 10 LaTeX papers and their
+  10 HTML renders carries the updated v1.1.5 tag and DOI.
+
 ## [v1.1.4] (2026-05-05)
 
 Release scope: notational clarification and explanatory restructuring only.

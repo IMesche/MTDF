@@ -1088,7 +1088,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                     Each dot shows how many standard deviations (σ) a model's prediction differs from the observational target.
                     <strong>Scalar pillars</strong> use direct z-scores. <strong>Vector pillars</strong> <span class='tension-type-badge' style='font-size:10px;vertical-align:middle'>χ²</span> use z = (χ²/ν − 1) × 4, mapping χ²/ν=1→0σ, 1.5→2σ.
                     <strong>Green zone</strong> (±1σ) = consistent | <strong>Yellow zone</strong> (±2σ) = borderline | <strong>Red zone</strong> (>2σ) = tension.
-                    Use scope toggle to filter by role (A/B/V/D) or type (Scalar/Vector).
+                    Use scope toggle to filter by role (A/B/V) or type (Scalar/Vector). The CMB* compressed-prior diagnostic is not plotted here; it is reported in the Diagnostics &amp; Known Tensions section.
                 </div>
                 <div id='tension-plot-rows'>
                     {"".join(rows_html)}
@@ -1267,8 +1267,8 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
               <th class='left' rowspan='2'>Model</th>
               <th colspan='3' style='background:#1e3a5f'>Scalar Pillars</th>
               <th colspan='3' style='background:#1a4d2e'>Vector Pillars</th>
-              <th colspan='3' style='background:#3b3821'>Combined (All)</th>
-              <th colspan='3' style='background:#0d4f3c'>Combined (excl. CMB)</th>
+              <th colspan='3' style='background:#3b3821'>+ CMB* diagnostic</th>
+              <th colspan='3' style='background:#0d4f3c'>Combined (strict)</th>
             </tr>
             <tr>
               <th style='background:#1e3a5f'>ν</th>
@@ -1288,15 +1288,15 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
           <tbody>{{rows}}</tbody>
         </table>
         <p style='margin-top:10px; font-size:0.9em; color:#94a3b8'>
-        <strong>Note:</strong> The "Combined (excl. CMB)" column summarises late-time probes only (SNe, BAO, H(z), fσ₈ and scalar pillars) and excludes the CMB distance prior.
-        This makes it easy to see whether any tension is confined to the CMB prior or also present in late-time data.
+        <strong>Note:</strong> The <strong>Combined (strict)</strong> column is the headline figure: scalar pillars plus the late-time vector probes (SNe, BAO, H(z), fσ₈), with the CMB* distance prior excluded.
+        The <strong>+ CMB* diagnostic</strong> column adds the ΛCDM-compressed CMB prior purely for transparency. Because that prior is calibrated under ΛCDM, it is not a model-neutral test, so it is never used as a validation score. The difference between the two columns is, by construction, the CMB* contribution alone.
         </p>
 
         <p style='margin-top:15px; font-size:0.95em; border-top:1px solid #3b4f6f; padding-top:12px;'>
-        <strong>Combined statistics</strong><br>
-        Late-time only (excl. CMB distance prior): χ²/ν = {excl_cmb_val}.<br>
-        All included (incl. CMB distance prior): χ²/ν = {combined_val}.<br>
-        The difference between these values is dominated by the CMB distance prior contribution described in the CMB tooltip.
+        <strong>Combined statistics (MTDF)</strong><br>
+        Strict (the headline, CMB* distance prior excluded): χ²/ν = {excl_cmb_val}.<br>
+        With the CMB* compressed-prior diagnostic added (not a validation score): χ²/ν = {combined_val}.<br>
+        The model-neutral CMB test is the full Planck TTTEEE + low-ℓ + lensing likelihood, reported at the top of the page: Δχ² = +0.63 relative to ΛCDM. The compressed distance prior above measures tension with the ΛCDM compression, not with the CMB data directly.
         </p>
         """
         # First replace {{rows}} while still double-braced, then format
@@ -1785,10 +1785,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         <ul>
           <li><strong>Full covariance:</strong> χ² is computed as (d − m)<sup>T</sup> C<sup>−1</sup> (d − m) using the published covariance matrix C.</li>
           <li><strong>Reduced χ²:</strong> for vector pillars the dashboard usually displays χ² / DOF. Values between about 0.5 and 2 are typically compatible with the quoted errors.</li>
-          <li><strong>Colour code:</strong> for all vector pillars except CMB, green cells indicate χ²/DOF &lt; 1.5, orange 1.5 ≤ χ²/DOF &lt; 2, red χ²/DOF ≥ 2. For CMB the colours are interpreted relative to the ΛCDM-based distance prior, as explained in the CMB tooltips.</li>
+          <li><strong>Colour code:</strong> for all vector pillars, green cells indicate χ²/DOF &lt; 1.5, orange 1.5 ≤ χ²/DOF &lt; 2, red χ²/DOF ≥ 2.</li>
         </ul>
 
-        <p><strong>CMB* is diagnostic only:</strong> It is a ΛCDM-calibrated compressed prior, so its χ² primarily measures tension with that compression. It remains visible, but is excluded from the strict combined χ²/ν and PASS counts. Hover the CMB* header and values for details.</p>
+        <p><strong>CMB* is diagnostic only:</strong> It is a ΛCDM-calibrated compressed prior, so its χ² primarily measures tension with that compression rather than the CMB itself. It is therefore not shown in the validation table and is excluded from the strict combined χ²/ν and PASS counts. It is reported separately in the <em>Diagnostics &amp; Known Tensions</em> section. The CMB test that bears on the theory, the full Planck TTTEEE + low-ℓ + lensing likelihood, is shown at the top of the page (Δχ² = +0.63 relative to ΛCDM).</p>
 
         <h4>The Strict Validation Protocol: Pillar Roles</h4>
         <p>To prevent circularity, each pillar header shows a coloured badge indicating its methodological role:</p>
@@ -1796,19 +1796,18 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
           <li><strong><span style="color:#f87171">A</span> (Calibration Anchor):</strong> Used to fix the fundamental parameters {α, β}. P8 (β scale) belongs here: it establishes the void quantization scale that defines β. Anchors are excluded from the validation score in V-only mode.</li>
           <li><strong><span style="color:#fbbf24">B</span> (Benchmark):</strong> Validates dataset-specific mappings or error model choices (e.g., SPARC data handling). P1 and P1B belong here: they test rotation curve scatter using SPARC-derived calibrations. Benchmarks are useful consistency tests but may share data lineage with parameter characterization.</li>
           <li><strong><span style="color:#60a5fa">V</span> (Validation Target):</strong> With parameters fixed, the model is tested against these independent datasets. Most pillars (P2–P7, P9–P13) belong here. These are the headline claims.</li>
-          <li><strong><span style="color:#00ffff">D</span> (Diagnostic):</strong> Excluded from strict totals and shown for transparency only. CMB* belongs here because it uses a ΛCDM-calibrated compressed prior; its χ² measures tension with that compression rather than a direct MTDF prediction.</li>
+          <li><strong><span style="color:#00ffff">D</span> (Diagnostic):</strong> Reported separately in the <em>Diagnostics &amp; Known Tensions</em> section, never in the validation table or any score. CMB* is the only diagnostic: it uses a ΛCDM-calibrated compressed prior, so its χ² measures tension with that compression rather than a direct MTDF prediction.</li>
         </ul>
-        <p><strong>Why this matters:</strong> A referee might argue that calibration anchors are circular, benchmarks are not fully out-of-sample, and diagnostics use external model assumptions. By labelling them explicitly, we report multiple totals: <em>Validation-only χ²</em> (strongest claim), <em>Standard χ² (A+B+V)</em> (excludes diagnostics), and <em>Full χ² (A+B+V+D)</em> (complete transparency).</p>
+        <p><strong>Why this matters:</strong> A referee might argue that calibration anchors are circular, benchmarks are not fully out-of-sample, and diagnostics use external model assumptions. By labelling them explicitly, we report two headline totals: <em>Validation-only χ²</em> (V, strongest claim) and <em>Standard χ² (A+B+V)</em> (the default). The compressed-prior CMB* diagnostic is never folded into either; the model-neutral CMB result (full Planck likelihood, Δχ² = +0.63 vs ΛCDM) is shown at the top of the page.</p>
 
         <h4>Scope Toggle Controls</h4>
-        <p>Use the <strong>scope dropdown</strong> (top-right of table) and <strong>role badge toggles</strong> (A/B/V/D badges) to filter which pillars are included in the statistics and visualization:</p>
+        <p>Use the <strong>scope dropdown</strong> (top-right of table) and <strong>role badge toggles</strong> (A/B/V badges) to filter which pillars are included in the statistics and visualization:</p>
         <ul>
-          <li><strong>Strict:</strong> Shows A+B+V pillars (excludes Diagnostics like CMB*). This is the default view and matches the paper's "strict χ²/ν" definition.</li>
-          <li><strong>Validation:</strong> Shows only V pillars — the most independent validation set for conservative claims.</li>
-          <li><strong>Full:</strong> Shows all pillars (A+B+V+D) including diagnostics for complete transparency.</li>
-          <li><strong>Scalar:</strong> Shows only scalar pillars (P1–P13) — single-number tests with z-scores.</li>
-          <li><strong>Vector:</strong> Shows only vector pillars (SNe, BAO, H(z), fσ₈) — multi-point likelihood tests with χ²/ν. Note: CMB* is excluded in Vector mode as it's diagnostic.</li>
-          <li><strong>Custom:</strong> Click individual role badges (A/B/V/D) to create a custom combination.</li>
+          <li><strong>Strict:</strong> Shows A+B+V pillars. This is the default view and matches the paper's "strict χ²/ν" definition.</li>
+          <li><strong>Validation:</strong> Shows only V pillars, the most independent validation set for conservative claims.</li>
+          <li><strong>Scalar:</strong> Shows only scalar pillars (P1–P13), single-number tests with z-scores.</li>
+          <li><strong>Vector:</strong> Shows only vector pillars (SNe, BAO, H(z), fσ₈), multi-point likelihood tests with χ²/ν.</li>
+          <li><strong>Custom:</strong> Click individual role badges (A/B/V) to create a custom combination.</li>
         </ul>
         <p>When you change scope, the table columns dim/highlight accordingly, the combined χ²/ν recalculates, and the Tension Visualization plot updates to show only the relevant pillars.</p>
 
@@ -1989,6 +1988,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 
         for vr in vector_results:
             pid = vr.get("pillar_id", "")
+            # CMB* (compressed ΛCDM distance prior) is diagnostic-only and lives in the
+            # dedicated Diagnostics section, not in the pillar overview or its subtotals.
+            if pid in ("P_CMB_DIST",):
+                continue
             name = vr.get("name", pid)
             category = vr.get("category", "Cosmology")
             n_data = vr.get("n_data", 0)
@@ -2195,7 +2198,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 
         header_cells, target_cells = [], []
         pillar_roles = {}  # Store roles for JavaScript scope toggle
-        for pid in pillars:
+        # Diagnostic-only pillars (CMB* distance prior) are no longer rendered as a
+        # column in the main results table. They live exclusively in the dedicated
+        # "Diagnostics & Known Tensions" section, so iterate over strict pillars only.
+        for pid in strict_pillars:
             coverage = get_pillar_coverage(pid)
             label = get_pillar_label(pid)
             is_vector = is_vector_pillar(pid)
@@ -2244,12 +2250,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                         <span class="scope-badge anchor active" data-scope-role="A" title="A = Calibration Anchor: Used to fix fundamental parameters {α, β}. Excluded from the validation score in V-only mode.">A</span>
                         <span class="scope-badge bench active" data-scope-role="B" title="B = Benchmark: Validates dataset-specific mappings (e.g., P1, P1B). Useful consistency tests but may share data lineage with parameter characterization.">B</span>
                         <span class="scope-badge val active" data-scope-role="V" title="V = Validation Target: With parameters fixed, the model is tested against these independent datasets. Headline claims.">V</span>
-                        <span class="scope-badge diag inactive" data-scope-role="D" title="D = Diagnostic: Excluded from strict totals, shown for transparency only.">D</span>
                     </div>
                     <select class="scope-dropdown" id="scope-selector" onchange="changeScope(this.value)" title="Select validation scope preset">
-                        <option value="standard" selected title="Strict (A+B+V): Default scope excluding diagnostics (CMB*). Matches paper's strict χ²/ν definition.">Strict</option>
+                        <option value="standard" selected title="Strict (A+B+V): Default scope. Matches paper's strict χ²/ν definition. The CMB* compressed-prior diagnostic is reported separately in the Diagnostics section, never in this score.">Strict</option>
                         <option value="validation" title="Validation Only (V): Strictest test using only Validation Targets (independent datasets). Most conservative for peer review.">Validation</option>
-                        <option value="full" title="Full (A+B+V+D): All pillars including diagnostics. Shows complete picture but inflated χ² due to CMB tension.">Full</option>
                         <option disabled>───────────</option>
                         <option value="scalar" title="Scalar Only: Show only scalar pillars (z-score based). Filters by data type, not role.">Scalar</option>
                         <option value="vector" title="Vector Only: Show only vector pillars (χ² likelihood based). Filters by data type, not role.">Vector</option>
@@ -2304,8 +2308,9 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 'full': {'passes': 0, 'tests': 0, 'chi2': 0.0, 'dof': 0}
             }
 
-            # Count tests with valid predictions per scope
-            for pid in pillars:
+            # Count tests with valid predictions per scope (strict pillars only;
+            # CMB* diagnostic is excluded from the table and all scope totals)
+            for pid in strict_pillars:
                 pred = row.get("vals", {}).get(pid)
                 is_vector = is_vector_pillar(pid)
                 valid_pred = pred is not None and not (isinstance(pred, float) and (math.isnan(pred) or math.isinf(pred)))
@@ -2412,7 +2417,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                     return "N/A"
 
             pillar_cells = []
-            for pid in pillars:
+            for pid in strict_pillars:
                 pred = row.get("vals", {}).get(pid)
                 is_vector = is_vector_pillar(pid)
                 valid_pred = pred is not None and not (isinstance(pred, float) and (math.isnan(pred) or math.isinf(pred)))
@@ -2633,6 +2638,164 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         </div>
         """.replace("{header_row}", header_row).replace("{target_row}", target_row).replace("{''.join(body_rows)}", ''.join(body_rows))
 
+    def _load_phase5_full_planck(self) -> Optional[Dict[str, Any]]:
+        """Load the live full-Planck likelihood comparison (MTDF vs ΛCDM).
+
+        Source of truth: validation/output/phase5/phase5_minimize_comparison.json,
+        produced by gpu_validation/phase5_plik. Numbers are read live (never
+        hardcoded) so the CMB status card always matches the committed result.
+        Returns None if the file is absent (e.g. phase 5 not yet run).
+        """
+        # __file__ = validation/code/UI/dashboard.py  ->  parents[2] = validation/
+        candidates = [
+            Path(__file__).resolve().parents[2] / "output" / "phase5" / "phase5_minimize_comparison.json",
+            Path(__file__).resolve().parents[3] / "validation" / "output" / "phase5" / "phase5_minimize_comparison.json",
+        ]
+        for p in candidates:
+            try:
+                if p.exists():
+                    with open(p, "r", encoding="utf-8") as fh:
+                        return json.load(fh)
+            except Exception as e:
+                print(f"[CMB-CARD] Could not read {p}: {e}")
+        return None
+
+    def _render_cmb_status_card(self) -> str:
+        """Prominent, top-of-dashboard CMB result using the model-neutral
+        full Planck likelihood (the number a CMB physicist actually cares about).
+
+        This replaces the old behaviour where the only CMB number visible at a
+        glance was the ΛCDM-compressed distance-prior diagnostic (χ²/ν ≈ 198).
+        """
+        data = self._load_phase5_full_planck()
+
+        def signed(x, nd=2):
+            return ("+" if x >= 0 else "−") + f"{abs(x):.{nd}f}"
+
+        if data is None:
+            metrics_html = (
+                "<p style='margin:6px 0;color:#fbbf24'>Full Planck likelihood result "
+                "not found (run <code>gpu_validation/phase5_plik</code>). "
+                "See MTDF_05 (Companion Part IV) for the reported value.</p>"
+            )
+            src = "source: validation/output/phase5/phase5_minimize_comparison.json (not present)"
+        else:
+            dchi2 = float(data.get("delta_chi2", 0.0))
+            dbic = float(data.get("delta_BIC", 0.0))
+            lcdm_tot = float(data.get("lcdm_chi2_total", 0.0))
+            mtdf_tot = float(data.get("mtdf_chi2_total", 0.0))
+            k_lcdm = data.get("k_lcdm")
+            k_mtdf = data.get("k_mtdf")
+            plik = (data.get("chi2_breakdown", {}) or {}).get("plik TTTEEE", {}) or {}
+            plik_delta = float(plik.get("delta", 0.0))
+
+            metrics_html = f"""
+            <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 6px 0;">
+              <div style="background:#06351e;border:1px solid #15803d;border-radius:8px;padding:10px 16px;">
+                <div style="font-size:22px;font-weight:700;color:#bbf7d0;">Δχ² = {signed(dchi2)}</div>
+                <div style="font-size:12px;color:#86efac;">MTDF vs ΛCDM, full Planck likelihood</div>
+              </div>
+              <div style="background:#0b1220;border:1px solid #1f2a44;border-radius:8px;padding:10px 16px;">
+                <div style="font-size:22px;font-weight:700;color:#e2e8f0;">ΔBIC = {signed(dbic)}</div>
+                <div style="font-size:12px;color:#93a3b3;">added dimensionality penalty (k={k_mtdf} vs {k_lcdm})</div>
+              </div>
+              <div style="background:#0b1220;border:1px solid #1f2a44;border-radius:8px;padding:10px 16px;">
+                <div style="font-size:22px;font-weight:700;color:#bbf7d0;">plik TTTEEE: {signed(plik_delta)}</div>
+                <div style="font-size:12px;color:#93a3b3;">high-ℓ spectra alone, MTDF fits marginally better</div>
+              </div>
+            </div>
+            <p style="margin:6px 0;color:#cbd5e1;font-size:13px;">
+              Total χ² over the full likelihood (low-ℓ TT + low-ℓ EE + plik TTTEEE + lensing),
+              same data bins, masks, nuisance parameters, priors and minimiser settings as ΛCDM:
+              <strong>MTDF {mtdf_tot:.2f}</strong> vs <strong>ΛCDM {lcdm_tot:.2f}</strong>.
+            </p>
+            """
+            src = "source: validation/output/phase5/phase5_minimize_comparison.json (live)"
+
+        return f"""
+        <section class="cmb-status-card" style="margin:14px 20px;background:#0d172a;border:1px solid #15803d;border-left:4px solid #22c55e;border-radius:10px;padding:14px 18px;">
+          <h3 style="margin:0 0 4px 0;color:#e2e8f0;">CMB: full Planck likelihood test
+            <span style="background:#06351e;color:#22c55e;border:1px solid #15803d;border-radius:4px;font-size:12px;font-weight:600;padding:2px 8px;margin-left:8px;">model-neutral · headline</span>
+          </h3>
+          <p style="margin:4px 0;color:#9fb3c8;font-size:13px;">
+            The MTDF Boltzmann solver (<code>class_mtdf</code>) evaluated against the full
+            Planck 2018 TTTEEE + low-ℓ + lensing likelihood. This is the CMB test that bears
+            on the theory.
+          </p>
+          {metrics_html}
+          <p style="margin:6px 0 2px 0;font-size:12px;color:#64748b;">
+            {src} &nbsp;·&nbsp; The compressed ΛCDM distance-prior diagnostic (χ²/ν ≈ 198) is a
+            separate, model-dependent quantity; see
+            <em>Diagnostics &amp; Known Tensions</em> below.
+          </p>
+        </section>
+        """
+
+    def _render_diagnostics_section(self, rows: List[Dict], pillars: List[str]) -> str:
+        """Quarantine the ΛCDM-compressed CMB distance-prior diagnostic (χ²/ν ≈ 198)
+        in its own collapsed section, clearly framed as NOT a validation test and
+        cross-linked to the model-neutral full-Planck result shown above.
+        """
+        diag_pid = "P_CMB_DIST"
+
+        # Collect models that actually carry a CMB* prediction (MTDF, MTDF EFE)
+        diag_rows = []
+        for r in rows:
+            val = r.get("vals", {}).get(diag_pid)
+            if val is None or (isinstance(val, float) and (math.isnan(val) or math.isinf(val))):
+                continue
+            vpd = r.get("vector_pillar_data", {}).get(diag_pid, {})
+            diag_rows.append({
+                "model": r.get("model", "model"),
+                "chi2_red": float(val),
+                "chi2": vpd.get("chi2"),
+                "dof": vpd.get("dof"),
+            })
+
+        if not diag_rows:
+            return ""
+
+        body = []
+        for d in diag_rows:
+            chi2_str = f"{d['chi2']:.2f}" if isinstance(d["chi2"], (int, float)) else "N/A"
+            dof_str = f"{int(d['dof'])}" if isinstance(d["dof"], (int, float)) else "N/A"
+            body.append(
+                "<tr>"
+                "<td class='left' style='text-align:left'><strong>{m}</strong></td>"
+                "<td data-tooltip-id='cell.{pid}.{m}' style='cursor:help;color:#00e5e5'>{cr:.2f}</td>"
+                "<td>{c2}</td><td>{dof}</td>"
+                "</tr>".format(m=d["model"], pid=diag_pid, cr=d["chi2_red"], c2=chi2_str, dof=dof_str)
+            )
+
+        inner = """
+        <div style="background:#3a2c05;border:1px solid #92400e;border-radius:8px;padding:10px 14px;margin-bottom:10px;">
+          <strong style="color:#fbbf24;">Diagnostic only. Not a validation test.</strong>
+          <span style="color:#e2e8f0;">Excluded from all strict and validation scoring, every pass
+          count, and every combined χ²/ν on this dashboard.</span>
+        </div>
+        <p style="color:#9fb3c8;font-size:13px;margin:4px 0;">
+          This row shows MTDF against the Planck 2018 <em>compressed</em> distance prior
+          (R, ℓ<sub>A</sub>, ω<sub>b</sub>h²). That three-number summary is calibrated assuming a
+          standard ΛCDM expansion history, so it is <strong>not model-neutral</strong>: a large χ²
+          here diagnoses tension with the ΛCDM compression, <strong>not</strong> a falsification by
+          the raw CMB. The model-neutral test against the full Planck likelihood gives
+          <strong style="color:#22c55e;">Δχ² = +0.63</strong> relative to ΛCDM (see
+          <em>CMB: full Planck likelihood test</em> at the top of the page).
+        </p>
+        <div class='table-wrap' style="margin:8px 0;">
+          <table>
+            <thead><tr>
+              <th style="text-align:left">Model</th>
+              <th data-tooltip-id='pillar.{pid}.header' style="cursor:help">CMB* χ²/ν</th>
+              <th>χ²</th><th>DOF</th>
+            </tr></thead>
+            <tbody>{body}</tbody>
+          </table>
+        </div>
+        """.replace("{pid}", diag_pid).replace("{body}", "".join(body))
+
+        return self._accordion("🔬 Diagnostics & Known Tensions", inner, open_default=False)
+
     def generate_complete_dashboard(self, payload: Dict[str, Any]) -> str:
         rows = payload.get("rows", [])
         pillars = payload.get("pillars", [])
@@ -2742,7 +2905,6 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 const scopeLabels = {{
                   'standard': 'Strict (A+B+V)',
                   'validation': 'Validation Only (V)',
-                  'full': 'Full (A+B+V+D)',
                   'custom': 'Custom Selection'
                 }};
                 const scopeLabel = scopeLabels[scope] || scope;
@@ -2956,6 +3118,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         # Generate the rest of the dashboard
         header = generate_header_section()
         summary = generate_summary_sections(len(pillars))
+        # Prominent, model-neutral CMB result (full Planck likelihood, Δχ²≈+0.63).
+        cmb_status_card = self._render_cmb_status_card()
+        # Collapsed home for the ΛCDM-compressed distance-prior diagnostic (χ²/ν≈198).
+        diagnostics_section = self._render_diagnostics_section(rows, pillars)
         framework_accordion = self._generate_framework_accordion(pillars)
         # Reading guide is first accordion after the table
         reading_guide_accordion = self._generate_reading_guide_accordion()
@@ -2984,11 +3150,13 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 <body>
 {header}
 {summary}
+{cmb_status_card}
 {framework_accordion}
 {table_html}
 {reading_guide_accordion}
 {pillar_summary_accordion}
 {accordions}
+{diagnostics_section}
 {footer}
 {js}
 {acc_js}

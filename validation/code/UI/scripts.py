@@ -83,15 +83,17 @@ function toggleSection(sectionId) {
 // SCOPE TOGGLE SYSTEM
 // ============================================
 // Scopes:
-//   standard (Strict): A+B+V (excludes D) - matches paper's strict χ²/ν
+//   standard (Strict): A+B+V - matches paper's strict χ²/ν
 //   validation: V only (strictest)
-//   full: A+B+V+D (everything)
 //   custom: user-defined combination
+//   (scalar / vector type-scopes are handled separately below)
 
+// Note: the 'full' preset and the 'D' (diagnostic) role were removed. The CMB*
+// compressed-prior diagnostic is no longer a column in the main table; it lives in
+// the dedicated "Diagnostics & Known Tensions" section and is never part of any score.
 const SCOPE_PRESETS = {
   standard: ['A', 'B', 'V'],
-  validation: ['V'],
-  full: ['A', 'B', 'V', 'D']
+  validation: ['V']
 };
 
 // Type-based scopes (filter by pillar type instead of role)
