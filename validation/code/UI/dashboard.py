@@ -1490,17 +1490,25 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         try:
             import pandas as pd
 
-            # Find workbook - try common paths
+            # Find workbook. The first candidate is resolved relative to THIS
+            # module file, so it is independent of the current working directory:
+            # the audit panel populates whether run_validate.py is launched from
+            # the repo root (as the README's reproduction command instructs) or
+            # from validation/code/. The cwd-relative paths are kept only as
+            # fallbacks for non-standard layouts.
+            from pathlib import Path
+            _here = Path(__file__).resolve()
             workbook_candidates = [
-                'data/DB_Workbook_STRICT_V18.xlsx',
-                '../data/DB_Workbook_STRICT_V18.xlsx',
-                './DB_Workbook_STRICT_V18.xlsx'
+                _here.parents[2] / 'data' / 'DB_Workbook_STRICT_V18.xlsx',  # validation/data (canonical)
+                Path('validation/data/DB_Workbook_STRICT_V18.xlsx'),         # repo-root cwd (README)
+                Path('data/DB_Workbook_STRICT_V18.xlsx'),
+                Path('../data/DB_Workbook_STRICT_V18.xlsx'),
+                Path('./DB_Workbook_STRICT_V18.xlsx'),
             ]
 
             workbook_path = None
             for path in workbook_candidates:
-                from pathlib import Path
-                if Path(path).exists():
+                if path.exists():
                     workbook_path = path
                     break
 

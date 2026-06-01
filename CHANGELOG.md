@@ -8,6 +8,30 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
+## [v1.1.6] (unreleased)
+
+Release scope: a single dashboard build-robustness fix. No equations,
+parameter values, validation inputs, numerical predictions, or scientific
+conclusions are changed.
+
+Validation dashboard: Parameter Audit panel
+
+- Fixed the workbook lookup in the Parameter Audit panel
+  (`validation/code/UI/dashboard.py`, `_render_parameter_audit`). It previously
+  resolved the workbook only via current-working-directory-relative paths
+  (`data/...`, `../data/...`, `./...`), which resolve only when the generator is
+  run from `validation/code/`. Run from the repository root, which is the
+  working directory the README's reproduction command instructs reviewers to
+  use, none of the paths matched and the panel baked the literal fallback
+  string "Workbook file not found - cannot load parameter audit" into the HTML.
+  The v1.1.5 dashboard shipped with this fallback, and a clean reviewer
+  reproduction following the README would have reproduced it. The lookup now
+  resolves the workbook relative to the dashboard module file (independent of
+  the working directory), with the repository-root and cwd-relative paths kept
+  as fallbacks, so the Parameter Audit panel populates correctly from any
+  launch directory. Code-only change; the shipped dashboard HTML will be
+  regenerated with the populated audit when v1.1.6 is cut.
+
 ## [v1.1.5] (2026-05-31)
 
 Release scope: validation-dashboard presentation and paper-source typography
