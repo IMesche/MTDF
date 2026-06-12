@@ -35,61 +35,54 @@ OUTPUT_DIR = Path(__file__).parent / 'output'
 # E_G PARAMETER: LENSING/RSD RATIO
 # ============================================================================
 # E_G = Ω_m,0 / β(z) where β = f/b (growth rate / bias)
-# In GR: E_G is redshift-independent and equals ~0.4
+# In GR (b=1): E_G(z) = Omega_m,0/f(z): about 0.47 at z=0.27, 0.40 at z=0.57
 
-# Published E_G measurements from various surveys
+# Published E_G measurements, verified against the source papers (2026-06-12).
+# Values cross-checked on ADS/journal pages; full citations in MTDF_03 references.
 EG_MEASUREMENTS = {
-    'SDSS_DR7': {
-        'z_eff': 0.27,
-        'E_G': 0.392,
-        'err': 0.064,
+    'SDSS_LRG_Reyes2010': {
+        'z_eff': 0.32, 'E_G': 0.39, 'err': 0.06,
         'method': 'Galaxy-galaxy lensing + RSD',
-        'ref': 'Reyes et al. 2010'
+        'ref': 'Reyes et al. 2010, Nature 464, 256'
     },
-    'BOSS_LOWZ': {
-        'z_eff': 0.32,
-        'E_G': 0.43,
-        'err': 0.10,
-        'method': 'CMB lensing + RSD',
-        'ref': 'Pullen et al. 2016'
+    'CMASS_PlanckLens_Pullen2016': {
+        'z_eff': 0.57, 'E_G': 0.243, 'err': 0.061,
+        'method': 'CMB lensing + RSD (known low value)',
+        'ref': 'Pullen et al. 2016, MNRAS 460, 4098'
     },
-    'CFHTLenS_BOSS': {
-        'z_eff': 0.57,
-        'E_G': 0.48,
-        'err': 0.10,
+    'LOWZ_Blake2016': {
+        'z_eff': 0.32, 'E_G': 0.48, 'err': 0.10,
         'method': 'Galaxy-galaxy lensing + RSD',
-        'ref': 'Blake et al. 2016'
+        'ref': 'Blake et al. 2016, MNRAS 456, 2806'
     },
-    'KiDS_BOSS': {
-        'z_eff': 0.32,
-        'E_G': 0.37,
-        'err': 0.06,
-        'method': 'Galaxy-galaxy lensing + RSD',
-        'ref': 'Amon et al. 2018'
+    'LOWZ_2dFLOZ_Amon2018': {
+        'z_eff': 0.305, 'E_G': 0.27, 'err': 0.08,
+        'method': 'Galaxy-galaxy lensing + RSD (known low value)',
+        'ref': 'Amon et al. 2018, MNRAS 479, 3422'
     },
-    'DES_Y1': {
-        'z_eff': 0.27,
-        'E_G': 0.39,
-        'err': 0.05,
+    'LOWZ_Singh2019': {
+        'z_eff': 0.27, 'E_G': 0.40, 'err': 0.045,
         'method': 'Galaxy-galaxy lensing + RSD',
-        'ref': 'DES Collaboration 2018'
+        'ref': 'Singh et al. 2019, MNRAS 482, 785'
     },
-    'KiDS_2dFLenS': {
-        'z_eff': 0.305,
-        'E_G': 0.27,
-        'err': 0.08,
+    'CMASS_Jullo2019': {
+        'z_eff': 0.57, 'E_G': 0.43, 'err': 0.10,
         'method': 'Galaxy-galaxy lensing + RSD',
-        'ref': 'Blake et al. 2020'
+        'ref': 'Jullo et al. 2019, A&A 627, A137'
     }
 }
 
 # GR prediction
-def EG_GR(z, Om=0.3):
-    """GR prediction for E_G (scale-independent)."""
-    return Om  # In GR, E_G = Ω_m to good approximation
+def EG_GR(z, Om0=0.315):
+    """GR prediction: E_G(z) = Omega_m,0 / f(z), with f = Omega_m(z)^0.55.
+
+    Roughly 0.47 at z = 0.27 declining to 0.40 at z = 0.57 (Om0 = 0.315).
+    """
+    Omz = Om0 * (1 + z)**3 / (Om0 * (1 + z)**3 + 1 - Om0)
+    return Om0 / Omz**0.55
 
 # MTDF modification (hypothetical)
-def EG_MTDF(z, Om=0.3, kappa=0.00102, env='average'):
+def EG_MTDF(z, kappa=0.00102, env='average'):
     """
     MTDF modification to E_G in different environments.
 
@@ -101,8 +94,8 @@ def EG_MTDF(z, Om=0.3, kappa=0.00102, env='average'):
 
     env: 'void', 'average', 'wall'
     """
-    # Base GR value
-    EG_base = Om
+    # Base GR value (z-dependent)
+    EG_base = EG_GR(z)
 
     # Environment-dependent correction
     # In voids: lower stress → potential modification
@@ -122,20 +115,17 @@ def EG_MTDF(z, Om=0.3, kappa=0.00102, env='average'):
 # ============================================================================
 # VOID LENSING DATA
 # ============================================================================
-# Void lensing tangential shear profiles (stacked voids)
+# Void lensing tangential shear profile (schematic)
 
+# Schematic stacked void-lensing profile. The order of magnitude follows the
+# DES Y1 void-lensing measurement (Fang et al. 2019, MNRAS 490, 3573, S/N ~ 11-14);
+# the points are NOT digitized survey data and carry no evidential weight.
 VOID_LENSING = {
-    'DES_Y1_voids': {
+    'Schematic_profile': {
         'R_void': [10, 20, 30, 40, 50],  # Mpc/h
-        'gamma_t': [-0.002, -0.004, -0.003, -0.001, 0.001],  # tangential shear
+        'gamma_t': [-0.002, -0.004, -0.003, -0.001, 0.001],
         'err': [0.001, 0.001, 0.001, 0.0015, 0.002],
-        'ref': 'Fang et al. 2019'
-    },
-    'KiDS_voids': {
-        'R_void': [15, 25, 35, 45],
-        'gamma_t': [-0.003, -0.005, -0.002, 0.000],
-        'err': [0.001, 0.0015, 0.0012, 0.0018],
-        'ref': 'Cautun et al. 2018'
+        'ref': 'schematic; amplitude scale after Fang et al. 2019 (DES Y1)'
     }
 }
 
@@ -180,7 +170,7 @@ def analyze_lensing_rsd_mismatch():
     print("THEORETICAL BASIS:")
     print("-" * 50)
     print("  E_G = (Lensing signal) / (RSD signal)")
-    print("  In GR: E_G = Ω_m ≈ 0.30 (scale/z independent)")
+    print("  In GR: E_G(z) = Ω_m,0/f(z) ≈ 0.47 (z=0.27) to 0.40 (z=0.57)")
     print()
     print("  MTDF PREDICTION:")
     print("    If photon coupling κ ≠ 0:")
@@ -215,9 +205,13 @@ def analyze_lensing_rsd_mismatch():
     EG_mean = sum(w * r['EG_obs'] for w, r in zip(weights, results)) / sum(weights)
     EG_err = 1 / np.sqrt(sum(weights))
 
-    print(f"\nWeighted mean: E_G = {EG_mean:.3f} ± {EG_err:.3f}")
-    print(f"GR prediction: E_G = 0.30")
-    print(f"Deviation: {(EG_mean - 0.30)/EG_err:.1f}σ")
+    print(f"\nNaive weighted mean: E_G = {EG_mean:.3f} ± {EG_err:.3f}")
+    wx = [(w, r) for w, r in zip(weights, results) if 'Pullen' not in r['ref']]
+    EG_mean_x = sum(w * r['EG_obs'] for w, r in wx) / sum(w for w, _ in wx)
+    EG_err_x = 1 / np.sqrt(sum(w for w, _ in wx))
+    print(f"Excluding the CMB-lensing outlier: E_G = {EG_mean_x:.3f} ± {EG_err_x:.3f}")
+    print("Per-point comparison vs the z-matched GR value is in the table above;")
+    print("overlapping survey footprints make any combined mean indicative only.")
 
     print()
     print("=" * 70)
@@ -225,7 +219,7 @@ def analyze_lensing_rsd_mismatch():
     print("=" * 70)
 
     # Analyze void lensing
-    print("\nVoid tangential shear profiles:")
+    print("\nVoid tangential shear profile (SCHEMATIC, not survey data):")
     for name, data in VOID_LENSING.items():
         print(f"\n  {name} ({data['ref']}):")
         for i, R in enumerate(data['R_void']):
@@ -261,12 +255,12 @@ def create_EG_figure(results):
     err_arr = [r['err'] for r in results]
     names = [r['name'] for r in results]
 
-    # GR prediction band
-    z_theory = np.linspace(0, 1, 100)
-    EG_GR_val = 0.30
-    ax1.axhspan(EG_GR_val - 0.03, EG_GR_val + 0.03, color='gray',
-                alpha=0.2, label='GR (Ω_m = 0.30 ± 0.03)')
-    ax1.axhline(EG_GR_val, color='black', linestyle='--', linewidth=1)
+    # GR prediction curve: E_G(z) = Ω_m,0/f(z)
+    z_theory = np.linspace(0.05, 0.7, 100)
+    EG_theory = np.array([EG_GR(zt) for zt in z_theory])
+    ax1.fill_between(z_theory, EG_theory - 0.015, EG_theory + 0.015, color='gray',
+                     alpha=0.25, label='GR: Ω_m,0/f(z) (Ω_m,0 = 0.315)')
+    ax1.plot(z_theory, EG_theory, color='black', linestyle='--', linewidth=1)
 
     # Data points
     colors = plt.cm.viridis(np.linspace(0, 1, len(results)))
@@ -296,7 +290,7 @@ def create_EG_figure(results):
 
     ax2.set_xlabel('R [Mpc/h]', fontsize=11)
     ax2.set_ylabel('Tangential shear γ_t', fontsize=11)
-    ax2.set_title('Void Lensing Profiles (Stacked)', fontsize=12)
+    ax2.set_title('Void Lensing Profile (Schematic)', fontsize=12)
     ax2.legend(loc='lower right', fontsize=9)
     ax2.grid(True, alpha=0.3)
 
@@ -310,48 +304,47 @@ def create_EG_figure(results):
     EG_mean = sum(w * r['EG_obs'] for w, r in zip(weights, results)) / sum(weights)
     EG_err = 1 / np.sqrt(sum(weights))
 
+    wx = [(w, r) for w, r in zip(weights, results) if 'Pullen' not in r['ref']]
+    EG_mean_x = sum(w * r['EG_obs'] for w, r in wx) / sum(w for w, _ in wx)
+    EG_err_x = 1 / np.sqrt(sum(w for w, _ in wx))
+
     summary = f"""LENSING vs RSD TEST SUMMARY
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 E_G = Lensing / RSD
-GR prediction: E_G = Ω_m ≈ 0.30
+GR: E_G(z) = Ω_m,0/f(z)
+  ≈ 0.47 (z=0.27) → 0.40 (z=0.57)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-COMBINED MEASUREMENTS:
-  N = {len(results)} surveys
-  ⟨E_G⟩ = {EG_mean:.3f} ± {EG_err:.3f}
+VERIFIED MEASUREMENTS:
+  N = {len(results)} analyses (z = 0.27-0.57)
+  naive ⟨E_G⟩ = {EG_mean:.3f} ± {EG_err:.3f}
+  excl. CMB-lensing outlier:
+    ⟨E_G⟩ = {EG_mean_x:.3f} ± {EG_err_x:.3f}
+  χ² vs GR(z) = {chi2:.1f} / {ndof}
+  (surveys overlap; combination
+   is indicative only)
 
-  χ² = {chi2:.1f} / {ndof} d.o.f.
-  Reduced χ² = {chi2/ndof:.2f}
-
-TENSION WITH GR:
-  (E_G - 0.30) / σ = {(EG_mean-0.30)/EG_err:+.1f}σ
+READING:
+  Most points individually agree
+  with GR(z); known low values
+  (Pullen 2016, Amon 2018) pull
+  the naive mean 1.4-2.6σ low.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 MTDF PREDICTION (κ = 0.00102):
-  • Effect on E_G: ~{0.00102 * 10:.3f}
-  • Void vs Wall split: ~0.001
-  • Below current precision
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-INTERPRETATION:
-  Current E_G data shows
-  EXCELLENT agreement with GR.
-
-  MTDF photon coupling at
-  κ = 0.00102 would produce:
   • Δ(E_G) ~ 0.01 in voids
-  • Undetectable at ~0.05 precision
+  • Void vs Wall split: ~0.001
+  • Far below precision (~0.05)
 
-  STATUS: CONSISTENT with MTDF
-  (no detectable photon coupling
-   at current precision)
+STATUS: E_G does not discriminate
+  MTDF from GR at current
+  precision.
 
 FUTURE: DES Y6, LSST, Euclid
-  will achieve σ(E_G) ~ 0.01
+  will reach σ(E_G) ~ 0.01
 """
 
     ax3.text(0.05, 0.95, summary, transform=ax3.transAxes,

@@ -166,7 +166,7 @@ figure{ margin: 10pt 0 14pt; }
 <div><strong>Author:</strong> Ingo Mesche</div>
 <div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
 <div><strong>Contact:</strong> imesche@outlook.com</div>
-<div><strong>Version:</strong> V74 / February 2026</div>
+<div><strong>Version:</strong> V74 / June 2026</div>
 </div>
 
 <div class="abstract">
@@ -207,7 +207,7 @@ Only results explicitly labelled as validation targets are used as evidence for 
   <h2 id="appendix-a">1. Test index and reproducibility</h2>
 <p>
 This appendix records the scripts used to generate the figures and summary diagnostics for Parts I to IV of the broader MTDF validation effort.
-The SN Ia × void result is treated as primary evidence in Companion Part I. The remaining tests are included as constraints, consistency checks, and forward-looking discriminants across Parts II and III.
+The SN Ia × void result is primary evidence within Companion Part I's extension programme; it is not part of the V18 strict validation core. The remaining tests are included as constraints, consistency checks, and forward-looking discriminants across Parts II and III.
 </p>
 <h3>1.1 Script index by paper component</h3>
 <table class="tbl">
@@ -383,18 +383,18 @@ The SN Ia × void result is treated as primary evidence in Companion Part I. The
 </tr>
 <tr>
 <td>mtdf_growth_S8_analysis.py</td>
-<td>See Part IV</td>
-<td>Growth and S8 analyses are treated in the cosmological validation component.</td>
+<td>See Part IV (Phase 5)</td>
+<td>Growth and S8 are treated in Part IV via the full Planck MCMC (Phase 5); this script is an earlier exploratory check and its results are not used there.</td>
 </tr>
 <tr>
 <td>mtdf_bao_void_split_test.py</td>
-<td>See Part IV</td>
-<td>BAO environment splits are treated as cosmological geometry constraints.</td>
+<td>Exploratory, not in the papers</td>
+<td>Exploratory diagnostic; BAO environment splits are not part of the validated core and are not presented in Part IV.</td>
 </tr>
 <tr>
 <td>mtdf_gw_siren_test.py</td>
-<td>See Part IV</td>
-<td>GW sirens provide an independent distance check in the cosmological component.</td>
+<td>Exploratory, not in the papers</td>
+<td>Exploratory diagnostic; GW standard-siren distance checks are not presented in the papers and carry no evidential weight here.</td>
 </tr>
 <tr>
 <td>step20_strong_lensing.py</td>
@@ -425,6 +425,15 @@ This figure is intended as a high-level synthesis and motivates a unified search
 
 
 
+<section id="p1-sparc-definition" style="margin-top:1.5em">
+<h2>1.4 P1-SPARC test definition</h2>
+<p><strong>Statistic.</strong> The P1-SPARC benchmark reports the aggregate root-mean-square of the log-space residual log<sub>10</sub>(v<sub>obs</sub>/v<sub>model</sub>) over the full SPARC sample (Lelli et al. 2016, AJ 152, 157; 175 galaxies). The achieved value is 0.185 dex against a target of 0.174 &plusmn; 0.011 dex, below the 0.25 dex reference threshold. This is an aggregate amplitude statistic, not a per-galaxy rotation-curve shape fit, and no per-galaxy &chi;&sup2; of zero is claimed.</p>
+<p><strong>Model and parameters.</strong> The MTDF velocity is v<sub>model</sub>(r) = v<sub>bar</sub>(r) &radic;(1 + &alpha;/(1 + r/&beta;)) with &alpha; = 1.30 and &beta; = 22.7 Mpc frozen. Because &beta; greatly exceeds galactic radii, the enhancement is effectively a constant factor &radic;(1+&alpha;) &approx; 1.52 in velocity (a factor 1+&alpha; &approx; 2.3 in acceleration) across the rotation curve.</p>
+<p><strong>Mass-to-light treatment and error model.</strong> v<sub>bar</sub> is built from the SPARC mass-model decomposition (gas, disk, bulge); the aggregate scatter is evaluated at the mass-model normalisation, and the residual uses the observed velocity uncertainties. For reference, a per-galaxy shape fit at the fixed SPARC-standard mass-to-light ratios (0.5 for disks, 0.7 for bulges at 3.6 &mu;m) yields per-galaxy reduced chi-squared of order 10&ndash;280 (e.g. NGC&nbsp;3198 &approx; 72, NGC&nbsp;2403 &approx; 57, NGC&nbsp;7331 &approx; 281), confirming that the constant enhancement reproduces the amplitude of the rotation curves but not their shape.</p>
+<p><strong>Shape diagnostic (radial acceleration relation).</strong> On the radial acceleration relation, the observed data follow a low-acceleration log-log slope of &approx; 0.58 (consistent with the McGaugh et al. 2016 value near 0.5), whereas a constant enhancement predicts a slope of 1.0 (a parallel offset). MTDF therefore matches the approximate amplitude of the relation (median g<sub>obs</sub>/g<sub>bar</sub> &approx; 2.7 against a predicted 1 + &alpha; = 2.3) but not its curvature. Reproducing the low-acceleration curvature from the field equations is an open problem.</p>
+<p><strong>Scope.</strong> The galaxy-scale pillars are treated as scalar benchmarks and are excluded from the V18 strict scoring totals, so the shape-level limitation above does not affect the strict vector results. Audit artefacts (per-galaxy table and the radial-acceleration-relation diagnostic) are provided in the reproducibility package under <code>validation/output/audit_sparc/</code>.</p>
+</section>
+
 <section id="data-and-code-availability" style="margin-top:1.5em">
 <h2>Data and code availability</h2>
 <p>The complete MTDF reproducibility package, including the modified CLASS solver
@@ -432,17 +441,17 @@ This figure is intended as a high-level synthesis and motivates a unified search
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.5</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.20474512">10.5281/zenodo.20474512</a>)
+this release, <code>v1.1.6</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.20629767">10.5281/zenodo.20629767</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.5</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.6</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>
 
 <div class="footer">
-MTDF Validation Suite Appendix (V74) | Ingo Mesche | April 2026
+MTDF Validation Suite Appendix (V74) | Ingo Mesche | June 2026
 </div>
 
 </div>

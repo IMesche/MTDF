@@ -8,11 +8,152 @@ technical. Personal development history is out of scope.
 The submission package corresponds to theory version **V74** and validation
 workbook version **V18**.
 
-## [v1.1.6] (unreleased)
+## [v1.1.6] (2026-06-12)
 
-Release scope: a single dashboard build-robustness fix. No equations,
-parameter values, validation inputs, numerical predictions, or scientific
-conclusions are changed.
+Reserved Zenodo v1.1.6 DOI: 10.5281/zenodo.20629767 under concept DOI
+10.5281/zenodo.19741058.
+
+Release scope: claims-and-provenance audit of the paper suite, a subsequent
+verification pass with the resulting corrections, and a dashboard
+build-robustness fix. The claims pass re-grades how results are claimed
+without changing the results themselves: provenance vocabulary for the four
+structural parameters (alpha reclassified as a frozen, void-motivated
+coupling that is not independently measured), the local-H0 statement
+reframed as conditional on the depth of the local underdensity (the earlier
+S0-based derivation language is retired), honest k_f posterior language (the
+interval marginally excludes 0 and includes 1; the posterior neither favours
+nor excludes the coupling), removal of overclaiming statistics language, and
+source-DOI corrections in the workbook. No equations, parameter values,
+validation inputs, numerical predictions, or scientific conclusions are
+changed; corrections to numbers quoted in paper text restore agreement with
+the underlying pipeline artifacts and the published literature.
+
+Verification process
+
+- Independent line-by-line re-audit of all nine paper-suite documents plus the
+  README against the claims-audit findings, followed by a second, fresh
+  adversarial audit pass and a cross-document consistency sweep over fourteen
+  canonical quantities. Every change below was verified against a pipeline
+  artifact or the published source before being applied.
+
+Numerical corrections (paper text only)
+
+- MTDF_05 Section 2.1 (CMB+BAO summary table): k_f cell corrected from
+  0.10 (+0.01/-0.01) to 1.00 (+0.09/-0.05). Transcription error: the source
+  run file (class_mtdf `MTDF_vs_LCDM_comparison.txt`) reports best-fit
+  k_f = 1.00 +/- 0.08 alongside the H0 values the same table quotes verbatim.
+- S8 uncertainty harmonised to 0.802 +/- 0.013 at the three remaining
+  "+/- 0.012" sites (MTDF_01 twice, MTDF_07 once), matching the rest of the
+  suite.
+- MTDF_01 equation E144: z_t corrected from 0.7 +/- 0.1 to 0.74 +/- 0.10,
+  matching Table 2 and the cited source (Farooq & Ratra 2013).
+- Scalar-pillar pass count corrected from 14/15 to 15/15 at three sites in the
+  short paper: the shipped Diagnostics.csv has all 15 scalar pillars within
+  1 sigma (largest |z| = 0.94) and the dashboard reports 19/19; no artifact in
+  any project generation supports 14/15.
+- MTDF_02: the gamma_low = +0.0083 direction label corrected from "dimming"
+  to "brightening toward void interiors"; the GLS pipeline convention
+  (positive coefficient on signed distance, which is negative inside voids)
+  and Figure S1 both give brightening.
+- MTDF_05 sigma8 sentence now leads with the descriptive form and quotes the
+  full-precision posterior means (2.4% downward shift, 0.8101 to 0.7903).
+
+E_G consistency test rebuilt on verified literature values
+
+- The six hardcoded E_G entries in
+  `validation/code/analysis/mtdf_lensing_rsd_test.py` were found scrambled
+  against the literature (values, redshifts and attributions mixed between
+  papers; one value matching no publication; one entry attributed to a
+  nonexistent "DES Y1" E_G measurement). Replaced with six verified
+  measurements (Reyes et al. 2010; Pullen et al. 2016; Blake et al. 2016;
+  Amon et al. 2018; Singh et al. 2019; Jullo et al. 2019), each checked
+  against the source paper.
+- The script's GR reference implemented E_G = Omega_m (0.30) although its own
+  docstring states E_G = Omega_m/f; corrected to the z-dependent
+  Omega_m,0/f(z), about 0.47 at z = 0.27 falling to 0.40 at z = 0.57. The
+  previous figure's "+2.9 sigma tension with GR" was an artefact of the wrong
+  baseline (and pointed in the wrong direction) and is removed.
+- MTDF_03 Figure 2 (regenerated) and caption, and the MTDF_04 Section 4.2 E_G
+  row, rewritten to the verified picture: most measurements individually
+  consistent with GR(z); known low values (Pullen et al. 2016; Amon et al.
+  2018); naive weighted mean 0.361 +/- 0.027 (0.389 +/- 0.030 excluding the
+  CMB-lensing point), with overlapping survey footprints making any
+  combination indicative only. The conclusion is unchanged: the MTDF photon
+  term (Delta E_G ~ 0.01) is far below current discrimination.
+- The figure's void-lensing panel is now explicitly schematic (amplitude
+  scale after Fang et al. 2019). The previous "KiDS / Cautun et al. 2018"
+  series was misattributed (a simulation-only paper) and is removed.
+- MTDF_04 distance-duality row: eta = 0.973 +/- 0.017 relabelled as a
+  heterogeneous literature compilation, with the DESI Y1 measurement
+  (eta = 1.001 +/- 0.012, MTDF_08) cross-referenced.
+
+Synthesis figure relabelled as illustrative
+
+- `validation/code/analysis/mtdf_synthesis_plot.py` and the short paper's
+  Figure 3 (regenerated): retitled "A Common-Scaling Hypothesis
+  (Illustrative)"; the trend line is labelled as a two-point calibrated trend
+  through the void and cluster anchors rather than a prediction; the caption
+  states that only the central dipole point, not used in the calibration,
+  tests the scaling, and that the figure is a hypothesis-level illustration,
+  not a validation result. A missing pathlib import that prevented the script
+  from running as shipped was fixed.
+
+MTDF_08 evidence-grading corrections
+
+- The "specified in advance" timing claims (four sites) now cite the dated
+  record: the pre-registered SN x void analysis script (2025-12-16) and its
+  provenance manifest (2025-12-17) identify the z < 0.04 localisation in the
+  supernova channel months before the April 2026 CF4/2MTF analyses. The
+  transition scale is therefore an advance prediction for the velocity-field
+  channels and a data-identified localisation within the supernova channel;
+  no dated artefact supports a theoretical pre-specification prior to the
+  December 2025 supernova analysis, and the text now says so.
+- Error-model conditionality paragraph added after Table 4 (GLS significances
+  are conditional on the CF4 error model; permutation p-values are the more
+  robust statistic).
+- Three sites that overclaimed the not-yet-run heliocentric-distance covariate
+  regression now state it as outstanding; the quantitative propagation of the
+  shared SNIa calibration between the SN and CF4 channels (945 of the CF4
+  distances) is stated as not performed.
+- Independence claims qualified in the abstract ("four distinct probes"),
+  Section 3 (CF4/SNIa overlap stated), and the Table 9 caption.
+
+References (all entries verified against journal/ADS pages)
+
+- Boehringer, Chon & Collins 2020 (A&A 633, A19) added to MTDF_01, MTDF_02
+  and MTDF_05; it was cited in text but missing from every reference list.
+- MTDF_03: thirteen body-cited works added (Anderson 2015; Birrer 2020;
+  Cappellari 2006; Catinella 2013; Combes & Tiret; Desmond 2023; Gonzalez
+  2007; Leauthaud 2012; Schombert & McGaugh 2014; Schombert, McGaugh & Lelli
+  2022; Shen 2003; van der Wel 2014; Yang 2007), plus the six E_G sources and
+  Fang 2019 above. The Catinella 2010 entry was corrected (MNRAS 403, 683;
+  the listed "ApJ 722, 1699" was wrong). Combes & Tiret was corrected from
+  the nonexistent "2009, ASP Conf 421, 170" to the actual 2010, AIP Conf.
+  Proc. 1241, 154 (in-text years updated; the digitised data file keeps its
+  historical name, now noted in the provenance table).
+
+Cross-document consistency
+
+- MTDF_08 added to the suite-extent statements (Executive Briefing, short
+  paper, README paper table); the Briefing previously contradicted itself
+  ("through MTDF_07" and "through MTDF_08" in the same document).
+- MTDF_06 script-inventory pointers corrected: the BAO void split and GW
+  standard-siren scripts are exploratory diagnostics not presented in any
+  paper (their "See Part IV" pointers predate the suite renumbering and
+  pointed at never-written sections); the growth/S8 row now states that Part
+  IV's growth results come from the Phase 5 MCMC, not from the exploratory
+  script.
+- Header/footer dates unified to June 2026 across the suite and README (one
+  dated historical changelog row in MTDF_07 retained).
+- MTDF_03 title element aligned with its h1; short-paper badge CSS classes
+  defined; BTFR slope wording tightened (3.85, close to the exact v^4
+  relation, which corresponds to slope 4).
+- README results-table row label corrected from "Strict vector chi^2/nu" to
+  "Strict combined chi^2/nu, scalar + vector": nu = 1745 is the strict
+  combined count (scalars included, CMB diagnostic excluded), as MTDF_01 and
+  the dashboard state; the number itself is unchanged.
+- MTDF_04 observation timeline shifted to 2026-2031 (the previous entries had
+  lapsed).
 
 Validation dashboard: Parameter Audit panel
 
@@ -29,8 +170,9 @@ Validation dashboard: Parameter Audit panel
   resolves the workbook relative to the dashboard module file (independent of
   the working directory), with the repository-root and cwd-relative paths kept
   as fallbacks, so the Parameter Audit panel populates correctly from any
-  launch directory. Code-only change; the shipped dashboard HTML will be
-  regenerated with the populated audit when v1.1.6 is cut.
+  launch directory. The shipped dashboard HTML has been regenerated with the
+  populated audit (verified: the fallback string no longer appears in the
+  rendered output).
 
 ## [v1.1.5] (2026-05-31)
 

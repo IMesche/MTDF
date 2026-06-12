@@ -7,9 +7,9 @@ authors:
     given-names: Ingo
     affiliation: "Independent Researcher, Malta"
     orcid: "https://orcid.org/0009-0002-6863-1143"
-version: "1.1.5"
-date-released: "2026-05-31"
-doi: "10.5281/zenodo.20474512"
+version: "1.1.6"
+date-released: "2026-06-10"
+doi: "10.5281/zenodo.20629767"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/IMesche/MTDF"
 identifiers:
@@ -17,8 +17,11 @@ identifiers:
     value: "10.5281/zenodo.19741058"
     description: "Zenodo concept DOI (all versions) for MTDF"
   - type: doi
+    value: "10.5281/zenodo.20629767"
+    description: "Zenodo deposit for MTDF v1.1.6 source and CosmoPower emulator cache"
+  - type: doi
     value: "10.5281/zenodo.20474512"
-    description: "Zenodo deposit for MTDF v1.1.5 source and CosmoPower emulator cache"
+    description: "Prior version: MTDF v1.1.5 Zenodo deposit"
   - type: doi
     value: "10.5281/zenodo.19958783"
     description: "Prior version: MTDF v1.1.4 Zenodo deposit"

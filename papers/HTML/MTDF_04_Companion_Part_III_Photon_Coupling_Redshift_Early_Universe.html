@@ -178,7 +178,7 @@ figure{ margin: 10pt 0 14pt; }
 <div><strong>Author:</strong> Ingo Mesche</div>
 <div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
 <div><strong>Contact:</strong> imesche@outlook.com</div>
-<div><strong>Version:</strong> V74 / February 2026</div>
+<div><strong>Version:</strong> V74 / June 2026</div>
 </div>
 <div class="toc">
 <strong>Contents</strong>
@@ -186,7 +186,7 @@ figure{ margin: 10pt 0 14pt; }
 <li><a href="#purpose">Purpose and scope</a></li>
 <li><a href="#photon">Photon coupling and stress induced redshift</a></li>
 <li><a href="#early">Early structure, JWST era tensions, and BAO links</a></li>
-<li><a href="#tests">Falsification table and observation timeline</a></li>
+<li><a href="#tests">Quantitative falsifiers and timeline</a></li>
 </ol>
 </div>
 <div class="abstract">
@@ -218,7 +218,7 @@ MTDF offers an additional possibility: part of the measured redshift could inclu
 \frac{d\nu}{\nu} = -\,\kappa\,c\,\langle \Vert \tilde{S}\Vert\rangle\,dt
 $$</div></div>
 <h4>Structural relation between &kappa; and f<sub>kick</sub></h4>
-<p>The pipeline uses &kappa; = 1.02 &times; 10<sup>&minus;3</sup>, an observational anchor set within the FIRAS spectral-distortion bounds (|&mu;| &lt; 9 &times; 10<sup>&minus;5</sup>, |y| &lt; 1.5 &times; 10<sup>&minus;5</sup>; Fixsen et al. 1996) and adopted from the V18 workbook calibration. Two candidate first-principles expressions sit close to this value:</p>
+<p>The pipeline uses &kappa; = 1.02 &times; 10<sup>&minus;3</sup>, a theory-motivated value (&kappa; &asymp; f<sub>kick</sub>/3, see below) adopted in the V18 workbook and consistent with, but not measured by, the FIRAS spectral-distortion bounds (|&mu;| &lt; 9 &times; 10<sup>&minus;5</sup>, |y| &lt; 1.5 &times; 10<sup>&minus;5</sup>; Fixsen et al. 1996). Two candidate first-principles expressions sit close to this value:</p>
 <div class="eq"><div>$$
 \kappa = \frac{f_{\mathrm{kick}}}{3} = 1.10 \times 10^{-3}, \qquad \kappa = \frac{f_{\mathrm{kick}}}{\pi} = 1.05 \times 10^{-3}
 $$</div></div>
@@ -269,18 +269,19 @@ MTDF style photon coupling is one possible route, but it is also the riskiest cl
 <div class="callout"><strong>Notes:</strong> This subsection is intentionally cautious. It is not presented as an explanation, but as a falsifiable way to test whether a stress related component could be present at all.</div>
 <h2 id="tests">4. Quantitative falsifiers and timeline</h2>
 <p>The following items are framed as direct falsifiers for the photon-coupling and differential-redshift hypotheses. The Part I SN × void result motivates testing for an environment term, but the mechanism remains open; any specific photon-coupling model must survive these criteria under robust systematics control.</p>
+<h3>4.1 Falsification table</h3>
 <table class="tbl">
 <tr><th>Test</th><th>Expectation</th><th>Criterion</th></tr>
-<tr><td>Environment-linked distance residuals (SN)</td><td>Positive γ_env at low z, consistent sign across independent void catalogues</td><td>Sign reversal, or loss of effect under the pre-registered robustness suite, would rule out this environment term</td></tr><tr><td>Environment-linked redshift residuals (galaxies, after kinematic control)</td><td>Any residual must be small compared with bulk outflow and must track environment once the velocity field is modelled</td><td>A residual consistent with zero at the analysis sensitivity floor, after kinematic subtraction, would constrain photon coupling tightly</td></tr><tr><td>Multi-wavelength differential redshift</td><td>No chromatic component in standard GR; any MTDF-induced differential term must be small and structured</td><td>A controlled multi-line study consistent with zero across environments would falsify wavelength-dependent coupling</td></tr><tr><td>Isotropy of residuals</td><td>Residual field should not introduce a large dipole or multipole beyond established isotropy limits</td><td>A robust, unexplained large-scale anisotropy would falsify the extension</td></tr><tr><td>Redshift dependence</td><td>If present, the effect should weaken with redshift as coherence and line-of-sight averaging dominate</td><td>No measurable trend with redshift (or the wrong trend) under matched selection would falsify the extension</td></tr></table><h3>4.2 Precision consistency checks and sensitivity</h3><p>In addition to the qualitative falsifiers above, we ran three orthogonal consistency checks designed to separate large kinematic effects from any small stress photon perturbation. These do not claim a detection of photon coupling. Their purpose is to confirm that the MTDF-predicted coupling value κ = f<sub>kick</sub>/3 ≈ 0.00102 (below FIRAS detection sensitivity) is not already excluded by current precision probes and to quantify what sensitivity would be required.</p><table class="tbl"><thead><tr><th>Check</th><th>Observable</th><th>Result</th><th>MTDF scale at κ = 0.00102</th><th>Interpretation</th></tr></thead><tbody><tr><td>Zero-velocity shell (turnaround)</td><td>Δμ of SNe near v_pec ≈ 0 shells</td><td>Mock demonstration yields Δμ = +0.078 ± 0.057 mag (1.4σ), below threshold</td><td>Order 0.001 mag, below current SN scatter (about 0.15 mag)</td><td>Sensitivity forecast: would require very large stacked SN samples (order 20,000) for a 1σ probe</td></tr><tr><td>Lensing vs RSD (E_G parameter)</td><td>E_G from combined lensing and RSD</td><td>Weighted mean E_G = 0.382 ± 0.028 vs GR expectation about 0.30 (known literature tension)</td><td>ΔE_G predicted by MTDF photon term is order 0.01</td><td>Not explained by this extension; MTDF does not worsen it at the pipeline κ value</td></tr><tr><td>Alcock-Paczynski void shape</td><td>Residual ellipticity after Kaiser RSD correction</td><td>Δe = -0.011 ± 0.031 (0.3σ, consistent with spherical voids)</td><td>Order 0.0001</td><td>Consistent; current precision is far above the level needed to test κ directly</td></tr></tbody></table><p>Taken together, these checks support a conservative conclusion: the stress photon coupling is perturbative at the pipeline κ value. Current surveys can detect standard void kinematics at high significance, but the subdominant photon level signatures implied by κ = f<sub>kick</sub>/3 ≈ 0.00102 remain below present sensitivity. This makes Part I's SN × void evidence the most informative current probe of environment dependent distance redshift mapping, while these tests function as consistency and forecasting constraints.</p><p>Kinematic contamination note: redshift only void tests using galaxy samples primarily measure bulk peculiar velocities from standard void dynamics (of order 100 km/s). Such measurements can be useful as a consistency check, but they cannot directly isolate a subdominant stress photon contribution unless an independent distance indicator is available and the kinematic component is removed.</p>
+<tr><td>Environment-linked distance residuals (SN)</td><td>Positive γ_env at low z, consistent sign across independent void catalogues</td><td>Sign reversal, or loss of effect under the robustness suite specified in advance, would rule out this environment term</td></tr><tr><td>Environment-linked redshift residuals (galaxies, after kinematic control)</td><td>Any residual must be small compared with bulk outflow and must track environment once the velocity field is modelled</td><td>A residual consistent with zero at the analysis sensitivity floor, after kinematic subtraction, would constrain photon coupling tightly</td></tr><tr><td>Multi-wavelength differential redshift</td><td>No chromatic component in standard GR; any MTDF-induced differential term must be small and structured</td><td>A controlled multi-line study consistent with zero across environments would falsify wavelength-dependent coupling</td></tr><tr><td>Isotropy of residuals</td><td>Residual field should not introduce a large dipole or multipole beyond established isotropy limits</td><td>A robust, unexplained large-scale anisotropy would falsify the extension</td></tr><tr><td>Redshift dependence</td><td>If present, the effect should weaken with redshift as coherence and line-of-sight averaging dominate</td><td>No measurable trend with redshift (or the wrong trend) under matched selection would falsify the extension</td></tr></table><h3>4.2 Precision consistency checks and sensitivity</h3><p>In addition to the qualitative falsifiers above, we ran three orthogonal consistency checks designed to separate large kinematic effects from any small stress photon perturbation. These do not claim a detection of photon coupling. Their purpose is to confirm that the theory-motivated pipeline value κ ≈ 0.00102 (κ ≈ f<sub>kick</sub>/3, see Section 2.1; below FIRAS detection sensitivity) is not already excluded by current precision probes and to quantify what sensitivity would be required.</p><table class="tbl"><thead><tr><th>Check</th><th>Observable</th><th>Result</th><th>MTDF scale at κ = 0.00102</th><th>Interpretation</th></tr></thead><tbody><tr><td>Zero-velocity shell (turnaround)</td><td>Δμ of SNe near v_pec ≈ 0 shells</td><td>Mock demonstration yields Δμ = +0.078 ± 0.057 mag (1.4σ), below threshold</td><td>Order 0.001 mag, below current SN scatter (about 0.15 mag)</td><td>Sensitivity forecast: would require very large stacked SN samples (order 20,000) for a 1σ probe</td></tr><tr><td>Lensing vs RSD (E_G parameter)</td><td>E_G from combined lensing and RSD</td><td>Six verified analyses (z = 0.27-0.57) scatter about the z-matched GR expectation Ω_m,0/f(z) ≈ 0.40-0.47; the naive weighted mean is 0.361 ± 0.027 (0.389 ± 0.030 excluding the known low CMB-lensing value), 1.4-2.6σ below it, with overlapping survey footprints making any combination indicative only</td><td>ΔE_G predicted by MTDF photon term is order 0.01</td><td>Most measurements individually agree with GR; known low values (Pullen 2016, Amon 2018) leave a mild literature-level offset; either way the MTDF photon term (ΔE_G ~ 0.01) is far below current discrimination</td></tr><tr><td>Alcock-Paczynski void shape</td><td>Residual ellipticity after Kaiser RSD correction</td><td>Δe = -0.011 ± 0.031 (0.3σ, consistent with spherical voids)</td><td>Order 0.0001</td><td>Consistent; current precision is far above the level needed to test κ directly</td></tr></tbody></table><p>Taken together, these checks support a conservative conclusion: the stress photon coupling is perturbative at the pipeline κ value. Current surveys can detect standard void kinematics at high significance, but the subdominant photon level signatures implied by the theory-motivated pipeline value κ ≈ 0.00102 (κ ≈ f<sub>kick</sub>/3, see Section 2.1) remain below present sensitivity. This makes Part I's SN × void evidence the most informative current probe of environment dependent distance redshift mapping, while these tests function as consistency and forecasting constraints.</p><p>Kinematic contamination note: redshift only void tests using galaxy samples primarily measure bulk peculiar velocities from standard void dynamics (of order 100 km/s). Such measurements can be useful as a consistency check, but they cannot directly isolate a subdominant stress photon contribution unless an independent distance indicator is available and the kinematic component is removed.</p>
 <div class="callout">
 <strong>Observation timeline:</strong>
 <ul>
-<li>2025 - DESI redshift-density analysis</li>
-<li>2026 - Euclid weak-lensing correlation</li>
-<li>2027 - Roman Space Telescope mapping</li>
-<li>2028 - Multi-wavelength differential tests</li>
-<li>2029 - Strain-evolution measurement</li>
-<li>2030 - Distance-scale recalibration</li>
+<li>2026 - DESI redshift-density analysis</li>
+<li>2027 - Euclid weak-lensing correlation</li>
+<li>2028 - Roman Space Telescope mapping</li>
+<li>2029 - Multi-wavelength differential tests</li>
+<li>2030 - Strain-evolution measurement</li>
+<li>2031 - Distance-scale recalibration</li>
 </ul>
 </div>
 <h3>4.3 Supplementary test suite for κ and current sensitivity</h3><p>
@@ -300,7 +301,7 @@ Most of these checks are presently limited by measurement precision relative to 
 <tr>
 <td>Distance duality (Etherington reciprocity)</td>
 <td>η(z) = D<sub>L</sub>/[(1+z)<sup>2</sup>D<sub>A</sub>] equals 1, independent of environment.</td>
-<td>η = 0.973 ± 0.017 (1.6σ below unity). Environment split: Δη(wall minus void) = +0.024.</td>
+<td>η = 0.973 ± 0.017 (1.6σ below unity), from a heterogeneous literature compilation of SN luminosity distances and BAO/cluster angular-diameter distances assembled for this check, not a single-survey measurement; the DESI Y1 BAO analysis reported in MTDF_08 gives η = 1.001 ± 0.012. Environment split: Δη(wall minus void) = +0.024.</td>
 <td>Consistent at current precision. The sign is compatible with a small environment-dependent mapping, but the detection is marginal and can be driven by systematics in D<sub>A</sub>, D<sub>L</sub>, or sample matching.</td>
 </tr>
 <tr>
@@ -336,8 +337,8 @@ Most of these checks are presently limited by measurement precision relative to 
 </tbody>
 </table><p class="small">
 Full script index, quick-look outcomes, and the synthesis figure are provided in
-<a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a>.
-</p><div class="callout"><body><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="../../validation/output/Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></body></div>
+<a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06_Validation_Suite_Appendix.html</a>.
+</p><div class="callout"><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="../../validation/output/Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></div>
 
 <section id="data-and-code-availability" style="margin-top:1.5em">
 <h2>Data and code availability</h2>
@@ -346,11 +347,11 @@ Full script index, quick-look outcomes, and the synthesis figure are provided in
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.5</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.20474512">10.5281/zenodo.20474512</a>)
+this release, <code>v1.1.6</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.20629767">10.5281/zenodo.20629767</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.5</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.6</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>
@@ -367,7 +368,7 @@ and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </ol>
 
 <div class="footer">
-MTDF Companion Part III: Photon Coupling and Early Universe (V74) | Ingo Mesche | April 2026
+MTDF Companion Part III: Photon Coupling and Early Universe (V74) | Ingo Mesche | June 2026
 </div>
 </div>
 </body>

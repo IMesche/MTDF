@@ -8,25 +8,25 @@
 | **Affiliation** | Independent Researcher, Malta |
 | **Theory Version** | V74 |
 | **Workbook Version** | V18 |
-| **Release** | v1.1.5 (2026-05-31) |
+| **Release** | v1.1.6 (2026-06-10) |
 | **DOI (concept, all versions)** | [10.5281/zenodo.19741058](https://doi.org/10.5281/zenodo.19741058) |
-| **DOI (this version, v1.1.5)** | [10.5281/zenodo.20474512](https://doi.org/10.5281/zenodo.20474512) |
+| **DOI (this version, v1.1.6)** | [10.5281/zenodo.20629767](https://doi.org/10.5281/zenodo.20629767) |
 | **License** | GPL-3.0 |
 
 ---
 
 ## What Is MTDF?
 
-MTDF replaces the standard LCDM cosmological model by treating spacetime as an elastic medium characterised by an intrinsic stress-energy tensor. Four independently measured parameters govern the framework. No dark matter or dark energy is invoked.
+MTDF replaces the standard LCDM cosmological model by treating spacetime as an elastic medium characterised by an intrinsic stress-energy tensor. Four fundamental parameters govern the framework: one anchored to an independent observation (the void radius distribution), one a frozen void-motivated coupling, one synchronised to the cosmic age, and one fitted (see paper Section 5.0). No dark energy is invoked, and no particle dark matter is required at late times or on galactic scales.
 
 ### The Four Fundamental Parameters
 
 | Symbol | Value | Unit | Meaning | Calibration Source |
 |--------|-------|------|---------|--------------------|
-| alpha | 1.30 +/- 0.26 | dimensionless | Stress-matter coupling | Void dynamics |
+| alpha | 1.30 +/- 0.26 | dimensionless | Stress-matter coupling | Frozen, void-motivated value (contested anchor; see Kenworthy et al. 2019); not independently measured |
 | beta | 7.00 +/- 0.09 x 10^23 m (22.7 +/- 0.3 Mpc) | m | Coherence length scale | Empirically constrained: MTDF-original ansatz Rn = beta(1+sqrt(n)) matched to Sutter et al. 2012 SDSS DR7 void radii (DOI: 10.1088/0004-637X/761/1/44) |
 | tau | 13.0 +/- 0.2 | Gyr | Relaxation timescale | Age synchronisation |
-| beta_eos | 0.573 +/- 0.012 | dimensionless | EOS transition parameter | QCD critical amplitudes |
+| beta_eos | 0.573 +/- 0.012 | dimensionless | EOS transition parameter | Phenomenological fit (QCD critical amplitudes as physics analogue) |
 
 The elastic modulus E = (2/alpha^2) rho_c c^2 = 9.1 x 10^-10 Pa is derived from alpha and the background critical density.
 
@@ -34,11 +34,12 @@ The elastic modulus E = (2/alpha^2) rho_c c^2 = 9.1 x 10^-10 Pa is derived from 
 
 | Metric | MTDF | LCDM |
 |--------|------|------|
-| Scalar pillars chi^2/nu | 0.11 (15 tests, all pass at 1 sigma) | 58.5 |
-| Combined strict chi^2/nu | 1.17 (DOF = 1745) | N/A |
-| Exotic components required | None | Dark matter + dark energy (~95% of universe) |
-| Hubble tension (H_local) | 73.1 +/- 1.0 km/s/Mpc (predicted) | 67.4 (CMB) vs 73.2 (SH0ES) |
-| S8 tension | sigma_8 = 0.790 (eases tension) | 0.810 |
+| Scalar pillars chi^2/nu | 0.11 (15 tests, benchmark tier) | Not directly comparable: galaxy-scale phenomenology in LCDM requires hydrodynamic simulation; per-pillar literature context in MTDF_06 |
+| Strict combined chi^2/nu, scalar + vector (same pipeline, same data, same covariances) | 1.1683 (nu = 1745, strict, excluding CMB distance prior diagnostic) | In progress (v1.1.6 addendum): frozen Planck-2018 LCDM through the identical V18 pipeline |
+| S8 from full Planck likelihood | 0.802 +/- 0.013 | 0.830 +/- 0.013 |
+| Exotic components | None | Cold dark matter + cosmological constant |
+| Local H0 | 73.1 +/- 1.0 (conditional on a deep local underdensity; ~70-71 for shallow reconstructions; MTDF does not predict the void itself) vs SH0ES 73.04 +/- 1.04 | 67.4 (CMB-inferred) vs 73.0 (local): unresolved tension |
+| Stress coupling k_f (full Planck likelihood) | 0.495 +/- 0.36, 95% CI [0.025, 1.34]; the interval marginally excludes 0 and includes 1; the posterior neither favours nor excludes the coupling (Delta-chi2 = +0.63, Delta-BIC = +8.05, LCDM mildly preferred by the Occam penalty) | Not in model (k_f = 0 limit) |
 
 ---
 
@@ -120,7 +121,7 @@ python validation/code/analysis/sn_void_hardening/run_merged_hardening.py
 python validation/code/analysis/sn_void_hardening/run_all_hardening.py
 ```
 
-Expected result: z ~ 0.04 piecewise transition yields Dchi2 = 36-39 (p < 0.001) across all three void catalogues; constant-gamma model is null; population controls shift gamma by < 0.3 sigma.
+Expected result: z ~ 0.04 piecewise transition yields Dchi2 = 36-39 (p < 0.001; 36.8 nominal, diagonal covariance) across all three void catalogues; constant-gamma model is null; population controls shift gamma by < 0.3 sigma.
 
 **7. Reproduce Phase 5 MCMC (Planck likelihood)**
 
@@ -144,16 +145,22 @@ MTDF/
 |-- requirements.txt            # Python dependencies
 |-- setup_environment.sh        # One-command setup
 |
-|-- papers/                     # Published papers (HTML)
-|   |-- MTDF_01_*.html          # Main theory paper
-|   |-- MTDF_02_*.html          # Environmental/local phenomenology
-|   |-- MTDF_03_*.html          # Gravity sector & lensing validation
-|   |-- MTDF_04_*.html          # Photon coupling & redshift (speculative)
-|   |-- MTDF_05_*.html          # Cosmological validation & high-energy
-|   |-- MTDF_06_*.html          # Validation suite appendix
-|   |-- MTDF_07_*.html          # Independent GPU validation
-|   |-- MTDF_The_Mesche_Hypothesis_short.html  # Summary paper
-|   +-- Executive_Briefing_MTDF.html
+|-- papers/                     # Published papers
+|   |-- HTML/                   # Paper suite (HTML)
+|   |   |-- MTDF_01_*.html      # Main theory paper
+|   |   |-- MTDF_02_*.html      # Environmental/local phenomenology
+|   |   |-- MTDF_03_*.html      # Gravity sector & lensing validation
+|   |   |-- MTDF_04_*.html      # Photon coupling & redshift (speculative)
+|   |   |-- MTDF_05_*.html      # Cosmological validation & high-energy
+|   |   |-- MTDF_06_*.html      # Validation suite appendix
+|   |   |-- MTDF_07_*.html      # Independent GPU validation
+|   |   |-- MTDF_08_*.html      # Multi-probe low-redshift transition
+|   |   |-- MTDF_The_Mesche_Hypothesis_short.html  # Summary paper
+|   |   +-- MTDF_Executive_Briefing.html
+|   |-- LaTex/                  # LaTeX sources
+|   |-- PDF_from_Tex/           # PDF builds from LaTeX
+|   |-- arxiv_zips/             # arXiv submission packages
+|   +-- figures/                # Shared paper figures
 |
 |-- validation/                 # Core V74 validation engine
 |   |-- code/                   # run_validate.py + UI modules
@@ -215,6 +222,7 @@ MTDF/
 | MTDF_05 | Cosmological Validation, High-Energy Test Programme | Speculative high-energy predictions |
 | MTDF_06 | Validation Suite Appendix | Detailed derivations for all 15 pillars |
 | MTDF_07 | Independent GPU Validation | Phases 1-6 GPU pipeline results |
+| MTDF_08 | Multi-Probe Evidence for an Environment-Dependent Transition at z < 0.04 | Cross-probe tests of the z ~ 0.04 transition |
 | Short Summary | The Mesche Hypothesis (Short) | Concise overview for reviewers |
 
 ---
@@ -274,4 +282,4 @@ External datasets are subject to their respective archive terms of use.
 
 ---
 
-*MTDF V74 / Workbook V18 / April 2026*
+*MTDF V74 / Workbook V18 / June 2026*

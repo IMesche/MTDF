@@ -17,6 +17,8 @@ The "Golden Triangle":
 All should align along a single MTDF prediction: δz ∝ κ ∫S dt
 """
 
+from pathlib import Path
+
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
@@ -119,7 +121,7 @@ def create_synthesis_plot():
 
     ax.set_xlabel(r'Environment Density Contrast: $1 + |\delta_{env}|$', fontsize=14)
     ax.set_ylabel(r'Systematic Velocity Excess: $\Delta v_{sys}$ [km/s]', fontsize=14)
-    ax.set_title('The Stress-Redshift Main Sequence: MTDF Unifies Three Cosmological Anomalies',
+    ax.set_title('The Stress-Redshift Main Sequence: A Common-Scaling Hypothesis (Illustrative)',
                  fontsize=16, fontweight='bold')
 
     # ========== ΛCDM BASELINE ==========
@@ -141,7 +143,7 @@ def create_synthesis_plot():
     y_theory = np.maximum(y_theory, 0)  # No negative velocities
 
     ax.plot(x_theory, y_theory, 'b-', linewidth=3, alpha=0.8,
-            label=r'MTDF Prediction: $\delta z \propto \kappa \int S\, dt$')
+            label='Two-point calibrated trend (void + cluster anchors)')
 
     # Confidence band
     ax.fill_between(x_theory, y_theory * 0.7, y_theory * 1.3,
@@ -233,7 +235,7 @@ def create_synthesis_plot():
         Line2D([0], [0], color='gray', linestyle='--', linewidth=2,
                label=r'$\Lambda$CDM Baseline'),
         Line2D([0], [0], color='blue', linewidth=3,
-               label=r'MTDF: $\delta z \propto \kappa \int S\, dt$'),
+               label='Calibrated trend (void + cluster anchors)'),
         Line2D([0], [0], marker='s', color='w', markerfacecolor='blue',
                markersize=12, markeredgecolor='black', markeredgewidth=2,
                label='SN Ia Void Residuals'),
@@ -259,10 +261,12 @@ def create_synthesis_plot():
                      edgecolor='black', linewidth=2, alpha=0.95))
 
     # ========== CAPTION ==========
-    caption = ("Figure: The Stress-Redshift Main Sequence. Three independent anomalies spanning "
-               "5 orders of magnitude in environmental density all follow the same MTDF prediction.\n"
+    caption = ("Figure: The Stress-Redshift Main Sequence (illustrative synthesis). Three anomaly classes, spanning "
+               "3 orders of magnitude in environmental density contrast, plotted on a common velocity-excess scale.\n"
+               "The line is a two-point calibrated trend (void and cluster anchors); only the central dipole point, "
+               "not used in the calibration, tests the trend (MTDF accounts for 42% of that excess).\n"
                "(Left) SN Ia residuals in voids. (Center) CMB-Quasar dipole tension. "
-               "(Right) Cluster $M_{dyn}/M_{WL}$ excess.")
+               "(Right) Cluster $M_{dyn}/M_{WL}$ excess. Hypothesis-level illustration, not a validation result.")
 
     fig.text(0.5, 0.02, caption, ha='center', fontsize=10, style='italic',
              wrap=True)

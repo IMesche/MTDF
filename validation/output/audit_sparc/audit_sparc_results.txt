@@ -1,0 +1,17 @@
+galaxies parsed: 175
+
+STEP 2: per-galaxy SHAPE fit, fixed M/L 0.5/0.7, v_MTDF=v_bar*sqrt(1+a/(1+r/beta)); enh=sqrt(1+a)=1.517
+  NGC3198    N= 43  chi2/nu=   71.97
+  DDO154     N= 12  chi2/nu=   27.22
+  NGC7331    N= 36  chi2/nu=  280.81
+  NGC2403    N= 73  chi2/nu=   56.93
+  UGC2885   : not found
+  IC2574     N= 34  chi2/nu=    9.87
+
+STEP 3: RAR shape, g=V^2/R; MTDF predicts g_obs=g_bar*(1+a)=const offset at galactic r
+  full-sample log-log slope d(log g_obs)/d(log g_bar) = 0.693
+  low-acceleration tertile slope                      = 0.581
+  observed RAR low-acc slope ~0.5 (McGaugh+2016); MTDF constant-boost => slope ~1.0 (parallel offset)
+  median g_obs/g_bar = 2.741  (MTDF predicts ~1+alpha = 2.30)
+
+VERDICT: slope near 1.0 + per-galaxy chi2/nu>>1 => amplitude reproduced, SHAPE/curvature NOT => re-scope ending.

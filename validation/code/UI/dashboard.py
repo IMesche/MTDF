@@ -289,7 +289,7 @@ class DashboardGenerator:
                 if not has_prediction:
                     data_source = "No prediction available. This model does not provide predictions for this observable/pillar, either due to theoretical limitations or lack of published calculations for this specific test."
                 elif model_name == 'MTDF':
-                    data_source = "Calculated from empirical formulas in this workbook using independently established parameters (α, β, τ, β_eos) and derived quantities (E) and observational anchors (κ ≈ f_kick/3). No parameters are fitted to these validation tests. Sources: DOI:10.1093/mnras/staa2785 (α), DOI:10.1088/0004-637X/761/1/44 (β, Sutter et al. 2012 SDSS DR7 void catalog), DOI:10.1051/0004-6361/201935943 (δ_bf), DOI:10.1103/PhysRevD.85.054503 (β_eos)"
+                    data_source = "Calculated from the formulas in this workbook using a parameter set fixed before any validation pillar is evaluated: one anchored scale (β), one frozen void-motivated coupling (α, not independently measured), one synchronised timescale (τ), one fitted equation-of-state exponent (β_eos), plus derived quantities (E) and the theory-motivated, FIRAS-bounded photon coupling (κ ≈ f_kick/3). No parameters are adjusted per pillar. Sources: DOI:10.1088/0004-637X/761/1/44 (Sutter et al. 2012 void catalog, data motivating α and β), DOI:10.1088/0004-637X/703/1/982 and DOI:10.1088/0004-637X/778/1/14 (Giodini 2009 / Gonzalez 2013, δ_bf), DOI:10.1103/PhysRevD.85.054503 (β_eos physics analogue; value is an MTDF fit)"
                 elif 'lcdm' in model_name.lower():
                     data_source = "Published ΛCDM predictions using Planck 2018 cosmological parameters. Source: DOI:10.1051/0004-6361/201833910 (Planck Collaboration 2018, parameter set: H₀, Ω_m, Ω_Λ, n_s, σ_8)"
                 elif 'mond' in model_name.lower():
@@ -612,7 +612,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 • In the usual ΔN<sub>eff</sub> language this corresponds to an effective shift ΔN<sub>eff</sub> ≈ 0.02, at the low-amplitude end of early dark energy type corrections.<br><br>
 <strong>Result:</strong><br>
 • The EFE correction moves the acoustic scale in the right direction but does not by itself remove the distance prior tension when H₀ is fixed at 70 km/s/Mpc.<br>
-• A separate CLASS plus full Planck TTTEEE and DESI BAO likelihood analysis using this same amplitude finds k<sub>f</sub> ≈ 1.0 ± 0.1 with only Δχ² of order unity compared to ΛCDM for one extra parameter, so the early field energy amplitude is best viewed as a genuine MTDF prediction rather than a tuned fit.<br><br>
+• The Phase 5 MCMC amplitude check (CLASS-based likelihood analysis with k<sub>f</sub> scaling the EFE) gives a posterior k<sub>f</sub> = 0.50 ± 0.36 (95% interval ≈ [0.03, 1.34]) with Δχ² ≈ 0.6 and ΔBIC ≈ +8 for the one extra parameter: the data neither favour nor exclude the predicted amplitude (k<sub>f</sub> = 1). The early field energy amplitude is consistent with the data, but not independently confirmed by them.<br><br>
 <em>Consistent with CLASS Boltzmann code.</em>
 """
 
@@ -1666,7 +1666,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
             table_html = f"""
             <div style='margin-bottom:15px; padding:10px; background:#1e293b; border-left:4px solid #22c55e; border-radius:4px;'>
                 <strong style='color:#22c55e'>✓ No parameters fitted to validation data (k = 0)</strong><br>
-                <span style='font-size:0.95em'>All {param_count} quantities in the MTDF implementation are established independently before any validation pillar is evaluated. The framework is defined by four fundamental parameters (α, β, τ, β<sub>eos</sub>), with all remaining quantities either derived from these (e.g. E) or anchored to external observations (e.g. κ ≈ f<sub>kick</sub>/3), constrained by external observations, or fixed by convention. No parameters are adjusted to improve any pillar fit. The four quantities that might appear as tunable knobs &mdash; Environmental Rate Enhancement ({env_rate}), Stress Threshold ({stress_thresh}), Structure Coupling χ ({struct_chi}), and Average Effective Strain ({avg_strain}) &mdash; are either derived from external data, computed from the MTDF field construction itself, or are one-off statistical cuts defined by convention.</span>
+                <span style='font-size:0.95em'>All {param_count} quantities in the MTDF implementation are fixed before any validation pillar is evaluated. The framework is defined by four fundamental parameters with mixed, documented provenance: one anchored scale (β, void statistics), one frozen void-motivated coupling (α, not independently measured), one synchronised timescale (τ), and one fitted equation-of-state exponent (β<sub>eos</sub>). Remaining quantities are derived from these (e.g. E), theory-motivated within external bounds (e.g. κ ≈ f<sub>kick</sub>/3, FIRAS-bounded), constrained by external observations, or fixed by convention. No parameters are adjusted to improve any pillar fit. The four quantities that might appear as tunable knobs &mdash; Environmental Rate Enhancement ({env_rate}), Stress Threshold ({stress_thresh}), Structure Coupling χ ({struct_chi}), and Average Effective Strain ({avg_strain}) &mdash; are either derived from external data, computed from the MTDF field construction itself, or are one-off statistical cuts defined by convention.</span>
             </div>
             <table class='subtable' style='font-size:0.9em'>
                 <thead>
@@ -1684,8 +1684,8 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 </tbody>
             </table>
             <div style='margin-top:10px; font-size:0.9em; color:#94a3b8'>
-                <strong>Independence Guarantee:</strong> Parameters measured from observations A, B, C; validated against independent observations X, Y, Z.
-                Zero overlap ensures no circular reasoning.
+                <strong>Provenance note:</strong> Parameters are fixed from the documented sources before any pillar is evaluated; no quantity is adjusted to improve a pillar fit.
+                Where a parameter's motivating data probe physics related to a validation pillar (e.g. void statistics and α), the overlap is documented in this audit rather than claimed away.
             </div>
             <style>
                 .param-badge {{
@@ -1748,7 +1748,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         <h3>Executive Summary</h3>
         <p>This dashboard reports <b>strict</b> validation totals over the intended fit pillars (scalar pillars plus late-time probes), and separates out <b>diagnostic</b> pillars such as <b>CMB*</b> (Planck 2018 ΛCDM-compressed distance prior). In the main table, the rightmost column (<b>Strict χ²/ν</b>) is the combined reduced chi-squared for <b>fit pillars only</b> (diagnostics excluded). Diagnostic χ² values are shown for context but are not counted in strict totals.</p>
         <ul>
-          <li><strong>Externally fixed parameter set (MTDF):</strong> All MTDF parameters are established by independent observations, first-principles derivations, or physical constants before any pillar is evaluated. No parameters are tuned to fit these validation tests.</li>
+          <li><strong>Fixed parameter set (MTDF):</strong> All MTDF parameters are fixed before any pillar is evaluated. The set has mixed, documented provenance: one anchored scale (β), one frozen void-motivated coupling (α, not independently measured), one synchronised timescale (τ), and one fitted equation-of-state exponent (β<sub>eos</sub>), plus physical constants and derived quantities. No parameters are tuned per validation pillar.</li>
           <li><strong>No hidden hardcoding:</strong> All numerical inputs, observational targets, and parameter values are loaded from external database files (workbook) rather than being embedded in the code.</li>
           <li><strong>Full covariance analysis:</strong> Vector pillars use published covariance matrices (e.g., Pantheon+ STAT+SYS, Planck distance prior covariance) for statistically rigorous χ² computation.</li>
           <li><strong>Strict statistics:</strong> The headline χ²/ν and PASS counts exclude diagnostic-only pillars (CMB* distance prior). This keeps the global totals focused on intended fit targets.</li><li><strong>Diagnostic pillars:</strong> CMB* (Planck 2018 ΛCDM compressed distance prior) is displayed for transparency, but treated as diagnostic only because it is model-compressed under ΛCDM assumptions.</li>
@@ -2919,7 +2919,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 
                 // Quality assessment
                 let quality = '';
-                if (chi2_red < 0.1) quality = '✓ Excellent fit';
+                if (chi2_red < 0.1) quality = '✓ Very small residuals (may reflect conservative uncertainties)';
                 else if (chi2_red < 1) quality = '✓ Strong agreement';
                 else if (chi2_red < 2) quality = '~ Acceptable fit';
                 else quality = '⚠ Model-data tension';
@@ -2935,7 +2935,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                   `• ${{passes}}/${{tests}} passed at 1σ<br><br>` +
                   `<em>Assessment:</em> ${{quality}}<br><br>` +
                   `<em>Quality benchmarks:</em><br>` +
-                  `• χ²/ν < 0.1: Excellent fit<br>` +
+                  `• χ²/ν < 0.1: Very small residuals (may reflect conservative uncertainties)<br>` +
                   `• χ²/ν < 1: Strong agreement<br>` +
                   `• χ²/ν < 2: Acceptable fit<br>` +
                   `• χ²/ν ≥ 2: Model-data tension`;

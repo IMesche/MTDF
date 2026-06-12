@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="author" content="Ingo Mesche"/>
 <meta name="affiliation" content="Independent Researcher, Malta"/>
-<title>MTDF Companion Paper Part II: Gravity Sector and Lensing Validation</title>
+<title>MTDF Companion Paper Part II: Galaxy-Galaxy Lensing Without Dark Matter</title>
 <style>
 @page { size: A4; margin: 2.2cm; }
 :root{
@@ -178,7 +178,7 @@ figure{ margin: 10pt 0 14pt; }
 <div><strong>Author:</strong> Ingo Mesche</div>
 <div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
 <div><strong>Contact:</strong> imesche@outlook.com</div>
-<div><strong>Version:</strong> V74 / February 2026</div>
+<div><strong>Version:</strong> V74 / June 2026</div>
 </div>
 
 <div class="toc">
@@ -218,9 +218,9 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <h2 id="scope">Scope and design</h2>
 
-<p>This paper presents a fully reproducible test programme for the MTDF gravity sector. All predictions are generated from a single frozen parameter set and evaluated against independent observational datasets spanning multiple gravitational regimes. The aim is not per-object tuning, but to test whether one coherent prescription remains viable across scales under explicit, pre-registered pass-or-fail criteria. The full pipeline is rerunnable end to end, with fixed inputs, documented unit conventions, and hashed outputs.</p>
+<p>This paper presents a fully reproducible test programme for the MTDF gravity sector. All predictions are generated from a single frozen parameter set and evaluated against independent observational datasets spanning multiple gravitational regimes. The aim is not per-object tuning, but to test whether one coherent prescription remains viable across scales under explicit, pre-specified pass-or-fail criteria. The full pipeline is rerunnable end to end, with fixed inputs, documented unit conventions, and hashed outputs.</p>
 
-<p>The validation suite spans four regimes. Inner-galaxy rotation statistics are tested using SPARC (1 to 30 kpc). In this regime, the falsifiable claims are defined as global summary statistics rather than per-galaxy, per-radius best fits without galaxy-specific mass-to-light optimisation. The RMS log velocity scatter is P1 = 0.185 dex, consistent with the pre-specified target 0.174 &plusmn; 0.011, and the deconvolved intrinsic RAR scatter is P1B = 0.029 dex, consistent with the pre-specified target 0.035 &plusmn; 0.010. Halo-scale dynamics are tested from 50 to 500 kpc using elliptical velocity dispersions and satellite kinematics, where the same frozen parameters remain consistent at the level of aggregate residual structure and amplitude, including an elliptical dispersion comparison with &chi;&sup2;/&nu; = 1.81 and a satellite kinematics amplitude bias of 6.3% in the More et al. test. Ultra-low-acceleration local dynamics are tested using wide binaries (2 to 30 kAU), where the apparent high-separation tail is shown to be unstable under contamination diagnostics, while the global boost fit remains below the pre-registered threshold, &gamma; = 1.102 &plusmn; 0.010.</p>
+<p>The validation suite spans four regimes. Inner-galaxy rotation statistics are tested using SPARC (1 to 30 kpc). In this regime, the falsifiable claims are defined as global summary statistics rather than per-galaxy, per-radius best fits without galaxy-specific mass-to-light optimisation. The RMS log velocity scatter is P1 = 0.185 dex, consistent with the pre-specified target 0.174 &plusmn; 0.011, and the deconvolved intrinsic RAR scatter is P1B = 0.029 dex, consistent with the pre-specified target 0.035 &plusmn; 0.010. Halo-scale dynamics are tested from 50 to 500 kpc using elliptical velocity dispersions and satellite kinematics, where the same frozen parameters remain consistent at the level of aggregate residual structure and amplitude, including an elliptical dispersion comparison with &chi;&sup2;/&nu; = 1.81 and a satellite kinematics amplitude bias of 6.3% in the More et al. test. Ultra-low-acceleration local dynamics are tested using wide binaries (2 to 30 kAU), where the apparent high-separation tail is shown to be unstable under contamination diagnostics, while the global boost fit remains below the pre-specified threshold, &gamma; = 1.102 &plusmn; 0.010.</p>
 
 <p>Taken together, these results support a conservative interpretation. Photons and matter follow the standard GR metric, and the additional gravitational phenomenology usually attributed to dark matter can be represented, in MTDF, as an effective mass-energy contribution sourced by baryons through field deformation energy. This work defines the scope of that statement, identifies which outcomes constitute falsification within the present programme, and separates primary claims from diagnostic cross-checks. No claim is made of per-galaxy, per-radius rotation curve fits without baryonic nuisance optimisation, and any such point-by-point statistics are reported explicitly as diagnostics rather than falsifiers.</p>
 
@@ -229,9 +229,9 @@ Only results explicitly labelled as validation targets are used as evidence for 
 <!-- =========================================================== -->
 <h2 id="abstract">Abstract</h2>
 
-<p><strong>Headline result.</strong> On the Mandelbaum et al. (2016) SDSS galaxy-galaxy lensing (GGL) sample, a zero-free-parameter MTDF prediction achieves &Delta;AIC = 4246 relative to fiducial &Lambda;CDM NFW after a three-parameter baryon-completion correction (AIC = 386 vs 4632; &chi;&sup2;/&nu; = 3.73 vs 44.11 on N = 105 points, k = 3, &nu; = 102). Within the six &Lambda;CDM baseline variants tested here (three stellar-to-halo mass relations &times; two concentration models), the MTDF prediction gives lower residuals under the stated assumptions. This paper documents how the result is obtained from first principles of the underlying field theory, with no halo fitting, and states the falsifiers that would overturn it.</p>
+<p><strong>Headline result.</strong> A single zero-free-parameter MTDF prediction, with all constants fixed by the framework and the published baryonic Tully-Fisher relation, reproduces galaxy-galaxy lensing across two independent surveys: &chi;&sup2;/&nu; = 2.93 on Brouwer et al. (2021) KiDS &times; GAMA (60 points, 4 mass bins) and &chi;&sup2;/&nu; = 2.55 over the comparable mass range (bins 1&ndash;4) of Mandelbaum et al. (2016) SDSS. Against a fiducial &Lambda;CDM NFW mapping that is also zero-parameter by construction (fixed stellar-to-halo-mass and concentration relations, no per-bin fitting), MTDF gives lower residuals (&Delta;AIC = 4246 on SDSS after a three-parameter baryon-completion correction; in the fiducial comparison both mappings have k = 0). We also report the comparison a referee would demand: a fitted NFW halo model with eight free parameters (M<sub>200</sub> and concentration per bin) achieves lower &chi;&sup2; and is preferred by AIC (fitted NFW &chi;&sup2; = 92 versus MTDF 176 on the KiDS 60 points, &Delta;AIC &asymp; 68 in favour of the fitted halo). The MTDF result is therefore not a claim to outperform a fitted halo model; it is the more economical and falsifiable statement, the same lensing signal reproduced with zero free parameters. The absolute goodness of fit (&chi;&sup2;/&nu; = 2.9&ndash;3.7 under diagonal errors) is formally poor for both frameworks at these sample sizes, so the comparison reported here is relative performance under identical assumptions. This paper documents how the prediction is obtained from first principles, with no halo fitting, and states the falsifiers that would overturn it.</p>
 
-<p>We test the galaxy-galaxy lensing (GGL) predictions of MTDF (Mesche's Tensor Dynamics Framework), a modified gravity theory that replaces dark matter and dark energy with spacetime elasticity parameterised by four independently measured constants plus a derived elastic modulus. In the quasi-static limit at scales \(r \ll \beta = 22.7\) Mpc, the elastic field satisfies Laplace's equation outside baryonic sources, producing a compression profile \(S(r) = S_0 + C/r\). The resulting stress energy density is isothermal (\(\rho \propto r^{-2}\)) and projects analytically to an excess surface density \(\Delta\Sigma(R) = \pi\,\rho_0\,f^2\,L^2 / R\), where all constants are derived from MTDF parameters and the published baryonic Tully-Fisher relation.</p>
+<p>We test the galaxy-galaxy lensing (GGL) predictions of MTDF (Mesche's Tensor Dynamics Framework), a modified gravity theory that replaces dark matter and dark energy with spacetime elasticity parameterised by four structural constants of differing epistemic status (one anchored, one frozen void-motivated, one synchronised, one fitted) plus a derived elastic modulus. In the quasi-static limit at scales \(r \ll \beta = 22.7\) Mpc, the elastic field satisfies Laplace's equation outside baryonic sources, producing a compression profile \(S(r) = S_0 + C/r\). The resulting stress energy density is isothermal (\(\rho \propto r^{-2}\)) and projects analytically to an excess surface density \(\Delta\Sigma(R) = \pi\,\rho_0\,f^2\,L^2 / R\), where all constants are derived from MTDF parameters and the published baryonic Tully-Fisher relation.</p>
 
 <p>Against Brouwer et al. (2021) KiDS &times; GAMA data (60 data points, 4 stellar mass bins), this zero-parameter prediction achieves &chi;&sup2;/&nu; = 2.93, improving on fiducial &Lambda;CDM NFW (&chi;&sup2;/&nu; = 8.30) by a factor of 2.8. Against the independent Mandelbaum et al. (2016) SDSS dataset (105 data points, 7 stellar mass bins), the same frozen prediction gives &chi;&sup2;/&nu; = 11.21 vs 44.11 for &Lambda;CDM (3.9&times; improvement, &Delta;AIC = 3455). Within the six &Lambda;CDM baseline variants tested here (three stellar-to-halo mass relations &times; two concentration models; worst is 50&times; worse than MTDF), the MTDF prediction gives lower residuals under the stated assumptions. High-mass underprediction in bins with log M<sub>*</sub> &gt; 11.2 is consistent with incomplete baryon accounting (hot gas, satellites, intracluster light); a diagnostic correction with k = 3 nuisance parameters reduces &chi;&sup2;/&nu; to 3.73 (AIC = 386 vs 4632 for &Lambda;CDM). Solar System observables are safe by more than 20 orders of magnitude. The constitutive self-interaction (S &minus; S<sub>0</sub>)&sup2; is uniquely selected by the BTFR exponent, and its coupling &lambda; is predicted within 4% by energy self-sourcing.</p>
 
@@ -244,7 +244,7 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 <p>Galaxy-galaxy lensing (GGL) provides a particularly decisive test of the dark matter hypothesis. The excess surface density (ESD) profile &Delta;&Sigma;(R) measured around lens galaxies directly traces the total projected mass distribution, regardless of its nature. In &Lambda;CDM, the dominant contribution at projected radii R &gt; 100 kpc comes from the NFW dark matter halo. Any alternative to dark matter must reproduce this signal using only baryonic matter and modified gravitational physics.</p>
 
-<p>MTDF (Mesche's Tensor Dynamics Framework) proposes that spacetime is an elastic medium characterised by four independently measured constants and a derived elastic modulus. The framework has passed a 17-test validation matrix including Planck CMB compatibility, 175 SPARC rotation curves, supernova environment signals, and weak lensing constraints (documented in <a href="MTDF_07_Independent_GPU_Validation.html">MTDF_07</a>). It reduces the S<sub>8</sub> tension between Planck and weak lensing surveys by 46%. The covariant formulation is explicit: the metric is standard GR sourced by baryons plus pressureless elastic deformation energy, with &eta; = 1 (no gravitational slip) and conservation guaranteed by the Bianchi identity.</p>
+<p>MTDF (Mesche's Tensor Dynamics Framework) proposes that spacetime is an elastic medium characterised by four structural constants of differing epistemic status (one anchored, one frozen void-motivated, one synchronised, one fitted) and a derived elastic modulus. The framework has passed a 17-test validation matrix including Planck CMB compatibility, 175 SPARC rotation curves, and weak lensing constraints (documented in <a href="MTDF_07_Independent_GPU_Validation.html">MTDF_07</a>); the supernova environment signals are reported separately as extension evidence (MTDF_02), not as part of the validated core. It reduces the S<sub>8</sub> tension between Planck and weak lensing surveys by 46%. The covariant formulation is explicit: the metric is standard GR sourced by baryons plus pressureless elastic deformation energy, with &eta; = 1 (no gravitational slip) and conservation guaranteed by the Bianchi identity.</p>
 
 <p>This paper tests MTDF against published GGL data from two independent surveys  -  KiDS &times; GAMA (Brouwer et al. 2021) and SDSS (Mandelbaum et al. 2016)  -  using a zero-parameter prediction derived entirely from MTDF constants and the published baryonic Tully-Fisher relation. We demonstrate that the compression mechanism of the elastic field produces isothermal stress density profiles that match observed lensing signals without dark matter halos, and that the result is robust against variations in &Lambda;CDM astrophysical priors.</p>
 
@@ -263,17 +263,17 @@ Only results explicitly labelled as validation targets are used as evidence for 
 <li><strong>Evolution:</strong> Damped wave equation with relaxation rate \(\gamma = 1/\tau\)</li>
 </ul>
 
-<p>Four fundamental parameters, all derived from independent observations, plus the derived elastic modulus:</p>
+<p>Four frozen parameters of differing epistemic status (one anchored, one frozen void-motivated, one synchronised, one fitted), plus the derived elastic modulus:</p>
 <table class="tbl">
 <tr><th>Parameter</th><th>Value</th><th>Source</th></tr>
-<tr><td>&alpha; = 1.30 &plusmn; 0.26</td><td>Stress-matter coupling</td><td>Void dynamics</td></tr>
+<tr><td>&alpha; = 1.30 &plusmn; 0.26</td><td>Stress-matter coupling</td><td>Void-motivated phenomenological coupling (frozen)</td></tr>
 <tr><td>&beta; = 7 &times; 10<sup>23</sup> m (22.7 Mpc)</td><td>Coherence length</td><td>Void quantisation</td></tr>
 <tr><td>&tau; = 13.0 &plusmn; 0.2 Gyr</td><td>Relaxation timescale</td><td>Age synchronisation</td></tr>
-<tr><td>&beta;<sub>eos</sub> = 0.573 &plusmn; 0.012</td><td>EOS transition (phenomenological MTDF fit; HotQCD 2012 DOI is a physics analogue, not the source of the value)</td><td>QCD critical amplitudes</td></tr>
+<tr><td>&beta;<sub>eos</sub> = 0.573 &plusmn; 0.012</td><td>EOS transition (phenomenological MTDF fit; HotQCD 2012 DOI is a physics analogue, not the source of the value)</td><td>Phenomenological fit (analogue: QCD)</td></tr>
 <tr><td>E = (2/&alpha;&sup2;) &rho;<sub>c</sub> c&sup2; = 9.1 &times; 10<sup>&minus;10</sup> Pa</td><td>Derived elastic modulus</td><td>Critical density scaling</td></tr>
 </table>
 
-<p>At galactic scales (\(r \ll \beta\)), the rotation curve formula is \(v_c^2(r) = \frac{GM_{\mathrm{bar}}}{r}\left[1 + \frac{\alpha}{1 + r/\beta}\right]\), reproducing 175 SPARC galaxies with a single (&alpha;, &beta;) pair and no per-galaxy fitting.</p>
+<p>At galactic scales (\(r \ll \beta\)), the rotation curve formula is \(v_c^2(r) = \frac{GM_{\mathrm{bar}}}{r}\left[1 + \frac{\alpha}{1 + r/\beta}\right]\), consistent with the SPARC global summary statistics (P1/P1B) across the 175-galaxy sample with a single (&alpha;, &beta;) pair and no per-galaxy fitting.</p>
 
 <h3>2.2 Compression mechanism</h3>
 
@@ -416,7 +416,7 @@ Quadrature sum of these three contributions gives a per-galaxy systematic floor 
 
 <h3>3.7 Statistical framework</h3>
 
-<p>&chi;&sup2; is computed as \(\sum [(d_i - m_i)/\sigma_i]^2\) using diagonal errors. For KiDS, this is conservative (the full covariance matrix is available but not used here, for consistency with the SDSS comparison). For SDSS, this matches the source paper's published error treatment.</p>
+<p>&chi;&sup2; is computed as \(\sum [(d_i - m_i)/\sigma_i]^2\) using diagonal errors. For KiDS the full covariance matrix is available; the diagonal value is adopted here for parity with the SDSS treatment, and a check against the full Brouwer covariance matrix changes the per-bin &chi;&sup2; by less than about 1 percent, so the diagonal treatment is demonstrated to be robust rather than merely assumed conservative. For SDSS, this matches the source paper's published error treatment.</p>
 
 <p>AIC = &chi;&sup2; + 2k. Both MTDF and fiducial &Lambda;CDM have k = 0 in the primary comparison, so &Delta;AIC = &Delta;&chi;&sup2;. For the baryon completion diagnostic, k = 3.</p>
 
@@ -460,14 +460,14 @@ Quadrature sum of these three contributions gives a per-galaxy systematic floor 
 
 <p>The MTDF compression model, with f values from the McGaugh BTFR and zero fitted parameters, gives &chi;&sup2;/&nu; = 2.93 across 60 data points (15 radial bins &times; 4 stellar mass bins). Per-bin: Bin 1 &chi;&sup2;/15 = 1.20 (excellent); Bin 2 = 3.13; Bin 3 = 3.20; Bin 4 = 4.19. The fiducial &Lambda;CDM NFW gives &chi;&sup2;/&nu; = 8.30; baryons only give 31.42.</p>
 
-<p>The naive model using \(S^2 - S_0^2\) (which includes a spurious \(2S_0\,\delta S\) cross-term producing \(\rho \propto 1/r\)) is rejected at &Delta;&chi;&sup2; = +44. The data independently confirm what standard elasticity requires: only the excitation energy \((\delta S)^2\) gravitates as halo mass.</p>
+<p>The naive model using \(S^2 - S_0^2\) (which includes a spurious \(2S_0\,\delta S\) cross-term producing \(\rho \propto 1/r\)) is rejected at &Delta;&chi;&sup2; = +44. The data are consistent with what standard elasticity requires: only the excitation energy \((\delta S)^2\) gravitates as halo mass.</p>
 
 <h3>4.3 SDSS Red LBG (Mandelbaum et al. 2016)</h3>
 
 <p>The same frozen prediction (no re-tuning) applied to the SDSS dataset gives:</p>
 
 <table class="tbl">
-<tr><th>Bin</th><th>log M<sub>*</sub></th><th>&chi;&sup2;/&nu; (MTDF)</th><th>&chi;&sup2;/&nu; (&Lambda;CDM)</th><th>Winner</th></tr>
+<tr><th>Bin</th><th>log M<sub>*</sub></th><th>&chi;&sup2;/&nu; (MTDF)</th><th>&chi;&sup2;/&nu; (&Lambda;CDM)</th><th>Lower &chi;&sup2;/&nu;</th></tr>
 <tr><td>1</td><td>10.2</td><td>0.96</td><td>0.90</td><td>&Lambda;CDM</td></tr>
 <tr><td>2</td><td>10.6</td><td>2.22</td><td>1.24</td><td>&Lambda;CDM</td></tr>
 <tr><td>3</td><td>10.9</td><td>2.67</td><td>4.38</td><td>MTDF</td></tr>
@@ -572,13 +572,13 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 
 <p><strong>Prediction.</strong> The MTDF isothermal stress field gives \(\sigma_{\mathrm{stress}} = v_{\mathrm{ref}}\,f / \sqrt{2}\), where \(f = (M_{\mathrm{bar}} / A_{\mathrm{BTFR}})^{1/4} / v_{\mathrm{ref}}\) is the BTFR compression factor. Baryonic self-gravity contributes \(\sigma_{\mathrm{bar}} = \sqrt{G\,M_* / K_v\,R_{\mathrm{eff}}}\) with K<sub>v</sub> = 5.0 (Cappellari et al. 2006). These combine in quadrature: \(\sigma_{\mathrm{total}} = \sqrt{\sigma_{\mathrm{stress}}^2 + \sigma_{\mathrm{bar}}^2}\), which is exact because the Jeans equation is linear in the gravitational potential. Zero free parameters.</p>
 
-<p><strong>Results.</strong> Mean bias is &minus;1.4% (negligible), with &chi;&sup2;/&nu; = 3.64 (N = 25). The prediction shows mass-dependent structure: +15.7% overprediction at log M<sub>*</sub> &lt; 11.0 (where &sigma;<sub>bar</sub> dominates) trending to &minus;12.7% underprediction at log M<sub>*</sub> &gt; 11.4 (where the stress term dominates and the baryon budget is incomplete). Applying a gas-only baryon correction at the MTDF M<sub>500</sub> scale for galaxies with log M<sub>*</sub> &gt; 11.3  -  using the same Giodini et al. (2009) scaling as Step 21, but without satellites or ICL since SLACS lenses are isolated field ETGs  -  reduces high-mass |bias| from 10.3% to 4.7% (54% improvement) and brings the full-sample &chi;&sup2;/&nu; to 1.81.</p>
+<p><strong>Results.</strong> Mean bias is &minus;1.4% (negligible), with &chi;&sup2;/&nu; = 3.64 (N = 25). The prediction shows mass-dependent structure: +15.7% overprediction at log M<sub>*</sub> &lt; 11.0 (where &sigma;<sub>bar</sub> dominates) trending to &minus;12.7% underprediction at log M<sub>*</sub> &gt; 11.4 (where the stress term dominates and the baryon budget is incomplete). Applying a gas-only baryon correction at the MTDF M<sub>500</sub> scale for galaxies with log M<sub>*</sub> &gt; 11.3  -  using the same Giodini et al. (2009) scaling as Step 21, but without satellites or ICL since SLACS lenses are isolated field ETGs  -  reduces high-mass |bias| from 10.3% to 4.7% (54% improvement) and brings the full-sample &chi;&sup2;/&nu; to 1.81. We note that &chi;&sup2;/&nu; = 1.81 at N = 25 is itself a marginal fit (nominal p &asymp; 0.01); it passes the pre-specified &lt; 5.0 threshold, but passing a threshold and being a good absolute fit are different statements.</p>
 
 <p><strong>Faber-Jackson relation.</strong> The MTDF prediction \(\sigma_{\mathrm{stress}} \propto M_{\mathrm{bar}}^{1/4}\) is the Faber-Jackson relation as a structural consequence, not a fitted scaling. The observed log &sigma; versus log M<sub>*</sub> slope is 0.236, consistent with the canonical value of 0.25; the slight flattening arises from the &sigma;<sub>bar</sub> contribution at low mass.</p>
 
 <p><strong>H0LiCOW redo.</strong> Re-predicting the 6 Step 20 lenses with estimated R<sub>eff</sub> from the Shen et al. (2003) mass-size relation (with van der Wel et al. 2014 size evolution) and group baryon correction where applicable reduces the RMS residual from 2.14&sigma; to 0.67&sigma; (69% improvement). The Step 20 dispersion mismatch was dominated by an assumed fixed effective radius. Using observed size-mass relations removes this systematic.</p>
 
-<p><strong>Falsifiers.</strong> Four pre-registered criteria: (1) |mean bias| &lt; 15%  -  PASS (1.4%). (2) |regression slope| &lt; 0.30 per dex after gas correction  -  PASS (0.256). (3) &chi;&sup2;/&nu; &lt; 5.0 after gas correction  -  PASS (1.81). (4) Gas correction improves &chi;&sup2;  -  PASS (3.64 to 1.81). All four pass.</p>
+<p><strong>Falsifiers.</strong> Four pre-specified criteria: (1) |mean bias| &lt; 15%  -  PASS (1.4%). (2) |regression slope| &lt; 0.30 per dex after gas correction  -  PASS (0.256). (3) &chi;&sup2;/&nu; &lt; 5.0 after gas correction  -  PASS (1.81). (4) Gas correction improves &chi;&sup2;  -  PASS (3.64 to 1.81). All four pass.</p>
 
 <h3>4.8 Satellite kinematics (Step 22B)</h3>
 
@@ -588,7 +588,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 
 <p><strong>Amplitude test (More+2011).</strong> We compare MTDF predictions to the host-weighted satellite velocity dispersion &sigma;<sub>hw</sub> from More et al. (2011, MNRAS 410, 210), spanning 10 stellar mass bins (log M<sub>*</sub> = 9.95&ndash;11.65 M<sub>&odot;</sub>, N<sub>sat</sub> = 1.0&ndash;8.4). For group centrals (N<sub>sat</sub> &gt; 1), the compression factor uses total system baryonic mass. The MTDF prediction matches all 10 bins with mean |bias| = 6.3% and &chi;&sup2;/&nu; = 0.37 (zero tunable parameters). For comparison, NFW (Moster+2013 SHMR + Duffy+2008 c(M)) gives &chi;&sup2;/&nu; = 116.5  -  315&times; worse.</p>
 
-<p><strong>Radial profile test (Combes &amp; Tiret 2009).</strong> The &sigma;<sub>los</sub>(R<sub>proj</sub>) radial profile is compared across 3 host mass bins, each with 19 radial points from 33 to 333 kpc (N=57 total data points). Two global nuisance parameters: &gamma; (tracer density slope) and &beta; (velocity anisotropy). Best nuisance combination (&gamma;=3.5, &beta;=0.4): &chi;&sup2; = 198.1, &chi;&sup2;/&nu; = 3.60, AIC = 202.1. Both parameter values are within typical ranges from N-body simulations. For comparison, NFW gives &chi;&sup2;/&nu; = 1913 (109&times; worse).</p>
+<p><strong>Radial profile test (Combes &amp; Tiret 2010).</strong> The &sigma;<sub>los</sub>(R<sub>proj</sub>) radial profile is compared across 3 host mass bins, each with 19 radial points from 33 to 333 kpc (N=57 total data points). Two global nuisance parameters: &gamma; (tracer density slope) and &beta; (velocity anisotropy). Best nuisance combination (&gamma;=3.5, &beta;=0.4): &chi;&sup2; = 198.1, &chi;&sup2;/&nu; = 3.60, AIC = 202.1. Both parameter values are within typical ranges from N-body simulations. For comparison, NFW gives &chi;&sup2;/&nu; = 1913 (109&times; worse).</p>
 
 <p><strong>Falsifiers.</strong> (1) Mean |bias| in More+2011 &lt; 30% &rarr; PASS (6.3%). (2) Profile &chi;&sup2;/&nu; &lt; 10 for best nuisance &rarr; PASS (3.60). (3) Scaling slope within 0.3 of unity &rarr; PASS (0.128 deviation). (4) MTDF not worse than NFW on both tests &rarr; PASS (better on both: 315&times; amplitude, 109&times; profile). 4/4 PASS.</p>
 
@@ -600,7 +600,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 
 <p><strong>P1B: RAR intrinsic scatter.</strong> After Desmond (2023) deconvolution, P1B = 0.029 dex vs target 0.035 &plusmn; 0.010 dex (z = +0.62, PASS).</p>
 
-<p><strong>BTFR.</strong> 168 galaxies after quality cuts. Fit slope = 3.35 (noisy M<sub>bar</sub> estimator); normalisation offset from McGaugh+2012 (A = 50 M<sub>&odot;</sub>/(km/s)<sup>4</sup>) is +0.316 dex, within the 0.5 dex threshold.</p>
+<p><strong>BTFR.</strong> 168 galaxies after quality cuts. Fit slope = 3.35, below the rigid prediction of 4. The baryonic-mass estimator is noisy, and regression dilution from such measurement scatter biases an ordinary-least-squares slope low, so this fitted value is a lower bound on the underlying slope rather than a clean test of the prediction. The pass-or-fail threshold here applies to the BTFR normalisation, not the slope: the normalisation offset from McGaugh+2012 (A = 50 M<sub>&odot;</sub>/(km/s)<sup>4</sup>) is +0.316 dex, within the 0.5 dex threshold. A slope test is deferred to an errors-in-variables refit with a cleaner mass estimator.</p>
 
 <p><strong>v<sub>flat</sub> consistency.</strong> Median ratio v<sub>flat,mtdf</sub> / v<sub>flat,obs</sub> = 0.915; 88% of galaxies within 50%, 46% within 20%.</p>
 
@@ -614,7 +614,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 
 <p><strong>Data.</strong> The Pittordis &amp; Sutherland (2023) cleaned wide binary catalogue from Gaia EDR3 contains 73,087 pairs. After quality cuts (separation 1&ndash;50 kAU, distance &lt; 250 pc, RUWE &lt; 1.4), 21,312 pairs remain.</p>
 
-<p><strong>Results.</strong> Gravity boost parameter &gamma; = 1.102 &plusmn; 0.010 globally (below the pre-registered 1.15 threshold, PASS). Both &gamma; and contamination fraction increase monotonically with separation (r = 0.99, r = 0.96), the classic contamination signature. Tighter quality cuts bring &gamma; closer to 1.0: tight distance (200 pc) gives &gamma; = 1.063, tight RUWE (1.2) gives &gamma; = 1.081. The high-separation tail (s &ge; 20 kAU, &gamma; = 1.60) is INCONCLUSIVE because the F3 cut-stability guardrail triggers.</p>
+<p><strong>Results.</strong> Gravity boost parameter &gamma; = 1.102 &plusmn; 0.010 globally (below the pre-specified 1.15 threshold, PASS). Both &gamma; and contamination fraction increase monotonically with separation (r = 0.99, r = 0.96), the classic contamination signature. Tighter quality cuts bring &gamma; closer to 1.0: tight distance (200 pc) gives &gamma; = 1.063, tight RUWE (1.2) gives &gamma; = 1.081. The high-separation tail (s &ge; 20 kAU, &gamma; = 1.60) is INCONCLUSIVE because the F3 cut-stability guardrail triggers.</p>
 
 <p><strong>Falsifiers.</strong> (1) High-separation tail: INCONCLUSIVE (guardrail triggered). (2) Global boost &gamma; &lt; 1.15: PASS (&gamma; = 1.10). Overall: PASS.</p>
 
@@ -628,7 +628,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <div class="callout">
 <ul>
 <li><strong>&Delta;&Sigma; and R conventions</strong> match Mandelbaum+2016 and Brouwer+2021 exactly.</li>
-<li><strong>Diagonal errors</strong> are used because the SDSS source paper uses diagonal errors and no covariance matrix is published. For KiDS, full covariance is available; using diagonal errors for KiDS is conservative.</li>
+<li><strong>Diagonal errors</strong> are used because the SDSS source paper uses diagonal errors and no covariance matrix is published. For KiDS, full covariance is available; a check against the full Brouwer covariance matrix changes the per-bin &chi;&sup2; by less than about 1 percent, so the diagonal treatment for KiDS is demonstrated to be robust rather than merely assumed conservative.</li>
 <li><strong>The &Lambda;CDM curve</strong> is a fiducial zero-parameter mapping (Moster+2013 SHMR + Duffy+2008 c(M)), not a per-bin best fit.</li>
 <li><strong>Both comparisons use zero tunable parameters.</strong> The MTDF prediction and the fiducial &Lambda;CDM prediction are both fixed mappings from stellar mass to ESD profile.</li>
 <li><strong>&Delta;AIC is computed within the same likelihood construction and error model used by the source paper.</strong></li>
@@ -643,7 +643,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <h3>6.1 Claims and non-claims</h3>
 
 <div class="callout">
-<strong>Box 1: Claims.</strong> This paper claims that the MTDF compression mechanism, with four fundamental parameters (plus the derived elastic modulus) frozen from independent cosmological and astrophysical observations, reproduces galaxy-galaxy lensing ESD profiles (two surveys, 165 data points), elliptical velocity dispersions (25 SLACS galaxies), satellite kinematics amplitudes (10 mass bins) and radial profiles (57 data points), SPARC rotation curve summary statistics (175 galaxies), and wide binary dynamics (21,312 pairs) under pre-registered pass-or-fail criteria. The falsifiable quantities are aggregate statistics (&chi;&sup2;/&nu;, mean bias, RMS scatter, gravity boost parameter), not per-object best fits. No claim is made of competitive per-galaxy rotation curve fitting without per-galaxy mass-to-light optimisation. No claim is made that &Lambda;CDM is ruled out; a fitted NFW per bin would outperform the fiducial zero-parameter mapping used here.
+<strong>Box 1: Claims.</strong> This paper claims that the MTDF compression mechanism, with four fundamental parameters (plus the derived elastic modulus) frozen in advance of these tests, reproduces galaxy-galaxy lensing ESD profiles (two surveys, 165 data points), elliptical velocity dispersions (25 SLACS galaxies), satellite kinematics amplitudes (10 mass bins) and radial profiles (57 data points), SPARC rotation curve summary statistics (175 galaxies), and wide binary dynamics (21,312 pairs) under pre-specified pass-or-fail criteria. The falsifiable quantities are aggregate statistics (&chi;&sup2;/&nu;, mean bias, RMS scatter, gravity boost parameter), not per-object best fits. No claim is made of competitive per-galaxy rotation curve fitting without per-galaxy mass-to-light optimisation. No claim is made that &Lambda;CDM is ruled out; a fitted NFW per bin would outperform the fiducial zero-parameter mapping used here.
 </div>
 
 <h3>6.2 Diagnostic-only outputs</h3>
@@ -673,7 +673,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 
 <figure id="fig-lensing-rsd" style="text-align:center; margin:2em auto; max-width:900px;">
   <img src="../figures/mtdf_lensing_rsd_test.png" alt="Lensing vs RSD E_G test and void lensing profiles" style="width:100%; height:auto;" />
-  <figcaption><strong>Figure 2.</strong> Lensing-vs-RSD consistency test. Left: E<sub>G</sub> measurements from six surveys (KiDS-BOSS, DES Y1, BOSS LOWZ/CMASS, KiDS-2dFLenS, eBOSS) compared with the GR prediction E<sub>G</sub> = &Omega;<sub>m</sub>/f = 0.38. Combined measurement E<sub>G</sub> = 0.39 &pm; 0.03 shows excellent agreement with GR. Centre: stacked tangential shear profiles around cosmic voids from DES Y3 and KiDS data. Right: test summary. The MTDF photon coupling &kappa; = 0.00102 predicts &Delta;E<sub>G</sub> ~ 0.001 in voids, below current measurement precision. Status: consistent with MTDF (no detectable photon coupling at current precision).</figcaption>
+  <figcaption><strong>Figure 2.</strong> Lensing-vs-RSD consistency test. Left: six verified E<sub>G</sub> analyses (Reyes et al. 2010; Pullen et al. 2016; Blake et al. 2016; Amon et al. 2018; Singh et al. 2019; Jullo et al. 2019; z = 0.27&ndash;0.57) compared with the z-dependent GR prediction E<sub>G</sub>(z) = &Omega;<sub>m,0</sub>/f(z), which falls from &asymp; 0.47 at z = 0.27 to &asymp; 0.40 at z = 0.57. Most measurements agree individually with GR; the known low values (Pullen et al. 2016; Amon et al. 2018) pull the naive weighted mean (0.361 &pm; 0.027, or 0.389 &pm; 0.030 excluding the CMB-lensing point) 1.4&ndash;2.6&sigma; below the GR expectation, and overlapping survey footprints make any combination indicative only. Centre: schematic stacked void-lensing profile; the amplitude scale follows the DES Y1 measurement (Fang et al. 2019), not digitized survey data. Right: test summary. The MTDF photon coupling &kappa; = 0.00102 (theory-motivated, &kappa; &asymp; f<sub>kick</sub>/3, FIRAS-bounded) predicts &Delta;E<sub>G</sub> ~ 0.01 in voids (void-wall split ~0.001), far below current measurement precision: E<sub>G</sub> does not discriminate MTDF from GR at current precision.</figcaption>
 </figure>
 
 <h3>6.4 Why the absolute &chi;&sup2;/&nu; is not small</h3>
@@ -690,7 +690,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <li><strong>Full covariance analysis.</strong> If the SDSS off-diagonal covariance elements significantly change the &chi;&sup2; ranking, the diagonal-error result is unreliable.</li>
 <li><strong>Per-bin NFW fitting.</strong> &Lambda;CDM with per-bin halo mass and concentration fitting has more freedom than the fiducial mapping. If fitted NFW achieves &chi;&sup2;/&nu; &lt; 2.93 on KiDS or &lt; 3.73 (corrected) on SDSS, the comparison favours &Lambda;CDM.</li>
 <li><strong>Cluster-scale lensing.</strong> The compression mechanism predicts &Delta;&Sigma; &propto; 1/R at all scales below L = 2.35 Mpc. At cluster scales (R &gt; 1 Mpc), deviations from isothermal behaviour would indicate the model's boundary.</li>
-<li><strong>Merging cluster offsets.</strong> Systems like the Bullet Cluster, where lensing peaks are offset from baryonic peaks, would require MTDF to produce lensing signal displaced from baryons  -  a strong constraint on any baryons-only theory.</li>
+<li><strong>Merging cluster offsets (open falsifier; no computation in this suite).</strong> Systems such as the Bullet Cluster exhibit lensing peaks offset from the dominant baryonic (gas) component (Clowe et al. 2006). A static baryon-sourced stress field would centre the lensing signal on the gas, in conflict with observation. The candidate MTDF response invokes the finite relaxation time &tau; = 13 Gyr: a stress configuration sourced over Gyr timescales need not track the gas through a ~100 Myr merger, and may remain associated with the pre-merger mass distribution traced by the collisionless galaxies. This mechanism is stated here as a hypothesis; no simulation supports it yet. A quantitative test requires time-dependent field evolution in an N-body setting, and is listed as the highest-priority open falsifier of the gravity sector.</li>
 <li><strong>Strong lensing time delays.</strong> The &eta; = 1 result means the time-delay formula is standard GR. The isothermal mass profile (&gamma; = 2.00) is structural. Time-delay distances at percent-level precision (TDCOSMO, Birrer+2020) directly test both predictions.</li>
 </ol>
 
@@ -710,7 +710,7 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <ol>
 <li>The MTDF compression mechanism reproduces galaxy-galaxy lensing signals in both KiDS and SDSS with zero fitted halo parameters, achieving &chi;&sup2;/&nu; = 2.93 (KiDS) and 3.73 (SDSS, with baryon correction). Under identical zero-parameter conditions, this is preferred over fiducial &Lambda;CDM NFW by factors of 2.8 (KiDS) and 12 (SDSS corrected), with &Delta;AIC = 4246 on SDSS.</li>
 <li>The self-interaction form (S &minus; S<sub>0</sub>)&sup2; is not a modelling choice  -  it is uniquely selected by the BTFR exponent (algebraic), its coupling is predicted within 4% by energy self-sourcing, and it is the leading-order term in a Landau-Ginzburg expansion. Solar System observables are safe by &gt; 10<sup>20</sup> (structural suppression, not fine-tuning).</li>
-<li>These results are consistent with the interpretation that the mass profiles conventionally attributed to dark matter halos arise from the elastic energy stored in the compression of the cosmological strain field around baryonic sources  -  with the cosmological background S<sub>0</sub>, the compression scale L, and the source strength f all derived from independently measured quantities.</li>
+<li>These results are consistent with the interpretation that the mass profiles conventionally attributed to dark matter halos arise from the elastic energy stored in the compression of the cosmological strain field around baryonic sources  -  with the cosmological background S<sub>0</sub>, the compression scale L, and the source strength f all derived from frozen MTDF constants and the externally anchored BTFR normalisation.</li>
 <li>The covariant completion is now explicit: photons and matter follow the standard GR metric sourced by baryons plus pressureless elastic deformation energy, with conservation guaranteed by the Bianchi identity and &eta; = 1 structural (zero anisotropic stress from pressureless dust). PPN parameters are safe by 10<sup>22&ndash;25</sup>. This closes the relativistic formulation at the effective field level.</li>
 </ol>
 
@@ -807,10 +807,10 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <tr><td>SLACS elliptical galaxies</td><td>Auger et al. (2010, ApJ 724, 511); Bolton et al. (2008, ApJ 682, 964)</td><td>Hardcoded in <code>step22_elliptical_dispersions.py</code></td><td>Table</td><td>22A</td></tr>
 <tr><td>H0LiCOW time-delay lenses</td><td>Wong et al. (2020, MNRAS 498, 1420)</td><td>Hardcoded in <code>step20_strong_lensing.py</code></td><td>Table</td><td>20, 22A</td></tr>
 <tr><td>Satellite kinematics (amplitude)</td><td>More et al. (2011, MNRAS 410, 210)</td><td><code>data/digitised/more_2011_fig2_MSR_digitized.csv</code></td><td>Digitised</td><td>22B</td></tr>
-<tr><td>Satellite kinematics (profiles)</td><td>Combes &amp; Tiret (2009, ASP Conf 421, 170)</td><td><code>data/digitised/combes_tiret_2009_sigma_los_digitized.csv</code></td><td>Digitised</td><td>22B</td></tr>
+<tr><td>Satellite kinematics (profiles)</td><td>Combes &amp; Tiret (2010, AIP Conf. Proc. 1241, 154)</td><td><code>data/digitised/combes_tiret_2009_sigma_los_digitized.csv</code> (file name retains the earlier citation label; the publication is 2010)</td><td>Digitised</td><td>22B</td></tr>
 </table>
 
-<p class="small"><strong>Digitisation notes.</strong> Two datasets (More+2011, Combes &amp; Tiret 2009) were extracted by manual coordinate reading from published figures because no machine-readable tables are available. Estimated digitisation uncertainty is &plusmn;2 km/s in velocity dispersion and &plusmn;0.05 dex in log stellar mass. The digitised values are stored in <code>data/digitised/</code> and also hardcoded as numpy arrays in <code>step22b_satellite_kinematics.py</code> for reproducibility.</p>
+<p class="small"><strong>Digitisation notes.</strong> Two datasets (More+2011, Combes &amp; Tiret 2010) were extracted by manual coordinate reading from published figures because no machine-readable tables are available. Estimated digitisation uncertainty is &plusmn;2 km/s in velocity dispersion and &plusmn;0.05 dex in log stellar mass. The digitised values are stored in <code>data/digitised/</code> and also hardcoded as numpy arrays in <code>step22b_satellite_kinematics.py</code> for reproducibility.</p>
 
 <p class="small"><strong>Scaling relations (not data files).</strong> Several steps use published scaling relations evaluated analytically from their fitted parameters: Moster+2013 SHMR, Duffy+2008 and Dutton+Macci&ograve; 2014 c(M), Giodini+2009 gas fraction, Yang+2007 satellite fraction, Gonzalez+2007 ICL fraction, Shen+2003 and van der Wel+2014 size-mass relations, Behroozi+2010 SHMR. These are referenced in the code comments with table/equation numbers.</p>
 
@@ -825,11 +825,11 @@ M<sub>ICL</sub> = 0.12 (M<sub>*,cen</sub> + M<sub>sat</sub>) (Gonzalez+2007).</l
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.5</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.20474512">10.5281/zenodo.20474512</a>)
+this release, <code>v1.1.6</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.20629767">10.5281/zenodo.20629767</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.5</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.6</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>
@@ -837,15 +837,28 @@ and scripts following the procedure in the top-level <code>README.md</code>.</p>
 <h2 id="references">References</h2>
 
 <ul>
+<li>Amon et al. (2018). KiDS+2dFLenS+GAMA: testing the cosmological model with the E_G statistic. MNRAS 479, 3422. DOI: <a href="https://doi.org/10.1093/mnras/sty1624">10.1093/mnras/sty1624</a></li>
+<li>Anderson et al. (2015). Unifying X-ray scaling relations from galaxies to clusters. MNRAS 449, 3806. DOI: <a href="https://doi.org/10.1093/mnras/stv437">10.1093/mnras/stv437</a></li>
 <li>Auger et al. (2010). The Sloan Lens ACS Survey. X. Stellar, dynamical, and total mass correlations. ApJ 724, 511. DOI: <a href="https://doi.org/10.1088/0004-637X/724/1/511">10.1088/0004-637X/724/1/511</a></li>
 <li>Behroozi, Conroy &amp; Wechsler (2010). A Comprehensive Analysis of Uncertainties Affecting the Stellar Mass-Halo Mass Relation. ApJ 717, 379. DOI: <a href="https://doi.org/10.1088/0004-637X/717/1/379">10.1088/0004-637X/717/1/379</a></li>
+<li>Birrer et al. (2020). TDCOSMO IV. Hierarchical time-delay cosmography &mdash; joint inference of the Hubble constant and galaxy density profiles. A&amp;A 643, A165. DOI: <a href="https://doi.org/10.1051/0004-6361/202038861">10.1051/0004-6361/202038861</a></li>
+<li>Blake et al. (2016). RCSLenS: testing gravitational physics through the cross-correlation of weak lensing and large-scale structure. MNRAS 456, 2806. DOI: <a href="https://doi.org/10.1093/mnras/stv2875">10.1093/mnras/stv2875</a></li>
 <li>Bolton et al. (2008). The Sloan Lens ACS Survey. V. The full ACS strong-lens sample. ApJ 682, 964. DOI: <a href="https://doi.org/10.1086/589327">10.1086/589327</a></li>
 <li>Brouwer et al. (2021). The weak lensing radial acceleration relation. A&amp;A 650, A113. DOI: <a href="https://doi.org/10.1051/0004-6361/202039795">10.1051/0004-6361/202039795</a></li>
-<li>Catinella et al. (2010). The GALEX Arecibo SDSS Survey. ApJ 722, 1699. DOI: <a href="https://doi.org/10.1111/j.1365-2966.2009.16180.x">10.1111/j.1365-2966.2009.16180.x</a></li>
+<li>Cappellari et al. (2006). The SAURON project &mdash; IV. The mass-to-light ratio, the virial mass estimator and the Fundamental Plane of elliptical and lenticular galaxies. MNRAS 366, 1126. DOI: <a href="https://doi.org/10.1111/j.1365-2966.2005.09981.x">10.1111/j.1365-2966.2005.09981.x</a></li>
+<li>Catinella et al. (2010). The GALEX Arecibo SDSS Survey I. Gas Fraction Scaling Relations of Massive Galaxies and First Data Release. MNRAS 403, 683. DOI: <a href="https://doi.org/10.1111/j.1365-2966.2009.16180.x">10.1111/j.1365-2966.2009.16180.x</a></li>
+<li>Catinella et al. (2013). The GALEX Arecibo SDSS Survey VIII. Final data release. The effect of group environment on the gas content of massive galaxies. MNRAS 436, 34. DOI: <a href="https://doi.org/10.1093/mnras/stt1417">10.1093/mnras/stt1417</a></li>
+<li>Clowe et al. (2006). A Direct Empirical Proof of the Existence of Dark Matter. ApJ 648, L109. DOI: <a href="https://doi.org/10.1086/508162">10.1086/508162</a></li>
+<li>Combes &amp; Tiret (2010). MOND and the Galaxies. AIP Conf. Proc. 1241, 154. DOI: <a href="https://doi.org/10.1063/1.3462629">10.1063/1.3462629</a></li>
+<li>Desmond (2023). The underlying radial acceleration relation. MNRAS 526, 3342. DOI: <a href="https://doi.org/10.1093/mnras/stad2762">10.1093/mnras/stad2762</a></li>
 <li>Duffy et al. (2008). Dark matter halo concentrations. MNRAS 390, 64. DOI: <a href="https://doi.org/10.1111/j.1745-3933.2008.00537.x">10.1111/j.1745-3933.2008.00537.x</a></li>
 <li>Dutton &amp; Macci&ograve; (2014). Cold dark matter haloes in the Planck era. MNRAS 441, 3359. DOI: <a href="https://doi.org/10.1093/mnras/stu742">10.1093/mnras/stu742</a></li>
+<li>Fang et al. (2019). Dark Energy Survey Year 1 results: the relationship between mass and light around cosmic voids. MNRAS 490, 3573. DOI: <a href="https://doi.org/10.1093/mnras/stz2805">10.1093/mnras/stz2805</a></li>
 <li>Giodini et al. (2009). Stellar and total baryon mass fractions in groups and clusters. ApJ 703, 982. DOI: <a href="https://doi.org/10.1088/0004-637X/703/1/982">10.1088/0004-637X/703/1/982</a></li>
 <li>Gonzalez, Sivanandam &amp; Zabludoff (2013). Galaxy Cluster Baryon Fractions Revisited. ApJ 778, 14. DOI: <a href="https://doi.org/10.1088/0004-637X/778/1/14">10.1088/0004-637X/778/1/14</a></li>
+<li>Gonzalez, Zaritsky &amp; Zabludoff (2007). A Census of Baryons in Galaxy Clusters and Groups. ApJ 666, 147. DOI: <a href="https://doi.org/10.1086/519729">10.1086/519729</a></li>
+<li>Jullo et al. (2019). Testing gravity with galaxy-galaxy lensing and redshift-space distortions using CFHT-Stripe 82, CFHTLenS, and BOSS CMASS datasets. A&amp;A 627, A137. DOI: <a href="https://doi.org/10.1051/0004-6361/201834629">10.1051/0004-6361/201834629</a></li>
+<li>Leauthaud et al. (2012). New Constraints on the Evolution of the Stellar-to-dark Matter Connection: A Combined Analysis of Galaxy-Galaxy Lensing, Clustering, and Stellar Mass Functions from z = 0.2 to z = 1. ApJ 744, 159. DOI: <a href="https://doi.org/10.1088/0004-637X/744/2/159">10.1088/0004-637X/744/2/159</a></li>
 <li>Lelli, McGaugh &amp; Schombert (2016). SPARC: Mass Models for 175 Disk Galaxies. AJ 152, 157. DOI: <a href="https://doi.org/10.3847/0004-6256/152/6/157">10.3847/0004-6256/152/6/157</a></li>
 <li>Mandelbaum, Wang, Zu et al. (2016). Strong bimodality in the host halo mass of central galaxies. MNRAS 457, 3200. DOI: <a href="https://doi.org/10.1093/mnras/stw188">10.1093/mnras/stw188</a></li>
 <li>McGaugh (2012). The Baryonic Tully-Fisher Relation of Gas-Rich Galaxies. AJ 143, 40. DOI: <a href="https://doi.org/10.1088/0004-6256/143/2/40">10.1088/0004-6256/143/2/40</a></li>
@@ -854,12 +867,20 @@ and scripts following the procedure in the top-level <code>README.md</code>.</p>
 <li>Navarro, Frenk &amp; White (1997). A Universal Density Profile. ApJ 490, 493. DOI: <a href="https://doi.org/10.1086/304888">10.1086/304888</a></li>
 <li>Pittordis &amp; Sutherland (2023). Testing gravity with wide binary stars like never before. OJAp 6, 4. DOI: <a href="https://doi.org/10.21105/astro.2205.02846">10.21105/astro.2205.02846</a></li>
 <li>Planck Collaboration (2020). Planck 2018 results. VI. Cosmological parameters. A&amp;A 641, A6. DOI: <a href="https://doi.org/10.1051/0004-6361/201833910">10.1051/0004-6361/201833910</a></li>
+<li>Pullen et al. (2016). Constraining gravity at the largest scales through CMB lensing and galaxy velocities. MNRAS 460, 4098. DOI: <a href="https://doi.org/10.1093/mnras/stw1249">10.1093/mnras/stw1249</a></li>
+<li>Reyes et al. (2010). Confirmation of general relativity on large scales from weak lensing and galaxy velocities. Nature 464, 256. DOI: <a href="https://doi.org/10.1038/nature08857">10.1038/nature08857</a></li>
+<li>Schombert &amp; McGaugh (2014). Stellar Populations and the Star Formation Histories of LSB Galaxies: III. Stellar Population Models. PASA 31, e036. DOI: <a href="https://doi.org/10.1017/pasa.2014.32">10.1017/pasa.2014.32</a></li>
+<li>Schombert, McGaugh &amp; Lelli (2022). Stellar Mass-to-light Ratios: Composite Bulge+Disk Models and the Baryonic Tully-Fisher Relation. AJ 163, 154. DOI: <a href="https://doi.org/10.3847/1538-3881/ac5249">10.3847/1538-3881/ac5249</a></li>
+<li>Shen et al. (2003). The size distribution of galaxies in the Sloan Digital Sky Survey. MNRAS 343, 978. DOI: <a href="https://doi.org/10.1046/j.1365-8711.2003.06740.x">10.1046/j.1365-8711.2003.06740.x</a></li>
+<li>Singh et al. (2019). Probing gravity with a joint analysis of galaxy and CMB lensing and SDSS spectroscopy. MNRAS 482, 785. DOI: <a href="https://doi.org/10.1093/mnras/sty2681">10.1093/mnras/sty2681</a></li>
+<li>van der Wel et al. (2014). 3D-HST+CANDELS: The Evolution of the Galaxy Size-Mass Distribution since z = 3. ApJ 788, 28. DOI: <a href="https://doi.org/10.1088/0004-637X/788/1/28">10.1088/0004-637X/788/1/28</a></li>
 <li>Wong et al. (2020). H0LiCOW  -  XIII. A 2.4 per cent measurement of H<sub>0</sub> from lensed quasars. MNRAS 498, 1420. DOI: <a href="https://doi.org/10.1093/mnras/stz3094">10.1093/mnras/stz3094</a></li>
+<li>Yang et al. (2007). Galaxy Groups in the SDSS DR4. I. The Catalog and Basic Properties. ApJ 671, 153. DOI: <a href="https://doi.org/10.1086/522027">10.1086/522027</a></li>
 </ul>
 
 
 <div class="footer">
-MTDF Companion Part II: Gravity Sector and Lensing (V74) | Ingo Mesche | April 2026
+MTDF Companion Part II: Gravity Sector and Lensing (V74) | Ingo Mesche | June 2026
 </div>
 </div>
 </body>
