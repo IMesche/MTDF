@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # MTDF Repository Setup Script
 # Creates a virtual environment and installs all Python dependencies.
 
@@ -56,7 +56,7 @@ echo "To activate the environment:"
 echo "  source venv/bin/activate"
 echo ""
 echo "To reproduce the validation dashboard:"
-echo "  cd validation/code && python run_validate.py --workbook ../data/DB_Workbook_STRICT_V18.xlsx --out ../output/My_Dashboard.html"
+echo "  cd validation/code && python run_validate.py --workbook ../data/DB_Workbook_STRICT_V19.xlsx --out ../output/My_Dashboard.html --diag ../output/My_Diagnostics.csv"
 echo ""
 echo "To download external data:"
 echo "  bash scripts/download_data.sh"

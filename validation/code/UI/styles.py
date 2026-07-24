@@ -222,6 +222,14 @@ def generate_css_styles(pillars: List[str]) -> str:
         border:1px solid #374151;
         font-style:italic;
     }}
+    td.cont{{
+        background:#062b31;
+        color:#ffffff;
+        border:1px solid #0e7490;
+        box-shadow: inset 0 0 0 1px rgba(14, 116, 144, 0.35);
+    }}
+    td.cont .cell-sub{{color:#22d3ee}}
+    .cont-badge{{color:#22d3ee;font-weight:bold;font-size:11px}}
     
     .tier-validated{{color:#4ade80;font-weight:bold}}
     .tier-supported{{color:#3b82f6;font-weight:bold}}

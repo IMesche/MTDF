@@ -1,0 +1,136 @@
+# ============================================================
+# Phase 5: MTDF posterior sampling (MCMC with dragging)
+# Full Planck 2018: plik TTTEEE + lowl TT + lowl EE + lensing
+# MTDF physics: EFE + growth modification, k_f free
+# ============================================================
+
+theory:
+  classy:
+    extra_args:
+      non linear: hmcode
+      gauge: newtonian  # PRIM-4A: covariant mu(a) validated in newtonian gauge (synchronous mu is buggy/disabled)
+      N_ncdm: 1
+      N_ur: 2.0328
+      # MTDF physics parameters (fixed from V18 calibration)
+      mtdf: 'yes'
+      mtdf_efe: 'yes'
+      mtdf_growth: 'yes'
+      mtdf_alpha: 1.30
+      mtdf_beta_eos: 0.573
+      mtdf_z_t: 0.74
+    stop_at_error: false
+    speed: 2.2
+
+likelihood:
+  planck_2018_lowl.TT_clik:
+  planck_2018_lowl.EE_clik:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lensing.native:
+
+params:
+  logA:
+    prior:
+      min: 1.61
+      max: 3.91
+    ref:
+      dist: norm
+      loc: 3.05
+      scale: 0.001
+    proposal: 0.001
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  A_s:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  n_s:
+    prior:
+      min: 0.8
+      max: 1.2
+    ref:
+      dist: norm
+      loc: 0.965
+      scale: 0.004
+    proposal: 0.002
+    latex: n_\mathrm{s}
+  theta_s_100:
+    prior:
+      min: 0.5
+      max: 10
+    ref:
+      dist: norm
+      loc: 1.04092
+      scale: 0.0004
+    proposal: 0.0002
+    latex: 100\theta_\mathrm{s}
+  omega_b:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.0224
+      scale: 0.0001
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omega_cdm:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.12
+      scale: 0.001
+    proposal: 0.0005
+    latex: \Omega_\mathrm{c} h^2
+  tau_reio:
+    prior:
+      min: 0.01
+      max: 0.8
+    ref:
+      dist: norm
+      loc: 0.055
+      scale: 0.006
+    proposal: 0.003
+    latex: \tau_\mathrm{reio}
+  # MTDF parameter: k_f amplitude
+  mtdf_k_f:
+    prior:
+      min: 0.0
+      max: 5.0
+    ref:
+      dist: norm
+      loc: 1.0
+      scale: 0.5
+    proposal: 0.3
+    latex: k_f
+  # Derived parameters
+  H0:
+    latex: H_0
+    min: 20
+    max: 100
+  sigma8:
+    latex: \sigma_8
+  Omega_m:
+    latex: \Omega_\mathrm{m}
+  m_ncdm:
+    value: 0.06
+    renames: mnu
+
+sampler:
+  mcmc:
+    max_tries: 1000
+    Rminus1_stop: 0.01          # convergence criterion
+    Rminus1_cl_stop: 0.02
+    max_samples: 200000         # hard stop
+    covmat: auto
+output: output/mtdf_v2         # relative; enables checkpoint/resume
+
+# ================= PRIM-4B FLIGHT RIDERS (MTDF-4B-PKG) =================
+# CONFIG RULING (Branch B): UNFILTERED corrected covariant mu(a), newtonian gauge. NO k-filter anywhere.
+# Zero physics delta vs Phase-5 v1 EXCEPT: gauge=newtonian + corrected binary + these riders (sampler stop/
+# checkpoint + output). Likelihood/priors/params identical to v1.
+# RIDER 1 (k_f posture): production chain samples k_f free (as v1) -> k_f posterior vs {0.495, 1}.
+#   k_f=1 (theory) posture via importance-reweight of the free-k_f chain (analyze_v2.py --kf1-reweight),
+#   OR a fixed cross-check chain: replace the mtdf_k_f prior block with  mtdf_k_f: {value: 1.0}.
+# RIDER 2 (checkpoint/resume): cobaya checkpoints AUTOMATICALLY via the "output" prefix (.checkpoint file); resume via RUN.sh --profile <p> --resume.
+# ======================================================================

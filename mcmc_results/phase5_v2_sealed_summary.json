@@ -1,0 +1,103 @@
+{
+ "_meta": {
+  "framework": "MTDF V75",
+  "release": "v1.1.7",
+  "date": "2026-07-24",
+  "note": "Sealed v2 full-Planck results (corrected covariant mu(a), Newtonian gauge). Supersedes the v1 phase5 files kept alongside for the audit trail; see README.md in this directory."
+ },
+ "run": {
+  "sampler": "cobaya mcmc, 4 chains",
+  "accepted_per_chain": 200000,
+  "total_accepted": 800000,
+  "Rminus1_at_stop": 0.0085,
+  "Rminus1_cl_at_stop": 0.06,
+  "likelihoods": [
+   "planck_2018_lowl.TT_clik",
+   "planck_2018_lowl.EE_clik",
+   "planck_2018_highl_plik.TTTEEE",
+   "planck_2018_lensing.native"
+  ]
+ },
+ "posterior": {
+  "sigma8": [
+   0.82651,
+   0.00623
+  ],
+  "S8_native": [
+   0.8473,
+   0.0138
+  ],
+  "S8_native_kf1": [
+   0.8501,
+   0.0132
+  ],
+  "mtdf_k_f": [
+   0.685,
+   0.5
+  ],
+  "H0": [
+   67.444,
+   0.546
+  ],
+  "Omega_m": [
+   0.31533,
+   0.00771
+  ],
+  "n_s": [
+   0.96426,
+   0.00426
+  ],
+  "logA": [
+   3.03962,
+   0.01444
+  ]
+ },
+ "lcdm_control": {
+  "sigma8": [
+   0.81036,
+   0.00598
+  ],
+  "S8": [
+   0.83004,
+   0.01278
+  ],
+  "H0": [
+   67.389,
+   0.544
+  ],
+  "config_deltas_vs_mtdf_yaml": 3
+ },
+ "model_comparison": {
+  "delta_chi2_bounded_bestfits": -1.29,
+  "mtdf_minus_logL": 1385.78,
+  "mtdf_kf_at_min": 0.476,
+  "lcdm_minus_logL": 1386.42,
+  "delta_AIC": 0.71,
+  "statement": "This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.",
+  "dataset_resolved_chi2": {
+   "lowl_TT": [
+    23.77,
+    22.29
+   ],
+   "lowl_EE": [
+    396.27,
+    396.47
+   ],
+   "plik_TTTEEE": [
+    2344.0,
+    2343.8
+   ],
+   "lensing": [
+    8.8,
+    8.99
+   ],
+   "order": "[LCDM, MTDF] at bounded best fits"
+  }
+ },
+ "posture": "S8-WORSENED (pre-registered three-posture adjudication; adjudication executed only on the completed chain)",
+ "chain_archives": {
+  "mtdf_v2_output.tar.gz_sha256": "95ce9385153c7c40cf0f125d5a3cb5964751ac1ba4cb8d4c758da1b036610975",
+  "lcdm_v2_output.tar.gz_sha256": "0d51dbca41f4bcbb8d471174c719dee4c529e03fa6ecf4083103ae024c84ee63",
+  "availability": "attached to the Zenodo record for this release"
+ }
+}

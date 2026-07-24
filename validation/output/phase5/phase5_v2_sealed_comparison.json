@@ -1,0 +1,32 @@
+{
+ "_meta": {
+  "note": "Sealed v2 matched comparison (bounded best-fit minimisations seeded from the chains). Supersedes phase5_minimize_comparison.json (v1, retired: gauge artifact)."
+ },
+ "delta_chi2": -1.29,
+ "delta_AIC": 0.71,
+ "lcdm_chi2_total": 2772.84,
+ "mtdf_chi2_total": 2771.56,
+ "statement": "This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.",
+ "chi2_breakdown": {
+  "lowl TT": {
+   "lcdm": 23.77,
+   "mtdf": 22.29,
+   "delta": -1.48
+  },
+  "lowl EE": {
+   "lcdm": 396.27,
+   "mtdf": 396.47,
+   "delta": 0.2
+  },
+  "plik TTTEEE": {
+   "lcdm": 2344.0,
+   "mtdf": 2343.8,
+   "delta": -0.2
+  },
+  "lensing": {
+   "lcdm": 8.8,
+   "mtdf": 8.99,
+   "delta": 0.19
+  }
+ }
+}

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download Planck PR4 CMB lensing convergence maps (Carron+2022)
 # Source: https://github.com/carronj/planck_PR4_lensing
 # Size: ~482 MB

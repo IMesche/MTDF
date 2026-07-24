@@ -65,7 +65,7 @@
 % ============================================================
 \title{MTDF Companion Paper Part II: Galaxy-Galaxy Lensing Without Dark Matter}
 \author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
-\date{V74 / June 2026}
+\date{V75 / July 2026}
 
 \begin{document}
 \maketitle
@@ -84,6 +84,7 @@ This paper distinguishes between:
 (iv) speculative extensions.
 Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
 \end{mdframed}
+
 
 \section{Scope and design}
 \label{sec:scope}
@@ -107,7 +108,7 @@ The $\Lambda$CDM model successfully describes the large-scale universe but requi
 
 Galaxy-galaxy lensing (GGL) provides a particularly decisive test of the dark matter hypothesis. The excess surface density (ESD) profile $\Delta$$\Sigma$(R) measured around lens galaxies directly traces the total projected mass distribution, regardless of its nature. In $\Lambda$CDM, the dominant contribution at projected radii R > 100 kpc comes from the NFW dark matter halo. Any alternative to dark matter must reproduce this signal using only baryonic matter and modified gravitational physics.
 
-MTDF (Mesche's Tensor Dynamics Framework) proposes that spacetime is an elastic medium characterised by four structural constants of differing epistemic status (one anchored, one frozen void-motivated, one synchronised, one fitted) and a derived elastic modulus. The framework has passed a 17-test validation matrix including Planck CMB compatibility, 175 SPARC rotation curves, and weak lensing constraints (documented in \textit{MTDF\_\allowbreak{}07}~[see companion paper]); the supernova environment signals are reported separately as extension evidence (MTDF\_\allowbreak{}02), not as part of the validated core. It reduces the S\textsubscript{8} tension between Planck and weak lensing surveys by 46\%. The covariant formulation is explicit: the metric is standard GR sourced by baryons plus pressureless elastic deformation energy, with $\eta$ = 1 (no gravitational slip) and conservation guaranteed by the Bianchi identity.
+MTDF (Mesche's Tensor Dynamics Framework) proposes that spacetime is an elastic medium characterised by four structural constants of differing epistemic status (one anchored, one frozen void-motivated, one synchronised, one fitted) and a derived elastic modulus. The framework has passed a 17-test validation matrix including Planck CMB compatibility, 175 SPARC rotation curves, and weak lensing constraints (documented in \textit{MTDF\_\allowbreak{}07}~[see companion paper]); the supernova environment signals are reported separately as extension evidence (MTDF\_\allowbreak{}02), not as part of the validated core. The earlier claim that MTDF reduces the S\textsubscript{8} tension between Planck and weak-lensing surveys is retired: it rested on a documented gauge artifact in the v1 growth implementation. The corrected covariant growth sector enhances late-time growth by approximately +2.5 percent at fixed parameters, and the sealed v2 full-Planck chains place $\sigma$\textsubscript{8} about 1.9$\sigma$ (posterior units) above the same-pipeline $\Lambda$CDM baseline, so the residual weak-lensing tension is shared with $\Lambda$CDM (MTDF\_\allowbreak{}01, Section 7.3). Where this paper cites the full-Planck cosmological results, the scope statement of the master paper applies: the v2 chains test the corrected effective cosmological implementation with the high-Q carrier in its CDM-like limit, not a Boltzmann implementation of all nine degrees of freedom. The covariant formulation is explicit: the metric is standard GR sourced by baryons plus pressureless elastic deformation energy, with $\eta$ = 1 (no gravitational slip) and conservation guaranteed by the Bianchi identity.
 
 This paper tests MTDF against published GGL data from two independent surveys  -  KiDS $\times$ GAMA (Brouwer et al. 2021) and SDSS (Mandelbaum et al. 2016)  -  using a zero-parameter prediction derived entirely from MTDF constants and the published baryonic Tully-Fisher relation. We demonstrate that the compression mechanism of the elastic field produces isothermal stress density profiles that match observed lensing signals without dark matter halos, and that the result is robust against variations in $\Lambda$CDM astrophysical priors.
 
@@ -133,7 +134,7 @@ Four frozen parameters of differing epistemic status (one anchored, one frozen v
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Source} \tabularnewline
 $\alpha$ = 1.30 $\pm$ 0.26 & Stress-matter coupling & Void-motivated phenomenological coupling (frozen) \tabularnewline
-$\beta$ = 7 $\times$ 10\textsuperscript{23} m (22.7 Mpc) & Coherence length & Void quantisation \tabularnewline
+$\beta$ = 7 $\times$ 10\textsuperscript{23} m (22.7 Mpc) & Strain-lever length scale & Void quantisation \tabularnewline
 $\tau$ = 13.0 $\pm$ 0.2 Gyr & Relaxation timescale & Age synchronisation \tabularnewline
 $\beta$\textsubscript{eos} = 0.573 $\pm$ 0.012 & EOS transition (phenomenological MTDF fit; HotQCD 2012 DOI is a physics analogue, not the source of the value) & Phenomenological fit (analogue: QCD) \tabularnewline
 E = (2/\allowbreak{}$\alpha$$^{2}$) $\rho$\textsubscript{c} c$^{2}$ = 9.1 $\times$ 10\textsuperscript{$-$10} Pa & Derived elastic modulus & Critical density scaling \tabularnewline
@@ -144,7 +145,7 @@ E = (2/\allowbreak{}$\alpha$$^{2}$) $\rho$\textsubscript{c} c$^{2}$ = 9.1 $\time
 At galactic scales (\(r \ll \beta\)), the rotation curve formula is \(v_c^2(r) = \frac{GM_{\mathrm{bar}}}{r}\left[1 + \frac{\alpha}{1 + r/\beta}\right]\), consistent with the SPARC global summary statistics (P1/\allowbreak{}P1B) across the 175-galaxy sample with a single ($\alpha$, $\beta$) pair and no per-galaxy fitting.
 
 \subsection{Compression mechanism}
-In the quasi-static limit, the scalar compression mode S satisfies a screened Helmholtz equation with coherence length $\beta$. Outside baryonic sources (\(r > R_{\mathrm{galaxy}}\)), this reduces to Laplace's equation (\(\nabla^2 S = 0\)) when \((r/\beta)^2 \ll 1\)  -  standard scale separation. The unique spherically symmetric solution vanishing at infinity is:
+In the quasi-static limit, the scalar compression mode S satisfies a screened Helmholtz equation with the strain-lever length scale $\beta$. Outside baryonic sources (\(r > R_{\mathrm{galaxy}}\)), this reduces to Laplace's equation (\(\nabla^2 S = 0\)) when \((r/\beta)^2 \ll 1\)  -  standard scale separation. The unique spherically symmetric solution vanishing at infinity is:
 
 \[ S(r) = S_0\left[1 + \frac{f\,L}{r}\right] \]
 
@@ -204,6 +205,10 @@ The compression field \(\chi = S - S_0\) satisfies the covariant field equation:
 
 where \(\Box\) is the d'Alembertian. The \(\chi/\beta^2\) term is a Yukawa mass with Compton wavelength equal to $\beta$ (22,685 kpc); at galactic scales (\(r \ll \beta\)) it contributes less than 2\% and is negligible. In the static limit, this reduces exactly to the field equation from Section 2.3.
 
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Field-identity note (binding wording).} The compression variable $\chi$ = S $-$ S\textsubscript{0} is the shift-invariant strain amplitude (a gradient-built quantity), not the Goldstone displacement $\xi$. The $\beta$\textsuperscript{$-$2} restoring term in this effective equation acts on the invariant and belongs to the equation-of-state sector of the medium; it renormalises the phonon gradient (sound-speed) energy at order k\textsuperscript{2} and does not gap the k $\rightarrow$ 0 phonons, which remain massless Goldstone modes of the broken translations. A genuine displacement mass (a potential for $\xi$ itself) is symmetry-forbidden and absent from the frozen action; no statement in this suite identifies the phonon spectrum with a Compton mass 1/\allowbreak{}$\beta$.
+\end{mdframed}
+
 The metric is the standard GR metric sourced by baryons plus the elastic deformation energy:
 
 \[ G_{\mu\nu} = \frac{8\pi G}{c^4}\left[T^{\mathrm{matter}}_{\mu\nu} + T^{\mathrm{stress}}_{\mu\nu}\right] \]
@@ -219,6 +224,31 @@ Three structural results follow:
 \end{enumerate}
 
 This is an effective field description  -  the minimal covariant embedding reproducing the Newtonian-level equations from Sections 2.2--2.5  -  not a UV-complete theory.
+
+\subsection{The relativistic lensing bridge (canonical record)}
+This subsection is the canonical record of how the frozen MTDF action (MTDF\_\allowbreak{}01, Section 2A) delivers lensing, and of why its structure is forced rather than chosen. The effective description of Section 2.6 (elastic deformation energy as pressureless dust on the standard GR metric) remains the working quasi-static limit used by the lensing pipeline in this paper; the canonical carrier described here reproduces it in that limit and fixes its relativistic completion.
+
+\subsubsection{The exhaustion chain: why a carrier had to be imported}
+Four native routes to lensing were tested and killed, each with a recorded killing result (recorded as retired claims T1 to T4 in the claim-status table of the master paper):
+
+\begin{itemize}
+  \item \textbf{Scalar-only lensing} (the native carrier delivering lensing alone): fails on path delay.
+  \item \textbf{Conformal nonlocal carrier:} a conformal coupling cannot deliver $\eta$ = 1 in a GW-safe way.
+  \item \textbf{Local kinetic-free disformal scalar:} a composite disformal coupling without its own kinetic term sets c\textsubscript{photon}\textsuperscript{2} = 1 $-$ B/\allowbreak{}A\textsuperscript{2}, splitting the photon and GW cones by about 9 $\times$ 10\textsuperscript{$-$7} and violating the GW170817 bound by roughly nine orders of magnitude.
+  \item \textbf{Native preferred-frame (material-current) carrier:} the native slip is insufficient on the path-delay route.
+\end{itemize}
+
+The conclusion is a two-clause theorem established during the construction programme, stated here in full: (i) no native MTDF structure can deliver lensing = dynamics GW-safely; (ii) the missing degree of freedom is exactly a unit-timelike vector with an Einstein-aether class kinetic term, and nothing more. The import is therefore minimal and derived, not aesthetic.
+
+\subsubsection{The dressed metric and $\eta$ = 1}
+Matter and photons propagate on the disformal (dressed) metric
+
+\[ \tilde{g}_{\mu\nu} = A^2(Q)\, g_{\mu\nu} + B(Q)\, A_\mu A_\nu , \qquad B = -4\,S_{A0}, \qquad A^2 = e^{B/2}, \]
+
+where S\textsubscript{A0} is the A0/\allowbreak{}MOND scalar potential, |S\textsubscript{A0}| $\sim$ (v\textsubscript{c}/\allowbreak{}c)\textsuperscript{2} $\sim$ 4 $\times$ 10\textsuperscript{$-$7} at galaxy-halo depth, so B/\allowbreak{}A\textsuperscript{2} $\sim$ 1.8 $\times$ 10\textsuperscript{$-$6}. The coupling is algebraic: it introduces no new propagating mode, with a no-ghost margin of five to six orders of magnitude. The spatial (transverse) part of the dressed metric carries the extra deflection, which is what delivers lensing = dynamics ($\eta$ = 1) exactly: the lensing potential equals the dynamical potential, and the lensing signal tracks the radial acceleration relation at the \~{}0.1 dex level with zero deviation by construction. The independent confrontation of this tracking with strong-lens time-delay data is a named safety row (Section 5A, row R6).
+
+\subsubsection{GW safety as a coefficient condition}
+Gravitational waves ride the tensor sector, whose cone is shifted by the vector kinetic term. The coefficient condition c\textsubscript{13} = c\textsubscript{1} + c\textsubscript{3} = 0 makes the GW cone and the photon-on-\(\tilde{g}\) cone \emph{coincide}, not merely share a front speed. Because c\textsubscript{13} = 0 is a relation between coefficients, independent of the field configuration, the coincidence holds at every event along any path, including the low-acceleration regions where the disformal amplitude is largest. Local c\textsubscript{GW} = c\textsubscript{EM} is therefore exact and path-independent, against the counterfactual of \~{}9 $\times$ 10\textsuperscript{$-$7} for the kinetic-free composite. This statement is conditional on the imported Einstein-aether/\allowbreak{}AeST cone-coincidence construction, and it is stated as such wherever it is used (Section 5A wording rule).
 
 \section{Methods}
 \label{sec:methods}
@@ -481,20 +511,20 @@ Steps 22A--B tested the gravity sector at halo scales (50--500 kpc). Step 22C te
 
 \textbf{v\textsubscript{flat} consistency.} Median ratio v\textsubscript{flat,mtdf} / v\textsubscript{flat,obs} = 0.915; 88\% of galaxies within 50\%, 46\% within 20\%.
 
-\textbf{Per-point $\chi$$^{2}$ diagnostic.} Median $\chi$$^{2}$/$\nu$ = 51 per galaxy. This is reported as a diagnostic only. The V74 dashboard P1 and P1B metrics are scalar summary statistics, not per-galaxy best fits. All models (including MOND with fixed $\Upsilon$\textsubscript{*}) yield similarly large per-point $\chi$$^{2}$ on SPARC without per-galaxy M/\allowbreak{}L optimisation.
+\textbf{Per-point $\chi$$^{2}$ diagnostic.} Median $\chi$$^{2}$/$\nu$ = 51 per galaxy. This is reported as a diagnostic only. The V75 dashboard P1 and P1B metrics are scalar summary statistics, not per-galaxy best fits. All models (including MOND with fixed $\Upsilon$\textsubscript{*}) yield similarly large per-point $\chi$$^{2}$ on SPARC without per-galaxy M/\allowbreak{}L optimisation.
 
 \textbf{Falsifiers.} (1) |P1 $-$ 0.174| < 0.033 dex $\rightarrow$ PASS (0.010). (2) |P1B $-$ 0.035| < 0.030 dex $\rightarrow$ PASS (0.006). (3) BTFR normalisation < 0.5 dex $\rightarrow$ PASS (0.316). (4) v\textsubscript{flat} median ratio in [0.6, 1.5] $\rightarrow$ PASS (0.915). 4/\allowbreak{}4 PASS.
 
 \subsection{Wide binary gravity test (Step 22D)}
-Wide binaries in the Solar neighbourhood probe ultra-low accelerations at projected separations 2--30 kAU. MTDF predicts Newtonian behaviour at these scales: the $\alpha$-enhancement requires a galaxy-scale stress field source, and individual binary stars do not produce such a field. This is a distinguishing prediction from MOND.
+Wide binaries in the Solar neighbourhood probe ultra-low accelerations at projected separations 2--30 kAU. MTDF predicts an EFE-suppressed deviation in this window, with onset near \~{}8,600 AU for a 1.5 M\textsubscript{$\odot$} system: the Galactic external field (a\textsubscript{gal} $\approx$ a\textsubscript{MTDF}) suppresses the full deep-MOND boost, so the expected behaviour is neither the full boost nor strictly Newtonian. The sampled 2--30 kAU range straddles the predicted onset (see Section 5A, row R7).
 
 \textbf{Data.} The Pittordis \& Sutherland (2023) cleaned wide binary catalogue from Gaia EDR3 contains 73,087 pairs. After quality cuts (separation 1--50 kAU, distance < 250 pc, RUWE < 1.4), 21,312 pairs remain.
 
 \textbf{Results.} Gravity boost parameter $\gamma$ = 1.102 $\pm$ 0.010 globally (below the pre-specified 1.15 threshold, PASS). Both $\gamma$ and contamination fraction increase monotonically with separation (r = 0.99, r = 0.96), the classic contamination signature. Tighter quality cuts bring $\gamma$ closer to 1.0: tight distance (200 pc) gives $\gamma$ = 1.063, tight RUWE (1.2) gives $\gamma$ = 1.081. The high-separation tail (s $\ge$ 20 kAU, $\gamma$ = 1.60) is INCONCLUSIVE because the F3 cut-stability guardrail triggers.
 
-\textbf{Falsifiers.} (1) High-separation tail: INCONCLUSIVE (guardrail triggered). (2) Global boost $\gamma$ < 1.15: PASS ($\gamma$ = 1.10). Overall: PASS.
+\textbf{Falsifiers.} (1) High-separation tail: INCONCLUSIVE (guardrail triggered). (2) Global boost $\gamma$ < 1.15: PASS ($\gamma$ = 1.10). Overall: PREDICTION-STATED / DATA-CONTESTED (see Section 5A, row R7).
 
-\textbf{Discriminator note.} MTDF and MOND-type models agree on galaxy-scale phenomenology in the low-acceleration regime, but differ sharply for wide binaries: MTDF predicts effectively Newtonian dynamics (the stress field is sourced by galaxy-integrated mass, not by individual stellar systems), while acceleration-threshold models generically predict anomalous behaviour. Wide binaries therefore provide a clean external discriminator between these frameworks.
+\textbf{Discriminator note.} MTDF and MOND-type models agree on galaxy-scale phenomenology in the low-acceleration regime; for wide binaries the contrast is the EFE-modulated transition. MOND without an external field effect predicts the full deep-MOND boost, while MTDF predicts an EFE-suppressed deviation with onset near \~{}8,600 AU for 1.5 M\textsubscript{$\odot$}, neither the full boost nor strictly Newtonian behaviour. The observational record is contested (Chae 2023/\allowbreak{}24 reports a boost; Banik et al. 2024 and Pittordis \& Sutherland 2023 do not), so wide binaries remain a live discriminator rather than a settled one (Section 5A, row R7).
 
 \section{Methodological notes}
 \label{sec:notes}
@@ -507,6 +537,38 @@ Wide binaries in the Solar neighbourhood probe ultra-low accelerations at projec
   \item \textbf{$\Delta$AIC is computed within the same likelihood construction and error model used by the source paper.}
 \end{itemize}
 \end{mdframed}
+
+\section{Safety of the frozen architecture (consolidated table)}
+\label{sec:safety}
+This section carries the consolidated safety adjudication of the frozen unified action in paper form. Every row is either a number against a bound with its margin, or a named mechanism with its scale of protection, or an honestly labelled conditional or contested entry with its ancestry. There is \textbf{no exposed row}: no local, astrophysical, or early-universe bound is violated, and no adjudicated margin is below 10$\times$.
+
+\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Wording rule (binding).} Every vector-sector row below is conditional on the imported Einstein-aether/\allowbreak{}AeST literature (Oost, Mukohyama \& Wang 2018; Yagi et al. 2014; Foster \& Jacobson 2006) and on the AeST alignment design in which the scalar carries the MOND and carrier load. These rows confirm safety \emph{assuming} those imported results; they are never presented as independent proofs of vector-sector health.
+\end{mdframed}
+
+{\footnotesize
+\begin{xltabular}{\linewidth}{l>{\RaggedRight\arraybackslash}p{2.8cm}>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}p{2.5cm}>{\RaggedRight\arraybackslash}p{3.2cm}}
+\toprule
+\textbf{\#} & \textbf{Constraint (bound, source)} & \textbf{MTDF quantity} & \textbf{Verdict} & \textbf{Margin / protection} \tabularnewline
+\midrule
+\endhead
+R1 & Solar-system PPN $\gamma$$-$1 < 2.3 $\times$ 10\textsuperscript{$-$5} (Cassini) & Low-Q $\rightarrow$ GR at high acceleration: fractional modification \~{} a\textsubscript{MTDF}/\allowbreak{}a\textsubscript{solar} = 2 $\times$ 10\textsuperscript{$-$8} (conservative); RAR interpolation gives an exponentially smaller value. Vector: $\alpha$\textsubscript{1} = $\alpha$\textsubscript{2} = 0 by coefficient choice. & SAFE-DERIVED (+ mechanism for the vector) & \~{}10\textsuperscript{3}$\times$ conservative; exponentially larger under the RAR interpolation \tabularnewline
+R2 & LLR / SEP $\eta$\textsubscript{N} < 4.4 $\times$ 10\textsuperscript{$-$4} & $\eta$\textsubscript{N} \~{} a\textsubscript{MTDF}/\allowbreak{}a\textsubscript{solar} = 2 $\times$ 10\textsuperscript{$-$8} (deep-Newtonian internal dynamics; the EFE's live test is R7, not the Solar System) & SAFE-DERIVED & \~{}2 $\times$ 10\textsuperscript{4}$\times$ \tabularnewline
+R3 & Lab fifth force / inverse-square to \~{}52 $\mu$m (Eot-Wash) & Substrate rigidity K\textsubscript{eff} = E($\beta$k)\textsuperscript{2} \~{} 10\textsuperscript{42}--10\textsuperscript{44} Pa at lab scales; no lab-range vector mode & SAFE-BY-MECHANISM & rigidity grows as k\textsuperscript{2}: the shorter the range, the safer \tabularnewline
+R4 & GW170817 speed |c\textsubscript{GW}$-$c\textsubscript{EM}|/\allowbreak{}c < \~{}10\textsuperscript{$-$15} & c\textsubscript{13} = 0 $\rightarrow$ c\textsubscript{T} = 1 exactly (Section 2.7.3) & SAFE-BY-MECHANISM (exact by construction) & identically zero; counterfactual 9 $\times$ 10\textsuperscript{$-$7} without the vector kinetic term \tabularnewline
+R5 & GW/\allowbreak{}EM path delay + Shapiro (GW170817/\allowbreak{}GRB170817A, \~{}1.7 s over \~{}40 Mpc) & The c\textsubscript{13} = 0 cone coincidence removes the \emph{leading} differential Shapiro delay \emph{exactly}; the survivor is second order in the disformal amplitude, \~{}(B/\allowbreak{}A\textsuperscript{2})\textsuperscript{2} \~{} 3 $\times$ 10\textsuperscript{$-$12} of the GR Shapiro, i.e. \~{}3 $\times$ 10\textsuperscript{$-$5} s (\~{}30 $\mu$s) for a GW170817-class path. The \~{}30 $\mu$s figure is a conservative second-order upper bound, not a predicted nonzero offset; both statements belong together. & SAFE (computed; conditional on the R4 cone-coincidence import) & \~{}3 $\times$ 10\textsuperscript{4}$\times$ below the \~{}1 s timing budget \tabularnewline
+R6 & Strong-lens time delays (TDCOSMO/\allowbreak{}H0LiCOW) & The deep-MOND response gives a logarithmic potential: the MTDF halo is isothermal-like ($\gamma'$ = 2) at the Einstein radius, the TDCOSMO fiducial. Delay difference against $\Lambda$CDM-fitted composite profiles at matched observables: \~{}0--5\%. & SAFE-WITHIN-SYSTEMATICS + registered prediction & inside the \~{}8\% TDCOSMO profile-systematics spread; prediction: reduced $\gamma'$ scatter about 2 at $\theta$\textsubscript{E} and a small signed few-percent low bias in lensing-inferred H\textsubscript{0} under composite-profile fitting \tabularnewline
+R7 & Wide binaries in the \~{}10\textsuperscript{$-$10} m/\allowbreak{}s\textsuperscript{2} window (data contested: Chae 2023/\allowbreak{}24 vs Banik et al. 2024, Pittordis \& Sutherland 2023) & EFE-modulated deep-MOND onset: \~{}8,600 AU for 1.5 M\textsubscript{$\odot$}, suppressed by the Galactic field a\textsubscript{gal} $\approx$ a\textsubscript{MTDF}; MTDF predicts an EFE-suppressed deviation, not the full boost & PREDICTION-STATED / DATA-CONTESTED & a live falsifiable test, neither pass nor fail; publishable row \tabularnewline
+R8 & Binary-pulsar dipole radiation (PSR J1738+0333, J0348+0432; dipole < \~{}13--18\% of quadrupole) & Scalar channel: shift symmetry kills the monopole charge, and the binary sits at deep high Q, residual < \~{}10\textsuperscript{$-$22} of the bound. Vector channel: leading term removed by c\textsubscript{13} = 0 and $\alpha$\textsubscript{1} = $\alpha$\textsubscript{2} = 0; safe for K\textsubscript{B} inside the derived window. & SAFE (scalar SAFE-DERIVED, margin \~{}10\textsuperscript{21}; vector safe via the K\textsubscript{B} window, conditional on the imported EA pulsar analysis) & generic vector-tensor counterfactual would violate by (c/\allowbreak{}v)\textsuperscript{2} \~{} 10\textsuperscript{5}--10\textsuperscript{6} \tabularnewline
+R9 & BBN / N\textsubscript{eff}: $\Delta$N\textsubscript{eff} < \~{}0.3 & $\mu$(a) is BBN-inert ($\mu$ \~{} 1); EFE energy fraction at BBN \~{} 10\textsuperscript{$-$48} of critical (log-Gaussian peaked at z\textsubscript{eq}) & SAFE-DERIVED & exponentially negligible \tabularnewline
+R10 & Consistency of H\textsubscript{0} stratification with R1/\allowbreak{}R2 (same field, different regimes) & Stratification operates at large scale / low acceleration ($\beta$k < 1); R1/\allowbreak{}R2 sit at $\beta$k $\gg$ 1 where the field is rigid; regimes separated by a\textsubscript{MTDF} and the $\beta$k threshold & SAFE-BY-MECHANISM & non-overlapping regimes; extension-level self-labelling retained \tabularnewline
+\bottomrule
+\end{xltabular}
+}
+
+{\footnotesize\itshape Consolidated safety table of the frozen unified action. Verdict classes: SAFE-DERIVED (number vs bound, margin stated), SAFE-BY-MECHANISM (structural argument, scale of protection stated), PREDICTION-STATED/\allowbreak{}DATA-CONTESTED (live test on contested data). No row is EXPOSED and no adjudicated margin is below 10$\times$.}
+
+\textbf{The K\textsubscript{B} window.} The vector kinetic normalisation K\textsubscript{B} is not an unconstrained O(1) constant: four independent fences (the Einstein-aether pulsar band; vector-sector health, which requires K\textsubscript{B} > 0 to keep the vector dynamical; the carrier role with BBN and solar-system PPN bounds, which force K\textsubscript{B} $\leq$ \~{}2.5 $\times$ 10\textsuperscript{$-$5}; and the c\textsubscript{T} = 1 surface) intersect in the non-empty, healthy window (0, \~{}2.5 $\times$ 10\textsuperscript{$-$5}], the near-GR-aether limit. The window lies inside the pulsar-safe and PPN-safe regions by construction, which is what discharges the vector channel of row R8. A possible strong-coupling lower floor for small K\textsubscript{B} is a named post-paper research item.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -644,7 +706,7 @@ S & Scalar compression invariant & 1 \tabularnewline
 S\textsubscript{0} & Cosmological background strain & 1 \tabularnewline
 $\delta$S & Local excitation (S $-$ S\textsubscript{0}) & 1 \tabularnewline
 $\alpha$ & Stress-matter coupling & 1 \tabularnewline
-$\beta$ & Coherence length & m \tabularnewline
+$\beta$ & Strain-lever length scale & m \tabularnewline
 E & Elastic modulus of spacetime & Pa \tabularnewline
 L & Compression scale $\alpha$$\beta$/(4$\pi$) & m \tabularnewline
 f(M) & Dimensionless source strength v\textsubscript{flat}/v\textsubscript{ref} & 1 \tabularnewline
@@ -685,15 +747,15 @@ Satellite kinematics (profiles) & Combes \& Tiret (2010, AIP Conf. Proc. 1241, 1
 
 \section{Data and code availability}
 The complete MTDF reproducibility package, including the modified CLASS solver
-(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+(\texttt{class\_\allowbreak{}mtdf}), the V19 strict validation workbook, the
 \texttt{{\small\protect\path{run_validate.py}}} pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{{\small\protect\path{10.5281/zenodo.19741058}}};
-this release, \texttt{v1.1.6}, DOI
-\href{https://doi.org/10.5281/zenodo.20629767}{{\small\protect\path{10.5281/zenodo.20629767}}})
+this release, \texttt{v1.1.7}, DOI
+\href{https://doi.org/10.5281/zenodo.21525855}{{\small\protect\path{10.5281/zenodo.21525855}}})
 and mirrored on GitHub at
 \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
-The \texttt{v1.1.6} Git tag corresponds to the archived Zenodo release. All
+The \texttt{v1.1.7} Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level \texttt{{\small\protect\path{README.md}}}.
 

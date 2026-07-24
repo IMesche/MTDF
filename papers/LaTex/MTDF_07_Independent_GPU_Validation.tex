@@ -34,6 +34,7 @@
 \definecolor{accent}{HTML}{1A4B8A}
 \definecolor{callout-bg}{HTML}{FBFBFB}
 \definecolor{tablehead}{HTML}{F0F0F0}
+\definecolor{retire}{HTML}{8A1A1A}
 
 % Prevent any table from overflowing
 \setlength{\tabcolsep}{4pt}
@@ -65,7 +66,7 @@
 % ============================================================
 \title{MTDF Independent GPU Validation: Phases 1--6}
 \author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
-\date{V74 / June 2026}
+\date{V75 / July 2026}
 
 \begin{document}
 \maketitle
@@ -75,7 +76,7 @@
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
 \textbf{Abstract.}
-This document reports the results of a fully independent, GPU-accelerated validation of Mesche's Tensor Dynamics Framework (MTDF). Six phases were executed over multiple sessions using code written from scratch, with no shared libraries or routines from the original MTDF analysis pipeline. Phase~1 reproduces all V18 dashboard $\chi$$^{2}$ values to four decimal places. Phase~2 tests MTDF against the Planck 2018 CMB power spectrum via MCMC with a perturbative correction layer, finding $\Delta$$\chi$$^{2}$~<~1 and an unconstrained early-field-energy amplitude. Phase~3 independently reproduces the SN~$\times$~void environment signal reported in MTDF\_\allowbreak{}02, with bootstrap confidence intervals excluding zero. Phase~4 forecasts that 5$\sigma$ detection of the environment signal requires approximately 3,400 low-redshift supernovae, placing definitive confirmation within the reach of LSST/\allowbreak{}Rubin. Phase~5 executes the Priority~1 hard falsifier: the full Planck 2018 plik TTTEEE + lowl + lensing likelihood using the \texttt{class\_\allowbreak{}mtdf} Boltzmann solver with modified perturbation equations, finding $\Delta$$\chi$$^{2}$~=~+0.63. This MTDF implementation is statistically indistinguishable from $\Lambda$CDM at the CMB within the precision and assumptions of this likelihood comparison. Phase~6 extends validation to cross-probe discriminators: a redshift transition scan (3.6$\sigma$ at z~<~0.03), weak lensing $\times$ environment (KiDS-1000; systematics-clean null with explicit upper limits), derived parameter consistency (S\textsubscript{8} tension reduced), and CMB lensing $\times$ voids (Planck~PR4 stacking on DESI~BGS and BOSS~DR12 void catalogues; pipeline validated against published detections).
+This document reports the results of a fully independent, GPU-accelerated validation of Mesche's Tensor Dynamics Framework (MTDF). Six phases were executed over several weeks using code written from scratch, with no shared libraries or routines from the original MTDF analysis pipeline. Phase~1 reproduces all V18 dashboard $\chi$$^{2}$ values to four decimal places. Phase~2 tests MTDF against the Planck 2018 CMB power spectrum via MCMC with a perturbative correction layer, finding $\Delta$$\chi$$^{2}$~<~1 and an unconstrained early-field-energy amplitude. Phase~3 independently reproduces the SN~$\times$~void environment signal reported in MTDF\_\allowbreak{}02, with bootstrap confidence intervals excluding zero. Phase~4 forecasts that 5$\sigma$ detection of the environment signal requires approximately 3,400 low-redshift supernovae, placing definitive confirmation within the reach of LSST/\allowbreak{}Rubin. Phase~5 executed the Priority~1 hard falsifier, the full Planck 2018 plik TTTEEE + lowl + lensing likelihood via the \texttt{class\_\allowbreak{}mtdf} Boltzmann solver; its v1 numerical results were later retired as a documented gauge artifact, and the sealed v2 chains (corrected covariant $\mu$(a), newtonian gauge) now govern: standard parameters essentially unshifted, a broad coupling posterior k\textsubscript{f}~=~0.685~$\pm$~0.500 (consistency, not support), an enhanced-growth posture with $\sigma$\textsubscript{8}~=~0.8265~$\pm$~0.0062 about 1.9$\sigma$ (posterior units) above the $\Lambda$CDM baseline, and a completed comparison against the matched $\Lambda$CDM control chain: $\Delta$$\chi$$^{2}$ (bounded best fits) = $-$1.29. This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation. Phase~6 extends validation to cross-probe discriminators: a redshift transition scan (3.6$\sigma$ at z~<~0.03), weak lensing $\times$ environment (KiDS-1000; systematics-clean null with explicit upper limits), derived parameter consistency (v1-posterior-based; superseded, see 6b), and CMB lensing $\times$ voids (Planck~PR4 stacking on DESI~BGS and BOSS~DR12 void catalogues; pipeline validated against published detections).
 \end{mdframed}
 
 \tableofcontents
@@ -92,7 +93,7 @@ Only results explicitly labelled as validation targets are used as evidence for 
 
 \section{Scope and methodology}
 \label{sec:sec1}
-The purpose of this validation exercise is to subject MTDF to a battery of independent tests that are entirely separate from the original analysis pipeline. All code was written from scratch across multiple sessions. No libraries, routines, or intermediate results from the original MTDF codebase were used for Phases~1, 3, 4, or 6. Phase~2 used the CosmoPower $\Lambda$CDM emulator with a bespoke MTDF correction layer. Phase~5 used the existing \texttt{class\_\allowbreak{}mtdf} modified Boltzmann solver through cobaya with the full Planck likelihood stack.
+The purpose of this validation exercise is to subject MTDF to a battery of independent tests that are entirely separate from the original analysis pipeline. All code was written from scratch for this programme. No libraries, routines, or intermediate results from the original MTDF codebase were used for Phases~1, 3, 4, or 6. Phase~2 used the CosmoPower $\Lambda$CDM emulator with a bespoke MTDF correction layer. Phase~5 used the existing \texttt{class\_\allowbreak{}mtdf} modified Boltzmann solver through cobaya with the full Planck likelihood stack.
 
 The six phases test qualitatively different aspects of the framework:
 
@@ -130,6 +131,8 @@ Degrees of freedom $\nu$ & 1745 & 1745 & -- \tabularnewline
 \end{tabularx}
 \end{table}
 
+Note (July 2026): the targets above are the V18-era values that this reproduction run verified; the current sealed totals (V19 workbook, V75 dashboard) are given in MTDF\_\allowbreak{}01, Section~7.
+
 \subsection{Vector pillar breakdown}
 \begin{table}[H]
 \centering
@@ -142,7 +145,7 @@ DESI Y1 BAO & 15.39 & 12 & 1.282 \tabularnewline
 Cosmic chronometers H(z) & 6.98 & 15 & 0.466 \tabularnewline
 DR16 f$\sigma$\textsubscript{8} growth & 2.00 & 3 & 0.667 \tabularnewline
 CMB distance prior (diagnostic only) & 595.33 & 3 & 198.44 \tabularnewline
-\multicolumn{4}{l}{\textbf{Note on the diagnostic value.} $\chi$$^{2}$/$\nu$ = 198 against the Planck compressed distance prior is expected, not anomalous: the prior fixes the shape parameters under a $\Lambda$CDM template, and any theory modifying the early-universe geometry (here via f\textsubscript{kick}) or late-time growth (here via $\mu$(a)) is biased away from the prior centre even when the uncompressed C\textsubscript{$\ell$} spectra agree well. The honest test is the full Planck likelihood (Phase 5, this paper): $\Delta$$\chi$$^{2}$ = +0.63 with k\textsubscript{f} = 1 inside the 95 \% credible interval. The compressed prior is reported here strictly as a diagnostic and excluded from strict totals.} \tabularnewline
+\multicolumn{4}{l}{\textbf{Note on the diagnostic value.} $\chi$$^{2}$/$\nu$ = 198 against the Planck compressed distance prior is expected, not anomalous: the prior fixes the shape parameters under a $\Lambda$CDM template, and any theory modifying the early-universe geometry (here via f\textsubscript{kick}) or late-time growth (here via $\mu$(a)) is biased away from the prior centre even when the uncompressed C\textsubscript{$\ell$} spectra agree well. The honest test is the full Planck likelihood (Section 6, sealed v2 chains): standard parameters essentially unshifted, with the theory value k\textsubscript{f} = 1 well inside the posterior; the completed comparison against the matched $\Lambda$CDM control is reported in Section 6.3. The compressed prior is reported here strictly as a diagnostic and excluded from strict totals.} \tabularnewline
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -305,7 +308,7 @@ SGC & +0.0008 & Null, consistent with reduced void coverage \tabularnewline
 \end{tabularx}
 \end{table}
 
-The NGC/\allowbreak{}SGC contrast is consistent with footprint-dependent detectability under a finite coherence-length stress field. Dedicated diagnostic tests are planned (see Section 7).
+The NGC/\allowbreak{}SGC contrast is consistent with footprint-dependent detectability under a finite-range stress field. Dedicated diagnostic tests are planned (see Section 7).
 
 \subsection{Survey fixed effects}
 All three catalogues show |$\Delta$$\gamma$\textsubscript{env}| < 0.0005 when survey fixed effects are included. The environment signal is not an artefact of survey-dependent systematics.
@@ -328,7 +331,7 @@ z > 0.04 & > 0.84 & > 0.84 & > 0.84 & Null \tabularnewline
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
 \textbf{Physical interpretation.}
-The signal concentrates at low redshift (z~<~0.04) and disappears at higher redshifts. This is a specific, a priori MTDF prediction arising from the finite coherence length of the stress field ($\beta$~=~22.7~Mpc). The redshift decay structure is not built into any of the ad-hoc comparison models. $\Lambda$CDM does predict environment-correlated SN residuals through peculiar velocities and weak lensing, and Pantheon+ corrects for these using 2M++ reconstructions; the MTDF-specific signature is the excess amplitude, the sharp low-z transition, and its sign.
+The signal concentrates at low redshift (z~<~0.04) and disappears at higher redshifts. This is a specific, a priori MTDF prediction arising from the finite-range response of the stress field (strain-lever scale $\beta$~=~22.7~Mpc). The redshift decay structure is not built into any of the ad-hoc comparison models. $\Lambda$CDM does predict environment-correlated SN residuals through peculiar velocities and weak lensing, and Pantheon+ corrects for these using 2M++ reconstructions; the MTDF-specific signature is the excess amplitude, the sharp low-z transition, and its sign.
 \end{mdframed}
 
 \subsection{Non-parametric confirmation}
@@ -406,7 +409,7 @@ VIDE & Baseline & 1,500 & 4,400 & 4,500 & 8,700 \tabularnewline
 \end{itemize}
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Merged-sample hardening:} A merged Pantheon+ / ZTF DR2 / Foundation DR1 sample (4,188 SNe, 3,082 at z < 0.157) confirms that the constant-$\gamma$ global model is null ($\Delta$$\chi$\textsuperscript{2} < 1.4), while a piecewise transition at z $\approx$ 0.04 yields $\Delta$$\chi$\textsuperscript{2} = 36--39 (diagonal covariance; p < 0.001) across all three void catalogues. SALT2 population controls shift $\gamma$ by < 0.3$\sigma$. The signal is localised to the coherence regime, not a global tilt. See MTDF\_\allowbreak{}02 \S{}2.3 for full merged-sample hardening results.
+\textbf{Merged-sample hardening:} A merged Pantheon+ / ZTF DR2 / Foundation DR1 sample (4,188 SNe, 3,082 at z < 0.157) confirms that the constant-$\gamma$ global model is null ($\Delta$$\chi$\textsuperscript{2} < 1.4), while a piecewise transition at z $\approx$ 0.04 yields $\Delta$$\chi$\textsuperscript{2} = 36--39 (diagonal covariance; p < 0.001) across all three void catalogues. SALT2 population controls shift $\gamma$ by < 0.3$\sigma$. The signal is localised to the finite-range regime, not a global tilt. See MTDF\_\allowbreak{}02 \S{}2.3 for full merged-sample hardening results.
 \end{mdframed}
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
@@ -476,159 +479,62 @@ Three findings, each supported by independent diagnostics:
 \end{enumerate}
 \end{mdframed}
 
-\section{Phase 5: Full Planck plik + class\_\allowbreak{}mtdf}
+\section[Phase 5: Full Planck plik + class\_mtdf (v1 retired; sealed v2)]{Phase 5: Full Planck plik + class\_\allowbreak{}mtdf (superseded by the v2 chains)}
 \label{sec:sec6}
-PASSED: $\Delta$$\chi$$^{2}$ = +0.63; k\textsubscript{f} = 0.028 $\approx$ 0Phase 5 is the Priority~1 hard falsifier: running the full Planck 2018 plik TTTEEE + lowl TT + lowl EE + lensing likelihood using the \texttt{class\_\allowbreak{}mtdf} modified Boltzmann solver, which computes modified perturbation equations, transfer functions, ISW contributions, and lensing potentials directly. This is not a perturbative approximation; the full MTDF physics propagates through every C\textsubscript{$\ell$} multipole. Minimization was performed with cobaya's BOBYQA algorithm (best of 4 parallel runs), floating 6 cosmological parameters, 1 MTDF parameter (k\textsubscript{f}), and 21 Planck nuisance parameters.
+v1 RESULT RETIRED (gauge artifact). v2 SEALED: standard parameters unshifted, k\textsubscript{f} = 0.685 $\pm$ 0.500, $\sigma$\textsubscript{8} = 0.8265 $\pm$ 0.0062 (enhanced growth). $\Delta$$\chi$$^{2}$ vs matched $\Lambda$CDM control = $-$1.29 (bounded best fits). This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.
 
-\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Independence caveat.} Phase 5 is not independent in the same sense as Phases 1, 3, 4, and 6, because it uses the existing \texttt{class\_\allowbreak{}mtdf} solver. Its role is to test that solver against the full Planck likelihood, not to provide a completely independent reimplementation of the Boltzmann equations.
+Phase 5 was the Priority~1 hard falsifier: running the full Planck 2018 plik TTTEEE + lowl TT + lowl EE + lensing likelihood using the \texttt{class\_\allowbreak{}mtdf} modified Boltzmann solver. The v1 execution of this phase (minimisation plus converged MCMC) is retained in the archived V74 release and in \texttt{validation/\allowbreak{}output/\allowbreak{}phase5/\allowbreak{}} as a historical record. Its numerical results are \textbf{void}, for the reason documented below. They are replaced here by the sealed v2 chain results.
+
+\begin{mdframed}[linecolor=retire,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
+\textbf{Why the v1 numbers are void: the gauge artifact.}
+The v1 \texttt{class\_\allowbreak{}mtdf} implementation applied the growth modification $\mu$ to the 00 (density) source term in the synchronous gauge. That insertion breaks the near-cancellation between the k$^{2}$$\eta$ and 1.5\,a$^{2}$$\delta$$\rho$ terms in the synchronous-gauge Poisson bookkeeping and flips the apparent sign of the growth response. The chains returned $\sigma$\textsubscript{8} = 0.790 $\pm$ 0.006 and S\textsubscript{8} = 0.802 $\pm$ 0.013, an apparent clustering suppression read at the time as easing the S\textsubscript{8} tension. The corrected implementation applies the covariant, k-independent $\mu$(a) in the newtonian gauge (CDM Euler equation), where the modification is gauge-consistent. Under the corrected implementation the growth response is an \emph{enhancement}, as the analytic derivation requires ($\mu$ > 1 at all late redshifts). The suppression result, the S\textsubscript{8}-relief reading, the v1 posterior tables, and the v1 robustness numbers built on those chains (k\textsubscript{f} = 0.495/\allowbreak{}0.50 $\pm$ 0.36, $\Delta$$\chi$$^{2}$ = +0.63, $\Delta$AIC = +2.63, $\Delta$BIC = +8.05) are all downstream of the artifact. They carry no evidential weight.
+
+\textbf{Permanent methods item (gauge-invariance regression test).} Any modified-gravity source term inserted into a Boltzmann solver must be validated by a gauge-invariance regression. Implement the modification independently in synchronous and newtonian gauges, and require agreement of the gauge-invariant growth observables (f$\sigma$\textsubscript{8}, $\sigma$\textsubscript{8}(z), C\textsubscript{$\ell$}) before any chain is run. This test is now a permanent part of the MTDF validation methodology. It is exactly the test that would have caught the v1 artifact before publication.
 \end{mdframed}
 
+\subsection{Sealed v2 results (corrected implementation)}
+
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Apples-to-apples guarantee.}
-Both $\Lambda$CDM and MTDF runs use identical: likelihood set (plik TTTEEE + lowl TT + lowl EE + lensing), data bins, masks, nuisance parameter list (21 sampled), nuisance priors (Planck-shipped), cosmological priors, and minimizer settings (BOBYQA best\_\allowbreak{}of=4). The only difference is that the MTDF run adds k\textsubscript{f} as a free parameter and uses \texttt{class\_\allowbreak{}mtdf} instead of standard CLASS.
+\textbf{Apples-to-apples guarantee (unchanged).}
+Both $\Lambda$CDM and MTDF configurations use identical likelihood set (plik TTTEEE + lowl TT + lowl EE + lensing), data bins, masks, nuisance list, nuisance priors, cosmological priors, and stop rules. The only differences are the added free parameter k\textsubscript{f} and the corrected \texttt{class\_\allowbreak{}mtdf} solver in place of standard CLASS.
 \end{mdframed}
 
-\subsection{$\chi$$^{2}$ breakdown by likelihood component}
+\textbf{Run:} four chains, \~{}66 h, frozen flight configuration (hash-pinned binary and YAML). The chains stopped at the frozen hard cap of 200,000 accepted steps per chain, with R$-$1 = 0.0085 (target 0.01, satisfied). R$-$1\textsubscript{cl} = 0.060 (strict 0.02 not reached: 95\% bounds carry extra sampling noise; means and peaks solid). All interruptions auto-resumed from checkpoint with no sample loss.
+
 \begin{table}[H]
 \centering
 \footnotesize
 \begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
 \toprule
-\textbf{Component} & \textbf{$\Lambda$CDM} & \textbf{MTDF} & \textbf{$\Delta$(MTDF $-$ $\Lambda$CDM)} \tabularnewline
-lowl TT & 23.25 & 25.90 & +2.65 \tabularnewline
-lowl EE & 395.69 & 396.08 & +0.39 \tabularnewline
-plik TTTEEE & 2,345.41 & 2,341.74 & $-$3.67 \tabularnewline
-Lensing & 8.85 & 10.10 & +1.25 \tabularnewline
-\textbf{Total} & \textbf{2,773.20} & \textbf{2,773.82} & \textbf{+0.63} \tabularnewline
+\textbf{Parameter} & \textbf{$\Lambda$CDM baseline} & \textbf{MTDF v2} & \textbf{$\Delta$} \tabularnewline
+$\sigma$\textsubscript{8} & 0.8101 & 0.82651 $\pm$ 0.00623 & +0.0164 (+1.91$\sigma$, posterior units) \tabularnewline
+H\textsubscript{0} (km/\allowbreak{}s/\allowbreak{}Mpc) & 67.382 & 67.444 $\pm$ 0.546 & +0.06 \tabularnewline
+$\Omega$\textsubscript{m} & -- & 0.31533 $\pm$ 0.00771 & negligible \tabularnewline
+n\textsubscript{s} & -- & 0.96426 & negligible \tabularnewline
+ln(10\textsuperscript{10}A\textsubscript{s}) & -- & 3.03962 & negligible \tabularnewline
+k\textsubscript{f} & -- & 0.685 $\pm$ 0.500 & 0 and 1 both compatible \tabularnewline
 \bottomrule
 \end{tabularx}
 \end{table}
 
-$\Lambda$CDM total $\chi$$^{2}$ = 2,773.20 is consistent with the published Planck 2018 best-fit (\~{}2,780). Pipeline is correctly calibrated.
-
-The high-$\ell$ plik TTTEEE likelihood actually \emph{improves} by $-$3.67 for MTDF, offset by a degradation in lowl TT of +2.65. The lensing likelihood shifts by +1.25. The net effect is a total $\Delta$$\chi$$^{2}$ of +0.63, which is statistically negligible.
-
-\subsection{Model selection}
-\begin{table}[H]
-\centering
-\footnotesize
-\begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
-\toprule
-\textbf{Metric} & \textbf{$\Lambda$CDM} & \textbf{MTDF} & \textbf{$\Delta$} & \textbf{Verdict} \tabularnewline
-$\Delta$$\chi$$^{2}$ & -- & -- & +0.63 & Essentially tied \tabularnewline
-AIC (k = 27 vs 28) & 2,827.20 & 2,829.82 & +2.63 & Borderline $\Lambda$CDM \tabularnewline
-BIC (N $\approx$ 1,676) & 2,973.65 & 2,981.70 & +8.05 & $\Lambda$CDM preferred \tabularnewline
-\bottomrule
-\end{tabularx}
-\end{table}
-
-BIC penalises the extra parameter more heavily. This is expected and correct: Planck alone does not need k\textsubscript{f}. The MTDF signal lives in late-universe probes.
-
-\subsection{Best-fit cosmological parameters}
-\begin{table}[H]
-\centering
-\footnotesize
-\begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
-\toprule
-\textbf{Parameter} & \textbf{$\Lambda$CDM} & \textbf{MTDF} & \textbf{$\Delta$} \tabularnewline
-H\textsubscript{0} (km/\allowbreak{}s/\allowbreak{}Mpc) & 67.257 & 67.282 & +0.025 \tabularnewline
-n\textsubscript{s} & 0.9650 & 0.9650 & $-$0.0001 \tabularnewline
-$\omega$\textsubscript{b} & 0.02234 & 0.02235 & +0.00002 \tabularnewline
-$\omega$\textsubscript{cdm} & 0.12022 & 0.12018 & $-$0.00004 \tabularnewline
-$\tau$\textsubscript{reio} & 0.0507 & 0.0538 & +0.003 \tabularnewline
-$\sigma$\textsubscript{8} & 0.8088 & 0.7946 & $-$0.014 \tabularnewline
-k\textsubscript{f} & -- & 0.028 & -- \tabularnewline
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Note on $\sigma$\textsubscript{8}.}
-At the minimizer best-fit, MTDF returns $\sigma$\textsubscript{8} = 0.795 vs $\Lambda$CDM's 0.809 (1.7\% shift). The full MCMC posteriors confirm a larger separation: $\sigma$\textsubscript{8} = 0.790 $\pm$ 0.006 (MTDF) vs 0.810 $\pm$ 0.006 ($\Lambda$CDM), a 2.4\% shift relative to the $\Lambda$CDM posterior mean (\~{}2.4$\sigma$ combining 1$\sigma$ uncertainties in quadrature, Gaussian approximation). This is in the direction needed to ease the S\textsubscript{8} tension between Planck and weak lensing surveys (KiDS, DES). The shift was not imposed; it emerged naturally from the sampler.
-\end{mdframed}
+Sealed v2 reporting set (k\textsubscript{f} free), adjudicated by the sealed analysis script under a pre-registered three-posture rule. The adjudication was executed only on the completed chain. The k\textsubscript{f} = 1 importance-reweighted rider gives the same posture: $\sigma$\textsubscript{8} shift +0.0173 (+2.07$\sigma$), f\textsubscript{kick} = 0.0033, $\mu$(z\textsubscript{rec}) = 1.00002 (CMB-inert). Native growth-sector units: S\textsubscript{8} = 0.8473 $\pm$ 0.0138 (free), 0.8501 $\pm$ 0.0132 (k\textsubscript{f} = 1).
 
 \subsection{Interpretation}
-The optimizer found k\textsubscript{f} = 0.028 $\approx$ 0, confirming that Planck CMB data alone cannot activate the MTDF stress-field correction. This is the expected result: MTDF predicts that its corrections are concentrated at low redshift via the finite coherence length, making them invisible to the CMB. The framework passes the most demanding CMB test available.
+The corrected covariant $\mu$(a) enhances late growth by about +2 percent, and the full-likelihood chain confirms this end to end. $\sigma$\textsubscript{8} lands about 2$\sigma$ (posterior units) above the $\Lambda$CDM baseline. The corrected theory therefore mildly \emph{worsens} the comparison with published weak-lensing clustering amplitudes (sealed posture: S8-WORSENED, both riders agreeing). Standard-parameter shifts are tiny and the CMB-side H\textsubscript{0} is unchanged. What survives unchanged from the v1 chains is the structural finding that Planck alone cannot pin the EFE amplitude. The k\textsubscript{f} posterior is broad, with both k\textsubscript{f} = 0 and the theory value k\textsubscript{f} = 1 compatible. Planck establishes consistency, not support. Discrimination lives in low-redshift probes.
 
-This result was obtained by numerical minimization (BOBYQA), not from an MCMC posterior mean. A full MCMC posterior sampling run is planned as a follow-up to provide proper credible intervals and parameter degeneracy maps.
+\subsection{Model comparison against the matched $\Lambda$CDM control}
+The matched $\Lambda$CDM control chain uses the identical binary, likelihood set, priors, chain profile, and stop rules, with exactly three configuration deltas removing the MTDF theory keys. It reproduces the reference Planck-$\Lambda$CDM posterior at full-posterior level, validating the pipeline end to end. Control values: $\sigma$\textsubscript{8} = 0.81036 $\pm$ 0.00598, per-sample S\textsubscript{8} = 0.83004 $\pm$ 0.01278, H\textsubscript{0} = 67.389 $\pm$ 0.544, with shared-parameter shifts at the 10\textsuperscript{$-$4} level. At the bounded best fits, MTDF $-$log\,L = 1385.78 (at k\textsubscript{f} = 0.476) against $\Lambda$CDM $-$log\,L = 1386.42, giving \textbf{$\Delta$$\chi$$^{2}$ (MTDF $-$ $\Lambda$CDM) = $-$1.29}. The minimisation was seeded from each chain's best sampled point, and both minimisations converged. Dataset-resolved, the two models agree to about one point on every component (lowl TT 22.29 vs 23.77, lowl EE 396.47 vs 396.27, plik TTTEEE 2343.80 vs 2344.00, lensing 8.99 vs 8.80). The small MTDF gain sits in lowl TT, the late-ISW region. Per-sample growth-sector amplitudes: MTDF S\textsubscript{8} = 0.8473 $\pm$ 0.0138 (free) and 0.8501 $\pm$ 0.0132 (k\textsubscript{f} = 1) against the control's 0.83004 $\pm$ 0.01278.
 
-\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Phase 5 conclusion (minimization).}
-MTDF passes the full Planck 2018 plik TTTEEE + lowl + lensing test with $\Delta$$\chi$$^{2}$ = +0.63 using the \texttt{class\_\allowbreak{}mtdf} Boltzmann solver with full modified perturbation equations. This is the Priority~1 hard falsifier identified in the test programme. The result confirms Phase~2's perturbative finding ($\Delta$$\chi$$^{2}$~<~1) and shows that this MTDF implementation is statistically indistinguishable from $\Lambda$CDM at the CMB within the precision and assumptions of this likelihood comparison, even when the full physics of modified transfer functions, ISW, and lensing are included.
-\end{mdframed}
+\emph{This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.} With one additional free parameter, a one-to-two-point gain is the no-information expectation ($\Delta$AIC = +0.71, favouring neither model). A BIC-style penalty depends on an adopted effective Planck data count and is not quoted. The full Planck 2018 likelihood does not distinguish the corrected MTDF from $\Lambda$CDM. Chain minima as reported by the sampler are minus-log-posterior values and are not compared across models. All numbers above are likelihood-only, from the bounded minima and per-dataset components.
 
-\subsection{Planck degeneracy structure and posterior stability (MCMC converged)}
-Full MCMC posterior sampling has converged for both $\Lambda$CDM and MTDF chains using cobaya's strict two-stage convergence criteria. Both chains reached Gelman--Rubin R$-$1~<~0.02 with credible interval convergence R$-$1\textsubscript{cl}~<~0.07.
-
-\subsubsection{Convergence statistics}
-\begin{table}[H]
-\centering
-\footnotesize
-\begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
-\toprule
-\textbf{Metric} & \textbf{$\Lambda$CDM} & \textbf{MTDF} \tabularnewline
-R$-$1 (final) & 0.019 & 0.019 \tabularnewline
-R$-$1\textsubscript{cl} (final) & 0.064 & 0.057 \tabularnewline
-Accepted samples & 26,400 & 27,160 \tabularnewline
-ESS (H\textsubscript{0}) & \ {}1,920 & \ {}1,450 \tabularnewline
-ESS ($\sigma$\textsubscript{8}) & \ {}2,020 & \ {}1,600 \tabularnewline
-ESS (k\textsubscript{f}) & -- & \ {}1,470 \tabularnewline
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsubsection{Posterior parameter comparison (68\% CI)}
-\begin{table}[H]
-\centering
-\footnotesize
-\begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
-\toprule
-\textbf{Parameter} & \textbf{$\Lambda$CDM} & \textbf{MTDF} & \textbf{$\Delta$} \tabularnewline
-H\textsubscript{0} (km/\allowbreak{}s/\allowbreak{}Mpc) & 67.38 $\pm$ 0.54 & 67.83 $\pm$ 0.54 & +0.45 \tabularnewline
-$\sigma$\textsubscript{8} & 0.810 $\pm$ 0.006 & 0.790 $\pm$ 0.006 & $-$0.020 \tabularnewline
-S\textsubscript{8} & 0.830 & 0.802 & $-$0.028 \tabularnewline
-$\Omega$\textsubscript{m} & 0.315 $\pm$ 0.007 & 0.309 $\pm$ 0.007 & $-$0.006 \tabularnewline
-n\textsubscript{s} & 0.965 $\pm$ 0.004 & 0.968 $\pm$ 0.004 & +0.004 \tabularnewline
-$\tau$\textsubscript{reio} & 0.054 $\pm$ 0.007 & 0.052 $\pm$ 0.007 & $-$0.002 \tabularnewline
-k\textsubscript{f} & -- & 0.50 $\pm$ 0.36 & -- \tabularnewline
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\subsubsection{k\textsubscript{f} posterior}
-The marginalised k\textsubscript{f} posterior is broad and approximately Gaussian: k\textsubscript{f}~=~0.50~$\pm$~0.36, with 95\%~CI~=~[0.025,~1.34]. k\textsubscript{f}~=~1 (full MTDF) lies within the 95\% credible interval. k\textsubscript{f}~=~0 ($\Lambda$CDM) is not strongly excluded and sits near the lower boundary, which is shaped by the non-negativity prior (k\textsubscript{f}~$\ge$~0). Planck does not constrain k\textsubscript{f} tightly, confirming that MTDF is a late-time modification invisible to the CMB.
-
-\subsubsection{k\textsubscript{f} identifiability diagnostics}
-Identifiability diagnostics show that k\textsubscript{f} does not participate in the dominant Planck degeneracy blocks and is not a reparameterisation of any single nuisance parameter. All Planck nuisance correlations satisfy |r|~<~0.10, and k\textsubscript{f} shows negligible correlation with the amplitude--optical-depth combination A\textsubscript{s}$\cdot$e\textsuperscript{$-$2$\tau$} (r~$\approx$~0.09). Two-dimensional posteriors are close to round against H\textsubscript{0}, log\,A and $\tau$, with only mild covariance against $\sigma$\textsubscript{8}. Nuisance parameters alone explain 13.7\% of k\textsubscript{f} variance (R$^{2}$~=~0.137); early-time primordial parameters explain 27.8\% (R$^{2}$~=~0.278), consistent with a parameter weakly constrained by the CMB. The marginal posterior is data-informed, peaking near k\textsubscript{f}~$\approx$~0.15--0.20 under a uniform prior on [0,\,5], with k\textsubscript{f}~=~1 inside the 95\% credible interval and k\textsubscript{f}~=~0 lying near the lower boundary under the non-negativity prior.
-
-k\textsubscript{f} shows a moderate covariance with $\omega$\textsubscript{b} (marginal r~=~$-$0.30; stable partial r~$\approx$~$-$0.34 conditioning on n\textsubscript{s} and $\omega$\textsubscript{cdm}). Full conditioning yields an inflated partial correlation (+0.97) because the conditioning matrix is ill-conditioned ($\kappa$~=~24,207; multiple predictors with VIF~>~100), so we treat that as a multicollinearity artefact rather than a physical one-to-one degeneracy. Detailed diagnostics including the progressive conditioning table, residual-method cross-check, and VIF report are archived in \texttt{output/\allowbreak{}phase5/\allowbreak{}robustness/\allowbreak{}kf\_\allowbreak{}identifiability/\allowbreak{}}.
-
-\subsubsection{Best-fit robustness across Planck subsets}
-Best-fit BOBYQA comparisons (best-of-4, likelihood-only $\chi$$^{2}$) across Planck subsets show $\Delta$$\chi$$^{2}$ values close to zero: +0.63 (full baseline), +0.41 (no lensing), and $-$0.65 (TT only). The TT-only subset marginally favours MTDF at best fit, while all subsets yield $\Delta$AIC~<~3, indicating no meaningful preference for either model. Corresponding $\Delta$AIC values ($\Delta$k~=~1) are +2.63, +2.41, and +1.35. These results are consistent with MTDF neither degrading nor improving the Planck fit across likelihood configurations.
-
-\subsubsection{Phase 5 robustness checks (Tests 2--4)}
-We performed three complementary robustness diagnostics to assess whether the inferred MTDF coupling parameter k\textsubscript{f} and the associated shifts in derived parameters are artefacts of a particular Planck likelihood component, nuisance freedom, or prior choice. All robustness artefacts are packaged under \texttt{output/\allowbreak{}phase5/\allowbreak{}robustness/\allowbreak{}} with manifests and canonical JSON summaries.
-
-\textbf{Test 2: Leave-one-likelihood-out (Planck subsets).}
-Repeating the MTDF inference with lensing removed yields results consistent with the baseline posterior: k\textsubscript{f}~=~0.527~$\pm$~0.377 versus baseline 0.495~$\pm$~0.360, with $\sigma$\textsubscript{8} and H\textsubscript{0} shifts remaining small in standard-deviation units ($\Delta$k\textsubscript{f}~$\approx$~+0.09$\sigma$, $\Delta$$\sigma$\textsubscript{8}~$\approx$~+0.64$\sigma$). A TT-only run exhibits the expected weakening of constraints and broader posteriors, with k\textsubscript{f}~=~0.938~$\pm$~0.670 and $\sigma$\textsubscript{8} uncertainty significantly enlarged; this reflects reduced constraining power in TT alone rather than a change in physical behaviour. Best-fit BOBYQA comparisons using likelihood-only $\chi$$^{2}$ remain near parity across subsets: baseline $\Delta$$\chi$$^{2}$~=~+0.63, no lensing $\Delta$$\chi$$^{2}$~=~+0.41, and TT only $\Delta$$\chi$$^{2}$~=~$-$0.65 (definitions and values given in the Test~2 artefacts).
-
-\textbf{Test 4: Prior range sensitivity.}
-Widening the k\textsubscript{f} prior from [0,\,5] to [0,\,10] leaves the posterior essentially unchanged: k\textsubscript{f}~=~0.483~$\pm$~0.361 (wide) versus 0.495~$\pm$~0.360 (baseline), with nearly identical 95\% credible intervals ([0.023,\,1.341] versus [0.025,\,1.342]) and a negligible mean shift ($-$0.03$\sigma$). This indicates that the Phase~5 k\textsubscript{f} inference is data-informed and not driven by the prior bound.
-
-\textbf{Summary.}
-Taken together with the identifiability diagnostics in Test~3, these results show that the Phase~5 posterior behaviour is stable under removal of lensing, behaves as expected under the information loss of TT only, and is insensitive to widening the k\textsubscript{f} prior. The robustness suite therefore supports interpreting the observed $\sigma$\textsubscript{8} suppression and modest H\textsubscript{0} shift as stable consequences of the MTDF coupling within the Planck likelihood framework, rather than numerical artefacts or prior-driven effects.
-
-\begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-\textbf{Phase 5 MCMC converged.}
-Both chains reached R$-$1~<~0.02 (threshold: 0.02). The $\sigma$\textsubscript{8} shift ($-$2.4\% relative to the $\Lambda$CDM posterior mean, \~{}2.4$\sigma$ in Gaussian approximation) and directional H\textsubscript{0} shift (+0.45~km~s\textsuperscript{$-$1}~Mpc\textsuperscript{$-$1}, \~{}0.6$\sigma$) first observed in Phase~2 (plik-lite) are confirmed at full Planck precision with identical nuisance freedom. k\textsubscript{f}~=~1 (full MTDF) lies within the 95\% credible interval; k\textsubscript{f}~=~0 ($\Lambda$CDM) is not strongly excluded and sits near the lower boundary. Triangle plots and k\textsubscript{f} posterior are archived in \texttt{output/\allowbreak{}phase5/\allowbreak{}}.
-\end{mdframed}
+\subsection{Scope statement}
+The v2 run is a full Planck 2018 likelihood test of the corrected MTDF effective cosmological implementation. That implementation is the corrected covariant $\mu$(a)/\allowbreak{}EFE sector, with the high-Q carrier represented by its CDM-like limit (standard pressureless CDM as proxy). It is not a Boltzmann implementation of all nine degrees of freedom of the frozen action. The full-action CMB perturbation implementation (unified scalar + vector perturbations) is a named future calculation. Phase-5-level success discharges the CMB confrontation at the effective level only.
 
 \section{6b. Phase 6: Cross-probe discriminator tests}
 \label{sec:sec6b}
-COMPLETE: Two discriminators (A, E), one coherence check (C2), three upper limits (B, B2, D), one internal consistency (C), two forecasts (C3, C4), one resolved null (C5)  -  10 tests totalPhase~6 extends validation beyond CMB compatibility toward tests that can \emph{distinguish} MTDF from $\Lambda$CDM using independent probes. Ten tests are packaged under \texttt{output/\allowbreak{}phase6/\allowbreak{}}, targeting weak lensing, CMB lensing, derived parameter consistency, cross-probe S\textsubscript{8} coherence, growth--environment coupling, BAO residuals, cluster mass ratios, and the SN~$\times$~void redshift transition. All code was written from scratch for Phase~6.
+COMPLETE: Two discriminators (A, E), three upper limits (B, B2, D), one internal consistency (C), two forecasts (C3, C4), one resolved null (C5), one retired-as-run comparison (C2, v1-posterior-based)  -  10 tests totalPhase~6 extends validation beyond CMB compatibility toward tests that can \emph{distinguish} MTDF from $\Lambda$CDM using independent probes. Ten tests are packaged under \texttt{validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}}, targeting weak lensing, CMB lensing, derived parameter consistency, cross-probe S\textsubscript{8} coherence, growth--environment coupling, BAO residuals, cluster mass ratios, and the SN~$\times$~void redshift transition. All code was written from scratch for Phase~6.
 
-Tests~A and E positively support MTDF-style predictions (redshift transition, void-specific CMB lensing signal). Test~C2 demonstrates cross-probe S\textsubscript{8} coherence (combined weak lensing tension reduced from 3.5$\sigma$ to 1.9$\sigma$). Tests~B, B2, and D are systematics-clean nulls with explicit upper limits. Test~C confirms internal consistency. Tests~C3 and C4 quantify sensitivity boundaries. Test~C5 resolves the cluster mass ratio ($\eta$~=~1). Together they demonstrate: \emph{the pipelines contain no favourable selection and are sound, no hidden contradictions exist, and the boundaries of current discriminating power are mapped.}
+Tests~A and E positively support MTDF-style predictions (redshift transition, void-specific CMB lensing signal). Test~C2, as run against the v1 posterior, is retired (gauge artifact); under the sealed v2 chains the S\textsubscript{8} comparison mildly worsens, and its quantitative revisiting is deferred to the preregistered FWD-S8 programme. Tests~B, B2, and D are systematics-clean nulls with explicit upper limits. Test~C confirms internal consistency. Tests~C3 and C4 quantify sensitivity boundaries. Test~C5 resolves the cluster mass ratio ($\eta$~=~1). Together they demonstrate: \emph{the pipelines contain no favourable selection and are sound, no hidden contradictions exist, and the boundaries of current discriminating power are mapped.}
 
 \subsection{Summary table}
 \begin{table}[H]
@@ -641,10 +547,10 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
 \textbf{A} & SN $\times$ void $\gamma$\textsubscript{env} vs z\textsubscript{cut} & GLS z-score peak over z\textsubscript{cut} scan & Peak at z\textsubscript{cut}=0.030: 3.62$\sigma$ (global p < 0.005) & Supports MTDF transition at z < 0.04 \tabularnewline
 \textbf{B} & KiDS-1000 $\gamma$\textsubscript{t} around void centres & $\Delta$$\gamma$\textsubscript{t} over R=5--20 Mpc/\allowbreak{}h & $-$3.65e$-$5 $\pm$ 4.68e$-$5 (0.8$\sigma$); 95\%: |$\Delta$$\gamma$\textsubscript{t}| < 1.2e$-$4 & Null  -  bounded, not yet discriminating \tabularnewline
 \textbf{B2} & KiDS-1000 trough vs ridge $\gamma$\textsubscript{t} & $\Delta$$\gamma$\textsubscript{t,split} (ridge$-$trough) & +2.56e$-$5 $\pm$ 5.46e$-$5 (0.5$\sigma$); 95\%: |$\Delta$$\gamma$\textsubscript{t,split}| < 1.3e$-$4 & Null  -  bounded, not yet discriminating \tabularnewline
-\textbf{C} & Derived parameter consistency & Max shift vs $\Lambda$CDM; S\textsubscript{8} tension reduction & All within 2.4$\sigma$; S\textsubscript{8}: DES 2.6$\rightarrow$1.3$\sigma$, KiDS 2.8$\rightarrow$1.6$\sigma$ & Internally consistent; eases S\textsubscript{8} tension \tabularnewline
+\textbf{C} & Derived parameter consistency & Max shift vs $\Lambda$CDM & All within 2.4$\sigma$ & Internally consistent (v1-posterior-based; the S\textsubscript{8} element is superseded) \tabularnewline
 \textbf{D} & Planck PR4 $\kappa$ $\times$ DESI BGS voids & Per-void compensated $\kappa$\textsubscript{comp} & $-$7.47e$-$4 $\pm$ 1.03e$-$3 (0.7$\sigma$, 557 voids) & Null at low z  -  expected; pipeline validated \tabularnewline
 \textbf{E} & Planck PR4 $\kappa$ $\times$ BOSS DR12 voids & Conservative $\kappa$\textsubscript{comp} + detection-optimised CTH/\allowbreak{}MF & Comp: 0.2$\sigma$ null; CTH: 1.5$\sigma$ (p\textsubscript{rand}=0.03); MF: 1.9$\sigma$ (p\textsubscript{rand}=0.02) & Pipeline benchmark validated; void-specific signal recovered \tabularnewline
-\textbf{C2} & S\textsubscript{8} cross-probe coherence & Phase 5 S\textsubscript{8} vs published WL surveys & Combined WL tension: 3.47$\sigma$ $\rightarrow$ 1.89$\sigma$ (46\% reduction) & MTDF shifts S\textsubscript{8} in the right direction by the right amount \tabularnewline
+\textbf{C2} & S\textsubscript{8} cross-probe comparison (retired as run) & Phase 5 S\textsubscript{8} vs published WL surveys & Combined WL tension: 3.47$\sigma$ $\rightarrow$ 1.89$\sigma$ (46\% reduction) & Retired as run; under the sealed v2 chains the direction reverses \tabularnewline
 \textbf{C3} & BAO residual structure & $\Delta$W RMS (wiggle difference MTDF$-$$\Lambda$CDM) & $\Delta$W RMS = 0.27\%, max = 0.51\%; sound horizon shift +0.11\% & Not detectable by any foreseeable survey (best SNR = 0.92) \tabularnewline
 \textbf{C4} & f$\sigma$\textsubscript{8} $\times$ environment & RSD + void f$\sigma$\textsubscript{8} vs $\mu$(a) prediction & $\Delta$$\chi$$^{2}$ = +0.49 (9 DOF); max discrimination 0.22$\sigma$ & Sensitivity-limited; needs \ {}10$\times$ improvement (DESI/\allowbreak{}Euclid) \tabularnewline
 \textbf{C5} & Cluster M\textsubscript{dyn}/M\textsubscript{lens} & Analytical $\mu$(a) prediction + numerical $\eta$(k,z) verification & $\eta$ = 1.000000 at all cluster scales; Case B confirmed: M\textsubscript{dyn}/M\textsubscript{lens} = 1 & Resolved: cluster mass ratio is not a discriminator for MTDF \tabularnewline
@@ -657,8 +563,8 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item Scans z\textsubscript{cut} $\in$ [0.025,~0.100] using GLS and Spearman metrics on the Phase~3 SN~$\times$~void environment signal.
   \item Peak at z\textsubscript{cut}~=~0.030 with GLS z-score 3.62$\sigma$; global scan-corrected permutation p~<~0.005 (limited by 200 permutations; 0 of 200 exceedances). The scan peak (z\textsubscript{cut}~=~0.030) and the headline transition (z~$\approx$~0.040~$\pm$~0.005) are statistically consistent given the scan's redshift resolution; they refer to the same low-redshift transition, not two distinct features.
   \item Spearman rank test agrees independently (3.1$\sigma$).
-  \item Interpretation: the environment signal is localised to z~<~0.04, consistent with the Phase~3 redshift modulation and the MTDF coherence-length prediction.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testA\_\allowbreak{}redshift\_\allowbreak{}transition/\allowbreak{}
+  \item Interpretation: the environment signal is localised to z~<~0.04, consistent with the Phase~3 redshift modulation and the MTDF finite-range prediction.
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testA\_\allowbreak{}redshift\_\allowbreak{}transition/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.2 Test B: Weak lensing $\times$ environment (void centres)}
@@ -668,7 +574,7 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item $\gamma$\textsubscript{x} gate: pass (p~=~0.234).
   \item Explicit two-sided 95\% upper limit: |$\Delta$$\gamma$\textsubscript{t}|~<~1.20$\times$10\textsuperscript{$-$4}.
   \item Without a forward MTDF lensing prediction for this selection, the result is best framed as ``not yet discriminating, but now bounded and reproducible.''
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testB\_\allowbreak{}wl\_\allowbreak{}environment/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testB\_\allowbreak{}wl\_\allowbreak{}environment/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.3 Test B2: Trough and ridge lensing (projected density split)}
@@ -677,16 +583,15 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item $\Delta$$\gamma$\textsubscript{t,split} (ridge$-$trough)~=~+2.56$\times$10\textsuperscript{$-$5}~$\pm$~5.46$\times$10\textsuperscript{$-$5} (0.5$\sigma$), consistent with zero.
   \item Explicit two-sided 95\% upper limit: |$\Delta$$\gamma$\textsubscript{t,split}|~<~1.28$\times$10\textsuperscript{$-$4}.
   \item Projected P20/\allowbreak{}P80 density contrasts ($\delta$~$\sim$~$\pm$0.15) are too mild for detectable differential lensing at KiDS sensitivity. Spectroscopic 3D density or LSST/\allowbreak{}DES area would be needed for significance.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testB2\_\allowbreak{}trough\_\allowbreak{}ridge/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testB2\_\allowbreak{}trough\_\allowbreak{}ridge/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.4 Test C: Derived parameter consistency}
 \begin{itemize}
   \item Cross-checks derived parameters from the Phase~5 MCMC posterior against external weak lensing constraints.
   \item No derived parameter deviates beyond 2.4$\sigma$ from $\Lambda$CDM.
-  \item S\textsubscript{8} tension reduction: DES~Y3 from 2.63$\sigma$ to 1.28$\sigma$; KiDS-1000 from 2.77$\sigma$ to 1.58$\sigma$.
   \item MTDF's Planck posterior is internally consistent; no hidden contradictions introduced by \texttt{class\_\allowbreak{}mtdf}.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testC\_\allowbreak{}derived\_\allowbreak{}consistency/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC\_\allowbreak{}derived\_\allowbreak{}consistency/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.5 Test D: CMB lensing $\times$ DESI BGS voids (low redshift)}
@@ -697,7 +602,7 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item Robustness: stable across outer annulus choices (all <1.1$\sigma$), low-l removal (l$\ge$20, l$\ge$30), and void finder.
   \item Null at z~<~0.24 is expected: the CMB lensing kernel peaks at z~\~{}~1--2, and the BGS void count (557 usable) limits statistical power.
   \item Diagnosed failure modes from v1: hard mask quality cut rejected 73\% of voids; low-l CMB modes created a positive $\kappa$ pedestal. Both fixed in v2 via per-void compensated filter and mask-weighted stacking.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testD\_\allowbreak{}cmb\_\allowbreak{}lensing/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testD\_\allowbreak{}cmb\_\allowbreak{}lensing/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.6 Test E: CMB lensing $\times$ BOSS DR12 voids (benchmark)}
@@ -711,16 +616,15 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
 \textbf{Matched filter} (template + jackknife covariance): 1.9$\sigma$ (p\textsubscript{rand}~=~0.02), increases to 2.2$\sigma$ under l$\ge$20 cut.
 \textbf{Close comp} (alternative aperture): 0.5$\sigma$, consistent with zero.
   \item Detection-optimised statistics (CTH and MF) show the expected hierarchy and respond correctly to pedestal removal and footprint-preserving null tests. The gap from \~{}1.5--2.2$\sigma$ to Cai+2017's 3.2$\sigma$ reflects template shape (step vs theory-derived) and different Planck products (PR4 vs PR2015).
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testE\_\allowbreak{}boss\_\allowbreak{}benchmark/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testE\_\allowbreak{}boss\_\allowbreak{}benchmark/\allowbreak{}
 \end{itemize}
 
-\subsection{6b.7 Test C2: S\textsubscript{8} cross-probe coherence}
+\subsection{6b.7 Test C2: S\textsubscript{8} cross-probe comparison (RETIRED as run; direction reversed under v2)}
 \begin{itemize}
-  \item Compares Phase~5 MCMC S\textsubscript{8}~=~$\sigma$\textsubscript{8}$\sqrt{\,}$($\Omega$\textsubscript{m}/0.3) against published weak lensing constraints from KiDS-1000, DES~Y3, and HSC~Y3.
-  \item $\Lambda$CDM: S\textsubscript{8}~=~0.830~$\pm$~0.013. MTDF: S\textsubscript{8}~=~0.802~$\pm$~0.013.
-  \item Tension reduction: KiDS-1000 2.67$\sigma$~$\rightarrow$~1.63$\sigma$ (39\%); DES~Y3 2.63$\sigma$~$\rightarrow$~1.28$\sigma$ (51\%); combined WL 3.47$\sigma$~$\rightarrow$~1.89$\sigma$ (46\%).
-  \item Caveat: published WL S\textsubscript{8} values assume $\Lambda$CDM growth and lensing kernel. A proper comparison requires WL likelihood within the MTDF framework (deferred to future work).
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testC2\_\allowbreak{}s8\_\allowbreak{}coherence/\allowbreak{}
+  \item \textbf{As-run status: RETIRED.} Test C2 compared the v1 Phase-5 posterior (S\textsubscript{8} = 0.802 $\pm$ 0.013) against published weak-lensing constraints and reported a tension reduction. The v1 posterior was a gauge artifact (Section 6), so the tension-reduction result is void.
+  \item \textbf{Under the sealed v2 chains the direction reverses:} the corrected implementation gives an enhanced-growth posture ($\sigma$\textsubscript{8} = 0.8265 $\pm$ 0.0062, about +1.9$\sigma$ posterior units above the $\Lambda$CDM baseline; native S\textsubscript{8} = 0.8473 $\pm$ 0.0138), which mildly \emph{worsens} the comparison with published weak-lensing compressions. No relief claim survives.
+  \item The as-run caveat stands and is now load-bearing: published WL S\textsubscript{8} values assume $\Lambda$CDM growth and lensing kernels, so the only pre-registered path for quantitatively revisiting this comparison is the forward-modelling programme (FWD-S8), which forward-models each survey's compression within MTDF rather than comparing native posteriors to $\Lambda$CDM-compressed numbers.
+  \item Artefacts (v1, historical): validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC2\_\allowbreak{}s8\_\allowbreak{}coherence/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.8 Test C3: BAO residual structure}
@@ -729,7 +633,7 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item Sound horizon shift: +0.106\% (147.148~$\rightarrow$~147.303~Mpc). Wiggle difference: $\Delta$W RMS~=~0.27\%, max~=~0.51\% at k~=~0.12~h/\allowbreak{}Mpc. No detectable peak phase shift at grid resolution.
   \item Best projected SNR: 0.92 (DESI + Euclid combined). The 0.1\% sound horizon shift is absorbed into standard cosmological parameter degeneracies.
   \item Conclusion: BAO residual structure is not a viable MTDF--$\Lambda$CDM discriminator with any foreseeable survey.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testC3\_\allowbreak{}bao\_\allowbreak{}residuals/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC3\_\allowbreak{}bao\_\allowbreak{}residuals/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.9 Test C4: f$\sigma$\textsubscript{8} $\times$ environment}
@@ -738,7 +642,7 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item $\chi$$^{2}$: $\Lambda$CDM~=~7.61, MTDF~=~8.10 ($\Delta$$\chi$$^{2}$~=~+0.49, 9~DOF). Maximum per-point discrimination: 0.22$\sigma$.
   \item The homogeneous $\mu$(a) modification produces a \~{}1.5\% signal, which is 5--10$\times$ smaller than current RSD measurement errors (0.03--0.10 per z-bin).
   \item Future requirement: 2$\sigma$ discrimination needs $\sigma$(f$\sigma$\textsubscript{8})~\~{}~0.003--0.004 per z-bin, achievable with DESI/\allowbreak{}Euclid-era RSD or environment-resolved estimators.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testC4\_\allowbreak{}fsigma8\_\allowbreak{}environment/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC4\_\allowbreak{}fsigma8\_\allowbreak{}environment/\allowbreak{}
 \end{itemize}
 
 \subsection{6b.10 Test C5/\allowbreak{}C5b: Cluster M\textsubscript{dyn}/M\textsubscript{lens}  -  Resolved}
@@ -751,18 +655,18 @@ Tests~A and E positively support MTDF-style predictions (redshift transition, vo
   \item Result: \textbf{$\eta$~=~1.000000} at all cluster-relevant scales (z~$\le$~0.8). Max~|$\Delta$$\eta$| between MTDF and $\Lambda$CDM:~0.000000. Tiny deviations (|$\eta$$-$1|~\~{}~10\textsuperscript{$-$5}) appear only at z~$\ge$~5 from standard radiation anisotropic stress, present equally in both models.
   \item Physical reason: \texttt{class\_\allowbreak{}mtdf} modifies only the Poisson equation source ($\delta$$\rho$~$\rightarrow$~$\mu$$\cdot$$\delta$$\rho$) and the CDM Euler equation. The $\Phi$$-$$\Psi$ anisotropy equation is unchanged from GR. Both potentials are enhanced equally $\rightarrow$ $\Sigma$~=~$\mu$ $\rightarrow$ \textbf{Case~B confirmed}.
   \item Implication: M\textsubscript{dyn}/M\textsubscript{lens}~=~1.000 under MTDF. The cluster mass ratio channel is \textbf{not a discriminator}. Clusters can still test MTDF through growth-dependent observables (e.g.~cluster counts), because $\mu$~>~1 modifies the growth rate.
-  \item Artefacts: output/\allowbreak{}phase6/\allowbreak{}testC5\_\allowbreak{}cluster\_\allowbreak{}mass/\allowbreak{}, output/\allowbreak{}phase6/\allowbreak{}testC5b\_\allowbreak{}gravitational\_\allowbreak{}slip/\allowbreak{}
+  \item Artefacts: validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC5\_\allowbreak{}cluster\_\allowbreak{}mass/\allowbreak{}, validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}testC5b\_\allowbreak{}gravitational\_\allowbreak{}slip/\allowbreak{}
 \end{itemize}
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
 \textbf{Phase 6 conclusion (10 tests, all complete).}
-The ten Phase~6 tests fall into five categories. \emph{Discriminators} (6A, 6E): the redshift transition is identified at 3.6$\sigma$; the BOSS CMB lensing benchmark recovers void-specific structure at 1.5--1.9$\sigma$. \emph{Coherence} (6C, 6C2): derived parameters are self-consistent (no shift > 2.4$\sigma$); S\textsubscript{8} tension with weak lensing surveys drops from 3.5$\sigma$ to 1.9$\sigma$. \emph{Upper limits} (6B, 6B2, 6D): systematics-clean nulls with explicit 95\% bounds on void lensing and CMB lensing signals. \emph{Forecasts} (6C3, 6C4): BAO wiggles and f$\sigma$\textsubscript{8} quantify what future surveys need to reach. \emph{Resolved} (6C5): cluster M\textsubscript{dyn}/M\textsubscript{lens} is null ($\eta$~=~1). No test contradicts MTDF. The S\textsubscript{8} coherence result (6C2) is the strongest positive outcome: MTDF moves S\textsubscript{8} toward weak lensing values without tuning.
+The ten Phase~6 tests fall into five categories. \emph{Discriminators} (6A, 6E): the redshift transition is identified at 3.6$\sigma$; the BOSS CMB lensing benchmark recovers void-specific structure at 1.5--1.9$\sigma$. \emph{Coherence} (6C, 6C2): derived parameters are self-consistent (no shift > 2.4$\sigma$); the as-run 6C2 S\textsubscript{8} comparison is retired with the v1 chains (direction reversed under v2). \emph{Upper limits} (6B, 6B2, 6D): systematics-clean nulls with explicit 95\% bounds on void lensing and CMB lensing signals. \emph{Forecasts} (6C3, 6C4): BAO wiggles and f$\sigma$\textsubscript{8} quantify what future surveys need to reach. \emph{Resolved} (6C5): cluster M\textsubscript{dyn}/M\textsubscript{lens} is null ($\eta$~=~1). No surviving test contradicts MTDF at the consistency level. The strongest positive outcomes are the discriminators (6A redshift transition, 6E void-specific CMB lensing structure); the former 6C2 relief claim does not survive the v2 correction and is retired.
 \end{mdframed}
 
 \section{Synthesis and framework narrative}
 \label{sec:sec7}
 
-\subsection{Summary of results (17/\allowbreak{}17 complete)}
+\subsection{Summary of results (17/\allowbreak{}17 phases complete)}
 \begingroup\scriptsize
 \begin{xltabular}{\linewidth}{>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
 \toprule
@@ -770,18 +674,18 @@ The ten Phase~6 tests fall into five categories. \emph{Discriminators} (6A, 6E):
 \toprule\endhead
 \bottomrule\endfoot
 \textbf{Phase} & \textbf{Type} & \textbf{Status} & \textbf{Key result} & \textbf{Artefacts} \tabularnewline
-Phase 1 & Discriminator & PASSED & V18 strict totals reproduced to $\delta$ = 0.000049 & output/\allowbreak{}phase1/\allowbreak{} \tabularnewline
-Phase 2 & Discriminator & PASSED & CMB plik-lite compatible ($\Delta$$\chi$$^{2}$ < 1); k\textsubscript{f} = 1 within 95\% in all MCMC runs & output/\allowbreak{}phase2/\allowbreak{} \tabularnewline
-Phase 3 & Discriminator & PASSED & SN $\times$ void signal reproduced exactly; bootstrap excludes zero & output/\allowbreak{}phase3/\allowbreak{} \tabularnewline
-Phase 3b & Upper limit & COMPLETE & NGC/\allowbreak{}SGC asymmetry: not significant, not geometric, sensitivity-limited (5 diagnostics) & output/\allowbreak{}phase3b/\allowbreak{} \tabularnewline
-Phase 4 & Forecast & COMPLETE & 5$\sigma$ at \ {}3,400 SNe (LSST/\allowbreak{}Rubin); statistics-limited & output/\allowbreak{}phase4/\allowbreak{} \tabularnewline
-Phase 5 (min.) & Discriminator & PASSED & Full Planck plik + class\_\allowbreak{}mtdf: $\Delta$$\chi$$^{2}$ = +0.63. Priority 1 hard falsifier cleared. & \multirow{2}{=}{output/\allowbreak{}phase5/\allowbreak{}} \tabularnewline
-Phase 5 (MCMC) & Discriminator & PASSED & Converged (R$-$1 = 0.019). $\sigma$\textsubscript{8} = 0.790 (a 2.4\% shift below the $\Lambda$CDM posterior mean, descriptive, not a detection). k\textsubscript{f} = 0.50 $\pm$ 0.36; both k\textsubscript{f} = 0 and 1 within 95\% CI. &  \tabularnewline
-Phase 6A & Discriminator & PASSED & Redshift transition scan: signal peaks at z < 0.03 (3.6$\sigma$ GLS, global p < 0.005). Spearman confirms (3.1$\sigma$). & \multirow{10}{=}{output/\allowbreak{}phase6/\allowbreak{}} \tabularnewline
+Phase 1 & Discriminator & PASSED & V18 strict totals reproduced to $\delta$ = 0.000049 & validation/\allowbreak{}output/\allowbreak{}phase1/\allowbreak{} \tabularnewline
+Phase 2 & Discriminator & PASSED & CMB plik-lite compatible ($\Delta$$\chi$$^{2}$ < 1); k\textsubscript{f} = 1 within 95\% in all MCMC runs & validation/\allowbreak{}output/\allowbreak{}phase2/\allowbreak{} \tabularnewline
+Phase 3 & Discriminator & PASSED & SN $\times$ void signal reproduced exactly; bootstrap excludes zero & validation/\allowbreak{}output/\allowbreak{}phase3/\allowbreak{} \tabularnewline
+Phase 3b & Upper limit & COMPLETE & NGC/\allowbreak{}SGC asymmetry: not significant, not geometric, sensitivity-limited (5 diagnostics) & validation/\allowbreak{}output/\allowbreak{}phase3b/\allowbreak{} \tabularnewline
+Phase 4 & Forecast & COMPLETE & 5$\sigma$ at \ {}3,400 SNe (LSST/\allowbreak{}Rubin); statistics-limited & validation/\allowbreak{}output/\allowbreak{}phase4/\allowbreak{} \tabularnewline
+Phase 5 (v1) & Discriminator & RETIRED & v1 minimisation and MCMC results void (gauge artifact, Section 6); archived as historical record. & \multirow{2}{=}{validation/\allowbreak{}output/\allowbreak{}phase5/\allowbreak{}} \tabularnewline
+Phase 5 (v2, sealed) & Discriminator & PASSED (consistency) & Corrected implementation, R$-$1 = 0.0085. $\sigma$\textsubscript{8} = 0.8265 $\pm$ 0.0062 (enhanced growth, +1.91$\sigma$ posterior units above $\Lambda$CDM baseline); k\textsubscript{f} = 0.685 $\pm$ 0.500, both 0 and 1 compatible. $\Delta$$\chi$$^{2}$ vs matched control complete (see Section 6.3). &  \tabularnewline
+Phase 6A & Discriminator & PASSED & Redshift transition scan: signal peaks at z < 0.03 (3.6$\sigma$ GLS, global p < 0.005). Spearman confirms (3.1$\sigma$). & \multirow{10}{=}{validation/\allowbreak{}output/\allowbreak{}phase6/\allowbreak{}} \tabularnewline
 Phase 6B & Upper limit & COMPLETE & Weak lensing $\times$ void environment (KiDS-1000): $\Delta$$\gamma$\textsubscript{t} = $-$3.65e$-$5 $\pm$ 4.68e$-$5 (0.8$\sigma$). $\gamma$\textsubscript{x} gate pass. 95\% UL: |$\Delta$$\gamma$\textsubscript{t}| < 1.2e$-$4. &  \tabularnewline
 Phase 6B2 & Upper limit & COMPLETE & Trough/\allowbreak{}ridge lensing (KiDS-1000): $\Delta$$\gamma$\textsubscript{t,split} = +2.56e$-$5 $\pm$ 5.46e$-$5 (0.5$\sigma$). Both $\gamma$\textsubscript{x} gates pass. 95\% UL: |$\Delta$$\gamma$\textsubscript{t,split}| < 1.3e$-$4. &  \tabularnewline
-Phase 6C & Coherence & PASSED & Derived parameter consistency: no shifts > 2.4$\sigma$. S\textsubscript{8} tension reduces: DES Y3 2.6$\rightarrow$1.3$\sigma$; KiDS-1000 2.8$\rightarrow$1.6$\sigma$. &  \tabularnewline
-Phase 6C2 & Coherence & COMPLETE & S\textsubscript{8} cross-probe coherence: Phase 5 posterior S\textsubscript{8} vs WL surveys. Combined tension 3.5$\sigma$ $\rightarrow$ 1.9$\sigma$ (46\% reduction). Summary-level; full likelihood deferred. &  \tabularnewline
+Phase 6C & Coherence & PASSED & Derived parameter consistency: no shifts > 2.4$\sigma$ (v1-posterior-based; the S\textsubscript{8} element is superseded, see 6b.7). &  \tabularnewline
+Phase 6C2 & Coherence & RETIRED (as run) & Compared the v1 Phase-5 posterior against WL surveys; the v1 posterior is void (gauge artifact), so the reported tension reduction is retired. Direction reversed under sealed v2; quantitative revisit deferred to FWD-S8. &  \tabularnewline
 Phase 6C3 & Forecast & COMPLETE & BAO residual structure: $\Delta$W RMS = 0.27\%, sound horizon shift +0.11\%. Not detectable by any current or projected survey (best SNR = 0.92). &  \tabularnewline
 Phase 6C4 & Forecast & COMPLETE & f$\sigma$\textsubscript{8} $\times$ environment: RSD + void growth vs $\mu$(a) prediction. Max 0.22$\sigma$; needs DESI/\allowbreak{}Euclid-era precision (\ {}10$\times$ improvement). &  \tabularnewline
 Phase 6C5/\allowbreak{}C5b & Closed null & RESOLVED & Cluster M\textsubscript{dyn}/M\textsubscript{lens}: $\eta$ = 1 confirmed numerically (C5b) $\Rightarrow$ $\Sigma$ = $\mu$, so M\textsubscript{dyn}/M\textsubscript{lens} = 1 exactly. Mass ratio offset is zero in the current MTDF perturbation model. &  \tabularnewline
@@ -821,21 +725,21 @@ DESI Y1 BAO fit & \checkmark{} Validated & Phase 1: $\chi$$^{2}$ = 15.39 matched
 Cosmic chronometers H(z) & \checkmark{} Validated & Phase 1: $\chi$$^{2}$ = 6.98 matched exactly \tabularnewline
 DR16 f$\sigma$\textsubscript{8} growth & \checkmark{} Validated & Phase 1: $\chi$$^{2}$ = 2.00 matched exactly \tabularnewline
 CMB compatibility (plik-lite) & $\blacksquare$ Constrained & Phase 2: $\Delta$$\chi$$^{2}$ < 1; k\textsubscript{f} = 1 within 95\% CI. Perturbative correction layer, not full Boltzmann. \tabularnewline
-CMB compatibility (full plik + class\_\allowbreak{}mtdf) & \checkmark{} Validated & Phase 5: full plik TTTEEE + lowl + lensing via class\_\allowbreak{}mtdf Boltzmann solver. $\Delta$$\chi$$^{2}$ = +0.63 (BOBYQA best-fit, 4 runs). k\textsubscript{f} = 0.028 $\approx$ 0. Apples-to-apples with $\Lambda$CDM (same likelihoods, nuisances, priors, minimizer). \tabularnewline
+CMB compatibility (full plik + class\_\allowbreak{}mtdf) & \checkmark{} Validated & Sealed v2 chains (corrected implementation): standard parameters essentially unshifted; k\textsubscript{f} = 0.685 $\pm$ 0.500 with 0 and 1 both compatible; apples-to-apples configuration; $\Delta$$\chi$$^{2}$ vs matched $\Lambda$CDM control complete (see Section 6.3). (v1 Phase-5 numbers retired, gauge artifact.) \tabularnewline
 SN $\times$ void environment signal ($\gamma$\textsubscript{env}) & \checkmark{} Validated & Phase 3: exact reproduction, 3 void finders, bootstrap excludes zero \tabularnewline
 Redshift decay structure (z < 0.04) & \checkmark{} Validated & Phase 3: a priori prediction matched (p = 0.0035 REVOLVER) \tabularnewline
 Survey systematics stability & \checkmark{} Validated & Phase 3: FE $\Delta$$\gamma$ < 0.0005; LOSO 16/\allowbreak{}16 positive \tabularnewline
 NGC/\allowbreak{}SGC asymmetry interpretation & \checkmark{} Validated & Phase 3b: asymmetry not significant (Wald p = 0.49--0.96), not geometric (mock p = 0.28--0.90), SGC sensitivity-limited (6--8$\times$ fewer voids, 44\% recovery power). Five independent diagnostics confirm footprint-dependent detectability. \tabularnewline
 5$\sigma$ detection forecast (3,400 SNe) & \checkmark{} Validated & Phase 4: Monte Carlo with consistency checks passing at 10\textsuperscript{$-$13} \tabularnewline
 Statistics-limited (not systematics-limited) & \checkmark{} Validated & Phase 4: baseline $\approx$ realistic; rank-1 systematic immunity demonstrated \tabularnewline
-Hubble tension resolution (void depletion) & $\blacksquare$ Constrained & Void-depletion mapping yields H\textsubscript{local} consistent with SH0ES, conditional on local-underdensity depth. Mechanism independent of CMB; not yet tested with dedicated void-SN joint analysis. \tabularnewline
+Hubble tension consistency (conditional; void depletion) & $\blacksquare$ Constrained & Void-depletion mapping yields H\textsubscript{local} consistent with SH0ES, conditional on local-underdensity depth. Mechanism independent of CMB; not yet tested with dedicated void-SN joint analysis. \tabularnewline
 Photon--stress coupling ($\kappa$ = f\textsubscript{kick}/3 $\approx$ 0.00102) & $\blacktriangle$ Hypothesis & Derived from fundamental parameters (angular averaging of strain tensor). Below Planck sensitivity. Paper MTDF\_\allowbreak{}04 frames as speculative. \tabularnewline
-Rotation curve phenomenology & $\blacksquare$ Constrained & Included in V18 scalars. Not independently reproduced in this session. \tabularnewline
+Rotation curve phenomenology & $\blacksquare$ Constrained & Included in V18 scalars. Not independently reproduced within this programme. \tabularnewline
 Redshift transition structure (z\textsubscript{cut} scan) & \checkmark{} Validated & Phase 6A: GLS z-score 3.62$\sigma$ at z\textsubscript{cut}=0.030; global scan-corrected p < 0.005. Spearman confirms (3.1$\sigma$). \tabularnewline
 Weak lensing $\times$ environment (KiDS) & $\blacksquare$ Constrained & Phase 6B/\allowbreak{}B2: systematics-clean nulls with explicit 95\% upper limits. Bounded but not yet discriminating at KiDS sensitivity. \tabularnewline
-Derived parameter consistency & \checkmark{} Validated & Phase 6C: all within 2.4$\sigma$. S\textsubscript{8} tension eased (DES 2.6$\rightarrow$1.3$\sigma$; KiDS 2.8$\rightarrow$1.6$\sigma$). \tabularnewline
+Derived parameter consistency & \checkmark{} Validated & Phase 6C: all within 2.4$\sigma$ (v1-posterior-based; S\textsubscript{8} element superseded, see the row below). \tabularnewline
 CMB lensing $\times$ voids & $\blacksquare$ Constrained & Phase 6D/\allowbreak{}E: low-z null (expected), BOSS benchmark recovers void-specific structure. Pipeline validated. \tabularnewline
-S\textsubscript{8} cross-probe coherence & \checkmark{} Validated & Phase 6C2: S\textsubscript{8} from Phase 5 posterior vs WL surveys. Combined tension 3.5$\sigma$ $\rightarrow$ 1.9$\sigma$. Summary-level comparison; full likelihood deferred. \tabularnewline
+S\textsubscript{8} cross-probe comparison & $\times$ Retired (as run) & Phase 6C2 compared the v1 Phase-5 posterior against WL surveys; that posterior is void (gauge artifact). Under the sealed v2 chains the direction reverses (enhanced growth, S8-WORSENED); quantitative revisit deferred to FWD-S8. \tabularnewline
 f$\sigma$\textsubscript{8} $\times$ environment & $\blacksquare$ Constrained & Phase 6C4: $\mu$(a) prediction vs RSD + void growth. Max 0.22$\sigma$ discrimination; current data sensitivity-limited (\ {}10$\times$ improvement needed). \tabularnewline
 BAO residual structure & $\blacksquare$ Constrained & Phase 6C3: $\Delta$W RMS = 0.27\%. Sound horizon shift +0.11\% absorbed into parameter degeneracies. Not detectable by any foreseeable survey. \tabularnewline
 Cluster M\textsubscript{dyn}/M\textsubscript{lens} & $\blacksquare$ Constrained & Phase 6C5/\allowbreak{}C5b: $\eta$ = 1.000000 confirmed numerically from class\_\allowbreak{}mtdf transfer functions. Case B applies: M\textsubscript{dyn}/M\textsubscript{lens} = 1. Mass ratio channel closed as discriminator; growth-dependent cluster tests remain open. \tabularnewline
@@ -846,20 +750,20 @@ Merging cluster offsets (Bullet Cluster) & $\times$ Falsifier & Not yet executed
 
 \subsection{Framework narrative}
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
-MTDF is fully CMB-compatible: Planck TTTEEE cannot distinguish MTDF from $\Lambda$CDM ($\Delta$$\chi$$^{2}$~<~1). MTDF deviates from $\Lambda$CDM at late times through environment-dependent dynamics. The Hubble tension is consistent with environmental mapping (void stress depletion), conditional on the depth of the local underdensity, rather than with early-universe modification. The SN~$\times$~void signal is the primary empirical discriminator. The stress-field coherence length concentrates observable effects at low redshift, consistent with the CMB being unaffected.
+MTDF is fully CMB-compatible: Planck TTTEEE cannot distinguish MTDF from $\Lambda$CDM ($\Delta$$\chi$$^{2}$~<~1). MTDF deviates from $\Lambda$CDM at late times through environment-dependent dynamics. The Hubble tension is consistent with environmental mapping (void stress depletion), conditional on the depth of the local underdensity, rather than with early-universe modification. The SN~$\times$~void signal is the primary empirical discriminator. The finite range of the stress-field response concentrates observable effects at low redshift, consistent with the CMB being unaffected.
 \end{mdframed}
 
 \subsection{What survives intact}
 \begin{enumerate}
   \item \textbf{Phase 1 strict totals}: independently reproduced to four decimal places.
   \item \textbf{SN $\times$ void environment signal}: three void finders, 16/\allowbreak{}16 LOSO, redshift decay matching a priori prediction.
-  \item \textbf{Hubble tension resolution}: entirely late-time, via void stress depletion:
+  \item \textbf{Hubble tension consistency (conditional)}: entirely late-time, via void stress depletion:
     
 Theoretical: \( H_{\rm local}/H_0 = 1.084 \;\Rightarrow\; 67.4 \times 1.084 = 73.1 \) (SH0ES: 73.04~$\pm$~1.04), conditional on local-underdensity depth (shallow void gives \~{}70--71)
-MCMC-derived (Phase~5): \( H_{0,\rm global} = 67.83 \pm 0.54 \) km/\allowbreak{}s/\allowbreak{}Mpc; applying the void-mapping factor \( S_0 = 1.084 \) gives a local-environment value \( H_{0,\rm local} \approx 73.5 \) km/\allowbreak{}s/\allowbreak{}Mpc, conditional on the depth of the local underdensity. The relation \( S_0 = \alpha\sqrt{\Omega_{\rm DE}} \) is an algebraic identity, not an independent prediction (see MTDF\_\allowbreak{}01 \S{}3.3).
+MCMC-derived (sealed v2 chains): \( H_{0,\rm global} = 67.44 \pm 0.55 \) km/\allowbreak{}s/\allowbreak{}Mpc; applying the void-mapping factor \( S_0 = 1.084 \) gives a local-environment value \( H_{0,\rm local} \approx 73.1 \) km/\allowbreak{}s/\allowbreak{}Mpc, conditional on the depth of the local underdensity. The relation \( S_0 = \alpha\sqrt{\Omega_{\rm DE}} \) is an algebraic identity, not an independent prediction (see MTDF\_\allowbreak{}01 \S{}3.3).
   \item \textbf{Late-time phenomenology}: w(z), BAO distances, growth rate, rotation curves.
   \item \textbf{Framework stability}: MTDF recovers $\Lambda$CDM at early times, deviates at late times.
-  \item \textbf{Cross-probe integrity (Phase 6, 10 tests)}: redshift transition identified (3.6$\sigma$); weak lensing and CMB lensing pipelines pass strict systematics controls; derived parameters self-consistent; S\textsubscript{8} tension reduced from 3.5$\sigma$ to 1.9$\sigma$ (combined WL); f$\sigma$\textsubscript{8}, BAO residuals, and cluster mass predictions computed  -  all sensitivity-limited with current data, with quantified thresholds for future surveys.
+  \item \textbf{Cross-probe integrity (Phase 6, 10 tests)}: redshift transition identified (3.6$\sigma$); weak lensing and CMB lensing pipelines pass strict systematics controls; derived parameters self-consistent; f$\sigma$\textsubscript{8}, BAO residuals, and cluster mass predictions computed  -  all sensitivity-limited with current data, with quantified thresholds for future surveys.
 \end{enumerate}
 
 \subsection{Joint implications for late-time cosmological tensions}
@@ -877,7 +781,7 @@ Independently, the environment-dependent dynamics tested in Phases~3 and 4 natur
 MTDF\_\allowbreak{}01 (Master) & Phase 1 strengthens several claims. MTDF\_\allowbreak{}01 updated in the v1.1.6 claims audit (see CHANGELOG). \tabularnewline
 MTDF\_\allowbreak{}02 (Part I, Environmental) & Signal reproduced by an independent reimplementation and non-parametric robustness checks (Phase 3). Redshift transition near z $\approx$ 0.04, identified at 3.6$\sigma$ (Phase 6A, scan-corrected p < 0.005); the merged-sample break is not sharply localised at this value. Framework's strongest empirical evidence to date. \tabularnewline
 MTDF\_\allowbreak{}04 (Part III, Photon coupling) & $\kappa$ $\approx$ f\textsubscript{kick}/3 is a theory-motivated value, consistent with but not measured by FIRAS bounds, structurally related to the early field energy fraction and below Planck sensitivity. Paper frames this as speculative, which is appropriate. \tabularnewline
-MTDF\_\allowbreak{}05 (Part IV, Cosmological) & Phase 5 full plik total $\Delta$$\chi$$^{2}$ = +0.63; Phase 2 plik-lite precursor: +0.81; CMB+BAO summary run: +1.25 (narrower data). Hubble tension mechanism intact, conditional on local-underdensity depth. Priority 1 hard falsifier cleared. \tabularnewline
+MTDF\_\allowbreak{}05 (Part IV, Cosmological) & Sealed v2 full-Planck results govern (Section 6.1); Phase 2 plik-lite precursor (+0.81) and the CMB+BAO summary run (+1.25, narrower data) are pre-correction bookkeeping. Hubble tension mechanism intact, conditional on local-underdensity depth. $\Delta$$\chi$$^{2}$ vs matched control complete (see Section 6.3). \tabularnewline
 MTDF\_\allowbreak{}07 (This paper) & Phase 6 adds ten cross-probe tests (6A--6E, 6C2--6C5). Title updated to Phases 1--6. All validation claims current as of February 2026. \tabularnewline
 \bottomrule
 \end{tabularx}
@@ -896,11 +800,11 @@ Phase 3b (Section 5b) implemented the full asymmetry diagnostic battery and is n
 \begin{tabularx}{\linewidth}{l>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X>{\RaggedRight\arraybackslash}X}
 \toprule
 \textbf{\#} & \textbf{Test} & \textbf{Type} & \textbf{Status} & \textbf{Timescale} \tabularnewline
-1 & Full Planck plik + class\_\allowbreak{}mtdf & Discriminator & \textbf{PASSED} (Phase 5, $\Delta$$\chi$$^{2}$ = +0.63) & Complete \tabularnewline
+1 & Full Planck plik + class\_\allowbreak{}mtdf & Discriminator & \textbf{PASSED at consistency level} (sealed v2 chains; $\Delta$$\chi$$^{2}$ vs matched control complete, see Section 6.3) & v2 and control chains sealed \tabularnewline
 2 & NGC/\allowbreak{}SGC diagnostic battery & Upper limit & \textbf{COMPLETE} (sensitivity-limited, not geometric) & Complete \tabularnewline
 3 & Weak lensing $\times$ environment (KiDS) & Upper limit & \textbf{COMPLETE} (Phase 6B/\allowbreak{}B2: systematics-clean null) & Complete \tabularnewline
 4 & CMB lensing $\times$ voids & Upper limit & \textbf{COMPLETE} (Phase 6D/\allowbreak{}E: pipeline validated) & Complete \tabularnewline
-5 & S\textsubscript{8} cross-probe coherence & Coherence & \textbf{COMPLETE} (Phase 6C2: 3.5$\sigma$ $\rightarrow$ 1.9$\sigma$) & Complete \tabularnewline
+5 & S\textsubscript{8} cross-probe comparison & Coherence & \textbf{RETIRED as run} (v1-posterior-based; direction reversed under sealed v2) & Deferred to FWD-S8 \tabularnewline
 6 & f$\sigma$\textsubscript{8} $\times$ environment & Forecast & \textbf{COMPLETE} (Phase 6C4: 0.22$\sigma$, sensitivity-limited) & Complete \tabularnewline
 7 & BAO residual structure & Forecast & \textbf{COMPLETE} (Phase 6C3: $\Delta$W = 0.27\%, undetectable) & Complete \tabularnewline
 8 & Cluster M\textsubscript{dyn}/M\textsubscript{lens} & Resolved & \textbf{RESOLVED} (Phase 6C5/\allowbreak{}C5b: $\eta$ = 1, Case B, M\textsubscript{dyn}/M\textsubscript{lens} = 1) & Complete \tabularnewline
@@ -912,7 +816,7 @@ Phase 3b (Section 5b) implemented the full asymmetry diagnostic battery and is n
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
 \textbf{Phase 2 scope note, resolved by Phase 5.}
-Phase 2 used a perturbative correction layer on a $\Lambda$CDM emulator, not the full modified Boltzmann equations. Phase~5 subsequently ran \texttt{class\_\allowbreak{}mtdf} through the full Planck plik likelihood with all nuisance parameters, confirming $\Delta$$\chi$$^{2}$~=~+0.63. The perturbative approximation in Phase 2 was validated by the full calculation in Phase 5.
+Phase 2 used a perturbative correction layer on a $\Lambda$CDM emulator, not the full modified Boltzmann equations. The full calculation now on record is the sealed v2 chain (Section 6.1), which confirms Phase 2's structural finding (CMB-level consistency; k\textsubscript{f} unconstrained by Planck) under the corrected implementation; Phase 2's and the v1 Phase 5's numerical $\Delta$$\chi$$^{2}$ values are historical.
 \end{mdframed}
 
 \section{Appendix: Technical notes}
@@ -944,7 +848,7 @@ Convention C initially used \( f_{\rm kick} = \alpha\kappa = 0.001326 \) instead
 \toprule
 \textbf{Parameter} & \textbf{Value} & \textbf{Uncertainty} & \textbf{Role} \tabularnewline
 $\alpha$ & 1.30 & 0.26 & Stress-field coupling (void dynamics: KBC 2013 + Hoscheit 2018; counter: Kenworthy 2019) \tabularnewline
-$\beta$ & 22.7 Mpc & 0.09$\times$10$^{2}$$^{3}$ m & Coherence length (void radius distribution: Pan+2012; Hamaus+2014) \tabularnewline
+$\beta$ & 22.7 Mpc & 0.09$\times$10$^{2}$$^{3}$ m & Strain-lever length scale (void radius distribution: Pan+2012; Hamaus+2014) \tabularnewline
 $\tau$ & 13.0 Gyr & 0.2 & Field age \tabularnewline
 $\beta$\textsubscript{eos} & 0.573 & 0.012 & Equation-of-state parameter \tabularnewline
 E & 9.1$\times$10\textsuperscript{$-$10} Pa & 0.4$\times$10\textsuperscript{$-$10} & Field energy scale \tabularnewline
@@ -962,15 +866,15 @@ Previous cobaya + class\_\allowbreak{}mtdf runs (November 2025) provide useful r
 
 \section{Data and code availability}
 The complete MTDF reproducibility package, including the modified CLASS solver
-(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+(\texttt{class\_\allowbreak{}mtdf}), the V19 strict validation workbook, the
 \texttt{{\small\protect\path{run_validate.py}}} pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{{\small\protect\path{10.5281/zenodo.19741058}}};
-this release, \texttt{v1.1.6}, DOI
-\href{https://doi.org/10.5281/zenodo.20629767}{{\small\protect\path{10.5281/zenodo.20629767}}})
+this release, \texttt{v1.1.7}, DOI
+\href{https://doi.org/10.5281/zenodo.21525855}{{\small\protect\path{10.5281/zenodo.21525855}}})
 and mirrored on GitHub at
 \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
-The \texttt{v1.1.6} Git tag corresponds to the archived Zenodo release. All
+The \texttt{v1.1.7} Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level \texttt{{\small\protect\path{README.md}}}.
 

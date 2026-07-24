@@ -1,12 +1,13 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 
 #
 # MTDF Gravity - Run All Steps
 #
 # Reproduces all output artefacts (JSON, plots) for Steps 1-17, 19-22, 22b-d.
+# Note: step numbering skips 18 (historical numbering; 24 scripts total).
 # Each step is independent and can be run individually.
 #
 # Prerequisites:

@@ -2,29 +2,29 @@
 
 **Author:** Ingo Mesche
 **Affiliation:** Independent Researcher, Malta
-**Version:** V18 (Workbook) / V74 (Dashboard)
-**Theory Identifier:** V74
-**Date:** December 2025
+**Version:** V19 (Workbook) / V75 (Dashboard)
+**Theory Identifier:** V75
+**Date:** July 2026
 **Status:** Peer Review Ready
-**Source of truth:** DB_Workbook_STRICT_V18.xlsx, Validation_Dashboard_V74.html
+**Source of truth:** DB_Workbook_STRICT_V19.xlsx, Validation_Dashboard_V75.html
 
 ---
 
 ## Executive Summary
 
-This package contains a complete, reproducible validation of the MTDF theoretical framework against 20 independent empirical tests (15 scalar pillars and 5 vector likelihood datasets) spanning galactic, cluster, and cosmological scales.
+This package contains a complete, reproducible validation of the MTDF theoretical framework against 15 scalar pillars plus 4 strict vector likelihood pillars and 1 CMB distance-prior diagnostic (excluded from strict totals), spanning galactic, cluster, and cosmological scales.
 
 **Key Results:**
-- **Scalar pillars:** χ²/ν = 0.11 (15 pillars, all pass at 1σ); 19/20 total tests pass
-- **Combined strict:** χ²/ν = 1.17 (DOF = 1745, includes vector data)
-- **4 fundamental parameters** (α, β, τ, β_eos) - independently measured, not fitted to these tests
-- **Zero free parameters** - all values empirically constrained or derived from physical principles
+- **Scalar pillars:** 14/14 counted scalar pillars pass at 1σ; the S8 and fσ8 rows are shown as "(cont.)" PREDICTION-CONTESTED and are never counted as passes (the dashboard displays the combined tally 17/19 + 2 (cont.))
+- **Combined strict:** χ²/ν = 1.17 (DOF = 1741, includes vector data)
+- **4 structural constants** (α, β, τ, β_eos) of differing epistemic status: one anchored to the void radius distribution (β), one a frozen void-motivated coupling not independently measured (α), one synchronised to the cosmic age (τ), and one a phenomenological fit (β_eos)
+- **No post-hoc fitting** - the constants are frozen before the validation pass and are not adjusted to these tests
 - **No exotic components** - no dark matter or dark energy required
 - **Complete provenance** - every numerical value traceable to workbook, measurement, or standard
 
-**Comparison:** Standard ΛCDM model achieves χ²/ν = 58.5 on scalar pillars, while requiring unobserved dark sector components comprising ~95% of the universe's energy budget.
+**Comparison:** Standard ΛCDM model achieves χ²/ν = 58.5 on scalar pillars (scalar-pillar re-scoring of ΛCDM through the MTDF pipeline; not directly comparable, see MTDF_06), while requiring unobserved dark sector components comprising ~95% of the universe's energy budget.
 
-**Critical Distinction:** Unlike models with adjustable free parameters, MTDF uses a fixed reference structure where all parameters are set by independent calibration procedures, then held constant across validation tests. No values are hardcoded in code—all derive from the workbook database with full documentation.
+**Critical Distinction:** MTDF uses a fixed reference structure: the four structural constants are set by the calibration procedures named above (with their differing epistemic status), then held constant across validation tests. No values are hardcoded in code; all derive from the workbook database with full documentation.
 
 ---
 
@@ -53,14 +53,18 @@ pip install -r requirements.txt
 ```bash
 cd code
 python run_validate.py \
-    --workbook ../data/DB_Workbook_STRICT_V18.xlsx \
-    --out ../output/Validation_Dashboard_V74.html \
-    --diag ../output/Diagnostics.csv
+    --workbook ../data/DB_Workbook_STRICT_V19.xlsx \
+    --out ../output/My_Dashboard.html \
+    --diag ../output/My_Diagnostics.csv
 ```
+
+This writes to `My_Dashboard.html` / `My_Diagnostics.csv` so the shipped V75
+baselines are never overwritten. Compare against the shipped
+`Validation_Dashboard_V75.html` / `Diagnostics.csv`.
 
 ### View Results
 
-Open `output/Validation_Dashboard_V74.html` in any modern web browser (Chrome, Firefox, Safari, Edge).
+Open `output/Validation_Dashboard_V75.html` (shipped baseline), or your regenerated `output/My_Dashboard.html`, in any modern web browser (Chrome, Firefox, Safari, Edge).
 
 ---
 
@@ -74,7 +78,8 @@ validation/                            # (this directory)
 ├── 00_START_HERE.txt                  # Welcome & orientation
 │
 ├── data/                              # Source data (READ-ONLY)
-│   ├── DB_Workbook_STRICT_V18.xlsx   # Master parameter & formula database
+│   ├── DB_Workbook_STRICT_V19.xlsx   # Master parameter & formula database
+│   ├── DB_Workbook_STRICT_V18.xlsx   # Frozen V18-era predecessor (archived)
 │   ├── sparc_clean.json              # SPARC galaxy rotation curve data
 │   └── External/                     # Downloaded datasets (via scripts/)
 │
@@ -88,17 +93,27 @@ validation/                            # (this directory)
 │   │   ├── scripts.py                # JavaScript utilities
 │   │   ├── tooltips.py               # Tooltip definitions
 │   │   └── tooltip_engine.py         # Tooltip rendering system
-│   └── analysis/                     # SN x void environment analysis
-│       ├── sn_void_GLS_analysis.py   # GLS environment signal
-│       ├── sn_void_hardening/        # 6-test hardening suite
-│       └── sn_void_summary_figure.py # Summary visualisation
+│   ├── analysis/                     # SN x void environment analysis
+│   │   ├── sn_void_GLS_analysis.py   # GLS environment signal
+│   │   ├── sn_void_hardening/        # 6-test hardening suite
+│   │   └── sn_void_summary_figure.py # Summary visualisation
+│   └── paper8/                       # MTDF_08 velocity-field scripts
+│
+├── scripts/                           # Workbook audit utilities
+│   ├── audit_workbook.py             # Workbook extraction / audit
+│   └── compare_workbook_dashboard.py # Workbook vs dashboard cross-check
 │
 └── output/                            # Generated results
-    ├── Validation_Dashboard_V74.html # Interactive results dashboard
+    ├── Validation_Dashboard_V75.html # Interactive results dashboard
     ├── Diagnostics.csv               # Per-pillar diagnostic breakdown
+    ├── audit_sparc/                  # SPARC audit artefacts
     ├── phase1/ .. phase4/            # Earlier validation phases
+    ├── phase3b/                      # NGC/SGC asymmetry diagnostics
     ├── phase5/                       # Phase 5 Planck MCMC results & robustness
-    └── phase6/                       # Phase 6 discriminator tests
+    ├── phase6/                       # Phase 6 discriminator tests
+    ├── phase7_cf4_vpec/              # CF4 peculiar velocity outputs (MTDF_08)
+    ├── phase8_2mtf_tf/               # 2MTF Tully-Fisher outputs (MTDF_08)
+    └── prediction_pack/              # class_mtdf P(k,z) + growth predictions
 ```
 
 ---
@@ -144,7 +159,7 @@ All targets derived from peer-reviewed literature with documented DOIs.
 
 ## Core Parameters and Zero-Hardcoding Principle
 
-**CRITICAL DISTINCTION:** MTDF contains **no free parameters** in the traditional sense. All numerical values are either empirically measured, derived from physical principles, or fixed by calibration procedures—then held constant across all validation tests.
+**CRITICAL DISTINCTION:** MTDF is governed by four structural constants of differing epistemic status: one anchored to the void radius distribution (β), one a frozen void-motivated coupling not independently measured (α), one synchronised to the cosmic age (τ), and one a phenomenological fit (β_eos). All values are frozen before the validation pass and held constant across all validation tests.
 
 ### Parameter Classification
 
@@ -159,19 +174,19 @@ Standard constants from CODATA/IAU definitions:
 
 **Status:** Fixed by international standards. Not adjustable.
 
-#### 2. **MTDF Fundamental Parameters** (Params_Fundamental sheet)
-Four independent quantities governing field dynamics:
+#### 2. **MTDF Structural Constants** (Params_Fundamental sheet)
+Four structural constants of differing epistemic status govern the field dynamics:
 
 | Symbol | Name | Value (SI) | Unit | Provenance |
 |--------|------|-----------|------|------------|
-| **α** | Field coupling | 1.3 | dimensionless | Calibrated from CMB-galaxy correlation |
-| **β** | Length scale | 7×10²³ m | m | Measured from void quantization (~22.7 Mpc) |
-| **τ** | Time scale | 13.0 | Gyr | Cosmic age (independent measurements) |
-| **β_eos** | EOS parameter | 0.573 | dimensionless | Derived from BAO-SN consistency |
+| **α** | Field coupling | 1.3 | dimensionless | Frozen void-motivated coupling; not independently measured (contested anchor; see Kenworthy et al. 2019) |
+| **β** | Length scale | 7×10²³ m | m | Anchored to the void radius distribution (Sutter et al. 2012 SDSS DR7 void radii; ~22.7 Mpc) |
+| **τ** | Time scale | 13.0 | Gyr | Synchronised to the cosmic age |
+| **β_eos** | EOS parameter | 0.573 | dimensionless | Phenomenological fit (QCD critical amplitudes as physics analogue) |
 
 The elastic modulus E = (2/α²) ρ_c c² = 9.1×10⁻¹⁰ Pa is derived from α and the background critical density and appears in the Params_Observational sheet alongside f_kick (derived) and κ (observational anchor, structurally related to f_kick).
 
-**Status:** Independently measured or derived from universal principles. Fixed after initial calibration. **Not adjusted to fit validation tests.**
+**Status:** One anchored, one frozen (not independently measured), one synchronised, one fitted; see the provenance column. All four are frozen before the validation pass. **Not adjusted to fit validation tests.**
 
 #### 3. **Observational Anchors** (Params_Observational sheet)
 External measurements with documented uncertainties and DOIs:
@@ -199,28 +214,28 @@ External measurements with documented uncertainties and DOIs:
 
 ---
 
-### The Zero-Free-Parameter Claim
+### Parameter Provenance and Freezing
 
 **What this means:**
 
 1. **All values loaded from workbook** - No constants embedded in code
-2. **Fixed reference structure** - Parameters set by calibration, then held constant
-3. **No post-hoc fitting** - Validation pillars P1-P13 use pre-established parameters
+2. **Fixed reference structure** - The four structural constants (one anchored to the void radius distribution, one a frozen void-motivated coupling not independently measured, one synchronised to the cosmic age, one a phenomenological fit) are frozen, then held constant
+3. **No post-hoc fitting** - Validation pillars P1-P13 use the pre-established constants
 4. **Full reproducibility** - Identical inputs → identical outputs
-5. **Complete provenance** - Every value traceable to measurement or derivation
+5. **Complete provenance** - Every value traceable to its anchor, freeze, synchronisation, or fit as stated above
 
 **Contrast with standard cosmological models:**
 
 | Aspect | MTDF | ΛCDM |
 |--------|------|------|
-| **Fundamental parameters** | 4 (α, β, τ, β_eos) | ~6 (Ωₘ, Ωᴋ, H₀, σ₈, nₛ, τ_reion) |
+| **Structural constants** | 4 (α, β, τ, β_eos), of differing epistemic status (anchored / frozen / synchronised / fitted) | ~6 (Ωₘ, Ωᴋ, H₀, σ₈, nₛ, τ_reion) |
 | **Exotic components** | None | Dark matter + dark energy (~95% of universe) |
 | **Direct observability** | All terms reference measured quantities | Dark sector unobserved |
 | **High-z tensions** | Resolved (P10/P10B pass) | JWST crisis (bright early galaxies) |
 | **Galaxy dynamics** | Explained (P1/P1B pass) | Requires dark matter halos |
-| **Parameter adjustment** | Fixed after calibration | Often re-fitted for new datasets |
+| **Parameter adjustment** | Frozen before the validation pass | Often re-fitted for new datasets |
 
-MTDF achieves superior statistical performance (scalar χ²/ν = 0.11, combined χ²/ν = 1.17 vs ΛCDM's 58.5 on scalars) using **fewer, empirically grounded parameters** and **no unobserved components**.
+MTDF achieves strong statistical performance (14/14 counted scalar pillars pass (the dashboard displays the combined tally 17/19 + 2 (cont.)), combined χ²/ν = 1.17 vs ΛCDM's 58.5 on scalars, the latter being a scalar-pillar re-scoring of ΛCDM through the MTDF pipeline; not directly comparable, see MTDF_06) using **four frozen structural constants** and **no unobserved components**.
 
 ---
 
@@ -232,7 +247,7 @@ MTDF achieves superior statistical performance (scalar χ²/ν = 0.11, combined 
 3. An observational measurement (with DOI)
 4. A physical constant (CODATA/IAU)
 
-**Falsifiability:** MTDF makes specific, testable predictions. Parameters cannot be arbitrarily adjusted—they are fixed by independent measurements.
+**Falsifiability:** MTDF makes specific, testable predictions. The structural constants are frozen before the validation pass and are not adjusted per test.
 
 **Parsimony:** MTDF explains diverse phenomena (galactic rotation, cluster dynamics, CMB anomalies, high-z structure formation) with a unified field framework, without invoking separate exotic components for each challenge.
 
@@ -252,7 +267,7 @@ MTDF achieves superior statistical performance (scalar χ²/ν = 0.11, combined 
 5. Catalog systematic (inclination, distance, M/L): 0.007 dex
 6. **Final target:** 0.1743 ± 0.011 dex (quadrature sum)
 
-**Verification:** Derivation values above are cross-checked in `data/DB_Workbook_STRICT_V18.xlsx`
+**Verification:** Derivation values above are cross-checked in `data/DB_Workbook_STRICT_V19.xlsx`
 
 ### All Other Pillars
 
@@ -263,13 +278,13 @@ Each pillar's target value includes:
 - Peer-reviewed source DOI
 - Notes on any processing/corrections
 
-See `data/DB_Workbook_STRICT_V18.xlsx` → **Pillar_Targets** sheet.
+See `data/DB_Workbook_STRICT_V19.xlsx` → **Pillar_Targets** sheet.
 
 ---
 
 ## Workbook Structure
 
-The Excel workbook (`data/DB_Workbook_STRICT_V18.xlsx`) is the **single source of truth** for all validation data.
+The Excel workbook (`data/DB_Workbook_STRICT_V19.xlsx`) is the **single source of truth** for all validation data.
 
 ### Sheets:
 
@@ -283,9 +298,11 @@ The Excel workbook (`data/DB_Workbook_STRICT_V18.xlsx`) is the **single source o
 8. **Params_Units** - Unit conversion factors
 9. **Params_Constants** - Physical constants (c, G, etc.)
 10. **Params_Observational** - Observational inputs (redshifts, masses)
-11. **Params_Fundamental** - **The 4 core MTDF parameters**
+11. **Params_Fundamental** - **The 4 core MTDF structural constants**
 12. **Params_Coefficients** - Derived coefficients
 13. **UI_Tooltips** - Dashboard tooltip content
+14. **Pillar_Vector_Config** - Vector pillar configuration (datasets, paths, options)
+15. **Vector_Pillar_Literature** - Literature reference values for the vector pillars
 
 ---
 
@@ -305,15 +322,15 @@ Where:
 - ν = degrees of freedom
 
 **MTDF Results:**
-- Scalar pillars: χ² = 1.673, N = 15 → χ²/ν = 0.11
-- Combined strict: χ² = 2038.77, DOF = 1745 → χ²/ν = 1.17
+- Scalar pillars: 14/14 counted scalar pillars pass at 1σ (the dashboard displays the combined tally 17/19 + 2 (cont.)); the S8 and fσ8 rows are shown as "(cont.)" PREDICTION-CONTESTED and are excluded from the strict χ²
+- Combined strict: χ²/ν = 1.17, DOF = 1741
 
 **Interpretation:**
 - χ²/ν ≈ 1 indicates excellent fit
 - χ²/ν < 0.5 suggests possible overestimated uncertainties
 - χ²/ν > 2 indicates poor fit or underestimated uncertainties
 
-The scalar χ²/ν = 0.11 and combined χ²/ν = 1.17 indicate **exceptional agreement** between theory and observation.
+The 14/14 counted scalar passes and combined χ²/ν = 1.17 indicate **exceptional agreement** between theory and observation.
 
 ### Z-Score Analysis
 
@@ -325,9 +342,9 @@ z = (prediction - target) / σ_target
 **Pass criterion:** |z| ≤ 1.0 (within 1σ)
 
 **MTDF Results:**
-- Max |z| = 0.94 (P1)
-- 19/20 total tests pass (95%)
-- All but one prediction within 1σ of observations
+- 14/14 counted scalar pillars pass at 1σ (the dashboard displays the combined tally 17/19 + 2 (cont.))
+- The S8 and fσ8 rows are shown as "(cont.)" PREDICTION-CONTESTED; they are never counted as passes and never hidden
+- Combined strict χ²/ν = 1.17 (DOF = 1741)
 
 ---
 
@@ -335,24 +352,27 @@ z = (prediction - target) / σ_target
 
 ### Exact Reproduction
 
-To reproduce the exact results in `output/Validation_Dashboard_V74.html`:
+To reproduce the exact results in `output/Validation_Dashboard_V75.html`:
 
 ```bash
 cd code
 python run_validate.py \
-    --workbook ../data/DB_Workbook_STRICT_V18.xlsx \
+    --workbook ../data/DB_Workbook_STRICT_V19.xlsx \
     --out ../output/My_Dashboard.html \
     --diag ../output/My_Diagnostics.csv
 ```
 
-Expected output should match byte-for-byte (except timestamps).
+This writes to `My_Dashboard.html` / `My_Diagnostics.csv` so the shipped V75
+baselines are never overwritten. Compare against the shipped
+`Validation_Dashboard_V75.html` / `Diagnostics.csv`: the output should match
+byte-for-byte (except timestamps).
 
 ### Verification Scripts
 
 Run the audit tools to verify data integrity:
 
 ```bash
-cd verification
+cd scripts
 python audit_workbook.py
 python compare_workbook_dashboard.py
 ```
@@ -376,8 +396,8 @@ The dashboard includes predictions from standard cosmological models for compari
 - **SIDM** (Self-Interacting Dark Matter) - Halo structure
 
 **All comparison models fail significantly:**
-- Best alternative: EDE with χ²/ν = 74.1 (732× worse than MTDF)
-- ΛCDM: χ²/ν = 58.5, passes only 4/13 tests
+- Best alternative: EDE with a substantially worse fit (χ²/ν = 74.1 vs 0.12 on the scalar pillars)
+- ΛCDM: χ²/ν = 58.5 (scalar-pillar re-scoring through the MTDF pipeline; not directly comparable, see MTDF_06); dashboard row tally 5/19 passes
 - Most models cannot even make predictions for many tests (N/A entries)
 
 ---
@@ -427,22 +447,22 @@ No server required - pure client-side HTML/CSS/JavaScript.
 ## FAQ
 
 ### Q: Can I modify parameter values?
-**A:** Yes! Edit values in `data/DB_Workbook_STRICT_V18.xlsx` and regenerate. The dashboard will automatically reflect changes.
+**A:** Yes! Edit values in `data/DB_Workbook_STRICT_V19.xlsx` and regenerate. The dashboard will automatically reflect changes.
 
 ### Q: How long does validation take?
 **A:** ~2-5 seconds on modern hardware.
 
 ### Q: What if I get different results?
-**A:** Ensure you're using the exact workbook version (V18). Run verification scripts to diagnose.
+**A:** Ensure you're using the exact workbook version (V19). Run verification scripts to diagnose.
 
 ### Q: Can I add new tests?
 **A:** Yes, by adding rows to Pillar_Targets and Pillar_Formulas sheets. See workbook structure.
 
 ### Q: Where are the formulas defined?
-**A:** `data/DB_Workbook_STRICT_V18.xlsx` → **Pillar_Formulas** sheet contains both LaTeX and Python expressions.
+**A:** `data/DB_Workbook_STRICT_V19.xlsx` → **Pillar_Formulas** sheet contains both LaTeX and Python expressions.
 
-### Q: What's the difference between V74 and V18?
-**A:** V74 is the theory/dashboard version identifier. V18 is the current workbook version.
+### Q: What's the difference between V75 and V19?
+**A:** V75 is the theory/dashboard version identifier. V19 is the current workbook version.
 
 ---
 
@@ -466,8 +486,8 @@ DOI: 10.1093/mnras/stad2762
 
 For questions about:
 - **Code functionality:** See inline comments in `code/run_validate.py`
-- **Theoretical framework:** See `papers/*.html` (repository root)
-- **Data sources:** See `data/DB_Workbook_STRICT_V18.xlsx` (Pillar_Targets sheet for DOIs)
+- **Theoretical framework:** See `papers/HTML/*.html` (repository root)
+- **Data sources:** See `data/DB_Workbook_STRICT_V19.xlsx` (Pillar_Targets sheet for DOIs)
 
 ---
 
@@ -475,16 +495,17 @@ For questions about:
 
 **Code:** GPL-3.0 License (see repository root LICENSE)
 **Data:** SPARC data courtesy of Lelli et al. 2016 (AJ 152:157)
-**Theory:** Mesche's Tensor Dynamics Framework (MTDF) V74
+**Theory:** Mesche's Tensor Dynamics Framework (MTDF) V75
 
 ---
 
 ## Version History
 
-- **V18/V74** (2025-12): Current workbook/dashboard version with all 15 pillars
+- **V19/V75** (2026-07): Current workbook/dashboard version with all 15 scalar pillars (14 counted; S8 carried as PREDICTION-CONTESTED)
+- **V18/V74** (2025-12): Previous workbook/dashboard generation. The V18 workbook is retained in this tree as the archived protocol baseline; the V74 dashboard is not shipped and remains archived in the v1.1.6 Zenodo record (10.5281/zenodo.20629767)
 - **V17** (2025-09-15): Previous workbook version
 - **V16** (2025-09-04): Earlier iteration
-- **V74**: Current theory identifier
+- **V75**: Current theory identifier
 
 ---
 
@@ -518,6 +539,6 @@ See workbook **Pillar_Formulas** sheet for all 15 formulas.
 
 **End of README**
 
-*Last updated: December 2025*
-*MTDF Validation Framework V74*
+*Last updated: July 2026*
+*MTDF Validation Framework V75*
 *Author: Ingo Mesche, Independent Researcher, Malta*

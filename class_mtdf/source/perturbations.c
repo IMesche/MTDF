@@ -6614,9 +6614,14 @@ int perturbations_einstein(
     if (ppt->gauge == synchronous) {
 
       /* first equation involving total density fluctuation */
-      /* MTDF: apply μ(a) modification to enhance gravitational source from matter */
+      /* MTDF PRIM-4A: the previous mu_mtdf factor on the 00-source (delta_rho) is a BUG.
+         In synchronous gauge the 00 constraint has a near-cancellation between k^2 eta and 1.5 a^2 delta_rho;
+         multiplying mu into only the matter side flips the sign of the growth response (gauge-dependent
+         artifact, PRIM-3: -2% synchronous vs +2% newtonian). Reverted to GR here. The correct covariant
+         mu(a) is applied in newtonian gauge (CDM Euler, matter feels mu*k^2*psi); a covariant synchronous
+         implementation requires an MGCAMB-class QS modification of the potential sector (deferred). */
       ppw->pvecmetric[ppw->index_mt_h_prime] =
-        ( k2 * s2_squared * y[ppw->pv->index_pt_eta] + 1.5 * a2 * mu_mtdf * ppw->delta_rho)/(0.5*a_prime_over_a);  /* h' */
+        ( k2 * s2_squared * y[ppw->pv->index_pt_eta] + 1.5 * a2 * ppw->delta_rho)/(0.5*a_prime_over_a);  /* h' (GR) */
 
       /* eventually, infer radiation streaming approximation for
          gamma and ur (this is exactly the right place to do it

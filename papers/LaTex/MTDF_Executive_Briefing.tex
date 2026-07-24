@@ -65,7 +65,7 @@
 % ============================================================
 \title{Executive Briefing: Mesche's Tensor Dynamics Framework (MTDF)}
 \author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
-\date{V74 / June 2026}
+\date{V75 / July 2026}
 
 \begin{document}
 \maketitle
@@ -84,13 +84,13 @@ Only results explicitly labelled as validation targets are used as evidence for 
 \end{mdframed}
 
 \section{The Premise}
-For decades, observational anomalies in cosmology have been resolved by postulating invisible compositional components (Cold Dark Matter and Dark Energy). Mesche's Tensor Dynamics Framework (MTDF) proposes a dynamic alternative: spacetime acts as an elastic medium characterised by an intrinsic stress-energy tensor $\Sigma_{\mu\nu}$. By introducing just four structural parameters of differing epistemic status (see FAQ 4; including a coherence length $\beta = 22.7$ Mpc) plus the derived elastic modulus $E = (2/\alpha^2)\,\rho_c\,c^2 = 9.1 \times 10^{-10}$ Pa, MTDF recovers the cosmic expansion history and galactic dynamics without latent particle sectors.
+For decades, observational anomalies in cosmology have been resolved by postulating invisible compositional components (Cold Dark Matter and Dark Energy). Mesche's Tensor Dynamics Framework (MTDF) proposes a dynamic alternative: spacetime acts as an elastic medium characterised by an intrinsic stress-energy tensor $\Sigma_{\mu\nu}$. By introducing just four structural parameters of differing epistemic status (see FAQ 4; including a strain-lever length scale $\beta = 22.7$ Mpc) plus the derived elastic modulus $E = (2/\alpha^2)\,\rho_c\,c^2 = 9.1 \times 10^{-10}$ Pa, MTDF recovers the cosmic expansion history and galactic dynamics without latent particle sectors.
 
 \section{The Reproducible Evidence}
 This framework is accompanied by a fully reproducible, GPU-accelerated computational pipeline encompassing modified Boltzmann solvers (class\_\allowbreak{}mtdf) and full MCMC chains. Key empirical results include:
 
 \subsection{CMB Consistency}
-MTDF remains consistent with the full Planck 2018 plik TTTEEE + low-$\ell$ + lensing likelihood as an external consistency check. Full MCMC runs yield a $\Delta\chi^2 = +0.63$ compared to $\Lambda$CDM, demonstrating that the framework is consistent with early-universe physics within the precision and assumptions of this likelihood comparison.
+MTDF remains consistent with the full Planck 2018 plik TTTEEE + low-$\ell$ + lensing likelihood as an external consistency check. Full MCMC runs against a matched $\Lambda$CDM control chain (identical binary, likelihoods, priors, and stop rules) yield $\Delta\chi^2 = -1.29$ at bounded best fits. This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation. The framework is consistent with early-universe physics: Planck 2018 does not distinguish MTDF from $\Lambda$CDM.
 
 \subsection{The Dual-Epoch $H_0$ Mechanism}
 MTDF predicts an early-universe energy injection of approximately $0.33\%$ (estimated geometrically as $\gamma_{\text{geom}} = 1/12$: one exact identity plus two order-unity heuristic factors; order-unity theoretical uncertainty), shifting the global CMB $H_0$ to $\approx 67.45$ km/\allowbreak{}s/\allowbreak{}Mpc. Simultaneously, local void stress depletion enhances local measurements; the result is consistent with SH0ES conditional on the depth of the local underdensity (a deep KBC-like void gives $H_{\text{local}} = 73.1 \pm 1.0$ km/\allowbreak{}s/\allowbreak{}Mpc, within $1\sigma$ of SH0ES; shallow reconstructions give $\approx 70$--$71$). MTDF does not predict the void itself.
@@ -100,26 +100,26 @@ The relevant classification is therefore not simply one $H_0$ value against anot
 \subsection{Galactic Dynamics with a Frozen Parameter Set}
 Using a frozen parameter set (no per-galaxy fitting), the framework reproduces the SPARC dataset rotation curves with an RMS log velocity scatter of 0.185 dex. In the tested galaxy-galaxy lensing implementations, it gives lower residuals than the corresponding $\Lambda$CDM NFW baseline profiles across KiDS and SDSS comparisons. These comparisons should be read as model-implementation tests, not as a final exclusion of the full $\Lambda$CDM modelling space.
 
-\subsection{The $S_8$ Tension Reduction}
-The derived $S_8$ shifts from $0.830 \pm 0.013$ ($\Lambda$CDM) to $0.802 \pm 0.013$ (MTDF), moving toward weak-lensing measurements (KiDS-1000, DES-Y3).
+\subsection{The $S_8$ Posture}
+The derived $S_8$ is $0.8473 \pm 0.0138$ (native, sealed v2 posterior) against $0.830 \pm 0.013$ for $\Lambda$CDM: MTDF predicts a sharp, \emph{higher} clustering amplitude, in tension with $\Lambda$CDM-compressed weak-lensing inferences (KiDS-1000, DES-Y3); the sealed posture is S8-WORSENED. Whether those compressions represent the true amplitude in an MTDF universe is under preregistered adjudication (FWD-S8), and the late-time growth history is a registered, falsifiable prediction (GH-1).
 
 \subsection{Solar System Safety}
-MTDF's structural suppression ensures all Post-Newtonian (PPN) parameters remain safe by factors exceeding $10^{20}$ at scales $< 1$ AU. Wide binary tests are consistent with effectively Newtonian dynamics ($\gamma = 1.10 \pm 0.01$, below the 1.15 threshold; $\gamma$ tracks the contamination fraction (r = 0.99) and falls to 1.06--1.08 under quality cuts). This constitutes a clean external discriminator: MTDF and acceleration-threshold models (e.g. MOND) agree on galaxy-scale phenomenology but differ sharply for wide binaries, where MTDF predicts Newtonian behaviour because the stress field is sourced by galaxy-integrated mass, not by individual stellar systems.
+MTDF's structural suppression keeps all Post-Newtonian (PPN) parameters safely below observational bounds: $\gamma - 1 \approx 2\times10^{-8}$, three orders of magnitude under the Cassini bound $2.3\times10^{-5}$ (sealed safety ledger). Wide binary tests are consistent with effectively Newtonian dynamics ($\gamma = 1.10 \pm 0.01$, below the 1.15 threshold; $\gamma$ tracks the contamination fraction (r = 0.99) and falls to 1.06--1.08 under quality cuts). This remains an external discriminator: MTDF and acceleration-threshold models (e.g. MOND) agree on galaxy-scale phenomenology but differ for wide binaries, where MTDF predicts an EFE-modulated transition (onset near $\sim 8.6$ kAU) rather than a MOND-like universal boost; the current observational situation is mutually contested between datasets, and the row is carried as PREDICTION-STATED / DATA-CONTESTED in the safety ledger.
 
 \section{Falsifiable Prediction}
-MTDF predicts that Type Ia Supernova distance residuals should exhibit an environment-linked transition at low redshift, sharply confined to the stress-field coherence scale ($\beta \approx 23$ Mpc, corresponding to $z \approx 0.04$), rather than a uniform global correlation. A merged analysis of 4,188 supernovae (Pantheon+, ZTF DR2, Foundation DR1) across three independent void catalogues (VoidFinder, REVOLVER, VIDE) is consistent with this: the global constant-$\gamma$ model is null, while a piecewise transition at $z \approx 0.04$ yields $\Delta\chi^2 = 36$--$39$ ($p < 0.001$, all three catalogues; 36.8 nominal, diagonal covariance). SALT2 population controls (stretch, colour) shift the result by less than 0.3$\sigma$, and the same physical supernovae drive the signal across all three void reconstructions.
+MTDF predicts that Type Ia Supernova distance residuals should exhibit an environment-linked transition at low redshift, sharply confined below $z \approx 0.04$, rather than a uniform global correlation; the conjectured link to the strain-lever length scale $\beta = 22.7$ Mpc remains a hypothesis (the transition scale itself is comoving \~{}170 Mpc). A merged analysis of 4,188 supernovae (Pantheon+, ZTF DR2, Foundation DR1) across three independent void catalogues (VoidFinder, REVOLVER, VIDE) is consistent with this: the global constant-$\gamma$ model is null, while a piecewise transition at $z \approx 0.04$ yields $\Delta\chi^2 = 36$--$39$ ($p < 0.001$, all three catalogues; 36.8 nominal, diagonal covariance). SALT2 population controls (stretch, colour) shift the result by less than 0.3$\sigma$, and the same physical supernovae drive the signal across all three void reconstructions.
 
 \section{Data and code availability}
 The complete MTDF reproducibility package, including the modified CLASS solver
-(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+(\texttt{class\_\allowbreak{}mtdf}), the V19 strict validation workbook, the
 \texttt{{\small\protect\path{run_validate.py}}} pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{{\small\protect\path{10.5281/zenodo.19741058}}};
-this release, \texttt{v1.1.6}, DOI
-\href{https://doi.org/10.5281/zenodo.20629767}{{\small\protect\path{10.5281/zenodo.20629767}}})
+this release, \texttt{v1.1.7}, DOI
+\href{https://doi.org/10.5281/zenodo.21525855}{{\small\protect\path{10.5281/zenodo.21525855}}})
 and mirrored on GitHub at
 \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
-The \texttt{v1.1.6} Git tag corresponds to the archived Zenodo release. All
+The \texttt{v1.1.7} Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level \texttt{{\small\protect\path{README.md}}}.
 
@@ -146,22 +146,22 @@ MTDF does not require a particle dark matter component at late times and on gala
 MTDF is constructed to be effectively degenerate with $\Lambda$CDM at early times. The model reproduces the observed CMB power spectrum using a derived early-field energy fraction ($f_{\text{kick}} \approx 0.33\%$), without calibrating parameters on CMB data. CMB observations are treated as external validation, not input.
 
 \subsection{What are the free parameters of MTDF?}
-MTDF has four fundamental parameters: $\alpha$, $\beta$, $\tau$, and $\beta_{\text{eos}}$, and they do not share a single epistemic status. The coherence length $\beta$ is anchored to an independent observation (the void radius distribution); the coupling $\alpha$ is a frozen, void-motivated value that is not independently measured; the relaxation time $\tau$ is synchronised to the cosmic age; and the equation-of-state parameter $\beta_{\text{eos}}$ is a phenomenological fit. None is calibrated on CMB data. Additional quantities, including the elastic modulus $E$ and photon coupling $\kappa$, are derived or theory-motivated and are not free parameters.
+MTDF has four fundamental parameters: $\alpha$, $\beta$, $\tau$, and $\beta_{\text{eos}}$, and they do not share a single epistemic status. The strain-lever length scale $\beta$ is anchored to an independent observation (the void radius distribution); the coupling $\alpha$ is a frozen, void-motivated value that is not independently measured; the relaxation time $\tau$ is synchronised to the cosmic age; and the equation-of-state parameter $\beta_{\text{eos}}$ is a phenomenological fit. None is calibrated on CMB data. Additional quantities, including the elastic modulus $E$ and photon coupling $\kappa$, are derived or theory-motivated and are not free parameters.
 
 \subsection{How does MTDF differ from MOND and other modified gravity models?}
-MTDF differs in both mechanism and predictions. In particular: MTDF does not introduce an acceleration threshold; MTDF predicts Newtonian behaviour in wide binaries; and MTDF produces environment-dependent effects tied to large-scale structure. These distinctions provide direct observational discriminators between MTDF and MOND-like frameworks.
+MTDF differs in both mechanism and predictions. In particular: MTDF does not introduce an acceleration threshold; MTDF predicts an EFE-modulated wide-binary transition (onset near $\sim 8.6$ kAU) rather than a MOND-like universal boost (the observational record is contested; PREDICTION-STATED / DATA-CONTESTED); and MTDF produces environment-dependent effects tied to large-scale structure. These distinctions provide direct observational discriminators between MTDF and MOND-like frameworks.
 
 \subsection{Does MTDF make new, testable predictions?}
-Yes. The framework predicts: a correlation between supernova residuals and large-scale environment; a sharp transition in this signal at low redshift ($z \approx 0.04$); null deviations from Newtonian dynamics in wide binaries; and a method-dependent hierarchy in $H_0$ measurements. These predictions are falsifiable with current or near-future datasets.
+Yes. The framework predicts: a correlation between supernova residuals and large-scale environment; a sharp transition in this signal at low redshift ($z \approx 0.04$); near-Newtonian wide-binary behaviour over most of the sampled range, with an EFE-modulated transition setting in near $\sim 8.6$ kAU (PREDICTION-STATED / DATA-CONTESTED); and a method-dependent hierarchy in $H_0$ measurements. These predictions are falsifiable with current or near-future datasets.
 
 \subsection{Is MTDF consistent with Solar System tests?}
-Yes. The predicted deviations from General Relativity at Solar System scales are suppressed by more than 20 orders of magnitude, well below current experimental sensitivity.
+Yes. The predicted deviations from General Relativity at Solar System scales sit orders of magnitude below current experimental sensitivity (PPN $\gamma - 1 \approx 2\times10^{-8}$ against the Cassini bound $2.3\times10^{-5}$; SEP $\eta \approx 2\times10^{-8}$ against the LLR bound $4.4\times10^{-4}$).
 
 \subsection{Does MTDF resolve the Hubble tension?}
-MTDF provides a physical mechanism that produces a dual-epoch behaviour in the expansion rate. Early-universe observables remain consistent with CMB-inferred values, while late-time, environment-sensitive measurements naturally produce higher local $H_0$ values. This leads to a method-dependent hierarchy that matches current observational patterns.
+MTDF provides a physical mechanism that produces a dual-epoch behaviour in the expansion rate. Early-universe observables remain consistent with CMB-inferred values, while late-time, environment-sensitive measurements naturally produce higher local $H_0$ values, conditional on the depth of the local underdensity; shallow reconstructions give roughly 70 to 71 km/\allowbreak{}s/\allowbreak{}Mpc. This leads to a method-dependent hierarchy that matches current observational patterns.
 
 \subsection{What would falsify MTDF?}
-MTDF would be falsified if: no statistically significant environment-dependent signal is observed in low-redshift supernova data; no transition is observed near $z \approx 0.04$ in sufficiently large samples; or wide binary systems show sustained deviations from Newtonian dynamics. These conditions are explicitly testable.
+MTDF would be falsified if: no statistically significant environment-dependent signal is observed in low-redshift supernova data; no transition is observed near $z \approx 0.04$ in sufficiently large samples; or the EFE-modulated wide-binary transition near $\sim 8.6$ kAU is confirmed absent at decisive precision; a sustained, confirmed MOND-like universal boost in wide binaries would equally contradict the prediction. These conditions are explicitly testable.
 
 \subsection{What is the minimal claim of MTDF?}
 MTDF proposes that a single, physically defined spacetime stress field can account for both cosmological expansion and galaxy-scale dynamics, while remaining consistent with current high-precision observations and making testable predictions at low redshift.

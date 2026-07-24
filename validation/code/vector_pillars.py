@@ -1,6 +1,6 @@
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 
 """
 vector_pillars.py
@@ -554,9 +554,12 @@ def solve_growth_ode(params, mu_func, a_grid=None, a_init=1e-3):
         return H0 * np.sqrt(Omega_m / a**3 + Omega_L)
 
     def dH_da(a):
-        """dH/da"""
+        """dH/da. From H^2 = H0^2(Om a^-3 + OL): 2H dH/da = -3 H0^2 Om a^-4,
+        so dH/da = -(3/2) H0^2 Om / (a^4 H). (Fixed 2026-07-24: previous code
+        divided -1.5 by 2H as well, halving the Hubble-drag correction and
+        suppressing growth ~20% in fsigma8; masked historically by amplitude fitting.)"""
         H = H_of_a(a)
-        return H0**2 * (-1.5 * Omega_m / a**4) / (2 * H)
+        return H0**2 * (-3.0 * Omega_m / a**4) / (2 * H)
 
     def Omega_m_of_a(a):
         """Matter density parameter Ω_m(a)"""

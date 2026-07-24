@@ -109,7 +109,7 @@ def _check_workbook_integrity(db) -> str:
         elif hasattr(db, 'data_dir') and db.data_dir:
             # Try common workbook names in data_dir
             data_dir = Path(db.data_dir)
-            for name in ['DB_Workbook_STRICT_V18.xlsx', 'DB_Workbook_STRICT_V17.xlsx']:
+            for name in ['DB_Workbook_STRICT_V19.xlsx', 'DB_Workbook_STRICT_V18.xlsx']:
                 candidate = data_dir / name
                 if candidate.exists():
                     wb_path = candidate

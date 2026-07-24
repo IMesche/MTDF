@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download Pantheon+ SN Ia data (Brout+2022, Scolnic+2022)
 # Source: https://github.com/PantheonPlusSH0ES/DataRelease
 # Size: ~33 MB

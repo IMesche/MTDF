@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download Foundation Supernova Survey DR1 (Foley+2018, Jones+2019)
 # Source: https://github.com/djones1040/Foundation_DR1
 # Reference: Jones et al. (2019, ApJ, 881, 19), arXiv:1811.09286

@@ -65,15 +65,14 @@
 % ============================================================
 \title{MTDF Validation Suite Appendix: Reproducibility Index and Test Outcomes}
 \author{Ingo Mesche\\ \small Independent Researcher, Malta \\ \small \texttt{imesche@outlook.com}}
-\date{V74 / June 2026}
+\date{V75 / July 2026}
 
 \begin{document}
 \maketitle
-\begin{center}\itshape Shared appendix referenced by MTDF Companion Papers Parts I to IV. Updated for Validation\_\allowbreak{}Dashboard\_\allowbreak{}V74.html.\end{center}
+\begin{center}\itshape Shared appendix referenced by MTDF Companion Papers Parts I to IV. Updated for Validation\_\allowbreak{}Dashboard\_\allowbreak{}V75.html.\end{center}
 
 
 
-Shared appendix referenced by MTDF Companion Papers Parts I to IV. Updated for Validation\_\allowbreak{}Dashboard\_\allowbreak{}V74.html.
 
 \begin{abstract}
 This appendix consolidates the reproducibility index, test scripts, and summary diagnostics for the MTDF validation suite. It provides the complete inventory of tests referenced across the companion papers (MTDF\_\allowbreak{}01 through MTDF\_\allowbreak{}08), including script locations, input data, and pass/\allowbreak{}fail outcomes under the V18 strict protocol.
@@ -87,7 +86,10 @@ This paper distinguishes between:
 (iii) diagnostic consistency checks, and
 (iv) speculative extensions.
 Only results explicitly labelled as validation targets are used as evidence for the core MTDF claim. Diagnostic and speculative sections are included to define future tests, not to claim established confirmation.
+
+\textbf{Conventions.} Growth and S8 material defers to the sealed v2 chains (the v1 Phase-5 report is retired as a gauge artifact; see MTDF\_\allowbreak{}01 Section 7.3 and MTDF\_\allowbreak{}07 Section 6).
 \end{mdframed}
+
 
 \section{Purpose and how to use this appendix}
 This appendix consolidates the reproducibility index and quick-look outcomes for the test scripts used across the MTDF companion papers.
@@ -100,7 +102,7 @@ Files referenced here:
   \item Companion Part II: Gravity sector and lensing validation (\textit{MTDF\_\allowbreak{}03}~[see companion paper])
   \item Companion Part III: Photon coupling, redshift, and early universe links
   \item Companion Part IV: Cosmological validation and high-energy test programme
-  \item Interactive dashboard: {\small\protect\path{Validation_Dashboard_V74.html}}
+  \item Interactive dashboard: {\small\protect\path{Validation_Dashboard_V75.html}}
 \end{itemize}
 
 \begin{mdframed}[linecolor=accent,linewidth=0.5pt,backgroundcolor=callout-bg,leftline=true,rightline=true,topline=true,bottomline=true,innerleftmargin=8pt,innerrightmargin=8pt,innertopmargin=6pt,innerbottommargin=6pt]
@@ -163,9 +165,9 @@ Part I (environment and independent distances) & SN Ia $\times$ void analysis & 
 {\small\protect\path{mtdf_sandage_loeb_drift_test.py}} & Future-only & Predicted environment split in \.{z} is far below current detection limits for the derived $\kappa$ value (f\textsubscript{kick}/3). \tabularnewline
 {\small\protect\path{mtdf_synthesis_plot.py}} & Key synthesis figure & Heuristic summary connecting multiple anomalies across environments. It is not, by itself, a measurement of $\kappa$. \tabularnewline
 {\small\protect\path{mtdf_lensing_rsd_test.py}} & Consistent & E\textsubscript{G} data are broadly consistent with GR at current precision; not a direct $\kappa$ probe. \tabularnewline
-{\small\protect\path{mtdf_cluster_mass_discrepancy_test.py}} & Interesting signal (MDR $\approx$ 1.14) & Potential dynamical versus lensing mass tension; interpretation depends on mass calibration and baryonic systematics. \tabularnewline
+{\small\protect\path{mtdf_cluster_mass_discrepancy_test.py}} & Historical exploratory row; under the frozen architecture $\eta$ = 1 gives M\textsubscript{dyn}/M\textsubscript{lens} = 1.000 exactly (see MTDF\_\allowbreak{}07, Test C5): this channel is not a discriminator. & Historical exploratory note; superseded by the $\eta$ = 1 result (MTDF\_\allowbreak{}07, Test C5). \tabularnewline
 {\small\protect\path{mtdf_ap_void_test.py}} & Consistent & Void shape residuals consistent with zero after RSD correction; $\kappa$ effects are below current precision. \tabularnewline
-{\small\protect\path{mtdf_growth_S8_analysis.py}} & See Part IV (Phase 5) & Growth and S8 are treated in Part IV via the full Planck MCMC (Phase 5); this script is an earlier exploratory check and its results are not used there. \tabularnewline
+{\small\protect\path{mtdf_growth_S8_analysis.py}} & See Part IV (Phase 5) & Growth and S8 are treated in Part IV via the sealed v2 full-Planck chains (the v1 Phase-5 report is retired as a gauge artifact); this script is an earlier exploratory check and its results are not used there. \tabularnewline
 {\small\protect\path{mtdf_bao_void_split_test.py}} & Exploratory, not in the papers & Exploratory diagnostic; BAO environment splits are not part of the validated core and are not presented in Part IV. \tabularnewline
 {\small\protect\path{mtdf_gw_siren_test.py}} & Exploratory, not in the papers & Exploratory diagnostic; GW standard-siren distance checks are not presented in the papers and carry no evidential weight here. \tabularnewline
 {\small\protect\path{step20_strong_lensing.py}} & See Part II & Time-delay distance chi\^{}2/\allowbreak{}nu = 0.77; isothermal slope gamma = 2.000 (structural prediction). See gravity-sector companion. \tabularnewline
@@ -184,28 +186,28 @@ This figure is intended as a high-level synthesis and motivates a unified search
 \caption{\textbf{Figure A.1.} The stress-redshift main sequence synthesis plot (generated by {\small\protect\path{mtdf_synthesis_plot.py}}).}
 \end{figure}
 
-\section{P1-SPARC test definition}
+\subsection{P1-SPARC test definition}
 \textbf{Statistic.} The P1-SPARC benchmark reports the aggregate root-mean-square of the log-space residual log\textsubscript{10}(v\textsubscript{obs}/v\textsubscript{model}) over the full SPARC sample (Lelli et al. 2016, AJ 152, 157; 175 galaxies). The achieved value is 0.185 dex against a target of 0.174 $\pm$ 0.011 dex, below the 0.25 dex reference threshold. This is an aggregate amplitude statistic, not a per-galaxy rotation-curve shape fit, and no per-galaxy $\chi$$^{2}$ of zero is claimed.
 
 \textbf{Model and parameters.} The MTDF velocity is v\textsubscript{model}(r) = v\textsubscript{bar}(r) $\sqrt{\,}$(1 + $\alpha$/(1 + r/\allowbreak{}$\beta$)) with $\alpha$ = 1.30 and $\beta$ = 22.7 Mpc frozen. Because $\beta$ greatly exceeds galactic radii, the enhancement is effectively a constant factor $\sqrt{\,}$(1+$\alpha$) $\approx$ 1.52 in velocity (a factor 1+$\alpha$ $\approx$ 2.3 in acceleration) across the rotation curve.
 
 \textbf{Mass-to-light treatment and error model.} v\textsubscript{bar} is built from the SPARC mass-model decomposition (gas, disk, bulge); the aggregate scatter is evaluated at the mass-model normalisation, and the residual uses the observed velocity uncertainties. For reference, a per-galaxy shape fit at the fixed SPARC-standard mass-to-light ratios (0.5 for disks, 0.7 for bulges at 3.6 $\mu$m) yields per-galaxy reduced chi-squared of order 10--280 (e.g. NGC~3198 $\approx$ 72, NGC~2403 $\approx$ 57, NGC~7331 $\approx$ 281), confirming that the constant enhancement reproduces the amplitude of the rotation curves but not their shape.
 
-\textbf{Shape diagnostic (radial acceleration relation).} On the radial acceleration relation, the observed data follow a low-acceleration log-log slope of $\approx$ 0.58 (consistent with the McGaugh et al. 2016 value near 0.5), whereas a constant enhancement predicts a slope of 1.0 (a parallel offset). MTDF therefore matches the approximate amplitude of the relation (median g\textsubscript{obs}/g\textsubscript{bar} $\approx$ 2.7 against a predicted 1 + $\alpha$ = 2.3) but not its curvature. Reproducing the low-acceleration curvature from the field equations is an open problem.
+\textbf{Shape diagnostic (radial acceleration relation).} On the radial acceleration relation, the observed data follow a low-acceleration log-log slope of $\approx$ 0.58 (consistent with the McGaugh et al. 2016 value near 0.5), whereas a constant enhancement predicts a slope of 1.0 (a parallel offset). MTDF therefore matches the approximate amplitude of the relation (median g\textsubscript{obs}/g\textsubscript{bar} $\approx$ 2.7 against a predicted 1 + $\alpha$ = 2.3) but not its curvature; the constant-enhancement parameterisation used here does not bend. The curvature is produced by the low-Q branch of the frozen unified action (MTDF\_\allowbreak{}01, Section 2A), which resolves the shape-level question; this appendix's parameterisation is retained as the historical effective description.
 
 \textbf{Scope.} The galaxy-scale pillars are treated as scalar benchmarks and are excluded from the V18 strict scoring totals, so the shape-level limitation above does not affect the strict vector results. Audit artefacts (per-galaxy table and the radial-acceleration-relation diagnostic) are provided in the reproducibility package under \texttt{validation/\allowbreak{}output/\allowbreak{}audit\_\allowbreak{}sparc/\allowbreak{}}.
 
 \section{Data and code availability}
 The complete MTDF reproducibility package, including the modified CLASS solver
-(\texttt{class\_\allowbreak{}mtdf}), the V18 strict validation workbook, the
+(\texttt{class\_\allowbreak{}mtdf}), the V19 strict validation workbook, the
 \texttt{{\small\protect\path{run_validate.py}}} pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI \href{https://doi.org/10.5281/zenodo.19741058}{{\small\protect\path{10.5281/zenodo.19741058}}};
-this release, \texttt{v1.1.6}, DOI
-\href{https://doi.org/10.5281/zenodo.20629767}{{\small\protect\path{10.5281/zenodo.20629767}}})
+this release, \texttt{v1.1.7}, DOI
+\href{https://doi.org/10.5281/zenodo.21525855}{{\small\protect\path{10.5281/zenodo.21525855}}})
 and mirrored on GitHub at
 \href{https://github.com/IMesche/MTDF}{github.com/\allowbreak{}IMesche/\allowbreak{}MTDF}.
-The \texttt{v1.1.6} Git tag corresponds to the archived Zenodo release. All
+The \texttt{v1.1.7} Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level \texttt{{\small\protect\path{README.md}}}.
 

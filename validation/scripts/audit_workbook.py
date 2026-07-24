@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """
-Audit script to extract all data from DB_Workbook_STRICT_V18.xlsx
+Audit script to extract all data from the workbook (default: DB_Workbook_STRICT_V19.xlsx)
 NO CHANGES - REPORTING ONLY
+
+Usage:
+    python audit_workbook.py [workbook_path]
+
+    workbook_path defaults to ../data/DB_Workbook_STRICT_V19.xlsx.
+    Pass ../data/DB_Workbook_STRICT_V18.xlsx to audit the archived V18 workbook.
 
 Author: Ingo Mesche
 Affiliation: Independent Researcher, Malta
-Date: December 2025
-Source of truth: DB_Workbook_STRICT_V18.xlsx, Validation_Dashboard_V74.html
+Date: July 2026
+Source of truth: DB_Workbook_STRICT_V19.xlsx, Validation_Dashboard_V75.html
 """
+import sys
 import pandas as pd
 import json
 from pathlib import Path
@@ -16,7 +23,7 @@ def audit_workbook(path):
     """Extract all sheets and key information from workbook"""
 
     print("="*80)
-    print("WORKBOOK AUDIT - DB_Workbook_STRICT_V18.xlsx")
+    print(f"WORKBOOK AUDIT - {Path(path).name}")
     print("="*80)
     print()
 
@@ -133,7 +140,8 @@ def audit_workbook(path):
     print("="*80)
 
 if __name__ == "__main__":
-    workbook_path = Path("../data/DB_Workbook_STRICT_V18.xlsx")
+    default_path = "../data/DB_Workbook_STRICT_V19.xlsx"
+    workbook_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(default_path)
     if not workbook_path.exists():
         print(f"❌ Workbook not found: {workbook_path}")
         exit(1)

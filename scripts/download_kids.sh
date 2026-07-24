@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download KiDS-1000 (DR4) weak lensing shape catalogue
 # Source: https://kids.strw.leidenuniv.nl/DR4/
 # Size: ~17 GB

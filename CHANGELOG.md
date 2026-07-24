@@ -5,8 +5,50 @@ and scientific corrections, textual and metadata changes, packaging, manifest
 regeneration, and reproducibility verification. Entries are factual and
 technical. Personal development history is out of scope.
 
-The submission package corresponds to theory version **V74** and validation
-workbook version **V18**.
+The submission package corresponds to theory version **V75** and validation
+workbook version **V19**.
+
+## [v1.1.7] (2026-07-24)
+
+Reserved Zenodo v1.1.7 DOI: 10.5281/zenodo.21525855 under concept DOI
+10.5281/zenodo.19741058.
+
+Release scope: cosmology sector re-derived from the corrected v2 chain;
+validation machinery hardened; papers V75.
+
+- Corrected covariant mu(a) (Newtonian gauge): the v1 Phase-5 chains are
+  superseded. sigma8 = 0.8265 +/- 0.0062; native S8 = 0.8473 +/- 0.0138;
+  sealed posture against published weak-lensing compressions: S8-WORSENED
+  (pre-registered three-posture adjudication; the adjudication executed only
+  on the completed chain).
+- Matched LambdaCDM control chain (identical binary, likelihoods, priors,
+  stop rules; three configuration deltas): Delta chi2 at bounded best fits
+  = -1.29 (MTDF -logL 1385.78 at k_f = 0.476 vs LambdaCDM 1386.42;
+  Delta AIC = +0.71). This is a maximum-likelihood comparison, not a Bayes
+  factor or Bayesian evidence calculation. Planck 2018 does not distinguish
+  MTDF from LambdaCDM. Control posterior reproduces the reference
+  Planck-LambdaCDM universe (S8 = 0.83004 +/- 0.01278).
+- Growth-history prediction registered (GH-1): fsigma8 excess +2.0 percent
+  (z = 1.5) rising to +4.1 percent (z = 0), frozen tables, falsifiable by
+  full-survey DESI/Euclid RSD and ACT/SPT lensing. Forward-modelling
+  programme preregistered (FWD-S8) with the control chain as
+  injection-recovery truth.
+- Validation engine: factor-2 error in the growth ODE Hubble-drag term
+  fixed; the engine now reproduces Boltzmann-code growth to better than
+  0.5 percent. Growth-pillar amplitude fitting retired; the sealed-amplitude
+  prediction scores chi2/nu = 0.92 against DR16 fsigma8.
+- Workbook V19: the P13 prediction is the sealed native S8 (the former
+  calibration-offset construction is retired). New verdict class
+  PREDICTION-CONTESTED for the S8 and fsigma8 rows: displayed "(cont.)",
+  counted in test denominators, never as passes, excluded from strict chi2.
+- Dashboard V75: 17/19 pass (89.5 percent) plus 2 PREDICTION-CONTESTED;
+  strict chi2/nu = 1.1699 (DOF = 1741).
+- Papers V75: unified CON-4B action and architecture presented in Paper 1;
+  relativistic gravity, lensing completion and safety ledger in Paper 3;
+  corrected cosmology and matched-control comparison in Papers 5 and 7;
+  Solar System margins stated from the sealed safety ledger; wide-binary
+  prediction stated as EFE-modulated and data-contested; beta relabelled
+  as the strain-lever length scale throughout.
 
 ## [v1.1.6] (2026-06-12)
 

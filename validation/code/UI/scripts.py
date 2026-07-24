@@ -571,7 +571,7 @@ function recalculate() {
   alert('To recalculate from workbook:\\n\\n' +
         '1. Open a terminal in the code/ directory\\n' +
         '2. Run:\\n\\n' +
-        '   python run_validate.py --workbook ../data/DB_Workbook_STRICT_V18.xlsx --out ../output/Validation_Dashboard_V74.html\\n\\n' +
+        '   python run_validate.py --workbook ../data/DB_Workbook_STRICT_V19.xlsx --out ../output/My_Dashboard.html\\n\\n' +
         '3. Refresh this page (F5) to see updated results\\n\\n' +
         'Note: Browser security prevents direct execution of local scripts.');
 }

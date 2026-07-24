@@ -3,11 +3,19 @@
 Compare workbook targets with dashboard HTML
 VERIFICATION ONLY - NO CHANGES
 
+Usage:
+    python compare_workbook_dashboard.py [workbook_path] [dashboard_path]
+
+    Defaults: ../data/DB_Workbook_STRICT_V19.xlsx and
+              ../output/Validation_Dashboard_V75.html.
+    Pass the V18 workbook and V74 dashboard paths to check the archived pair.
+
 Author: Ingo Mesche
 Affiliation: Independent Researcher, Malta
-Date: December 2025
-Source of truth: DB_Workbook_STRICT_V18.xlsx, Validation_Dashboard_V74.html
+Date: July 2026
+Source of truth: DB_Workbook_STRICT_V19.xlsx, Validation_Dashboard_V75.html
 """
+import sys
 import pandas as pd
 import re
 from pathlib import Path
@@ -47,13 +55,13 @@ def compare_sources():
     print("="*80)
     print()
 
-    # Load workbook
-    workbook_path = Path("../data/DB_Workbook_STRICT_V18.xlsx")
+    # Load workbook (optional CLI override, default V19)
+    workbook_path = Path(sys.argv[1]) if len(sys.argv) > 1 else Path("../data/DB_Workbook_STRICT_V19.xlsx")
     xl = pd.ExcelFile(workbook_path)
     wb_targets = xl.parse("Pillar_Targets", header=1)
 
-    # Load dashboard
-    dashboard_path = Path("../output/Validation_Dashboard_V74.html")
+    # Load dashboard (optional CLI override, default V75)
+    dashboard_path = Path(sys.argv[2]) if len(sys.argv) > 2 else Path("../output/Validation_Dashboard_V75.html")
     dash_targets = extract_dashboard_targets(dashboard_path)
 
     # Compare

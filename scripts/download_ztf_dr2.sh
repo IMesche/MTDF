@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download ZTF DR2 cosmology sample (Rigault+2024, Amenouche+2024)
 # Source: ztfcosmo Python package (https://github.com/ZwickyTransientFacility/ztfcosmo)
 # Reference: Rigault et al. (2024), arXiv:2409.04346

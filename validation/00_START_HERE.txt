@@ -4,18 +4,33 @@
 
 Author: Ingo Mesche
 Affiliation: Independent Researcher, Malta
-Date: December 2025
-Source of truth: DB_Workbook_STRICT_V18.xlsx, Validation_Dashboard_V74.html
+Date: July 2026
+Source of truth: DB_Workbook_STRICT_V19.xlsx, Validation_Dashboard_V75.html
 
 Welcome Reviewer!
 
 This package contains a complete, reproducible validation of the
 Mesche's Tensor Dynamics Framework (MTDF) against 15 independent
-scalar empirical tests plus 5 vector likelihood pillars.
+scalar empirical tests plus 4 strict vector likelihood pillars and
+1 CMB distance-prior diagnostic (excluded from strict totals).
 
 KEY RESULTS:
-  Scalar pillars:   chi^2/nu = 0.11  (15 tests, all pass at 1 sigma)
-  Combined strict:  chi^2/nu = 1.17  (DOF = 1745, includes vector data)
+  Scalar pillars:   14/14 counted scalar pillars pass at 1 sigma; the S8
+                    and fsigma8 rows are shown as "(cont.)"
+                    PREDICTION-CONTESTED and are never counted as passes
+                    (the dashboard displays the combined tally
+                    17/19 + 2 (cont.))
+  Combined strict:  chi^2/nu = 1.17  (DOF = 1741, includes vector data)
+
+NOTE ON EXTERNAL DATA:
+  Two datasets require manual placement because their providers do not
+  allow scripted download:
+    1. DESI BAO: place the files under validation/data/External/bao_desi/
+       (scripts/download_bao.sh prints the exact filenames and instructions)
+    2. DESI VAST voids: see scripts/download_desi_voids.sh
+  Without the DESI BAO files the combined strict chi^2/nu = 1.17 headline
+  cannot be regenerated; the shipped output/Validation_Dashboard_V75.html
+  contains the full result for inspection.
 
 ================================================================================
 QUICK START (5 minutes):
@@ -25,7 +40,7 @@ QUICK START (5 minutes):
    -> Open: QUICKSTART.md
 
 2. SEE RESULTS NOW:
-   -> Open: output/Validation_Dashboard_V74.html (in web browser)
+   -> Open: output/Validation_Dashboard_V75.html (in web browser)
 
 3. UNDERSTAND THE DATA:
    -> Read: README.md (complete documentation)
@@ -42,27 +57,40 @@ MTDF/
 |-- requirements.txt       <- Python dependencies
 |-- setup_environment.sh   <- One-command setup (venv + deps)
 |
-|-- papers/                <- Theoretical papers (HTML, self-contained)
-|   |-- MTDF_01 .. MTDF_07
-|   |-- Executive_Briefing_MTDF.html
-|   +-- MTDF_The_Mesche_Hypothesis_short.html
+|-- papers/                <- Theoretical papers
+|   |-- HTML/              <- Self-contained HTML renders
+|   |   |-- MTDF_01 .. MTDF_08
+|   |   |-- MTDF_Executive_Briefing.html
+|   |   +-- MTDF_The_Mesche_Hypothesis_short.html
+|   |-- LaTex/             <- LaTeX sources
+|   |-- PDF_from_Tex/      <- PDF builds of each paper
+|   |-- arxiv_zips/        <- arXiv submission packages
+|   +-- figures/           <- Shared paper figures
 |
 |-- validation/            <- Validation framework (YOU ARE HERE)
 |   |-- 00_START_HERE.txt  <- This file
 |   |-- QUICKSTART.md      <- Fast start guide (READ FIRST)
 |   |-- README.md          <- Detailed validation documentation
 |   |-- data/
-|   |   |-- DB_Workbook_STRICT_V18.xlsx  <- Master database
+|   |   |-- DB_Workbook_STRICT_V19.xlsx  <- Master database
+|   |   |-- DB_Workbook_STRICT_V18.xlsx  <- Frozen V18-era predecessor (archived)
 |   |   |-- sparc_clean.json             <- Galaxy rotation data
 |   |   +-- External/                    <- Downloaded datasets (via scripts/)
+|   |-- kappa_sensitivity.json <- Sensitivity check of the kappa coefficient on CMB distance observables
 |   |-- code/
 |   |   |-- run_validate.py    <- Main validation engine
+|   |   |-- vector_pillars.py  <- Vector pillar likelihood infrastructure (data loaders + chi^2)
+|   |   |-- vector_pillars_EFE.py <- EFE-corrected variant of the vector pillar infrastructure
+|   |   |-- tooltip_classification.json <- Classification data for dashboard tooltips (pillar + UI)
 |   |   |-- UI/                <- Dashboard generator
-|   |   +-- analysis/          <- SN x void analysis suite
+|   |   |-- analysis/          <- SN x void analysis suite
+|   |   +-- paper8/            <- MTDF_08 velocity-field scripts
+|   |-- scripts/           <- Workbook audit utilities
 |   +-- output/
-|       |-- Validation_Dashboard_V74.html  <- VIEW THIS FIRST!
+|       |-- Validation_Dashboard_V75.html  <- VIEW THIS FIRST!
 |       |-- Diagnostics.csv                <- Per-pillar breakdown
-|       +-- phase1/ .. phase6/             <- GPU validation outputs
+|       |-- phase1/ .. phase6/             <- GPU validation outputs (MTDF_07)
+|       +-- phase7_cf4_vpec/, phase8_2mtf_tf/  <- Velocity-field outputs (MTDF_08)
 |
 |-- gravity/               <- 24-step gravitational lensing analysis
 |   |-- run_all_steps.sh   <- Run full gravity pipeline
@@ -78,7 +106,9 @@ MTDF/
 |
 |-- mcmc_results/          <- MCMC configs and summary JSONs
 |
-+-- scripts/               <- Data download scripts (SHA256-verified)
++-- scripts/               <- Data download scripts (checksums for the core
+                              datasets via verify_checksums.sh; coverage
+                              listed in the script)
     |-- download_data.sh          <- All datasets (~19 GB)
     |-- download_pantheonplus.sh  <- Pantheon+ SNe
     |-- download_desi_voids.sh    <- DESI VAST voids
@@ -101,14 +131,20 @@ THE BOTTOM LINE:
 ================================================================================
 
 MTDF achieves:
-  - Scalar pillars: chi^2/nu = 0.11 (15 tests, all pass at 1 sigma)
-  - Combined strict: chi^2/nu = 1.17 (DOF = 1745, includes vector data)
-  - Only 4 fundamental parameters (empirically constrained)
+  - Scalar pillars: 14/14 counted scalar pillars pass at 1 sigma; the S8
+    and fsigma8 rows are shown as "(cont.)" PREDICTION-CONTESTED
+    (the dashboard displays the combined tally 17/19 + 2 (cont.))
+  - Combined strict: chi^2/nu = 1.17 (DOF = 1741, includes vector data)
+  - Only 4 structural constants, of differing epistemic status: one
+    anchored to the void radius distribution, one a frozen void-motivated
+    coupling not independently measured, one synchronised to the cosmic
+    age, one a phenomenological fit
   - No dark matter or dark energy required
 
 Standard LCDM model:
-  - chi^2/nu = 58.5 (577x worse)
-  - 4/13 tests passed (many tests inapplicable)
+  - chi^2/nu = 58.5 on scalar pillars (scalar-pillar re-scoring of LCDM
+    through the MTDF pipeline; not directly comparable, see MTDF_06)
+  - Dashboard row tally: 5/19 tests passed (many tests inapplicable)
   - Requires ~95% dark matter + dark energy
 
 ================================================================================
@@ -116,17 +152,17 @@ RECOMMENDED REVIEW SEQUENCE:
 ================================================================================
 
 FAST REVIEW (10 minutes):
-  1. Open validation/output/Validation_Dashboard_V74.html
+  1. Open validation/output/Validation_Dashboard_V75.html
   2. Read validation/QUICKSTART.md
   3. Read validation/README.md
 
 STANDARD REVIEW (1 hour):
   4. Read README.md (top-level, methodology)
-  5. Open validation/data/DB_Workbook_STRICT_V18.xlsx (inspect parameters)
-  6. Read papers/Executive_Briefing_MTDF.html
+  5. Open validation/data/DB_Workbook_STRICT_V19.xlsx (inspect parameters)
+  6. Read papers/HTML/MTDF_Executive_Briefing.html
 
 DEEP REVIEW (4+ hours):
-  7. Read papers/*.html (theory papers)
+  7. Read papers/HTML/*.html (theory papers)
   8. Run validation/code/run_validate.py (reproduce results)
   9. Inspect class_mtdf/MODIFICATIONS.md (Boltzmann code changes)
   10. Trace formula derivations in workbook
@@ -141,11 +177,14 @@ From the repository root:
   source venv/bin/activate
   cd validation/code
   python run_validate.py \
-      --workbook ../data/DB_Workbook_STRICT_V18.xlsx \
-      --out ../output/Validation_Dashboard_V74.html \
-      --diag ../output/Diagnostics.csv
+      --workbook ../data/DB_Workbook_STRICT_V19.xlsx \
+      --out ../output/My_Dashboard.html \
+      --diag ../output/My_Diagnostics.csv
 
-Should produce identical results (except timestamps).
+This writes to My_Dashboard.html / My_Diagnostics.csv so the shipped V75
+baselines are never overwritten. Compare against the shipped
+Validation_Dashboard_V75.html / Diagnostics.csv: the results should be
+identical (except timestamps).
 
 ================================================================================
 QUESTIONS?
@@ -153,13 +192,13 @@ QUESTIONS?
 
 See README.md FAQ section or:
   - Code questions: See comments in validation/code/run_validate.py
-  - Data questions: Inspect validation/data/DB_Workbook_STRICT_V18.xlsx
-  - Theory questions: See papers/*.html
+  - Data questions: Inspect validation/data/DB_Workbook_STRICT_V19.xlsx
+  - Theory questions: See papers/HTML/*.html
 
 ================================================================================
 
-Package created: April 2026
-MTDF Version: V74/V18
+Package created: July 2026 (release v1.1.7)
+MTDF Version: V75/V19
 Status: READY FOR PEER REVIEW
 
 ================================================================================

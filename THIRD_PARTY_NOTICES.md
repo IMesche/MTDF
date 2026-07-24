@@ -142,3 +142,15 @@ Small published supplementary data tables included directly in the repository:
 
 - **Location:** `validation/data/sparc_clean.json` (our cleaned version)
 - **Original:** Lelli, F. et al., "SPARC: Mass Models for 175 Disk Galaxies", AJ 152, 157 (2016)
+
+## Theoretical ancestry (v1.1.7)
+
+The relativistic completion of the MTDF gravity sector imports minimal structure from the
+Einstein-aether family of theories (Jacobson & Mattingly 2001, DOI: 10.1103/PhysRevD.64.024028;
+Jacobson 2007, arXiv:0801.1547) and from the Aether-Scalar-Tensor (AeST) construction
+(Zlosnik & Skordis 2021, DOI: 10.1103/PhysRevD.103.024052; Skordis & Zlosnik 2021,
+DOI: 10.1103/PhysRevLett.127.161302). The import is deliberately minimal: a constrained timelike
+alignment field near the general-relativistic aether limit, with kinetic normalisation restricted
+to the window stated in the papers. The full ancestry discussion, conditionality wording and
+citations are given in the master paper (Section 2A) and Companion Part II (lensing bridge and
+safety sections).

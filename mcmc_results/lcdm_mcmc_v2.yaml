@@ -1,0 +1,118 @@
+# ============================================================
+# Phase 5 v2 MATCHED LCDM CONTROL (author-authorised 2026-07-20)
+# Full Planck 2018: plik TTTEEE + lowl TT + lowl EE + lensing
+# LCDM control: MTDF mu(a)/EFE/k_f sectors REMOVED; everything else byte-matched to mtdf_mcmc_v2.yaml
+# ============================================================
+
+theory:
+  classy:
+    extra_args:
+      non linear: hmcode
+      mtdf: 'no'
+      gauge: newtonian  # PRIM-4A: covariant mu(a) validated in newtonian gauge (synchronous mu is buggy/disabled)
+      N_ncdm: 1
+      N_ur: 2.0328
+      # MTDF physics parameters (fixed from V18 calibration)
+    stop_at_error: false
+    speed: 2.2
+
+likelihood:
+  planck_2018_lowl.TT_clik:
+  planck_2018_lowl.EE_clik:
+  planck_2018_highl_plik.TTTEEE:
+  planck_2018_lensing.native:
+
+params:
+  logA:
+    prior:
+      min: 1.61
+      max: 3.91
+    ref:
+      dist: norm
+      loc: 3.05
+      scale: 0.001
+    proposal: 0.001
+    latex: \log(10^{10} A_\mathrm{s})
+    drop: true
+  A_s:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+  n_s:
+    prior:
+      min: 0.8
+      max: 1.2
+    ref:
+      dist: norm
+      loc: 0.965
+      scale: 0.004
+    proposal: 0.002
+    latex: n_\mathrm{s}
+  theta_s_100:
+    prior:
+      min: 0.5
+      max: 10
+    ref:
+      dist: norm
+      loc: 1.04092
+      scale: 0.0004
+    proposal: 0.0002
+    latex: 100\theta_\mathrm{s}
+  omega_b:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.0224
+      scale: 0.0001
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omega_cdm:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.12
+      scale: 0.001
+    proposal: 0.0005
+    latex: \Omega_\mathrm{c} h^2
+  tau_reio:
+    prior:
+      min: 0.01
+      max: 0.8
+    ref:
+      dist: norm
+      loc: 0.055
+      scale: 0.006
+    proposal: 0.003
+    latex: \tau_\mathrm{reio}
+  # Derived parameters
+  H0:
+    latex: H_0
+    min: 20
+    max: 100
+  sigma8:
+    latex: \sigma_8
+  Omega_m:
+    latex: \Omega_\mathrm{m}
+  m_ncdm:
+    value: 0.06
+    renames: mnu
+
+sampler:
+  mcmc:
+    max_tries: 1000
+    Rminus1_stop: 0.01          # convergence criterion
+    Rminus1_cl_stop: 0.02
+    max_samples: 200000         # hard stop
+    covmat: auto
+output: output_lcdm/lcdm_v2         # relative; enables checkpoint/resume
+
+# ============== LCDM CONTROL RIDERS (MTDF-4B ADDENDUM 10) ==============
+# MATCHED CONTROL: byte-derived from the frozen mtdf_mcmc_v2.yaml with EXACTLY three deltas:
+#   (1) theory extra_args: mtdf/mtdf_efe/mtdf_growth/mtdf_alpha/mtdf_beta_eos/mtdf_z_t removed, mtdf='no';
+#   (2) params: mtdf_k_f block removed; (3) output prefix -> output_lcdm/lcdm_v2. NOTHING else.
+# Same binary, same likelihoods, same priors on all shared parameters, same sampler stop rules.
+# Purpose: matched Delta chi2 vs sealed MTDF v2 + FWD-S8 C1 injection-recovery control.
+# NOTE: raw Delta chi2 is NOT a Bayes factor or evidence result (statement required in all reporting).

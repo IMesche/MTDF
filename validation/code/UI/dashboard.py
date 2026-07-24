@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 
 # SPDX-License-Identifier: MIT
 # UI/dashboard.py - dashboard generator
@@ -85,7 +85,7 @@ td.diagnostic-cell, th.diagnostic-cell * {
 
     def generate_javascript(): return "<script>function showTooltip(){}function hideTooltip(){};</script>"
     def generate_placeholder_scripts(): return ""
-    def generate_header_section(): return "<h1>MTDF V74 Validation</h1>"
+    def generate_header_section(): return "<h1>MTDF V75 Validation</h1>"
     def generate_summary_sections(pillar_count): return f"<p style='margin:4px 20px'>{pillar_count} pillars</p>"
     def generate_enhanced_footer(db, hash_func, env_func):
         return f"<footer style='margin:24px 20px;color:#94a3b8'>Environment: {env_func()}</footer>"
@@ -101,7 +101,7 @@ def _get_workbook_coefficient(token: str, default: float = None) -> float:
     Load a coefficient value from the workbook by its input_token.
 
     This enables the "zero hardcode" policy: all physics parameters
-    and thresholds come from DB_Workbook_STRICT_V18.xlsx.
+    and thresholds come from the current strict workbook (V19; V18 archived fallback).
 
     Args:
         token: The input_token identifier (e.g., 'CHI2_GOOD', 'CHI2_ACCEPTABLE')
@@ -112,9 +112,13 @@ def _get_workbook_coefficient(token: str, default: float = None) -> float:
     """
     try:
         import pandas as pd
-        wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
+        wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V19.xlsx"
         if not wb_path.exists():
-            wb_path = Path(__file__).parent.parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
+            wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
+        if not wb_path.exists():
+            wb_path = Path(__file__).parent.parent.parent / "data" / "DB_Workbook_STRICT_V19.xlsx"
+            if not wb_path.exists():
+                wb_path = Path(__file__).parent.parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
         if not wb_path.exists():
             return default
 
@@ -598,7 +602,7 @@ The Planck distance prior (R, ℓ<sub>A</sub>, ω<sub>b</sub>h²) is a compresse
 <strong>Why χ²/ν is large:</strong><br>
 • With no early field energy, H₀ = 70 km/s/Mpc shifts the angular acoustic scale θ<sub>*</sub> against the ΛCDM-calibrated prior, which produces strong tension in R and ℓ<sub>A</sub>.<br>
 • The purpose of this baseline row is to show the clean geometric tension with the ΛCDM distance prior when MTDF is forced to share the same early-time physics.<br><br>
-<strong>See the MTDF (EFE) row</strong> for MTDF's own prediction including its small, theory-fixed early field energy.
+<strong>With the theory-fixed early field energy applied</strong> (f<sub>kick</sub> = λ<sub>MTDF</sub>/24 ≈ 0.33%), this diagnostic improves to χ² = 439.0 (χ²/ν = 146.3); it remains ΛCDM-compressed and excluded from strict totals in either form.
 """
 
             # MTDF (EFE) CMB interpretation (with early field energy)
@@ -1296,7 +1300,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         <strong>Combined statistics (MTDF)</strong><br>
         Strict (the headline, CMB* distance prior excluded): χ²/ν = {excl_cmb_val}.<br>
         With the CMB* compressed-prior diagnostic added (not a validation score): χ²/ν = {combined_val}.<br>
-        The model-neutral CMB test is the full Planck TTTEEE + low-ℓ + lensing likelihood, reported at the top of the page: Δχ² = +0.63 relative to ΛCDM. The compressed distance prior above measures tension with the ΛCDM compression, not with the CMB data directly.
+        The model-neutral CMB test is the full Planck TTTEEE + low-ℓ + lensing likelihood, reported at the top of the page: Δχ² = −1.29 at matched bounded best fits, relative to ΛCDM. This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation. The compressed distance prior above measures tension with the ΛCDM compression, not with the CMB data directly.
         </p>
         """
         # First replace {{rows}} while still double-braced, then format
@@ -1388,7 +1392,11 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         """Load and render auxiliary formulas (F_EFE_*, etc.) from workbook."""
         try:
             import pandas as pd
-            wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
+            wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V19.xlsx"
+            if not wb_path.exists():
+                wb_path = Path(__file__).parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
+            if not wb_path.exists():
+                wb_path = Path(__file__).parent.parent.parent / "data" / "DB_Workbook_STRICT_V19.xlsx"
             if not wb_path.exists():
                 wb_path = Path(__file__).parent.parent.parent / "data" / "DB_Workbook_STRICT_V18.xlsx"
             if not wb_path.exists():
@@ -1499,7 +1507,12 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
             from pathlib import Path
             _here = Path(__file__).resolve()
             workbook_candidates = [
-                _here.parents[2] / 'data' / 'DB_Workbook_STRICT_V18.xlsx',  # validation/data (canonical)
+                _here.parents[2] / 'data' / 'DB_Workbook_STRICT_V19.xlsx',  # validation/data (canonical, current)
+                Path('validation/data/DB_Workbook_STRICT_V19.xlsx'),
+                Path('data/DB_Workbook_STRICT_V19.xlsx'),
+                Path('../data/DB_Workbook_STRICT_V19.xlsx'),
+                Path('./DB_Workbook_STRICT_V19.xlsx'),
+                _here.parents[2] / 'data' / 'DB_Workbook_STRICT_V18.xlsx',  # archived fallback
                 Path('validation/data/DB_Workbook_STRICT_V18.xlsx'),         # repo-root cwd (README)
                 Path('data/DB_Workbook_STRICT_V18.xlsx'),
                 Path('../data/DB_Workbook_STRICT_V18.xlsx'),
@@ -1796,7 +1809,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
           <li><strong>Colour code:</strong> for all vector pillars, green cells indicate χ²/DOF &lt; 1.5, orange 1.5 ≤ χ²/DOF &lt; 2, red χ²/DOF ≥ 2.</li>
         </ul>
 
-        <p><strong>CMB* is diagnostic only:</strong> It is a ΛCDM-calibrated compressed prior, so its χ² primarily measures tension with that compression rather than the CMB itself. It is therefore not shown in the validation table and is excluded from the strict combined χ²/ν and PASS counts. It is reported separately in the <em>Diagnostics &amp; Known Tensions</em> section. The CMB test that bears on the theory, the full Planck TTTEEE + low-ℓ + lensing likelihood, is shown at the top of the page (Δχ² = +0.63 relative to ΛCDM).</p>
+        <p><strong>CMB* is diagnostic only:</strong> It is a ΛCDM-calibrated compressed prior, so its χ² primarily measures tension with that compression rather than the CMB itself. It is therefore not shown in the validation table and is excluded from the strict combined χ²/ν and PASS counts. It is reported separately in the <em>Diagnostics &amp; Known Tensions</em> section. The CMB test that bears on the theory, the full Planck TTTEEE + low-ℓ + lensing likelihood, is shown at the top of the page (Δχ² = −1.29 at matched bounded best fits; this is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.).</p>
 
         <h4>The Strict Validation Protocol: Pillar Roles</h4>
         <p>To prevent circularity, each pillar header shows a coloured badge indicating its methodological role:</p>
@@ -1806,7 +1819,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
           <li><strong><span style="color:#60a5fa">V</span> (Validation Target):</strong> With parameters fixed, the model is tested against these independent datasets. Most pillars (P2–P7, P9–P13) belong here. These are the headline claims.</li>
           <li><strong><span style="color:#00ffff">D</span> (Diagnostic):</strong> Reported separately in the <em>Diagnostics &amp; Known Tensions</em> section, never in the validation table or any score. CMB* is the only diagnostic: it uses a ΛCDM-calibrated compressed prior, so its χ² measures tension with that compression rather than a direct MTDF prediction.</li>
         </ul>
-        <p><strong>Why this matters:</strong> A referee might argue that calibration anchors are circular, benchmarks are not fully out-of-sample, and diagnostics use external model assumptions. By labelling them explicitly, we report two headline totals: <em>Validation-only χ²</em> (V, strongest claim) and <em>Standard χ² (A+B+V)</em> (the default). The compressed-prior CMB* diagnostic is never folded into either; the model-neutral CMB result (full Planck likelihood, Δχ² = +0.63 vs ΛCDM) is shown at the top of the page.</p>
+        <p><strong>Why this matters:</strong> A referee might argue that calibration anchors are circular, benchmarks are not fully out-of-sample, and diagnostics use external model assumptions. By labelling them explicitly, we report two headline totals: <em>Validation-only χ²</em> (V, strongest claim) and <em>Standard χ² (A+B+V)</em> (the default). The compressed-prior CMB* diagnostic is never folded into either; the model-neutral CMB result (full Planck likelihood, Δχ² = −1.29 at matched bounded best fits vs ΛCDM; this is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.) is shown at the top of the page.</p>
 
         <h4>Scope Toggle Controls</h4>
         <p>Use the <strong>scope dropdown</strong> (top-right of table) and <strong>role badge toggles</strong> (A/B/V badges) to filter which pillars are included in the statistics and visualization:</p>
@@ -1839,7 +1852,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
     def _generate_framework_accordion(self, pillars: List[str]) -> str:
         """Generate framework accordion to show above the table"""
         pillar_count = len(pillars)
-        return self._accordion("🎯 MTDF V74 Framework", self._render_framework_overview(pillar_count), open_default=True)
+        return self._accordion("🎯 MTDF V75 Framework", self._render_framework_overview(pillar_count), open_default=True)
 
     def _generate_reading_guide_accordion(self) -> str:
         """Generate reading guide accordion (shown first after table)"""
@@ -2318,6 +2331,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 
             # Count tests with valid predictions per scope (strict pillars only;
             # CMB* diagnostic is excluded from the table and all scope totals)
+            contested_ids = set(row.get("contested_ids") or [])
             for pid in strict_pillars:
                 pred = row.get("vals", {}).get(pid)
                 is_vector = is_vector_pillar(pid)
@@ -2339,6 +2353,13 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                     pillar_chi2 = z_val ** 2 if z_val is not None else 0
                     pillar_dof = 1
                     is_pass = abs(z_val) <= 2.0 if z_val is not None else False
+
+                if pid in contested_ids:
+                    # PREDICTION-CONTESTED (v2 seal): stays in the test denominator, never counts
+                    # as a pass, and its chi2 is excluded from scope chi2/nu (shown on its own cell).
+                    is_pass = False
+                    pillar_chi2 = 0.0
+                    pillar_dof = 0
 
                 # Update scope statistics based on role
                 # Full scope: includes everything
@@ -2435,7 +2456,9 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                         # Vector pillar: pred is χ²/ν
                         chi2_red = pred
                         # Color based on χ²/ν thresholds
-                        if chi2_red <= 1.5:
+                        if pid in contested_ids:
+                            cls = "cont"
+                        elif chi2_red <= 1.5:
                             cls = "ok"
                         elif chi2_red <= 2.0:
                             cls = "warn"
@@ -2455,7 +2478,9 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                         z = row.get("z_scores", {}).get(pid)
                         vdisp = fmt_value(pred, pid)
                         if z is not None and not (isinstance(z, float) and (math.isnan(z) or math.isinf(z))):
-                            if abs(z) <= 1.0:
+                            if pid in contested_ids:
+                                cls = "cont"
+                            elif abs(z) <= 1.0:
                                 cls = "ok"
                             elif abs(z) <= 2.0:
                                 cls = "warn"
@@ -2469,6 +2494,10 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 
                 # Individual cell tooltip - using pillar-specific tooltip
                 tooltip_id = f'cell.{pid}.{model_name}'
+                if pid in contested_ids:
+                    # contested cells carry the detailed adjudication tooltip and the short badge
+                    tooltip_id = f'pillar.{pid}.status'
+                    zdisp = "<span class='cell-sub'>(cont.)</span>"
                 vec_cell_class = " vector-cell" if is_vector else ""
                 diag_cell_class = " diag-col" if pid in diagnostic_pillars else ""
                 role_code = pillar_roles.get(pid, "V")
@@ -2610,7 +2639,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 <td class='model-col' data-tooltip-id='cell.model.{model_name}' style="cursor:help">{display_name}</td>
                 <td class='evidence-col {proof_class}' data-tooltip-id='cell.evidence.{model_name}' style="cursor:help" data-cell-type="evidence">{proof_icon}{proof_pct:.0f}%</td>
                 {pillar_cells}
-                <td data-tooltip-id='cell.pass' style="cursor:help" data-cell-type="pass">{pass_icon}{strict_passes}/{total_tests}</td>
+                <td data-tooltip-id='cell.pass' style="cursor:help" data-cell-type="pass">{pass_icon}{strict_passes}/{total_tests}{contested_suffix}</td>
                 <td class='tier-col {tier_class}' data-tooltip-id='cell.tier.{tier_lower}' style="cursor:help" data-cell-type="tier">{tier_formatted}</td>
                 <td data-tooltip-id='cell.maxz.{model_name}' style="cursor:help" data-cell-type="maxz">{max_z_display}</td>
                 <td class='scope-chi2-cell' data-tooltip-id='cell.chi2red.{model_name}' style="cursor:help" data-cell-type="chi2" data-chi2-standard='{scope_chi2_standard}' data-chi2-validation='{scope_chi2_validation}' data-chi2-full='{scope_chi2_full}'>{chi2_display}</td>
@@ -2627,6 +2656,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 pass_icon=pass_icon,
                 strict_passes=strict_passes,
                 total_tests=total_tests,
+                contested_suffix=(" <span class='cont-badge'>+{} (cont.)</span>".format(len(contested_ids)) if contested_ids else ""),
                 tier_class=tier_class,
                 tier_lower=tier_lower,
                 tier_formatted=tier_formatted,
@@ -2656,6 +2686,8 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         """
         # __file__ = validation/code/UI/dashboard.py  ->  parents[2] = validation/
         candidates = [
+            Path(__file__).resolve().parents[2] / "output" / "phase5" / "phase5_v2_sealed_comparison.json",
+            Path(__file__).resolve().parents[3] / "validation" / "output" / "phase5" / "phase5_v2_sealed_comparison.json",
             Path(__file__).resolve().parents[2] / "output" / "phase5" / "phase5_minimize_comparison.json",
             Path(__file__).resolve().parents[3] / "validation" / "output" / "phase5" / "phase5_minimize_comparison.json",
         ]
@@ -2663,7 +2695,9 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
             try:
                 if p.exists():
                     with open(p, "r", encoding="utf-8") as fh:
-                        return json.load(fh)
+                        d = json.load(fh)
+                        d["_source_path"] = str(p.name)
+                        return d
             except Exception as e:
                 print(f"[CMB-CARD] Could not read {p}: {e}")
         return None
@@ -2689,13 +2723,14 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
             src = "source: validation/output/phase5/phase5_minimize_comparison.json (not present)"
         else:
             dchi2 = float(data.get("delta_chi2", 0.0))
-            dbic = float(data.get("delta_BIC", 0.0))
+            daic = float(data.get("delta_AIC", data.get("delta_BIC", 0.0)))
             lcdm_tot = float(data.get("lcdm_chi2_total", 0.0))
             mtdf_tot = float(data.get("mtdf_chi2_total", 0.0))
             k_lcdm = data.get("k_lcdm")
             k_mtdf = data.get("k_mtdf")
             plik = (data.get("chi2_breakdown", {}) or {}).get("plik TTTEEE", {}) or {}
             plik_delta = float(plik.get("delta", 0.0))
+            _src_name = data.get("_source_path", "phase5_v2_sealed_comparison.json")
 
             metrics_html = f"""
             <div style="display:flex;flex-wrap:wrap;gap:14px;margin:10px 0 6px 0;">
@@ -2704,8 +2739,8 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
                 <div style="font-size:12px;color:#86efac;">MTDF vs ΛCDM, full Planck likelihood</div>
               </div>
               <div style="background:#0b1220;border:1px solid #1f2a44;border-radius:8px;padding:10px 16px;">
-                <div style="font-size:22px;font-weight:700;color:#e2e8f0;">ΔBIC = {signed(dbic)}</div>
-                <div style="font-size:12px;color:#93a3b3;">added dimensionality penalty (k={k_mtdf} vs {k_lcdm})</div>
+                <div style="font-size:22px;font-weight:700;color:#e2e8f0;">ΔAIC = {signed(daic)}</div>
+                <div style="font-size:12px;color:#93a3b3;">one additional parameter (k_f); favouring neither model</div>
               </div>
               <div style="background:#0b1220;border:1px solid #1f2a44;border-radius:8px;padding:10px 16px;">
                 <div style="font-size:22px;font-weight:700;color:#bbf7d0;">plik TTTEEE: {signed(plik_delta)}</div>
@@ -2715,10 +2750,14 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
             <p style="margin:6px 0;color:#cbd5e1;font-size:13px;">
               Total χ² over the full likelihood (low-ℓ TT + low-ℓ EE + plik TTTEEE + lensing),
               same data bins, masks, nuisance parameters, priors and minimiser settings as ΛCDM:
-              <strong>MTDF {mtdf_tot:.2f}</strong> vs <strong>ΛCDM {lcdm_tot:.2f}</strong>.
+              <strong>MTDF {mtdf_tot:.2f}</strong> vs <strong>ΛCDM {lcdm_tot:.2f}</strong>
+              (bounded best fits seeded from the sealed chains).
+            </p>
+            <p style="margin:6px 0;color:#93a3b3;font-size:12px;font-style:italic;">
+              This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.
             </p>
             """
-            src = "source: validation/output/phase5/phase5_minimize_comparison.json (live)"
+            src = "source: " + str(_src_name) + " (sealed v2)"
 
         return f"""
         <section class="cmb-status-card" style="margin:14px 20px;background:#0d172a;border:1px solid #15803d;border-left:4px solid #22c55e;border-radius:10px;padding:14px 18px;">
@@ -2787,7 +2826,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
           standard ΛCDM expansion history, so it is <strong>not model-neutral</strong>: a large χ²
           here diagnoses tension with the ΛCDM compression, <strong>not</strong> a falsification by
           the raw CMB. The model-neutral test against the full Planck likelihood gives
-          <strong style="color:#22c55e;">Δχ² = +0.63</strong> relative to ΛCDM (see
+          <strong style="color:#22c55e;">Δχ² = −1.29</strong> at matched bounded best fits relative to ΛCDM (This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.) (see
           <em>CMB: full Planck likelihood test</em> at the top of the page).
         </p>
         <div class='table-wrap' style="margin:8px 0;">
@@ -3126,7 +3165,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
         # Generate the rest of the dashboard
         header = generate_header_section()
         summary = generate_summary_sections(len(pillars))
-        # Prominent, model-neutral CMB result (full Planck likelihood, Δχ²≈+0.63).
+        # Prominent, model-neutral CMB result (full Planck likelihood, sealed v2: Δχ² = −1.29 bounded).
         cmb_status_card = self._render_cmb_status_card()
         # Collapsed home for the ΛCDM-compressed distance-prior diagnostic (χ²/ν≈198).
         diagnostics_section = self._render_diagnostics_section(rows, pillars)
@@ -3149,7 +3188,7 @@ MTDF's own prediction including Early Field Energy (EFE), evaluated against the 
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MTDF V74 Validation</title>
+<title>MTDF V75 Validation</title>
 {css}
 {acc_css}
 {extra_css}

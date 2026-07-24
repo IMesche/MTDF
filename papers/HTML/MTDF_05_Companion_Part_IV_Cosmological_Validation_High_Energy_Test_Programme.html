@@ -178,11 +178,11 @@ figure{ margin: 10pt 0 14pt; }
 <div><strong>Author:</strong> Ingo Mesche</div>
 <div><strong>Affiliation:</strong> Independent Researcher, Malta</div>
 <div><strong>Contact:</strong> imesche@outlook.com</div>
-<div><strong>Version:</strong> V74 / June 2026</div>
+<div><strong>Version:</strong> V75 / July 2026</div>
 </div>
 <div class="toc"><strong>Contents</strong><ul><li><a href="#purpose">1. Purpose and scope</a></li><li><a href="#cosmo">2. Cosmological validation: CMB, BAO, and local H0</a><ul><li>2.1 Matched CMB + BAO comparison</li><li>2.2 SH0ES prior and the global vs local H0 test</li><li>2.3 Conservative fit philosophy</li><li><a href="#phase5">2.4 Full Planck plik TTTEEE + lensing validation (Phase 5)</a></li></ul></li><li><a href="#high-energy">3. High-energy phenomenology</a></li><li><a href="#lensing">4. Lensing and merging clusters</a></li><li><a href="#tests">5. Structured test programme</a></li></ul></div>
 <div class="abstract">
-<p><strong>Abstract.</strong> This companion paper (Part IV) documents the cosmological validation of MTDF through a matched CMB+BAO comparison and a full Planck plik TTTEEE + low-&ell; + lensing hard-falsifier, alongside high-energy and cluster-scale phenomenology. The full Planck Phase 5 comparison (Section 2.4) yields a total Δχ² = +0.63 relative to ΛCDM (one additional parameter k<sub>f</sub>). Two component-level numbers near +1.25 also appear in this paper, a narrower CMB+BAO summary run in Section 2.1 and the lensing-likelihood contribution within Phase 5; neither is the full-Planck total. Under the MTDF void-enhancement mapping, conditional on a deep KBC-like local underdensity, the SH0ES tension is reduced from 3.8σ to 1.3σ without retuning the global fit (implied local value ≈ 73.5 km/s/Mpc); shallower void reconstructions instead give roughly 70 to 71 km/s/Mpc, and MTDF does not predict the depth of the local void itself. We additionally present falsifiable predictions for lensing in merging clusters and stress-support contributions to hydrostatic mass bias.</p>
+<p><strong>Abstract.</strong> This companion paper (Part IV) documents the cosmological validation of MTDF through a matched CMB+BAO comparison and a full Planck plik TTTEEE + low-&ell; + lensing hard-falsifier, alongside high-energy and cluster-scale phenomenology. The full Planck comparison (Section 2.4, sealed v2 chains) leaves the standard parameters essentially unshifted, gives a broad coupling posterior k<sub>f</sub> = 0.685 ± 0.500 (consistency, not support), and establishes the sealed growth posture: the corrected covariant μ(a) enhances late-time growth, σ<sub>8</sub> = 0.8265 ± 0.0062, about 1.9σ (posterior units) above the same-pipeline ΛCDM baseline, so the corrected theory mildly worsens rather than eases the weak-lensing comparison; the earlier σ<sub>8</sub> = 0.790 relief was a gauge artifact and is retired. The comparison against the matched ΛCDM control is complete: Δχ² (bounded best fits) = −1.29. This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation. A narrower CMB+BAO summary run in Section 2.1 (Δχ² ≈ 1.25) is a separate, pre-correction bookkeeping run and is not the full-Planck total. Under the MTDF void-enhancement mapping, conditional on a deep KBC-like local underdensity, the SH0ES tension is reduced from 3.8σ to 1.3σ without retuning the global fit (implied local value ≈ 73.1 km/s/Mpc); shallower void reconstructions instead give roughly 70 to 71 km/s/Mpc, and MTDF does not predict the depth of the local void itself. We additionally present falsifiable predictions for lensing in merging clusters and stress-support contributions to hydrostatic mass bias.</p>
 </div>
 
 <div class="callout" style="border-left:3px solid #1A4B8A;background:#FBFBFB;padding:8px 12px;margin:12px 0;">
@@ -196,156 +196,62 @@ Only results explicitly labelled as validation targets are used as evidence for 
 </div>
 
 <h2 id="purpose">1. Purpose and scope</h2><p>This companion part documents two extension tracks and their tests: (i) a likelihood-based cosmological validation exercise comparing MTDF and ΛCDM on Planck 2018 TTTEEE and DESI DR1 BAO, including an explicit global-versus-local H0 interpretation when a SH0ES prior is introduced, and (ii) high-energy and cluster-scale phenomenology where stress support may affect lensing, hydrostatic mass bias, and merging systems.</p><p>The aim is to state clear, falsifiable expectations, report analyses conducted to date with full provenance, and define what would count as decisive failure modes. Where comparisons are made, the baseline choices are matched across models.</p><div class="callout">Note on separation from the dashboard: the strict dashboard scorecard is intentionally conservative and does not include the full-likelihood MCMC results reported here. Those results are presented as an independent cross-check, alongside the diagnostic-only CMB distance-prior view already used elsewhere.</div>
-<h2 id="cosmo">2. Cosmological validation: CMB, BAO, and local H0</h2><p>This section documents a matched, reproducible cosmological comparison between ΛCDM and MTDF using Planck 2018 TTTEEE likelihoods and DESI BAO, followed by an explicit test of the SH0ES local H0 prior under an MTDF void-enhancement mapping. All quantities below are reported exactly as evaluated by the likelihood code used for the MCMC runs.</p><div class="callout">Methodological note: this section reports a matched CMB+BAO comparison (Planck TTTEEE plus DESI BAO) and then adds a local-H0 interpretation layer (SH0ES). The SH0ES layer is treated as a test of whether one parameter set can jointly accommodate global and local expansion in a controlled way. These results are reported here and are not included in the dashboard strict scorecard. The definitive full Planck plik TTTEEE + low-&ell; + lensing hard-falsifier is reported separately in Section 2.4.</div><h3>2.1 Matched CMB + BAO comparison (Planck 2018 TTTEEE + DESI BAO)</h3><p>We ran joint MCMC fits for ΛCDM and MTDF on identical data and nuisance settings. MTDF adds one additional parameter (k_f) while keeping the standard six cosmological parameters. In this CMB+BAO summary run, MTDF matches the fit quality to within Δχ² ≈ 1.25. This number refers only to the CMB+BAO summary table below; the full Planck plik TTTEEE + low-&ell; + lensing Phase 5 comparison is reported in Section 2.4 and gives total Δχ² = +0.63.</p><table class="tbl"><thead><tr><th>Model</th><th>χ² Total</th><th>χ² Planck</th><th>χ² BAO</th><th>H0 (km/s/Mpc)</th><th>k_f</th></tr></thead><tbody><tr><td>ΛCDM</td><td>1018.57</td><td>1004.78</td><td>13.79</td><td>68.03 (+0.43/-0.29)</td><td>n/a</td></tr><tr><td>MTDF</td><td>1019.82</td><td>1005.23</td><td>14.59</td><td>68.13 (+0.54/-0.35)</td><td>1.00 (+0.09/-0.05)</td></tr></tbody></table><p class="small">Interpretation: this indicates that, within the stated implementation, introducing k_f does not produce a statistically meaningful degradation of the global CMB+BAO fit. Any claimed advantage must then come from additional, independently testable phenomena, such as the local-environment mapping tested in Part I.</p><h3>2.2 SH0ES prior and the global vs local H0 test</h3><p>We then evaluated the SH0ES H0 prior as an additional constraint. A naive application (treating SH0ES as directly measuring the global H0) does not relieve the tension. In contrast, the MTDF two-component interpretation treats Planck as probing a global effective expansion rate and SH0ES as probing a locally void-enhanced rate. Under that mapping, the residual tension is reduced substantially in the current run.</p><table class="tbl"><thead><tr><th>Model</th><th>χ²_SH0ES</th><th>χ² Total</th><th>Residual tension</th></tr></thead><tbody><tr><td>ΛCDM + SH0ES</td><td>14.2</td><td>1034.7</td><td>3.8σ</td></tr><tr><td>MTDF (naive) + SH0ES</td><td>14.0</td><td>1033.4</td><td>3.8σ</td></tr><tr><td>MTDF (with void mapping) + SH0ES</td><td>1.64</td><td>1019.4</td><td>1.3σ</td></tr></tbody></table><div class="panel"><p><strong>Conditional H0 chain (Phase 5 bookkeeping):</strong></p><ul><li>Best-fit global H0 (full Planck posterior, Section 2.4.2): 67.83 km/s/Mpc</li><li>Void enhancement factor: S0 = 1.084 (the algebraic identity S0 = α√Ω_DE, evaluated at KBC-level void depth)</li><li>Implied local value: H_local ≈ 73.5 km/s/Mpc, conditional on a deep KBC-like local underdensity; shallower void reconstructions give roughly 70 to 71 km/s/Mpc</li><li>SH0ES observed: 73.04 ± 1.04 km/s/Mpc</li></ul><p class="small">MTDF does not predict the local void itself: the depth of the local underdensity is an observational input, and the implied local value is conditional on it.</p></div><p>Provenance of the void coupling: the parameter α = 1.30 entering the enhancement identity S0 = α√Ω_DE is a frozen, void-motivated phenomenological coupling, not an independently measured quantity. The void-depth inputs that motivate it come from documented reconstructions of the local volume (the Tully et al. Cosmicflows-3 velocity field, indicating an outflow of roughly +13.1%, and Boehringer-Jasche-Lavaux-type density reconstructions indicating a 10 to 20% local underdensity), and these reconstructions are not fully independent of the distance ladder itself, so a circularity caveat applies when the mapping is compared against SH0ES. The S0 to H_local mapping is therefore a consistency statement, not a prediction: given a deep KBC-like local void, the global posterior implies a local value near 73.5 km/s/Mpc, while shallower reconstructions imply roughly 70 to 71 km/s/Mpc.</p><p>Within MTDF, the Hubble tension is not treated as a measurement error or an unmodelled systematic; it is interpreted as an environmental split between a global expansion rate and a locally inferred, environment-enhanced rate. In the implementation tested here, CMB plus BAO constrain a global-average value near 67 to 68 km/s/Mpc, while the local distance ladder probes a void-weighted value near 73 to 74 km/s/Mpc. Under these assumptions, both measurements can be accommodated as probes of different effective regimes within the same field model.</p><ul><li>Planck (CMB) probes the global-average H0, approximately 67 to 68 km/s/Mpc.</li><li>SH0ES (local ladder) probes a locally weighted H0 in low-density environments, approximately 73 to 74 km/s/Mpc.</li><li>Interpretation: both are consistent if they weight different environmental regimes.</li></ul><p class="small">This is falsifiable: the void-enhancement mapping must remain consistent under future void catalogues, alternative low-z calibrators, and expanded local samples. If the mapping fails, the interpretation is constrained without affecting the matched CMB+BAO fit result in Section 2.1.</p><h3>2.3 Conservative fit philosophy</h3><p>To avoid artefactual improvements, we report likelihood contributions transparently and keep optional layers separated. In particular, the SH0ES reduction above is not obtained by tuning the global CMB+BAO likelihood, but by adding a separately testable environmental mapping whose sign and scale are constrained by the Part I supernova void analysis.</p><p>The growth behaviour inferred from the full Planck likelihood (in particular, the shift in S<sub>8</sub> and the source of constraint within individual likelihood components) motivates further tests beyond the scope of this work.</p>
+<h2 id="cosmo">2. Cosmological validation: CMB, BAO, and local H0</h2><p>This section documents a matched, reproducible cosmological comparison between ΛCDM and MTDF using Planck 2018 TTTEEE likelihoods and DESI BAO, followed by an explicit test of the SH0ES local H0 prior under an MTDF void-enhancement mapping. All quantities below are reported exactly as evaluated by the likelihood code used for the MCMC runs.</p><div class="callout">Methodological note: this section reports a matched CMB+BAO comparison (Planck TTTEEE plus DESI BAO) and then adds a local-H0 interpretation layer (SH0ES). The SH0ES layer is treated as a test of whether one parameter set can jointly accommodate global and local expansion in a controlled way. These results are reported here and are not included in the dashboard strict scorecard. The definitive full Planck plik TTTEEE + low-&ell; + lensing hard-falsifier is reported separately in Section 2.4.</div><h3>2.1 Matched CMB + BAO comparison (Planck 2018 TTTEEE + DESI BAO)</h3><p class="small"><strong>Implementation-era note.</strong> The summary runs in Sections 2.1 and 2.2 predate the v2 growth-sector correction and are retained as historical bookkeeping context; their distance-sector conclusions are insensitive to the corrected growth source, and any growth-sensitive reading defers to the sealed v2 results of Section 2.4. They are regenerated against the corrected implementation at the derived-products step.</p><p>We ran joint MCMC fits for ΛCDM and MTDF on identical data and nuisance settings. MTDF adds one additional parameter (k_f) while keeping the standard six cosmological parameters. In this CMB+BAO summary run, MTDF matches the fit quality to within Δχ² ≈ 1.25. This number refers only to the CMB+BAO summary table below; the full Planck plik TTTEEE + low-&ell; + lensing comparison is reported in Section 2.4 (sealed v2 chains); the completed comparison against the matched ΛCDM control is given in Section 2.4.4.</p><table class="tbl"><thead><tr><th>Model</th><th>χ² Total</th><th>χ² Planck</th><th>χ² BAO</th><th>H0 (km/s/Mpc)</th><th>k_f</th></tr></thead><tbody><tr><td>ΛCDM</td><td>1018.57</td><td>1004.78</td><td>13.79</td><td>68.03 (+0.43/-0.29)</td><td>n/a</td></tr><tr><td>MTDF</td><td>1019.82</td><td>1005.23</td><td>14.59</td><td>68.13 (+0.54/-0.35)</td><td>1.00 (+0.09/-0.05)</td></tr></tbody></table><p class="small">Interpretation: this indicates that, within the stated implementation, introducing k_f does not produce a statistically meaningful degradation of the global CMB+BAO fit. Any claimed advantage must then come from additional, independently testable phenomena, such as the local-environment mapping tested in Part I.</p><h3>2.2 SH0ES prior and the global vs local H0 test</h3><p>We then evaluated the SH0ES H0 prior as an additional constraint. A naive application (treating SH0ES as directly measuring the global H0) does not relieve the tension. In contrast, the MTDF two-component interpretation treats Planck as probing a global effective expansion rate and SH0ES as probing a locally void-enhanced rate. Under that mapping, the residual tension is reduced substantially in the current run.</p><table class="tbl"><thead><tr><th>Model</th><th>χ²_SH0ES</th><th>χ² Total</th><th>Residual tension</th></tr></thead><tbody><tr><td>ΛCDM + SH0ES</td><td>14.2</td><td>1034.7</td><td>3.8σ</td></tr><tr><td>MTDF (naive) + SH0ES</td><td>14.0</td><td>1033.4</td><td>3.8σ</td></tr><tr><td>MTDF (with void mapping) + SH0ES</td><td>1.64</td><td>1019.4</td><td>1.3σ</td></tr></tbody></table><div class="panel"><p><strong>Conditional H0 chain (Phase 5 bookkeeping):</strong></p><ul><li>Global H0 (sealed v2 full Planck posterior, Section 2.4.2): 67.44 km/s/Mpc</li><li>Void enhancement factor: S0 = 1.084 (the algebraic identity S0 = α√Ω_DE, evaluated at KBC-level void depth)</li><li>Implied local value: H_local ≈ 73.1 km/s/Mpc, conditional on a deep KBC-like local underdensity; shallower void reconstructions give roughly 70 to 71 km/s/Mpc</li><li>SH0ES observed: 73.04 ± 1.04 km/s/Mpc</li></ul><p class="small">MTDF does not predict the local void itself: the depth of the local underdensity is an observational input, and the implied local value is conditional on it.</p></div><p>Provenance of the void coupling: the parameter α = 1.30 entering the enhancement identity S0 = α√Ω_DE is a frozen, void-motivated phenomenological coupling, not an independently measured quantity. The void-depth inputs that motivate it come from documented reconstructions of the local volume (the Tully et al. Cosmicflows-3 velocity field, indicating an outflow of roughly +13.1%, and Boehringer-Jasche-Lavaux-type density reconstructions indicating a 10 to 20% local underdensity), and these reconstructions are not fully independent of the distance ladder itself, so a circularity caveat applies when the mapping is compared against SH0ES. The S0 to H_local mapping is therefore a consistency statement, not a prediction: given a deep KBC-like local void, the global posterior implies a local value near 73.1 km/s/Mpc, while shallower reconstructions imply roughly 70 to 71 km/s/Mpc.</p><p>Within MTDF, the Hubble tension is not treated as a measurement error or an unmodelled systematic; it is interpreted as an environmental split between a global expansion rate and a locally inferred, environment-enhanced rate. In the implementation tested here, CMB plus BAO constrain a global-average value near 67 to 68 km/s/Mpc, while the local distance ladder probes a void-weighted value near 73 to 74 km/s/Mpc. Under these assumptions, both measurements can be accommodated as probes of different effective regimes within the same field model.</p><ul><li>Planck (CMB) probes the global-average H0, approximately 67 to 68 km/s/Mpc.</li><li>SH0ES (local ladder) probes a locally weighted H0 in low-density environments, approximately 73 to 74 km/s/Mpc.</li><li>Interpretation: both are consistent if they weight different environmental regimes.</li></ul><p class="small">This is falsifiable: the void-enhancement mapping must remain consistent under future void catalogues, alternative low-z calibrators, and expanded local samples. If the mapping fails, the interpretation is constrained without affecting the matched CMB+BAO fit result in Section 2.1.</p><h3>2.3 Conservative fit philosophy</h3><p>To avoid artefactual improvements, we report likelihood contributions transparently and keep optional layers separated. In particular, the SH0ES reduction above is not obtained by tuning the global CMB+BAO likelihood, but by adding a separately testable environmental mapping whose sign and scale are constrained by the Part I supernova void analysis.</p><p>The growth behaviour inferred from the sealed v2 full Planck likelihood (an enhanced-growth posture, with σ<sub>8</sub> about 1.9σ above the ΛCDM baseline in posterior units) motivates the registered growth-history and forward-modelling programmes (GH-1, FWD-S8) beyond the scope of this work.</p>
 
-<h3 id="phase5">2.4 Full Planck plik TTTEEE + lensing validation (Phase 5)</h3>
+<h3 id="phase5">2.4 Full Planck plik TTTEEE + lensing validation (v2 chains, sealed)</h3>
 
-<p>This section reports the results of a matched MCMC comparison between &Lambda;CDM and MTDF using the full Planck 2018 plik TTTEEE high-multipole likelihood, low-&ell; TT and EE likelihoods, and the Planck 2018 lensing likelihood. MTDF adds a single additional parameter, the stress coupling k<sub>f</sub>, to the standard six &Lambda;CDM cosmological parameters and 21 Planck nuisance parameters. Both chains were run under identical Cobaya configurations with the drag sampler, and convergence was assessed using the multivariate Gelman&ndash;Rubin statistic (R&minus;1) with an automatic stopping criterion of R&minus;1 &lt; 0.02 applied consecutively. Full chain files, configuration YAML, and post-processing scripts are provided in the reproducibility package.</p>
+<div class="callout">
+<h4>Scope of the cosmological test (mandatory reading for every citation of these results)</h4>
+<p>The v2 run is a full Planck 2018 likelihood test of the <em>corrected MTDF effective cosmological implementation</em>: the corrected covariant &mu;(a)/EFE sector, with the high-Q carrier represented by its CDM-like limit (standard pressureless CDM as proxy). It is not a Boltzmann implementation of all nine degrees of freedom of the frozen action; the full-action CMB perturbation implementation is a named future calculation. Success at this level discharges the CMB confrontation at the effective level only.</p>
+</div>
 
-<h4>2.4.1 Convergence diagnostics</h4>
+<div class="callout">
+<h4>Supersession notice (v1 chains retired)</h4>
+<p>The Phase-5 chain report published in V74 (posterior table with &sigma;<sub>8</sub> = 0.790, S<sub>8</sub> = 0.802, &Delta;&chi;&sup2; = +0.63, k<sub>f</sub> = 0.50 &plusmn; 0.36, and the associated correlation and quartile tables) was produced with the v1 growth implementation, which carried a documented gauge artifact: the growth modification was applied to the synchronous-gauge 00-source, breaking a near-cancellation and flipping the sign of the growth response. Those numbers are void and are retained only in the archived V74 release as a historical record. Everything below is computed from the corrected v2 implementation (covariant &mu; in newtonian gauge; frozen source perturbations.c, hash-pinned in the flight package).</p>
+</div>
 
+<h4>2.4.1 Run provenance and convergence</h4>
+<p>The v2 production run used the frozen flight configuration: full Planck 2018 plik TTTEEE + low-&ell; TT/EE + lensing, the corrected class_mtdf binary, four chains, identical priors and stop rules to the frozen v2 YAML set, with k<sub>f</sub> the only free MTDF parameter (&alpha;, &beta;<sub>eos</sub>, &tau; frozen). The run reached the frozen hard-cap stop rule of 200,000 accepted steps per chain (800,000 total) after ~66 h, with R&minus;1 = 0.0085 (target 0.01, satisfied) and R&minus;1<sub>CL</sub> = 0.060 (strict bound-level target 0.02 not reached: 95 percent bounds carry extra sampling noise; means and peaks are solid). All interruptions auto-resumed from checkpoint with no sample loss.</p>
+
+<h4>2.4.2 Sealed posterior comparison (k<sub>f</sub> free)</h4>
 <table class="tbl">
-<thead><tr><th>Diagnostic</th><th>&Lambda;CDM</th><th>MTDF</th></tr></thead>
+<thead><tr><th>Parameter</th><th>&Lambda;CDM baseline</th><th>MTDF v2 (mean &plusmn; &sigma;)</th><th>Shift</th></tr></thead>
 <tbody>
-<tr><td>Accepted samples</td><td>26,400</td><td>27,160</td></tr>
-<tr><td>Multivariate R&minus;1</td><td>0.0191</td><td>0.0185</td></tr>
-<tr><td>Converged</td><td>Yes</td><td>Yes</td></tr>
-<tr><td>Slowest-mixing parameter</td><td>ps_A_143_217 (R&minus;1 = 0.0019)</td><td>calib_100T (R&minus;1 = 0.0017)</td></tr>
-<tr><td>ESS (H<sub>0</sub>)</td><td>1,156</td><td>807</td></tr>
-<tr><td>ESS (&sigma;<sub>8</sub>)</td><td>1,136</td><td>866</td></tr>
-<tr><td>ESS (k<sub>f</sub>)</td><td> - </td><td>877</td></tr>
-<tr><td>Acceptance rate</td><td>2.81%</td><td>2.93%</td></tr>
+<tr><td>&sigma;<sub>8</sub></td><td>0.8101</td><td>0.82651 &plusmn; 0.00623</td><td>+0.0164 (+1.91&sigma;, posterior units)</td></tr>
+<tr><td>H<sub>0</sub> (km/s/Mpc)</td><td>67.382</td><td>67.444 &plusmn; 0.546</td><td>+0.06 (CMB-side H<sub>0</sub> unchanged)</td></tr>
+<tr><td>&Omega;<sub>m</sub></td><td>&ndash;</td><td>0.31533 &plusmn; 0.00771</td><td>negligible</td></tr>
+<tr><td>n<sub>s</sub></td><td>&ndash;</td><td>0.96426</td><td>negligible</td></tr>
+<tr><td>ln(10<sup>10</sup>A<sub>s</sub>)</td><td>&ndash;</td><td>3.03962</td><td>negligible</td></tr>
+<tr><td>k<sub>f</sub></td><td>&ndash;</td><td>0.685 &plusmn; 0.500</td><td>consistent with 0; theory value 1 at &minus;0.63&sigma;</td></tr>
 </tbody>
 </table>
+<div class="caption">Sealed v2 reporting set. The &Lambda;CDM baseline values are the same-pipeline v2-era baselines used by the sealed adjudication; the full baseline column and all dataset-resolved comparisons are regenerated from the machine-readable v2 results package together with the matched &Lambda;CDM control chain (see 2.4.4).</div>
 
-<p>The additional MTDF coupling parameter k<sub>f</sub> converges more rapidly than several Planck calibration parameters (per-parameter R&minus;1 = 0.0012 vs 0.0017 for the slowest nuisance term), indicating no additional sampling stiffness from the extended parameter space.</p>
+<p><strong>Posture (sealed, pre-registered three-posture rule): S8-WORSENED.</strong> The corrected covariant &mu;(a) enhances late growth by about +2 percent, and the full-likelihood chain confirms this end to end: &sigma;<sub>8</sub> lands about 2&sigma; (posterior units) above the &Lambda;CDM baseline. The corrected theory therefore mildly worsens the comparison with published weak-lensing clustering amplitudes relative to &Lambda;CDM. In native units the growth-sector posterior gives S<sub>8</sub> = 0.8473 &plusmn; 0.0138 (free) and 0.8501 &plusmn; 0.0132 (k<sub>f</sub> = 1). The importance-reweighted k<sub>f</sub> = 1 rider gives the same posture (&sigma;<sub>8</sub> shift +0.0173, +2.07&sigma;), with f<sub>kick</sub> = 0.0033 and &mu;(z<sub>rec</sub>) = 1.00002 (CMB-inert), as derived. Standard-parameter shifts are tiny and the CMB-side H<sub>0</sub> is unchanged, consistent with the retired &ldquo;H<sub>0</sub> derived&rdquo; claim remaining retired. Not affected: the galactic-sector validations (RAR/BTFR), c<sub>T</sub> = 1, &eta; = 1, the frozen 9-degree-of-freedom action, and the finding that Planck alone cannot pin the EFE amplitude.</p>
 
-<h4>2.4.2 Posterior parameter comparison</h4>
+<h4>2.4.3 Coupling posterior</h4>
+<p>The k<sub>f</sub> posterior is broad, k<sub>f</sub> = 0.685 &plusmn; 0.500: both k<sub>f</sub> = 0 (&Lambda;CDM) and k<sub>f</sub> = 1 (full coupling) are compatible, so Planck establishes consistency, not support, exactly as in the superseded v1 chains (whose k<sub>f</sub>-unconstrained finding survives). Discrimination requires low-redshift probes (Part I environment signal; growth history GH-1).</p>
 
-<table class="tbl">
-<thead><tr><th>Parameter</th><th>&Lambda;CDM (mean &plusmn; &sigma;)</th><th>MTDF (mean &plusmn; &sigma;)</th><th>Shift (&Delta;/&sigma;<sub>&Lambda;CDM</sub>)&dagger;</th></tr></thead>
-<tbody>
-<tr><td>ln(10<sup>10</sup>A<sub>s</sub>)</td><td>3.044 &plusmn; 0.014</td><td>3.037 &plusmn; 0.014</td><td>&minus;0.5</td></tr>
-<tr><td>n<sub>s</sub></td><td>0.9646 &plusmn; 0.0041</td><td>0.9681 &plusmn; 0.0041</td><td>+0.9</td></tr>
-<tr><td>100&theta;<sub>s</sub></td><td>1.04185 &plusmn; 0.00029</td><td>1.04195 &plusmn; 0.00029</td><td>+0.3</td></tr>
-<tr><td>&omega;<sub>b</sub></td><td>0.02236 &plusmn; 0.00015</td><td>0.02236 &plusmn; 0.00015</td><td>+0.0</td></tr>
-<tr><td>&omega;<sub>cdm</sub></td><td>0.1199 &plusmn; 0.0012</td><td>0.1191 &plusmn; 0.0012</td><td>&minus;0.7</td></tr>
-<tr><td>&tau;<sub>reio</sub></td><td>0.054 &plusmn; 0.007</td><td>0.052 &plusmn; 0.007</td><td>&minus;0.3</td></tr>
-<tr><td>H<sub>0</sub> (km/s/Mpc)</td><td>67.38 &plusmn; 0.54</td><td>67.83 &plusmn; 0.54</td><td>+0.8</td></tr>
-<tr><td>&sigma;<sub>8</sub></td><td>0.810 &plusmn; 0.006</td><td>0.790 &plusmn; 0.006</td><td>&minus;3.4</td></tr>
-<tr><td>&Omega;<sub>m</sub></td><td>0.315 &plusmn; 0.007</td><td>0.309 &plusmn; 0.007</td><td>&minus;0.8</td></tr>
-<tr><td>k<sub>f</sub></td><td> - </td><td>0.50 &plusmn; 0.36</td><td> - </td></tr>
-<tr><td>S<sub>8</sub> (derived)</td><td>0.830 &plusmn; 0.013</td><td>0.802 &plusmn; 0.013</td><td>&minus;2.2</td></tr>
-</tbody>
+<h4>2.4.4 Model comparison against the matched &Lambda;CDM control</h4>
+<p>The matched &Lambda;CDM control chain shares the entire v2 infrastructure (binary, likelihood set, priors on all shared parameters, four-chain profile, stop rules); its configuration differs from the frozen v2 YAML in exactly three deltas that remove the MTDF theory keys. Its posterior reproduces the reference Planck-&Lambda;CDM universe at full-posterior level: &sigma;<sub>8</sub> = 0.81036 &plusmn; 0.00598, per-sample S<sub>8</sub> = 0.83004 &plusmn; 0.01278, H<sub>0</sub> = 67.389 &plusmn; 0.544, with all shared-parameter shifts against the reference baselines at the 10<sup>&minus;4</sup> level. This validates the corrected binary&rsquo;s &Lambda;CDM limit end to end and qualifies the control as the injection-recovery truth for the preregistered forward-modelling programme.</p>
+<p><strong>Matched &Delta;&chi;&sup2;.</strong> At the bounded best fits (minimisation seeded from the best sampled point of each chain; both converged), MTDF gives &minus;log L = 1385.78 (&chi;&sup2; = 2771.56, at k<sub>f</sub> = 0.476) against &Lambda;CDM &minus;log L = 1386.42 (&chi;&sup2; = 2772.84):</p>
+<p style="text-align:center;"><strong>&Delta;&chi;&sup2; (MTDF &minus; &Lambda;CDM) = &minus;1.29</strong></p>
+<p><em>This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation.</em> MTDF carries one additional free parameter (k<sub>f</sub>), and a gain of one to two &chi;&sup2; points per extra degree of freedom is the no-information expectation for nested fits; the Akaike-corrected difference is &Delta;AIC = +0.71, favouring neither model at any meaningful level. (A BIC-style penalty depends on an adopted effective Planck data count and is not quoted; under any conventional count the verdict is unchanged.) The full Planck 2018 likelihood therefore does not distinguish the corrected MTDF from &Lambda;CDM. The bounded MTDF best fit sits at k<sub>f</sub> = 0.476, independently consistent with the broad k<sub>f</sub> posterior of 2.4.3.</p>
+<table>
+<tr><th>Dataset</th><th>&Lambda;CDM &chi;&sup2;</th><th>MTDF &chi;&sup2;</th><th>&Delta;</th></tr>
+<tr><td>Planck 2018 lowl TT</td><td>23.77</td><td>22.29</td><td>&minus;1.48</td></tr>
+<tr><td>Planck 2018 lowl EE</td><td>396.27</td><td>396.47</td><td>+0.20</td></tr>
+<tr><td>Planck 2018 plik TTTEEE</td><td>2344.00</td><td>2343.80</td><td>&minus;0.20</td></tr>
+<tr><td>Planck 2018 lensing</td><td>8.80</td><td>8.99</td><td>+0.19</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>2772.84</strong></td><td><strong>2771.56</strong></td><td><strong>&minus;1.29</strong></td></tr>
 </table>
+<div class="caption">Dataset-resolved &chi;&sup2; (= 2 &times; &minus;log L per component) at the bounded best fits. Every component agrees to about one point; the small MTDF gain sits in lowl TT, the late-ISW region, consistent with a late-time-only physics difference. Per-sample growth-sector amplitudes: MTDF S<sub>8</sub> = 0.8473 &plusmn; 0.0138 (k<sub>f</sub> free) and 0.8501 &plusmn; 0.0132 (k<sub>f</sub> = 1) against the control&rsquo;s 0.83004 &plusmn; 0.01278.</div>
+<p class="small">Convention note: sampler-reported chain minima are minus-log-posterior values, which include each model&rsquo;s constant flat-prior volume term and are not comparable across models of different dimensionality; all comparisons above are likelihood-only, taken from the bounded minima and the per-dataset &chi;&sup2; components.</p>
 
-<p class="small">&dagger; Shift column: a descriptive separation in units of the &Lambda;CDM posterior width, not a detection significance.</p>
+<h4>2.4.5 Detailed component analyses</h4>
+<p>The correlation, quartile, and component-resolved analyses of the superseded v1 report are regenerated from the v2 chains as part of the machine-readable results package that accompanies the sealed control-chain comparison; per the single-numerical-source rule, this paper does not carry hand-copied component tables ahead of that package.</p>
 
-<p>All parameter shifts occur in the direction that reduces the S<sub>8</sub> and Hubble tensions; no parameter exhibits pathological broadening. The dominant effect is a 2.4% downward shift in &sigma;<sub>8</sub> (0.8101 to 0.7903; a 3.4&sigma; separation in units of the &Lambda;CDM posterior width, not a detection significance), accompanied by a modest increase in H<sub>0</sub> and n<sub>s</sub>, while geometric parameters (&theta;<sub>s</sub>, &omega;<sub>b</sub>) are essentially unchanged. Error bars are comparable in both models, confirming that the additional k<sub>f</sub> parameter does not introduce degeneracies that inflate uncertainties.</p>
-<p><strong>Interpretation of &omega;<sub>cdm</sub> in MTDF fits.</strong> In the current class_mtdf implementation, the early-universe matter density parameter &omega;<sub>cdm</sub> is retained and interpreted as the stress-field energy component that is constructed to be degenerate with cold dark matter at early times (the field's pre-developed phase; see MTDF_01 Section 5.3). MTDF's no-dark-matter claim is that no particle component is required at late times and on galactic scales, where the field's environment-dependent dynamics replace halo phenomenology; it is not a claim that the early-universe energy budget lacks a CDM-like component. A first-principles derivation showing that the developed field relaxes into the late-time phenomenology from this early degenerate phase is an open theoretical task.</p>
-
-<h4>2.4.3 Chi-squared breakdown by likelihood component</h4>
-
-<table class="tbl">
-<thead><tr><th>Component</th><th>&Lambda;CDM &chi;&sup2;</th><th>MTDF &chi;&sup2;</th><th>&Delta;&chi;&sup2;</th></tr></thead>
-<tbody>
-<tr><td>plik TTTEEE (high-&ell;)</td><td>2345.41</td><td>2341.74</td><td>&minus;3.67</td></tr>
-<tr><td>Low-&ell; TT</td><td>23.25</td><td>25.90</td><td>+2.65</td></tr>
-<tr><td>Low-&ell; EE</td><td>395.69</td><td>396.08</td><td>+0.39</td></tr>
-<tr><td>Lensing</td><td>8.85</td><td>10.10</td><td>+1.25</td></tr>
-<tr><td><strong>Total</strong></td><td><strong>2773.20</strong></td><td><strong>2773.82</strong></td><td><strong>+0.63</strong></td></tr>
-</tbody>
-</table>
-
-<p>The high-&ell; TTTEEE likelihood is marginally improved in MTDF (&Delta;&chi;&sup2; = &minus;3.67), while small compensating shifts occur in low-&ell; TT (+2.65) and lensing (+1.25), resulting in a statistically indistinguishable total &Delta;&chi;&sup2; = +0.63. The +1.25 value is therefore a component-level lensing contribution, not the total model comparison. The opposing directions confirm that k<sub>f</sub> is redistributing fit quality across multipole ranges rather than uniformly degrading or improving the fit.</p>
-
-<h4>2.4.4 Model selection</h4>
-
-<table class="tbl">
-<thead><tr><th>Metric</th><th>Value</th><th>Interpretation</th></tr></thead>
-<tbody>
-<tr><td>&Delta;&chi;&sup2; (MTDF &minus; &Lambda;CDM)</td><td>+0.63</td><td>Statistically indistinguishable</td></tr>
-<tr><td>&Delta;AIC</td><td>+2.63</td><td>Inconclusive (|&Delta;AIC| &lt; 4)</td></tr>
-<tr><td>&Delta;BIC</td><td>+8.05</td><td>&Lambda;CDM mildly preferred by Occam penalty</td></tr>
-<tr><td>k<sub>&Lambda;CDM</sub> / k<sub>MTDF</sub></td><td>27 / 28</td><td>+1 parameter (k<sub>f</sub>)</td></tr>
-</tbody>
-</table>
-
-<p>The &chi;&sup2; comparison and the information-criterion comparison answer different questions. The small &Delta;&chi;&sup2; indicates fit-level consistency, while the positive &Delta;BIC reflects the penalty for the additional parameter. We therefore interpret this result as CMB consistency, not as a CMB preference for MTDF. The Planck data alone do not distinguish between the two models. This result is expected: in MTDF, the stress correction to the CMB power spectrum is sub-percent at the redshifts probed by Planck, so the primary CMB is not the arena where MTDF deviates from &Lambda;CDM. The potentially decisive tests lie at low redshift (supernovae in voids, growth of structure), as documented in Part I and the Phase 3 environment analysis.</p>
-
-<h4>2.4.5 Stress coupling k<sub>f</sub> posterior</h4>
-
-<table class="tbl">
-<thead><tr><th>Statistic</th><th>Value</th></tr></thead>
-<tbody>
-<tr><td>Mean &plusmn; &sigma;</td><td>0.50 &plusmn; 0.36</td></tr>
-<tr><td>Median</td><td>0.42</td></tr>
-<tr><td>Best-fit (MAP)</td><td>0.028</td></tr>
-<tr><td>68% CI</td><td>[0.14, 0.86]</td></tr>
-<tr><td>95% CI (equal-tailed)</td><td>[0.025, 1.34]</td></tr>
-<tr><td>k<sub>f</sub> = 1 compatible</td><td>Yes (within the equal-tailed interval)</td></tr>
-<tr><td>k<sub>f</sub> = 0 (&Lambda;CDM limit) compatible</td><td>Yes (within the highest-density interval; MAP = 0.028)</td></tr>
-</tbody>
-</table>
-
-<p>The posterior is broad, reflecting the fact that Planck alone has limited sensitivity to the stress correction at the sub-percent level. Both k<sub>f</sub> = 0 (&Lambda;CDM) and k<sub>f</sub> = 1 (full MTDF coupling) are compatible with Planck: k<sub>f</sub> = 0 lies within the highest-density 95% interval (the equal-tailed lower bound is 0.025 and the maximum-a-posteriori value is 0.028), and k<sub>f</sub> = 1 lies within the equal-tailed interval. The data therefore neither favour nor exclude the coupling. The best-fit value sits near the prior boundary, while the posterior mean is pulled toward moderate coupling by the marginal high-&ell; improvement. This is consistent with Phase 2C results and confirms that Planck is insufficient to distinguish MTDF from &Lambda;CDM; discrimination requires low-redshift probes.</p>
-
-<h4>2.4.6 k<sub>f</sub> parameter correlations</h4>
-
-<table class="tbl">
-<thead><tr><th colspan="2">Cosmological parameters</th><th colspan="2">Nuisance parameters (top 5)</th></tr>
-<tr><th>Parameter</th><th>r(k<sub>f</sub>)</th><th>Parameter</th><th>r(k<sub>f</sub>)</th></tr></thead>
-<tbody>
-<tr><td>&omega;<sub>b</sub></td><td>&minus;0.30</td><td>ps_A_217_217</td><td>+0.094</td></tr>
-<tr><td>&sigma;<sub>8</sub></td><td>+0.17</td><td>ps_A_143_217</td><td>+0.091</td></tr>
-<tr><td>n<sub>s</sub></td><td>+0.14</td><td>ksz_norm</td><td>&minus;0.074</td></tr>
-<tr><td>H<sub>0</sub></td><td>+0.10</td><td>A_sz</td><td>+0.064</td></tr>
-<tr><td>&theta;<sub>s</sub></td><td>+0.08</td><td>ps_A_100_100</td><td>&minus;0.056</td></tr>
-<tr><td>&Omega;<sub>m</sub></td><td>&minus;0.08</td><td>A<sub>planck</sub></td><td>&minus;0.006</td></tr>
-</tbody>
-</table>
-
-<p>The stress coupling is not entangled with instrumental systematics: all nuisance correlations satisfy |r| &lt; 0.10, and the Planck absolute calibration A<sub>planck</sub> shows negligible correlation (r = &minus;0.006). The strongest cosmological correlation is with &omega;<sub>b</sub> (r = &minus;0.30), reflecting a mild parameter trade-off in the damping tail. The positive correlation with &sigma;<sub>8</sub> and H<sub>0</sub> confirms the expected direction of MTDF effects: higher coupling reduces clustering and raises the inferred expansion rate.</p>
-
-<h4>2.4.7 k<sub>f</sub> quartile analysis by likelihood component</h4>
-
-<p>To identify which Planck components drive the constraint on k<sub>f</sub>, the posterior chain was split into quartiles by k<sub>f</sub> value. The weighted mean &chi;&sup2; of each likelihood component was computed per quartile, and the shift from Q1 (lowest k<sub>f</sub>) to Q4 (highest k<sub>f</sub>) is reported:</p>
-
-<table class="tbl">
-<thead><tr><th>Component</th><th>Q1 (low k<sub>f</sub>)</th><th>Q4 (high k<sub>f</sub>)</th><th>&Delta;&chi;&sup2; (Q4&minus;Q1)</th></tr></thead>
-<tbody>
-<tr><td>plik TTTEEE (high-&ell;)</td><td>2356.93</td><td>2359.41</td><td>+2.48</td></tr>
-<tr><td>Low-&ell; TT</td><td>25.21</td><td>24.82</td><td>&minus;0.39</td></tr>
-<tr><td>Lensing</td><td>9.10</td><td>9.25</td><td>+0.15</td></tr>
-<tr><td>Low-&ell; EE</td><td>396.76</td><td>396.67</td><td>&minus;0.09</td></tr>
-</tbody>
-</table>
-
-<p>The high-multipole TTTEEE likelihood provides the dominant constraint on k<sub>f</sub>, with a +2.48 penalty for high coupling. The low-&ell; TT likelihood mildly favours higher k<sub>f</sub> (&Delta;&chi;&sup2; = &minus;0.39), while lensing and low-&ell; EE are essentially uncorrelated with the coupling strength. This confirms that the stress correction is primarily constrained by the damping tail and acoustic peak structure rather than by the integrated Sachs&ndash;Wolfe effect or reionisation.</p>
-
-<h4>2.4.8 Growth suppression: S<sub>8</sub> comparison</h4>
-
-<p>The derived quantity S<sub>8</sub> &equiv; &sigma;<sub>8</sub>&radic;(&Omega;<sub>m</sub>/0.3), evaluated under identical Planck constraints:</p>
-
-<table class="tbl">
-<thead><tr><th>Model</th><th>S<sub>8</sub> (mean &plusmn; &sigma;)</th><th>16th / 50th / 84th pctile</th></tr></thead>
-<tbody>
-<tr><td>&Lambda;CDM</td><td>0.830 &plusmn; 0.013</td><td>0.817 / 0.830 / 0.843</td></tr>
-<tr><td>MTDF</td><td>0.802 &plusmn; 0.013</td><td>0.789 / 0.802 / 0.815</td></tr>
-</tbody>
-</table>
-
-<p>The MTDF posterior mean for S<sub>8</sub> is shifted downward by 0.028 (2.2&sigma;) relative to &Lambda;CDM, moving toward the weak-lensing measurements from KiDS-1000 (S<sub>8</sub> = 0.759 &plusmn; 0.024) and DES-Y3 (S<sub>8</sub> = 0.776 &plusmn; 0.017). This shift occurs without significant alteration of n<sub>s</sub>, &tau;<sub>reio</sub>, or calibration parameters, and is driven primarily by the reduction in &sigma;<sub>8</sub> under non-zero stress coupling. The direction is consistent with the physical expectation that MTDF stress support partially suppresses late-time structure growth.</p>
-
-<h4>2.4.9 Figures</h4>
-
-<p>The following figures are provided in the reproducibility package (<code>results/phase5/</code>):</p>
-<ul>
-<li><strong>phase5_triangle.png</strong>: Joint posterior contours for all cosmological parameters in both models, showing the shift in &sigma;<sub>8</sub> and H<sub>0</sub>.</li>
-<li><strong>phase5_kf_posterior.png</strong>: Marginalised posterior of k<sub>f</sub> with 68% and 95% credible intervals marked.</li>
-</ul>
-
-<div class="callout"><strong>Reproducibility.</strong> Full chain files (<code>lcdm_mcmc.1.txt</code>, <code>mtdf_mcmc.1.txt</code>), Cobaya YAML configurations, checkpoint files, and the analysis scripts (<code>analyze_phase5.py</code>, <code>kf_analysis.py</code>) are provided in the repository under <code>results/phase5/</code>. All numbers in this section are computed from the converged chains with 30% burn-in applied.</div>
+<div class="callout"><strong>Reproducibility.</strong> The v2 output tarball is hash-pinned (sha256 95ce9385&hellip;), produced by a frozen, sha256-pinned run configuration and binary, adjudicated by the sealed analysis script (analyze_v2.py) under a pre-registered three-posture rule with the adjudication executed only on the completed chain. The v1 Phase-5 artifacts remain in the archived V74 release as historical record.</div>
 
 <h2 id="high-energy">3. High-energy phenomenology</h2>
 <p>These subsections are exploratory hypothesis statements, included solely to define potential falsifiers. They carry no evidential weight in the MTDF programme, and no result elsewhere in the suite depends on them.</p>
@@ -403,7 +309,7 @@ captured by purely thermal hydrostatic modelling.
 <h4>Predictions</h4>
 <ul>
 <li><strong>Dynamical state dependence:</strong> the mass mismatch should be larger in disturbed or recently merged systems where stress gradients are expected to be stronger.</li>
-<li><strong>Spatial signatures:</strong> residuals should have a characteristic radial profile linked to stress coherence and relaxation, rather than the profile expected from an additional collisionless component.</li>
+<li><strong>Spatial signatures:</strong> residuals should have a characteristic radial profile linked to the finite-range stress response and relaxation, rather than the profile expected from an additional collisionless component.</li>
 <li><strong>Cross-probe consistency:</strong> a single stress-support prescription should improve consistency between X-ray, SZ, galaxy dynamics, and weak lensing without retuning the fundamental parameter set.</li>
 </ul>
 <h4>How to test</h4>
@@ -451,20 +357,20 @@ To keep this companion scientifically useful, each hypothesis should be paired w
 <li>Move to environment split analyses on well characterised datasets.</li>
 <li>Only then elevate high energy phenomenology claims, after basic constraints are satisfied.</li>
 </ol>
-<div class="callout"><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="../../validation/output/Validation_Dashboard_V74.html">Validation_Dashboard_V74.html</a></li></ul></div>
+<div class="callout"><strong>Reproducibility and interactive materials.</strong><ul><li>Validation suite appendix: <a href="MTDF_06_Validation_Suite_Appendix.html">MTDF_06_Validation_Suite_Appendix.html</a></li><li>Interactive dashboard: <a href="../../validation/output/Validation_Dashboard_V75.html">Validation_Dashboard_V75.html</a></li></ul></div>
 
 <section id="data-and-code-availability" style="margin-top:1.5em">
 <h2>Data and code availability</h2>
 <p>The complete MTDF reproducibility package, including the modified CLASS solver
-(<code>class_mtdf</code>), the V18 strict validation workbook, the
+(<code>class_mtdf</code>), the V19 strict validation workbook, the
 <code>run_validate.py</code> pipeline, the gravity-sector artefact manifest,
 and the Phase 2 CosmoPower emulator cache, is archived on Zenodo
 (concept DOI <a href="https://doi.org/10.5281/zenodo.19741058">10.5281/zenodo.19741058</a>;
-this release, <code>v1.1.6</code>, DOI
-<a href="https://doi.org/10.5281/zenodo.20629767">10.5281/zenodo.20629767</a>)
+this release, <code>v1.1.7</code>, DOI
+<a href="https://doi.org/10.5281/zenodo.21525855">10.5281/zenodo.21525855</a>)
 and mirrored on GitHub at
 <a href="https://github.com/IMesche/MTDF">github.com/IMesche/MTDF</a>.
-The <code>v1.1.6</code> Git tag corresponds to the archived Zenodo release. All
+The <code>v1.1.7</code> Git tag corresponds to the archived Zenodo release. All
 numerical results reported here can be regenerated from the shipped workbook
 and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </section>
@@ -485,7 +391,7 @@ and scripts following the procedure in the top-level <code>README.md</code>.</p>
 </ol>
 
 <div class="footer">
-MTDF Companion Part IV: Cosmological Validation (V74) | Ingo Mesche | June 2026
+MTDF Companion Part IV: Cosmological Validation (V75) | Ingo Mesche | July 2026
 </div>
 </div>
 </body>

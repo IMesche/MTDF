@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download Pittordis & Sutherland (2023) wide binary catalogue
 # Source: https://zenodo.org/records/7629240
 # Size: ~164 MB

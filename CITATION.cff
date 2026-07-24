@@ -7,9 +7,9 @@ authors:
     given-names: Ingo
     affiliation: "Independent Researcher, Malta"
     orcid: "https://orcid.org/0009-0002-6863-1143"
-version: "1.1.6"
-date-released: "2026-06-10"
-doi: "10.5281/zenodo.20629767"
+version: "1.1.7"
+date-released: "2026-07-24"
+doi: "10.5281/zenodo.21525855"
 license: GPL-3.0-or-later
 repository-code: "https://github.com/IMesche/MTDF"
 identifiers:
@@ -45,7 +45,7 @@ keywords:
 abstract: >-
   MTDF replaces the standard LCDM cosmological model by treating spacetime
   as an elastic medium characterised by an intrinsic stress-energy tensor.
-  Four independently measured parameters govern the framework. No dark matter
+  Four structural constants of differing epistemic status govern the framework. No dark matter
   or dark energy is invoked. Includes a modified CLASS Boltzmann solver,
   GPU-accelerated validation pipeline, and full Planck MCMC analysis.
 preferred-citation:

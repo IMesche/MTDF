@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download DESIVAST BGS void catalogues (Douglass+2024)
 # Source: DESI data release / VAST void catalogues
 # Reference: Douglass et al. (2024, ApJS 275, 38)

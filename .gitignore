@@ -92,3 +92,4 @@ Desktop.ini
 *.local.log
 scratch/
 tmp/
+gravity/data/pittordis2023/*.csv

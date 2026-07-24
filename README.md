@@ -6,11 +6,11 @@
 |---|---|
 | **Author** | Ingo Mesche |
 | **Affiliation** | Independent Researcher, Malta |
-| **Theory Version** | V74 |
-| **Workbook Version** | V18 |
-| **Release** | v1.1.6 (2026-06-10) |
+| **Theory Version** | V75 |
+| **Workbook Version** | V19 |
+| **Release** | v1.1.7 (2026-07-24) |
 | **DOI (concept, all versions)** | [10.5281/zenodo.19741058](https://doi.org/10.5281/zenodo.19741058) |
-| **DOI (this version, v1.1.6)** | [10.5281/zenodo.20629767](https://doi.org/10.5281/zenodo.20629767) |
+| **DOI (this version, v1.1.7)** | [10.5281/zenodo.21525855](https://doi.org/10.5281/zenodo.21525855) |
 | **License** | GPL-3.0 |
 
 ---
@@ -34,12 +34,12 @@ The elastic modulus E = (2/alpha^2) rho_c c^2 = 9.1 x 10^-10 Pa is derived from 
 
 | Metric | MTDF | LCDM |
 |--------|------|------|
-| Scalar pillars chi^2/nu | 0.11 (15 tests, benchmark tier) | Not directly comparable: galaxy-scale phenomenology in LCDM requires hydrodynamic simulation; per-pillar literature context in MTDF_06 |
-| Strict combined chi^2/nu, scalar + vector (same pipeline, same data, same covariances) | 1.1683 (nu = 1745, strict, excluding CMB distance prior diagnostic) | In progress (v1.1.6 addendum): frozen Planck-2018 LCDM through the identical V18 pipeline |
-| S8 from full Planck likelihood | 0.802 +/- 0.013 | 0.830 +/- 0.013 |
+| Scalar pillars chi^2/nu | 0.12 (14/14 counted pass at 1 sigma; the S8 pillar is carried separately as PREDICTION-CONTESTED; the dashboard displays the combined tally 17/19 + 2 (cont.)) | Not directly comparable: galaxy-scale phenomenology in LCDM requires hydrodynamic simulation; per-pillar literature context in MTDF_06 |
+| Strict combined chi^2/nu, scalar + vector (same pipeline, same data, same covariances) | 1.1699 (nu = 1741, strict, excluding the CMB distance prior diagnostic and the two PREDICTION-CONTESTED rows, which are displayed on their own rows and never counted as passes) | Matched full-Planck LCDM control chain complete: Delta-chi2 (bounded best fits) = -1.29. This is a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation. |
+| S8 from full Planck likelihood | 0.8473 +/- 0.0138 (native, sealed v2 posterior; a sharp higher-amplitude prediction, in tension with LCDM-compressed weak-lensing inferences: posture S8-WORSENED, adjudication preregistered via the FWD-S8 forward-modelling programme; the growth history is the registered prediction GH-1) | 0.83004 +/- 0.01278 (matched control chain) |
 | Exotic components | None | Cold dark matter + cosmological constant |
 | Local H0 | 73.1 +/- 1.0 (conditional on a deep local underdensity; ~70-71 for shallow reconstructions; MTDF does not predict the void itself) vs SH0ES 73.04 +/- 1.04 | 67.4 (CMB-inferred) vs 73.0 (local): unresolved tension |
-| Stress coupling k_f (full Planck likelihood) | 0.495 +/- 0.36, 95% CI [0.025, 1.34]; the interval marginally excludes 0 and includes 1; the posterior neither favours nor excludes the coupling (Delta-chi2 = +0.63, Delta-BIC = +8.05, LCDM mildly preferred by the Occam penalty) | Not in model (k_f = 0 limit) |
+| Stress coupling k_f (full Planck likelihood) | 0.685 +/- 0.500: both k_f = 0 and k_f = 1 are compatible; the posterior neither favours nor excludes the coupling (consistency, not support). Bounded best fit at k_f = 0.476 | Not in model (k_f = 0 limit) |
 
 ---
 
@@ -49,15 +49,28 @@ The elastic modulus E = (2/alpha^2) rho_c c^2 = 9.1 x 10^-10 Pa is derived from 
 # After obtaining the repository (git clone, zip download, or Zenodo):
 cd MTDF
 bash setup_environment.sh              # Python venv + dependencies
-bash scripts/download_data.sh          # External data (~19 GB, SHA256-verified)
+bash scripts/download_data.sh          # External data (~19 GB; checksums for the core datasets via scripts/verify_checksums.sh)
 source venv/bin/activate
 python validation/code/run_validate.py \
-    --workbook validation/data/DB_Workbook_STRICT_V18.xlsx \
+    --workbook validation/data/DB_Workbook_STRICT_V19.xlsx \
     --out validation/output/My_Dashboard.html \
     --diag validation/output/My_Diagnostics.csv
 ```
 
-Open `validation/output/My_Dashboard.html` in a browser and compare against the pre-computed `Validation_Dashboard_V74.html`. Expected result: all 15 scalar pillars pass, combined chi-squared/nu = 1.17 (DOF = 1745).
+Open `validation/output/My_Dashboard.html` in a browser and compare against the pre-computed `Validation_Dashboard_V75.html`. Expected result: 14/14 counted scalar pillars pass with the S8 and fsigma8 rows displayed as (cont.) PREDICTION-CONTESTED (the dashboard displays the combined tally 17/19 + 2 (cont.)), and combined strict chi-squared/nu = 1.17 (DOF = 1741).
+
+> **Manual data placement required for two datasets.** Their providers do not
+> allow scripted download, so the download scripts cannot fetch them:
+>
+> 1. **DESI BAO**: place the files under `validation/data/External/bao_desi/`.
+>    `scripts/download_bao.sh` prints the exact filenames and instructions.
+> 2. **DESI VAST voids**: see `scripts/download_desi_voids.sh` for the file
+>    list, sources, and expected checksums.
+>
+> Without the DESI BAO files the combined strict chi-squared/nu = 1.17 headline
+> cannot be regenerated locally; the shipped
+> `validation/output/Validation_Dashboard_V75.html` contains the full result
+> for inspection.
 
 ### Step-by-step breakdown
 
@@ -69,7 +82,15 @@ bash setup_environment.sh    # Creates venv, installs all Python dependencies
 
 **2. Download external data**
 
-External scientific datasets are not redistributed. Download scripts fetch them from their official archives with SHA256 verification. See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full provenance.
+External scientific datasets are not redistributed. Download scripts fetch them from their official archives; checksums for the core datasets can be verified via `scripts/verify_checksums.sh` (coverage listed in the script). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full provenance.
+
+**Note:** two datasets require manual placement because their providers do not
+allow scripted download: **DESI BAO** (files go under
+`validation/data/External/bao_desi/`; `scripts/download_bao.sh` prints the
+exact filenames and instructions) and **DESI VAST voids** (see
+`scripts/download_desi_voids.sh`). Without the DESI BAO files the combined
+strict chi-squared/nu = 1.17 headline cannot be regenerated; the shipped
+`Validation_Dashboard_V75.html` contains the full result for inspection.
 
 ```bash
 bash scripts/download_data.sh          # All datasets (~19 GB)
@@ -81,6 +102,7 @@ bash scripts/download_planck.sh        # 482 MB (Planck lensing)
 bash scripts/download_kids.sh          # 17 GB  (KiDS-1000 WL)
 bash scripts/download_pittordis.sh     # 164 MB (Wide binaries)
 bash scripts/download_bao.sh           # ~60 MB (BAO + CC + growth + BOSS voids)
+bash scripts/download_cosmopower_models.sh # CosmoPower emulators (Phase 2 MCMC)
 bash scripts/download_ztf_dr2.sh       # ~5 MB  (ZTF DR2 cosmology sample)
 bash scripts/download_foundation_dr1.sh # ~30 MB (Foundation DR1 SNe)
 
@@ -92,7 +114,7 @@ bash scripts/verify_checksums.sh       # Verify all downloads
 ```bash
 source venv/bin/activate
 python validation/code/run_validate.py \
-    --workbook validation/data/DB_Workbook_STRICT_V18.xlsx \
+    --workbook validation/data/DB_Workbook_STRICT_V19.xlsx \
     --out validation/output/My_Dashboard.html \
     --diag validation/output/My_Diagnostics.csv
 ```
@@ -162,7 +184,7 @@ MTDF/
 |   |-- arxiv_zips/             # arXiv submission packages
 |   +-- figures/                # Shared paper figures
 |
-|-- validation/                 # Core V74 validation engine
+|-- validation/                 # Core V75 validation engine
 |   |-- code/                   # run_validate.py + UI modules
 |   |   +-- analysis/           # SN x void scripts
 |   |       |-- sn_void_*.py    # Original Pantheon+ GLS analysis (5 scripts)
@@ -179,11 +201,11 @@ MTDF/
 |   |           +-- run_merged_hardening.py # Merged-sample orchestrator (MP)
 |   |-- analysis/               # CMB analysis scripts
 |   |-- scripts/                # Audit utilities
-|   |-- data/                   # DB_Workbook_STRICT_V18.xlsx + SPARC
+|   |-- data/                   # DB_Workbook_STRICT_V19.xlsx + SPARC
 |   +-- output/                 # Pre-computed results (dashboard, phases 1-6)
 |
 |-- gravity/                    # MTDF_03 gravity sector (24 steps)
-|   |-- code/                   # step01-step24 Python scripts
+|   |-- code/                   # 24 stepwise scripts (step1 to step22d; numbering skips 18)
 |   |-- data/                   # Digitised data, published supplementary
 |   |-- output/                 # Pre-computed step results
 |   +-- run_all_steps.sh
@@ -215,7 +237,7 @@ MTDF/
 
 | Paper | Title | Scope |
 |-------|-------|-------|
-| MTDF_01 | The Mesche Hypothesis: A Dynamic Field Theory of Cosmic Structure | Main theory, 15 scalar pillars, 4 vector likelihoods |
+| MTDF_01 | The Mesche Hypothesis: A Dynamic Field Theory of Cosmic Structure | Main theory, 15 scalar pillars, 4 strict vector likelihood pillars plus 1 CMB distance-prior diagnostic (excluded from strict totals) |
 | MTDF_02 | Environmental and Local Phenomenology | SN x void analysis, local H0 |
 | MTDF_03 | Gravity Sector and Lensing Validation | 24-step galaxy-galaxy lensing pipeline |
 | MTDF_04 | Photon Coupling, Redshift, Early Universe | Speculative extensions |
@@ -251,7 +273,7 @@ All external datasets are downloaded from their official archives. We do not red
 
 The following data files are our own work product and are included directly:
 
-- `validation/data/DB_Workbook_STRICT_V18.xlsx` (109 KB): Single source of truth for all parameters, targets, and formulas
+- `validation/data/DB_Workbook_STRICT_V19.xlsx` (109 KB): Single source of truth for all parameters, targets, and formulas
 - `validation/data/sparc_clean.json` (585 KB): Our cleaned SPARC galaxy compilation
 - `gravity/data/digitised/*.csv` (3.6 KB): Our extractions from published figures
 - All `output/` directories: Pre-computed results (JSON, PNG, HTML dashboards)
@@ -282,4 +304,4 @@ External datasets are subject to their respective archive terms of use.
 
 ---
 
-*MTDF V74 / Workbook V18 / June 2026*
+*MTDF V75 / Workbook V19 / July 2026*

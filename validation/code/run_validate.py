@@ -259,6 +259,13 @@ def _rar_intrinsic_scatter(g_obs=None, g_bar=None, errors="SPARC", get_token=Non
         # Fallback: return observed scatter without deconvolution
         return sigma_obs
 
+# v2 seal rebuild (2026-07-24): pillars whose workbook verdict_class = PREDICTION-CONTESTED.
+# Contract: counted in test denominators, NEVER counted as passes, excluded from strict chi2 sums,
+# rendered "(cont.)" (cyan) with the detailed tooltip carrying the adjudication pointers.
+CONTESTED_PILLARS = set()
+CONTESTED_HITS = {}
+
+
 def _load_vector_pillar_config(workbook_path):
     """
     Load vector pillar configuration from Pillar_Vector_Config sheet.
@@ -298,6 +305,9 @@ def _load_vector_pillar_config(workbook_path):
             'model_function': row_dict.get('model_function'),
             'nuisance_count': int(row_dict.get('nuisance_count', 0) or 0),
             'notes': row_dict.get('notes'),
+            'verdict_class': row_dict.get('verdict_class'),
+            'sigma8_sealed': row_dict.get('sigma8_sealed'),
+            'sigma8_sealed_err': row_dict.get('sigma8_sealed_err'),
         })
 
     wb.close()
@@ -403,6 +413,8 @@ def _evaluate_vector_pillars(get_token, data_dir="data", workbook_path=None, use
     results = []
     total_chi2 = 0.0
     total_dof = 0
+    contested_chi2 = 0.0
+    contested_dof = 0
 
     for config in pillar_configs:
         try:
@@ -416,6 +428,7 @@ def _evaluate_vector_pillars(get_token, data_dir="data", workbook_path=None, use
                 "name": pillar_name,
                 "category": category,
                 "mode": "VECTOR",
+                "verdict_class": config.get('verdict_class'),
             }
 
             if category == "SNE":
@@ -438,19 +451,33 @@ def _evaluate_vector_pillars(get_token, data_dir="data", workbook_path=None, use
 
             elif category == "GROWTH":
                 z, fsig8_obs, cov = load_dr16_fsigma8(data_dir)
-                # Fit σ₈,₀ analytically to minimize χ²
-                model_pred, fsig8_diagnostics = mtdf_fsigma8_vector(
-                    z, params, return_diagnostics=True,
-                    fit_sigma8=True, fsig8_obs=fsig8_obs, cov_matrix=cov
-                )
-                # Use fitted χ² and DOF
-                chi2 = fsig8_diagnostics.get('chi2_fitted', 0.0)
-                dof = len(z) - nuisance_count
-                result["n_data"] = len(z)
-                result["fsig8_obs"] = fsig8_obs
-                result["fsig8_diagnostics"] = fsig8_diagnostics
-                result["sigma8_bf"] = fsig8_diagnostics.get('sigma8_bf')
-                result["sigma8_err"] = fsig8_diagnostics.get('sigma8_err')
+                sigma8_sealed = config.get('sigma8_sealed')
+                if sigma8_sealed:
+                    # v2 seal: amplitude is a sealed PREDICTION (no fitting). Trajectory AND
+                    # amplitude both come from the sealed posterior; chi2 is honest, unfitted.
+                    p_sealed = dict(params)
+                    p_sealed['sigma8'] = float(sigma8_sealed)
+                    model_pred = mtdf_fsigma8_vector(z, p_sealed)
+                    chi2, dof = chi2_vector_pillar(fsig8_obs, model_pred, cov, 0)
+                    result["n_data"] = len(z)
+                    result["fsig8_obs"] = fsig8_obs
+                    result["sigma8_bf"] = float(sigma8_sealed)
+                    result["sigma8_err"] = float(config.get('sigma8_sealed_err') or 0.0)
+                    result["sigma8_mode"] = "sealed-prediction (v2 posterior; no amplitude fitting)"
+                    print(f"[VECTOR] GROWTH using SEALED sigma8={sigma8_sealed} (no fitting)")
+                else:
+                    # legacy path: fit σ₈,₀ analytically to minimize χ² (superseded by sealed mode)
+                    model_pred, fsig8_diagnostics = mtdf_fsigma8_vector(
+                        z, params, return_diagnostics=True,
+                        fit_sigma8=True, fsig8_obs=fsig8_obs, cov_matrix=cov
+                    )
+                    chi2 = fsig8_diagnostics.get('chi2_fitted', 0.0)
+                    dof = len(z) - nuisance_count
+                    result["n_data"] = len(z)
+                    result["fsig8_obs"] = fsig8_obs
+                    result["fsig8_diagnostics"] = fsig8_diagnostics
+                    result["sigma8_bf"] = fsig8_diagnostics.get('sigma8_bf')
+                    result["sigma8_err"] = fsig8_diagnostics.get('sigma8_err')
 
             elif category == "CMB":
                 obs_means, cov = load_cmb_distance_prior(data_dir)
@@ -483,9 +510,17 @@ def _evaluate_vector_pillars(get_token, data_dir="data", workbook_path=None, use
             # Add to combined totals
             total_chi2 += chi2
             total_dof += dof
+            if str(result.get("verdict_class") or "").upper().startswith("PREDICTION-CONTESTED"):
+                contested_chi2 += chi2
+                contested_dof += dof
+                CONTESTED_HITS[pillar_id] = result["chi2_red"]
+                print(f"[CONTESTED] {pillar_name}: χ²/ν={result['chi2_red']:.4f} -> (cont.), excluded from strict chi2/pass tallies")
 
             print(f"[VECTOR] {pillar_name}: n={result['n_data']}, χ²={chi2:.1f}, DOF={dof}, χ²/ν={result['chi2_red']:.4f}")
 
+        except FileNotFoundError as e:
+            print(f"[VECTOR] {config.get('pillar_name', 'Unknown')}: external data not present ({e.filename}).")
+            print(f"[VECTOR]   -> run scripts/download_data.sh first (see README); pillar skipped, scalar results unaffected.")
         except Exception as e:
             print(f"[VECTOR] Error evaluating {config.get('pillar_name', 'Unknown')}: {e}")
             import traceback
@@ -496,6 +531,8 @@ def _evaluate_vector_pillars(get_token, data_dir="data", workbook_path=None, use
         "total_chi2": total_chi2,
         "total_dof": total_dof,
         "combined_chi2_red": total_chi2 / total_dof if total_dof > 0 else float("nan"),
+        "contested_chi2": contested_chi2,
+        "contested_dof": contested_dof,
     }
 
 
@@ -682,6 +719,12 @@ def _read_workbook(path: Path):
         try:
             pillar_tests = xl.parse("Pillar_Tests", header=1)
             print(f"[DEBUG] Loaded Pillar_Tests: {pillar_tests.shape}")
+            if 'verdict_class' in pillar_tests.columns:
+                for _, _r in pillar_tests.iterrows():
+                    if str(_r.get('verdict_class', '')).strip().upper().startswith('PREDICTION-CONTESTED'):
+                        CONTESTED_PILLARS.add(str(_r.iloc[0]).strip())
+                if CONTESTED_PILLARS:
+                    print(f"[CONTESTED] scalar pillars flagged PREDICTION-CONTESTED: {sorted(CONTESTED_PILLARS)}")
         except Exception:
             pillar_tests = pd.DataFrame()
             print("[DEBUG] Pillar_Tests missing or unreadable; continuing")
@@ -1134,6 +1177,11 @@ def _evaluate_mtdf(targets_df, formulas_df, get_token):
             print(f"[WARN] Skipping pillar {pidn}: z-score is {z} (v={v}, tv={tv}, ts={ts})")
             continue
         zs_norm[pidn] = float(z)
+        if pidn in CONTESTED_PILLARS:
+            # PREDICTION-CONTESTED: z displayed, never counted as pass, excluded from strict chi2.
+            CONTESTED_HITS[pidn] = float(z)
+            print(f"[CONTESTED] {pidn}: z={z:+.2f} -> (cont.), excluded from strict chi2/pass tallies")
+            continue
         chi2 += float(z * z)
         n += 1
         if abs(z) <= 1.0:
@@ -1353,6 +1401,10 @@ def main():
 
     combined_excl_cmb_chi2 = combined_chi2 - cmb_chi2
     combined_excl_cmb_dof = combined_dof - cmb_dof
+    # v2 seal: PREDICTION-CONTESTED vector pillars are excluded from the strict chi2 headline
+    # (their chi2 is displayed on their own rows and in the contested tooltip, never hidden).
+    combined_excl_cmb_chi2 -= vector_stats.get("contested_chi2", 0.0)
+    combined_excl_cmb_dof -= vector_stats.get("contested_dof", 0)
     combined_excl_cmb_chi2_red = combined_excl_cmb_chi2 / combined_excl_cmb_dof if combined_excl_cmb_dof > 0 else float("nan")
 
     print(f"[COMBINED excl. CMB] χ²: {combined_excl_cmb_chi2:.2f}, DOF: {combined_excl_cmb_dof}, χ²/ν = {combined_excl_cmb_chi2_red:.4f}")
@@ -1416,6 +1468,8 @@ def main():
     for vr in vector_stats.get("vector_results", []):
         if not vr.get("experimental", False):  # Only count non-experimental
             vector_count += 1
+            if str(vr.get("verdict_class") or "").upper().startswith("PREDICTION-CONTESTED"):
+                continue  # counted in denominator, never as a pass
             chi2_red = vr.get("chi2_red", float("inf"))
             if chi2_red < 1.5:  # Green threshold for vector pillars
                 vector_passes += 1
@@ -1446,18 +1500,26 @@ def main():
             cmb_pass_here = 1 if cmb_chi2_red_here < 1.5 else 0
             continue
         strict_vector_count += 1
+        if str(vr.get("verdict_class") or "").upper().startswith("PREDICTION-CONTESTED"):
+            continue  # in denominator, never a pass
         if (vr.get("chi2_red", float("inf")) < 1.5):
             strict_vector_passes += 1
 
+    # NOTE: scalar_dof here comes from the row builder, which already counts contested scalar
+    # pillars in the denominator (they are simply never passes); do NOT add them again.
     strict_passes = scalar_passes + strict_vector_passes
     strict_tests = scalar_dof + strict_vector_count
     strict_pct = (100.0 * strict_passes / strict_tests) if strict_tests > 0 else float("nan")
+    mtdf_row["contested_ids"] = sorted(CONTESTED_HITS.keys())
+    mtdf_row["contested_count"] = len(CONTESTED_HITS)
+    mtdf_row["contested_hits"] = dict(CONTESTED_HITS)
 
     # Prefer the precomputed strict χ²/ν excluding CMB if available
     strict_chi2_red = mtdf_row.get("combined_excl_cmb_chi2_red", float("nan"))
     combined_chi2_red_all = mtdf_row.get("combined_chi2_red", mtdf_row.get("chi2_red", float("nan")))
 
-    print(f"[PASSES] Strict (excl CMB*): {strict_passes}/{strict_tests} ({strict_pct:.1f}%)")
+    print(f"[PASSES] Strict (excl CMB*): {strict_passes}/{strict_tests} ({strict_pct:.1f}%)"
+          + (f" + {len(CONTESTED_HITS)} (cont.) PREDICTION-CONTESTED: {sorted(CONTESTED_HITS)}" if CONTESTED_HITS else ""))
     if cmb_is_counted:
         print(f"[DIAGNOSTIC] CMB* χ²/ν: {cmb_chi2_red_here:.4f} (excluded from strict totals)")
     print(f"[TOTALS] Combined χ²/ν (incl diagnostics): {combined_chi2_red_all:.4f}")
@@ -1632,7 +1694,11 @@ def main():
             else:
                 row["vals"][vpid] = None  # n/a - no literature value found
 
-    rows = [mtdf_row, mtdf_efe_row] + other_rows
+    # v1.1.7: the MTDF (EFE) display row is retired as redundant. The EFE amplitude k_f is part of
+    # the sealed v2 chain physics, and the EFE-corrected CMB distance prior only ever affected the
+    # CMB* DIAGNOSTIC (excluded from strict totals). One canonical MTDF row; the EFE-variant numbers
+    # remain available in the console log for diagnostics.
+    rows = [mtdf_row] + other_rows
 
     # DB shim for UI
     class DBShim:
@@ -1769,7 +1835,11 @@ def main():
         print(f"  {vr['name']:25s} n={vr['n_data']:5d}  χ²={vr['chi2']:8.1f}  DOF={vr['dof']:5d}  χ²/ν={vr['chi2_red']:.4f}{exp_marker}")
     vec_chi2 = mtdf_row.get('vector_chi2', 0)
     vec_dof = mtdf_row.get('vector_dof', 1)
-    print(f"  {'VECTOR TOTAL (prod)':25s}       χ²={vec_chi2:8.1f}  DOF={vec_dof:5d}  χ²/ν={vec_chi2/vec_dof:.4f}")
+    if vec_dof and vec_dof > 0:
+        print(f"  {'VECTOR TOTAL (prod)':25s}       χ²={vec_chi2:8.1f}  DOF={vec_dof:5d}  χ²/ν={vec_chi2/vec_dof:.4f}")
+    else:
+        print("  VECTOR TOTAL: no vector pillars evaluated (external data not downloaded;")
+        print("  see scripts/download_data.sh - scalar results above are complete and unaffected)")
     print("  (* = experimental, excluded from totals)")
     print("-" * 60)
     print("MTDF TOTALS (STRICT vs DIAGNOSTIC):")

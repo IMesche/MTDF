@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Download BAO, cosmic chronometer, growth rate, and BOSS void data
 # Multiple sources, relatively small files (~60 MB total)
 set -e

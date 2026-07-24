@@ -1,24 +1,24 @@
 # MTDF Validation Output
 
-> **Author:** Ingo Mesche | **Affiliation:** Independent Researcher, Malta | **Framework:** MTDF V74
+> **Author:** Ingo Mesche | **Affiliation:** Independent Researcher, Malta | **Framework:** MTDF V75
 
 
 This directory contains the curated artefacts from the MTDF independent GPU validation (Phases 1-6, MTDF_07) and the multi-probe local universe validation (Phases 7-8, MTDF_08). Each phase folder includes the canonical summary data, key plots, and a README linking to the relevant paper section.
 
-**Suggested reading order:** Start with `Validation_Dashboard_V74.html` for the 15-pillar overview, then read `MTDF_07` for Phases 1-6, then `MTDF_08` for Phases 7-8 (CF4 peculiar velocities and 2MTF Tully-Fisher). Click through to the phase folders to verify individual claims against source artefacts.
+**Suggested reading order:** Start with `Validation_Dashboard_V75.html` for the 15-pillar overview (the V74-era dashboard is not shipped; it remains archived in the v1.1.6 Zenodo record, 10.5281/zenodo.20629767), then read `MTDF_07` for Phases 1-6, then `MTDF_08` for Phases 7-8 (CF4 peculiar velocities and 2MTF Tully-Fisher). Click through to the phase folders to verify individual claims against source artefacts.
 
 ## Directory Index (19/19 complete)
 
 | Folder / File | Phase | Type | What it tests | Key result | MTDF_07 Section |
 |---------------|-------|------|---------------|------------|-----------------|
-| `Validation_Dashboard_V74.html` | -- | -- | 15-pillar strict dashboard | chi-squared/nu = 1.17 (DOF=1745) | MTDF_01 |
-| `Diagnostics.csv` | -- | -- | Scalar pillar breakdown | 15 pillars, all within 1-sigma | MTDF_01 |
+| `Validation_Dashboard_V75.html` | -- | -- | 15-pillar strict dashboard | chi-squared/nu = 1.17 (DOF = 1741); dashboard tally 17/19 + 2 (cont.) | MTDF_01 |
+| `Diagnostics.csv` | -- | -- | Per-pillar breakdown | 14 counted scalar pillars within 1-sigma, plus the two "(cont.)" PREDICTION-CONTESTED rows (S8 and fsigma8), never counted as passes | MTDF_01 |
 | `phase1/` | Phase 1 | Discriminator | Independent chi-squared reproduction | delta = 0.000049 | Section 2 |
 | `phase2/` | Phase 2 | Discriminator | Planck CMB consistency (plik-lite) | Delta-chi-squared < 1; k_f = 1 in 95% CI | Section 3 |
 | `phase3/` | Phase 3 | Discriminator | SN x void environment signal | REVOLVER: p = 0.039, gamma_env > 0 | Section 4 |
 | `phase3b/` | Phase 3b | Upper limit | NGC/SGC asymmetry diagnostics | Not significant; sensitivity-limited | Section 5b |
 | `phase4/` | Phase 4 | Forecast | Sensitivity forecasts | 5-sigma at ~3,400 SNe (LSST/Rubin) | Section 5 |
-| `phase5/` | Phase 5 | Discriminator | Full Planck plik + class_mtdf | Delta-chi-squared = +0.63; sigma8 shift 2.4% | Section 6 |
+| `phase5/` | Phase 5 | Discriminator | Full Planck plik + class_mtdf | Sealed v2: sigma8 = 0.8265 +/- 0.0062; native S8 = 0.8473 +/- 0.0138; Delta-chi-squared (bounded best fits, matched LCDM control) = -1.29, Delta-AIC = +0.71 (a maximum-likelihood comparison, not a Bayes factor or Bayesian evidence calculation); posture S8-WORSENED. The v1 numbers (Delta-chi-squared = +0.63, sigma8 0.790) are RETIRED (gauge artifact); see `mcmc_results/README.md` | Section 6 |
 | `prediction_pack/` | -- | -- | class_mtdf P(k,z) + growth predictions | Foundation for MTDF_07 | -- |
 | `phase6/testA_redshift_transition/` | Phase 6A | Discriminator | Redshift transition structure | Transition confirmed, p < 0.005 | Section 7.1 |
 | `phase6/testB_wl_environment/` | Phase 6B | Upper limit | Weak lensing x void environment | Null: 0.8sigma, 95% UL locked | Section 7.1 |
@@ -56,5 +56,9 @@ The following are available on request:
 
 ## Related documentation
 
-- `../../papers/MTDF_07_Independent_GPU_Validation.html` -- GPU validation paper (Phases 1-6)
-- `../../papers/MTDF_08_Multi_Probe_Evidence_Low_Redshift_Transition.html` -- multi-probe local universe paper (Phases 7-8)
+- `../../papers/HTML/MTDF_07_Independent_GPU_Validation.html` -- GPU validation paper (Phases 1-6)
+- `../../papers/HTML/MTDF_08_Multi_Probe_Evidence_Low_Redshift_Transition.html` -- multi-probe local universe paper (Phases 7-8)
+
+---
+
+*MTDF V75 / July 2026*

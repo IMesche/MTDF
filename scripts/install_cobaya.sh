@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Install cobaya and the Planck 2018 likelihood for MCMC reproduction.
 # This is only needed for Phase 5 MCMC runs.
 set -e

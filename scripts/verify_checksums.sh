@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Ingo Mesche
 # Affiliation: Independent Researcher, Malta
-# Framework: MTDF V74
+# Framework: MTDF V75
 # Verify SHA256 checksums for all downloaded external data.
 # Run after download_data.sh to confirm data integrity.
 set -e
